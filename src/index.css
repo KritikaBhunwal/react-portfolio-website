@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Chonburi&display=swap');
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: "Chonburi", serif;
+    font-weight: 900;
+    font-style: normal;
+}
