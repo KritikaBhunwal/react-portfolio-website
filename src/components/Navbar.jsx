@@ -1,48 +1,108 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaUserCircle } from "react-icons/fa";  // For the profile icon
+// src/components/Navbar.jsx
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import logo from '../assets/images/logo.png';
+import '../styles/navbar.css';
 
 const Navbar = () => {
-  // State to handle mobile menu visibility
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+  const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return (
-    <nav className="bg-gray-800 p-4 flex justify-between items-center">
-      {/* Logo on the left */}
-      <div className="text-white font-bold text-2xl">
-        <Link to="/">MyPortfolio</Link>
-      </div>
-
-      {/* Mobile hamburger menu */}
-      <div className="lg:hidden">
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="text-white text-2xl"
-        >
-          {menuOpen ? "X" : "☰"} {/* Toggle hamburger menu */}
-        </button>
-      </div>
-
-      {/* Menu in desktop view */}
-      <div className={`lg:flex space-x-8 ${menuOpen ? "block" : "hidden"} lg:block`}>
-        {/* Menu options */}
-        <div className="flex flex-col lg:flex-row items-center justify-center space-x-8">
-          <Link to="/ui-ux" className="text-white py-2 px-4 rounded-md bg-[#587d6d] hover:bg-[#3a5f4d]">
-            UI/UX
-          </Link>
-          <Link to="/graphics" className="text-white py-2 px-4 rounded-md bg-[#587d6d] hover:bg-[#3a5f4d]">
-            Graphics
-          </Link>
-          <Link to="/fashion" className="text-white py-2 px-4 rounded-md bg-[#587d6d] hover:bg-[#3a5f4d]">
-            Fashion
-          </Link>
+    <nav className="navbar">
+      <div className="navbar-container">
+        {/* Logo on the top left */}
+        <div className="navbar-logo">
+          <img src={logo} alt="Logo" />
         </div>
+        <div className="navbar-menu">
+          {/* Horizontal menu for Desktop/Tablet */}
+          <div className="menu-horizontal">
+            <NavLink 
+              to="/" 
+              onClick={closeMobileMenu} 
+              className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            >
+              Home
+            </NavLink>
+            <NavLink 
+              to="/uiux" 
+              onClick={closeMobileMenu} 
+              className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            >
+              UI/UX
+            </NavLink>
+            <NavLink 
+              to="/graphics" 
+              onClick={closeMobileMenu} 
+              className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            >
+              Graphics
+            </NavLink>
+            <NavLink 
+              to="/fashion" 
+              onClick={closeMobileMenu} 
+              className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            >
+              Fashion
+            </NavLink>
+            <NavLink 
+              to="/about" 
+              onClick={closeMobileMenu} 
+              className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            >
+              About
+            </NavLink>
+          </div>
+          {/* Hamburger icon for Mobile */}
+          <div className="hamburger-icon" onClick={toggleMobileMenu}>
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </div>
+        </div>
+      </div>
 
-        {/* Profile icon on the right */}
-        <div className="flex items-center">
-          <Link to="/profile">
-            <FaUserCircle className="text-white text-3xl" />
-          </Link>
+      {/* Mobile menu sliding panel */}
+      <div className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}>
+        <div className="mobile-menu-content">
+          <NavLink 
+            to="/" 
+            onClick={closeMobileMenu} 
+            className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+          >
+            Home
+          </NavLink>
+          <NavLink 
+            to="/uiux" 
+            onClick={closeMobileMenu} 
+            className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+          >
+            UI/UX
+          </NavLink>
+          <NavLink 
+            to="/graphics" 
+            onClick={closeMobileMenu} 
+            className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+          >
+            Graphics
+          </NavLink>
+          <NavLink 
+            to="/fashion" 
+            onClick={closeMobileMenu} 
+            className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+          >
+            Fashion
+          </NavLink>
+          <NavLink 
+            to="/about" 
+            onClick={closeMobileMenu} 
+            className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+          >
+            About
+          </NavLink>
         </div>
       </div>
     </nav>
