@@ -6,6 +6,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   width: 100%;
+  justify-content: space-around;
 }
 
 /* Banner containers: each takes 50% width */
@@ -14,38 +15,46 @@
   width: 50%;
   height: 50%;
   position: relative;
-  padding: 1rem;
+  padding: .8rem;
   border-radius: 2rem;
-  transition: width 0.5s ease;
+  transition: width 0.8s ease;
 }
 
 /* On hover, container expands to full width */
 .banner-container-left:hover,
 .banner-container-right:hover {
-  width: 100%;
+  width: 66.66%;
 }
 
 /* Wrapper for model-viewer for positioning overlay controls */
 .model-wrapper {
   position: relative;
+  
 }
+
+.project-title {
+  text-decoration: none;
+}
+
 
 /* Model container */
 .model-container {
   width: 100%;
   height: 450px;
-  margin: 10px;
+  margin-top: 10px;
   background-color: #f5f5f5;
   border-radius: 2rem;
   overflow: hidden;
+  
 }
 
 /* Overlay controls: project title (bottom left) and expand button (bottom right) */
 .overlay-controls {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
+
+  bottom: 1rem;
+  left: 2rem;
+  right: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,14 +72,14 @@
   padding: 0.8rem;
   color: #3d3d3d; /* Slate */
   text-decoration: none;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 2px #C3B9E2;
   cursor: pointer;
 }
 
 /* Expand button: 60px circle with 0.8rem padding */
 .expand-button {
-  width: 60px;
-  height: 60px;
+  width: 44px;
+  height: 44px;
   padding: 0.8rem;
   border: none;
   border-radius: 50%;
@@ -85,13 +94,13 @@
 
 .expand-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
   color: #B28FDB; /* Secondary purple on hover */
 }
 /* Modal overlay: covers entire viewport with no white space */
 .modal-overlay {
   position: fixed;
-  top: 0;
+  top: 0rem;
   left: 0;
   width: 100vw;
   height: 100vh;
@@ -100,6 +109,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  transition: transform 1s ease-in-out, color 0.5s ease;
 }
 
 /* Modal content: fills the overlay */
@@ -122,21 +132,21 @@
 /* Modal close button at top right */
 .modal-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 60px;
-  height: 60px;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
   padding: 0.8rem;
   border: none;
   border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-  z-index: 10;  /* Higher z-index to remain visible */
+  z-index: 100;  /* Higher z-index to remain visible */
 }
 
 .modal-close:hover {
@@ -151,9 +161,9 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 60px;
-  height: 60px;
-  padding: 0.8rem;
+  width: 36px;
+  height: 36px;
+  padding: 0.2rem;
   border: none;
   border-radius: 50%;
   background: #fff;
@@ -192,14 +202,14 @@
     width: 100%;
   }
   .model-container {
-    height: 300px;
+    height: 500px;
   }
   .expand-button,
   .modal-close,
   .modal-prev,
   .modal-next {
-    width: 60px;
-    height: 60px;
+    width: 44px;
+    height: 44px;
   }
   .project-title h3 {
     font-size: 0.9rem;

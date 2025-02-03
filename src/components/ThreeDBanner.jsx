@@ -9,33 +9,29 @@ const ThreeDBanner = () => {
   // 'left' or 'right' indicates which banner is expanded; null means none
   const [expanded, setExpanded] = useState(null);
 
-  // For navigation between the two models in full screen mode.
-  const models = ['left', 'right'];
-
+  // Open modal for the specified model
   const openModal = (container) => {
     setExpanded(container);
   };
 
+  // Close modal
   const closeModal = () => {
     setExpanded(null);
   };
 
+  // Navigate to the next model
   const navigateToNext = (e) => {
     e.stopPropagation();
-    if (expanded) {
-      const currentIndex = models.indexOf(expanded);
-      const nextIndex = (currentIndex + 1) % models.length;
-      setExpanded(models[nextIndex]);
+    if (expanded === 'left') {
+      openModal('right'); // Move from Project 1 (Left) to Project 2 (Right)
     }
   };
 
+  // Navigate to the previous model
   const navigateToPrev = (e) => {
     e.stopPropagation();
-    if (expanded) {
-      const currentIndex = models.indexOf(expanded);
-      const prevIndex =
-        (currentIndex - 1 + models.length) % models.length;
-      setExpanded(models[prevIndex]);
+    if (expanded === 'right') {
+      openModal('left'); // Move from Project 2 (Right) to Project 1 (Left)
     }
   };
 
@@ -59,21 +55,10 @@ const ThreeDBanner = () => {
               <Link to="/project1details" className="project-title">
                 <h3>Project 1</h3>
               </Link>
-              <button
-                className="expand-button"
-                onClick={() => openModal('left')}
-              >
+              <button className="expand-button" onClick={() => openModal('left')}>
                 {/* Expand icon */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M4 4h6V2H2v8h2V4zm16 0v6h2V2H14v2h6zM4 20v-6H2v8h8v-2H4zm16 0h-6v2h8v-8h-2v6z"
-                  />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path fill="currentColor" d="M4 4h6V2H2v8h2V4zm16 0v6h2V2H14v2h6zM4 20v-6H2v8h8v-2H4zm16 0h-6v2h8v-8h-2v6z" />
                 </svg>
               </button>
             </div>
@@ -96,20 +81,9 @@ const ThreeDBanner = () => {
               <Link to="/project2details" className="project-title">
                 <h3>Project 2</h3>
               </Link>
-              <button
-                className="expand-button"
-                onClick={() => openModal('right')}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M4 4h6V2H2v8h2V4zm16 0v6h2V2H14v2h6zM4 20v-6H2v8h8v-2H4zm16 0h-6v2h8v-8h-2v6z"
-                  />
+              <button className="expand-button" onClick={() => openModal('right')}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path fill="currentColor" d="M4 4h6V2H2v8h2V4zm16 0v6h2V2H14v2h6zM4 20v-6H2v8h8v-2H4zm16 0h-6v2h8v-8h-2v6z" />
                 </svg>
               </button>
             </div>
@@ -117,44 +91,27 @@ const ThreeDBanner = () => {
         </div>
       </div>
 
-      {/* Modal Overlay for Full Screen Mode */}
+      {/* Modal Overlay for Full-Screen Mode */}
       {expanded && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             {/* Close Button at top right */}
             <button className="modal-close" onClick={closeModal}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-              >
-                <path fill="currentColor" d="M18 6L6 18M6 6l12 12" />
-              </svg>
+              <p>X</p>
             </button>
             {/* Previous Button at left center */}
             <button className="modal-prev" onClick={navigateToPrev}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                 <path fill="currentColor" d="M15 18l-6-6 6-6" />
               </svg>
             </button>
             {/* Next Button at right center */}
             <button className="modal-next" onClick={navigateToNext}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                 <path fill="currentColor" d="M9 18l6-6-6-6" />
               </svg>
             </button>
-            {/* Full screen model-viewer */}
+            {/* Full-screen model-viewer */}
             <div className="modal-model-container">
               <model-viewer
                 src={modelSrc}
