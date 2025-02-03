@@ -29,6 +29,33 @@
   height: 36px;
 }
 
+/* Rotating animation for the logo */
+.rotating-logo {
+  animation: rotateScaleLogo 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* @keyframes rotateScaleLogo {
+  from {
+    transform: rotate(0deg) scale(1.5);
+  }
+  to {
+    transform: rotate(360deg) scale(.5);
+  }
+} */
+
+@keyframes rotateScaleLogo {
+  0% {
+    transform: rotate(0deg) scale(1.0) ;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.9);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.0);
+  }
+}
+
 /* Horizontal menu (for Desktop & Tablet) */
 .menu-horizontal {
   display: flex;

@@ -1,0 +1,132 @@
+/* src/styles/SpecsSection.css */
+
+/* Full-screen section with left-aligned content */
+.specs-section {
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start; /* Optional: use if parent supports scroll-snap */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Left aligned */
+  padding: 20px 10%;     /* Adds left/right padding for a comfortable layout */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.specs-section.active {
+  opacity: 1;
+}
+
+/* Text block: left-aligned */
+.specs-text {
+  text-align: left;
+  max-width: 800px;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: textFadeIn 1s forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes textFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Circles container: left aligned */
+.specs-circles {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Base circle style */
+.circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+  opacity: 0;
+}
+
+/* Circle One Animation: "40+ Clients" */
+.circle-one {
+  border: 3px solid #333;
+  animation: circleInLeft 1s forwards;
+  animation-delay: 0.5s;
+}
+
+/* Circle Two Animation: "100+ Projects" with a dashed (zigzag-like) border */
+.circle-two {
+  border: 3px dashed #FEE269;
+  animation: circleInCenter 1s forwards;
+  animation-delay: 0.7s;
+}
+
+/* Circle Three Animation: "7+ Years Expertise" */
+.circle-three {
+  border: 3px solid #333;
+  animation: circleInRight 1s forwards;
+  animation-delay: 0.9s;
+}
+
+/* Keyframes for individual circle animations */
+@keyframes circleInLeft {
+  from {
+    opacity: 0;
+    transform: translate(-50px, 50px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes circleInCenter {
+  from {
+    opacity: 0;
+    transform: translate(0, 50px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes circleInRight {
+  from {
+    opacity: 0;
+    transform: translate(50px, 50px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .specs-section {
+    padding: 20px;
+  }
+  .circle {
+    width: 100px;
+    height: 100px;
+    font-size: 1rem;
+  }
+}

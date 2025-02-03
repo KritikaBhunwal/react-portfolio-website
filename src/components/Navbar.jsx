@@ -13,9 +13,11 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {/* Logo on the top left */}
+        {/* Logo on the top left linked to home */}
         <div className="navbar-logo">
-          <img src={logo} alt="Logo" />
+          <NavLink to="/" onClick={closeMobileMenu}>
+            <img src={logo} alt="Logo" className="rotating-logo" />
+          </NavLink>
         </div>
         <div className="navbar-menu">
           {/* Horizontal menu for Desktop/Tablet */}

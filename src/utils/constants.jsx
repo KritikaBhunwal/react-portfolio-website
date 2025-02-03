@@ -4,7 +4,7 @@ export const COLORS = {
     PrimarySlate: "#3D3D3D",
     SecondarySlate: "#2d2d2d",
     PrimaryPurple: "#C3B9E2",
-    SecondaryPurple: "#B28FDB",
+    SecondaryPurple: "#9990bb",
     PrimaryYellow: "#FEE269",
     SecondaryYellow: "#FFAF11",
     PrimaryWhite: "#F3F3F3",
