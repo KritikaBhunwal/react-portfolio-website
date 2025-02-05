@@ -1,12 +1,39 @@
 import React from "react";
 import Button from "../components/Button";
 import ThreeDBanner from "../components/ThreeDBanner";
+import SkillsShowcase from "../components/SkillsShowcase";
+import Card from "../components/Card";  
 import SpecsSection from "../components/SpecsSection";
+import "../styles/card.css";
+import collage1 from "../assets/images/collages-1.png";
+import collage2 from "../assets/images/collages-2.png";
+import collage3 from "../assets/images/collages-3.png";
 
 const Home = () => {
   return (
     <div className="p-4">
       <ThreeDBanner />
+      <div className="space-x-4 mt-4">
+      <Card
+        title="UI/UX Design"
+        description="I design user-centered, visually engaging digital experiences that seamlessly blend creativity with functionality, focusing on accessibility and usability."
+        image={collage3}
+        link="#"
+      />
+      <Card
+        title="Graphic Design"
+        description="I create visually compelling designs that communicate ideas effectively and leave a lasting impression for branding, advertising, and digital media."
+        image={collage2}
+        link="./graphics/graphics.html"
+      />
+      <Card
+        title="Fashion Design"
+        description="I specialize in transforming concepts into market-ready collections, from trend research to detailed sketches and collaborating with patternmakers."
+        image={collage1}
+        link="./fashion/fashion.html"
+      />
+      </div>
+      <SkillsShowcase />
       <SpecsSection />
       <h1>Welcome to My Portfolio</h1>
       <div className="space-x-4 mt-4">

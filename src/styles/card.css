@@ -1,0 +1,68 @@
+/* src/styles/card.css */
+
+:root {
+    --primary-purple: #9990bb;
+    --primary-white: #f3f3f3;
+    --primary-yellow: #fee269;
+    --text-dark: #333;
+    --text-light: #fff;
+  }
+  
+  /* Card Container */
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+    margin-left: 1rem;
+    /* margin-right: 5rem; */
+    margin-top: 1rem;
+    /* background-color: var(--primary-white); */
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.5);
+    max-width: 25vw;
+    gap: 2rem;
+  }
+  
+  /* Card Text */
+  .cardText {
+    padding: 2rem;
+    font-family: "Quicksand", sans-serif;
+    color: var(--text-dark);
+  }
+  
+  /* Card Heading */
+  .cardText h2 {
+    font-family: "Chonburi", serif;
+    color: var(--primary-purple);
+  }
+  
+  /* Card Image */
+  .cardImage img {
+    width: 100%;
+    display: flex;
+    height: auto;
+    border-radius: 1rem;
+  }
+  
+  /* Read More Button */
+  .cardText a {
+    text-decoration: none;
+    background-color: var(--primary-purple);
+    border-radius: 2rem;
+    padding: 0.6rem 1.2rem;
+    color: var(--text-light);
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .cardText a:hover {
+    background-color: var(--primary-yellow);
+    color: var(--text-dark);
+  }
+  

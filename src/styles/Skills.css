@@ -1,0 +1,59 @@
+/* src/styles/skills.css */
+
+:root {
+    --technical-skill: #9990bb; /* Purple */
+    --interpersonal-skill: #FEE269; /* Yellow */
+    --text-color: #333;
+  }
+  
+  /* Skills Container */
+  .skills-container {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  /* Heading */
+  .skills-heading {
+    font-family: "Chonburi", serif;
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+  }
+  
+  /* Skill Pills Wrapper */
+  .skills-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+  
+  /* Skill Pill Base Styling */
+  .skill-pill {
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.8rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 1.6rem;
+    color: var(--text-color);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  /* Technical Skills (Purple) */
+  .technical {
+    background-color: var(--technical-skill);
+    color: white;
+  }
+  
+  /* Interpersonal Skills (Yellow) */
+  .interpersonal {
+    background-color: var(--interpersonal-skill);
+    color: black;
+  }
+  
+  /* Hover Effect */
+  .skill-pill:hover {
+    transform: scale(1.1);
+  }
+  
