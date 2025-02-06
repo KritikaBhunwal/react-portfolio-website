@@ -27,7 +27,7 @@ const Navbar = () => {
               onClick={closeMobileMenu} 
               className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
             >
-              Home
+              HOME
             </NavLink>
             <NavLink 
               to="/uiux" 
@@ -41,21 +41,21 @@ const Navbar = () => {
               onClick={closeMobileMenu} 
               className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
             >
-              Graphics
+              GRAPHICS
             </NavLink>
             <NavLink 
               to="/fashion" 
               onClick={closeMobileMenu} 
               className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
             >
-              Fashion
+              FASHION
             </NavLink>
             <NavLink 
               to="/about" 
               onClick={closeMobileMenu} 
               className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
             >
-              About
+              ABOUT
             </NavLink>
           </div>
           {/* Hamburger icon for Mobile */}

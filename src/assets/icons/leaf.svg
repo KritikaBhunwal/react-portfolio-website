@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 198 198">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#radial-gradient-4);
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient-3);
+      }
+
+      .cls-3 {
+        fill: url(#radial-gradient-2);
+      }
+
+      .cls-4 {
+        fill: url(#radial-gradient);
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="47.04" cy="99" fx="47.04" fy="99" r="47.08" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".03" stop-color="#f8f7fa"/>
+      <stop offset=".21" stop-color="#d5d2e3"/>
+      <stop offset=".38" stop-color="#bbb5d1"/>
+      <stop offset=".55" stop-color="#a8a0c5"/>
+      <stop offset=".72" stop-color="#9c94bd"/>
+      <stop offset=".88" stop-color="#9990bb"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="150.96" cy="99" fx="150.96" fy="99" r="47.08" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-3" cx="99" cy="150.96" fx="99" fy="150.96" r="47.08" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-4" cx="99" cy="47.04" fx="99" fy="47.04" xlink:href="#radial-gradient"/>
+  </defs>
+  <path class="cls-4" d="M93.01,109.17c.7-3.24,1.08-6.64,1.08-10.17h0c0-3.53-.38-6.92-1.08-10.17-18.44-3.98-31.91-18.57-35.8-35.8-10.85-2.45-22.75-1.1-33.69,5.22h0c-31.36,18.11-31.36,63.37,0,81.48h0c10.94,6.32,22.84,7.67,33.69,5.22,3.88-17.22,17.35-31.82,35.8-35.8Z"/>
+  <path class="cls-3" d="M104.99,109.17c-.7-3.24-1.08-6.64-1.08-10.17h0c0-3.53.38-6.92,1.08-10.17,18.44-3.98,31.91-18.57,35.8-35.8,10.85-2.45,22.75-1.1,33.69,5.22h0c31.36,18.11,31.36,63.37,0,81.48h0c-10.94,6.32-22.84,7.67-33.69,5.22-3.88-17.22-17.35-31.82-35.8-35.8Z"/>
+  <path class="cls-2" d="M109.17,104.99c-3.24-.7-6.64-1.08-10.17-1.08h0c-3.53,0-6.92.38-10.17,1.08-3.98,18.44-18.57,31.91-35.8,35.8-2.45,10.85-1.1,22.75,5.22,33.69h0c18.11,31.36,63.37,31.36,81.48,0h0c6.32-10.94,7.67-22.84,5.22-33.69-17.22-3.88-31.82-17.35-35.8-35.8Z"/>
+  <path class="cls-1" d="M109.17,93.01c-3.24.7-6.64,1.08-10.17,1.08h0c-3.53,0-6.92-.38-10.17-1.08-3.98-18.44-18.57-31.91-35.8-35.8-2.45-10.85-1.1-22.75,5.22-33.69h0c18.11-31.36,63.37-31.36,81.48,0h0c6.32,10.94,7.67,22.84,5.22,33.69-17.22,3.88-31.82,17.35-35.8,35.8Z"/>
+</svg>

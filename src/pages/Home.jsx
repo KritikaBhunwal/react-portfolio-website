@@ -4,6 +4,7 @@ import ThreeDBanner from "../components/ThreeDBanner";
 import SkillsShowcase from "../components/SkillsShowcase";
 import Card from "../components/Card";  
 import SpecsSection from "../components/SpecsSection";
+import WorkTogether from "../components/WorkTogether";
 import "../styles/card.css";
 import "../styles/home.css";
 import collage1 from "../assets/images/collages-1.png";
@@ -35,7 +36,8 @@ const Home = () => {
       />
       </div>
       <SkillsShowcase />
-      <SpecsSection />
+      <WorkTogether />
+      {/* <SpecsSection /> */}
       <h1>Welcome to My Portfolio</h1>
       <div className="space-x-4 mt-4">
         <Button color="slate" onClick={() => alert("Slate Button clicked!")}>
