@@ -1,9 +1,8 @@
 // src/components/NavbarSimple.jsx
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "../styles/navbar.css"; // Import corresponding CSS
 import { COLORS } from "../utils/constants.jsx";
-
+import "../styles/navbarSimple.css";
 const NavbarSimple = () => {
   return (
     <nav className="navbar-simple">

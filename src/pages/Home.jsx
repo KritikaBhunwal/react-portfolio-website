@@ -1,43 +1,44 @@
 import React from "react";
 import Button from "../components/Button";
+import Greeting from "../components/Greeting";
 import ThreeDBanner from "../components/ThreeDBanner";
-import SkillsShowcase from "../components/SkillsShowcase";
 import Card from "../components/Card";  
-import SpecsSection from "../components/SpecsSection";
-import WorkTogether from "../components/WorkTogether";
 import "../styles/card.css";
 import "../styles/home.css";
 import collage1 from "../assets/images/collages-1.png";
 import collage2 from "../assets/images/collages-2.png";
 import collage3 from "../assets/images/collages-3.png";
+import Career from "../components/Career";
+import Skills from "../components/Skills.jsx";
+import WorkTogether from "../components/WorkTogether";
 
 const Home = () => {
   return (
     <div className="p-4">
-      <ThreeDBanner />
-      <div className="card-container">
-      <Card
-        title="UI/UX Design"
-        description="I design user-centered, visually engaging digital experiences that seamlessly blend creativity with functionality, focusing on accessibility and usability."
-        image={collage3}
-        link="#"
-      />
-      <Card
-        title="Graphic Design"
-        description="I create visually compelling designs that communicate ideas effectively and leave a lasting impression for branding, advertising, and digital media."
-        image={collage2}
-        link="./graphics/graphics.html"
-      />
-      <Card
-        title="Fashion Design"
-        description="I specialize in transforming concepts into market-ready collections, from trend research to detailed sketches and collaborating with patternmakers."
-        image={collage1}
-        link="./fashion/fashion.html"
-      />
+      <Greeting />
+      <h1 className="text-4xl ml-2">I'm Kritika Bhunwal</h1>
+      <p className="text-2xl">I love design, research and development</p><br></br>
+
+      <div className="flex justify-center items-baseline" style={{gap: "20px"}}>
+        <div className="">
+          <h2 className="text-3xl font-bold mt-4 text-nowrap text-red-700">My Work</h2>
+        </div>
+        <div className="h-[.5px] w-full" style={{backgroundColor: "black"}}></div>
       </div>
-      <SkillsShowcase />
+
+      <ThreeDBanner />
+      <Career />
+
+      {/* <div className="flex justify-center items-baseline" style={{gap: "20px"}}>
+        <div className="">
+          <h2 className="text-3xl font-bold mt-4 text-nowrap text-red-700">My Skills</h2>
+        </div>
+        <div className="h-[.5px] w-full" style={{backgroundColor: "black"}}></div>
+      </div> */}
+      {/* <Skills /> */}
+
       <WorkTogether />
-      {/* <SpecsSection /> */}
+      
       <h1>Welcome to My Portfolio</h1>
       <div className="space-x-4 mt-4">
         <Button color="slate" onClick={() => alert("Slate Button clicked!")}>

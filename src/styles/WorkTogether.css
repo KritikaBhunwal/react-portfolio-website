@@ -9,6 +9,7 @@
     text-align: center;
     position: relative;
     padding: 2rem;
+    margin: 1rem
   }
   
   /* Dark Overlay for Better Readability */
@@ -41,8 +42,9 @@
     width: 90%;
     padding: 1rem;
     border: none;
-    border-radius: 1rem;
+    border-radius: 2rem;
     font-size: 1rem;
+    color: #9990bb;
     text-align: center;
     /* color: var(--navbar-bg); */
     /* background: var(--primary-white); */
@@ -52,11 +54,12 @@
   
   .message-input:hover {
     background: #9990bb;
-    
+    color: white;    
   }
   
   .message-input:focus {
     outline: none;
+    background: #9990bb;
   }
   
   /* Responsive */

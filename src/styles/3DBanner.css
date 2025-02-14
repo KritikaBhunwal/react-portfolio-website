@@ -15,7 +15,8 @@
   width: 50%;
   height: 50%;
   position: relative;
-  padding: .8rem;
+  /* padding: .8rem; */
+  /* margin: 1rem; */
   border-radius: 2rem;
   transition: width 0.8s ease;
 }
@@ -23,14 +24,53 @@
 /* On hover, container expands to full width */
 .banner-container-left:hover,
 .banner-container-right:hover {
-  width: 66.66%;
+  /* width: 66.66%; */
+  width: 100%;
 }
 
 /* Wrapper for model-viewer for positioning overlay controls */
 .model-wrapper {
   position: relative;
+  margin: 1rem;
   
 }
+
+/* Modal Header (Title & Description) */
+.modal-header {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #3D3D3D;
+  z-index: 100;
+  max-width: 300px;
+}
+
+/* Clickable Project Title */
+.modal-title {
+  text-decoration: none;
+  color: #3D3D3D;
+  transition: color 0.3s ease-in-out;
+}
+
+.modal-title:hover {
+  color: #9990BB;
+}
+
+/* Project Title Styling */
+.modal-title h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Project Description Styling */
+.modal-header p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
 
 .project-title {
   text-decoration: none;
