@@ -1,11 +1,21 @@
-const Card = ({ title, description }) => {
-    return (
-      <div className="bg-white p-4 rounded-lg shadow-md">
-        <h3 className="font-bold text-xl">{title}</h3>
-        <p>{description}</p>
+import React from "react";
+import "../styles/card.css";
+
+const Card = ({ title, description, image, link, desktopReverse, tabletReverse }) => {
+  return (
+    <div 
+      className={`card ${desktopReverse ? "reverse-desktop" : ""} ${tabletReverse ? "reverse-tablet" : ""}`}
+    >
+      <div className="cardImage">
+        <img src={image} alt={title} />
       </div>
-    );
-  };
-  
-  export default Card;
-  
+      <div className="cardText">
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <a href={link} className="cta-button">Explore</a>
+      </div>
+    </div>
+  );
+};
+
+export default Card;

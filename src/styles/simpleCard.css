@@ -1,0 +1,61 @@
+/* Card Container */
+.card {
+    background: var(--primary-white);
+    color: var(--navbar-bg);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  /* Hover Effect */
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Card Image */
+  .card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  /* Card Content */
+  .card-content {
+    padding: 1.5rem;
+  }
+  
+  /* Card Title */
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Card Description */
+  .card-description {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+  }
+  
+  /* View Project Button */
+  .card-button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: var(--primary-purple);
+    color: var(--navbar-bg);
+    border-radius: 0.8rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .card-button:hover {
+    background: var(--primary-yellow);
+  }
+  
