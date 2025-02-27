@@ -1,0 +1,14 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    gap: 1rem; /* Optional: Add some space between the cards */
+    /* background-color: rgb(191, 200, 200); */
+  }
+  
+  @media (min-width: 1024px) {
+    .card-container {
+      flex-wrap: nowrap;
+    }
+  }
