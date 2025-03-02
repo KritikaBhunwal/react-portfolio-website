@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
+import "../styles/greeting.css";
 
 const languages = [
-  "Hello", "Hallo", "Ciao", "Olá", "Привет", "안녕하세요", "नमस्ते", "Γειά σου", "שלום", "مرحبا", "வணக்கம்"
+  "Hello!", "नमस्ते,", "Bonjour!", "こんにちは", "Olá", "Hello!", "नमस्ते,", "안녕하세요", "Ciao!", "Привет", "Hello!", "नमस्ते,", "Hola!", "你好", "Γειά σου", "Hello!", "नमस्ते,", "נמסטे,", "שלום", "مرحبا"
 ];
 
 const TypewriterText = ({ text }) => {
@@ -37,8 +36,8 @@ const Greeting = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-start justify-center mt-2 h-[8rem] text-left bg-gray-900 text-white px-4">
-      <h1 className="text-[6rem] font-quicksand">
+    <div className="flex flex-col items-start justify-center mt-6 h-[6rem] text-left bg-gray-900 text-[#3D3D3D] px-4 ml-4">
+      <h1 className="text-[2rem] font-quicksand">
         <TypewriterText text={languages[currentLangIndex]} />
       </h1>
     </div>
