@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import SectionHeading from './SectionHeading';
 import modelSrc1 from '../assets/models/GD_Comp1.glb'; // Project 1 Model
 import modelSrc2 from '../assets/models/GD_Comp2.glb'; // Project 2 Model
 import skyboxImage from '../assets/images/AdobeStock_bg.png';
@@ -44,6 +45,7 @@ const ThreeDBanner = () => {
 
   return (
     <>
+      <SectionHeading />
       <div className="container">
         {projects.map((project) => (
           <div key={project.id} className={`banner-container-${project.id}`}>

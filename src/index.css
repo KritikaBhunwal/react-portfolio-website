@@ -2,19 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Chonburi&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 body {
-  font-family: "Quicksand", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
 }
 
 h1, h2, h3 {
-    font-family: "Chonburi", serif;
-    font-weight: 800;
-    font-style: normal;
+  font-family: 'Chonburi', serif;
+  font-weight: 700;
 }
