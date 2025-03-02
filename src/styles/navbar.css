@@ -24,20 +24,21 @@
 
 /* Logo */
 .navbar-logo img {
-  height: 36px;
-  /* padding: .1rem; */
+  height: 32px;
+  padding: .1rem;
   transition: transform 0.3s ease;
 }
 
-/* .navbar-logo img:hover {
-  transform: scale(1.1);
-} */
+.navbar-logo img:hover {
+  /* transform: scale(1.1); */
+  animation: rotateScaleLogo 4s ease-in-out infinite;
+}
 
 /* Rotating animation */
-.rotating-logo {
+/* .rotating-logo {
   animation: rotateScaleLogo 4s ease-in-out infinite;
   animation-delay: 2s;
-}
+} */
 
 @keyframes rotateScaleLogo {
   0% { transform: rotate(0deg) scale(1); }

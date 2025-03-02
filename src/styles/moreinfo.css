@@ -1,0 +1,47 @@
+.more-info-button {
+    /* position: fixed; */
+    padding: 2rem; /* Padding around the button */
+    display: inline-block;
+
+  }
+  
+  .icon-wrapper {
+    position: relative;
+  }
+  
+  .logo {
+    transition: transform 0.3s, filter 0.3s;
+  }
+  
+  /* Hover effect for the icon */
+  .logo:hover {
+    transform: scale(.8);
+    filter: brightness(1.2);
+  }
+  
+  .rotating-text-svg {
+    opacity: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible; /* Allows text to extend beyond the SVG bounds */
+    pointer-events: none; /* Lets clicks pass through to the Link */
+    transform-origin: center;
+    animation: rotate 5s linear infinite;
+  }
+  
+  .rotating-text-svg:hover {
+    opacity: 100%;
+  }
+  /* Rotation animation */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
