@@ -3,6 +3,7 @@ import AboutContent from '../components/AboutContent.jsx';
 import SectionHeading from '../components/SectionHeading.jsx';
 import InterpersonalSkills from '../components/InterpersonalSkills.jsx';
 import TechnicalSkills from '../components/TechnicalSkills.jsx';
+import Testimonials from '../components/Testimonial.jsx';
 import WorkTogether from '../components/WorkTogether.jsx';
 
 import '../styles/about.css';
@@ -33,6 +34,9 @@ const About = () => {
         <img src="/src/assets/images/AboutBannerTop.png" alt="Top Banner" className="top-image" />
       </div>
       <AboutContent />
+
+      <SectionHeading title="Kind Words" />
+      <Testimonials />
 
       {/* Skills & Work Together Sections */}
       <SectionHeading title="Technical Skills" />

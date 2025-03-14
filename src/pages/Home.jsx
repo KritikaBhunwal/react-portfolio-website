@@ -1,5 +1,4 @@
 // import React from "react";
-import Button from "../components/Button";
 import Banner from "../components/Banner.jsx";
 import SectionHeading from '../components/SectionHeading';
 import ThreeDBanner from "../components/ThreeDBanner";
@@ -20,20 +19,8 @@ const Home = () => {
       <Career />
       <SectionHeading title="Featured Projects" />
       <FeaturedProjects />
+      <SectionHeading title="Let's Connect" />
       <WorkTogether />
-      
-      <h1>Welcome to My Portfolio</h1>
-      <div className="space-x-4 mt-4">
-        <Button color="slate" onClick={() => alert("Slate Button clicked!")}>
-          Slate Button
-        </Button>
-        <Button color="purple" onClick={() => alert("Purple Button clicked!")}>
-          Purple Button
-        </Button>
-        <Button color="yellow" onClick={() => alert("Yellow Button clicked!")}>
-          Yellow Button
-        </Button>
-      </div>
     </div>
   );
 };
