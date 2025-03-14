@@ -1,27 +1,27 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Chonburi&family=Quicksand:wght@300..700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
 
 .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     flex-direction: row;
+    
     gap: 1rem; /* Optional: Add some space between the cards */
     /* background-color: rgb(191, 200, 200); */
   }
   
-  @media (min-width: 1024px) {
+  @media (min-width: 1440px) {
     .card-container {
       flex-wrap: nowrap;
     }
   }
 
   h2 {
-    /* font-size: 4rem; */
+    font-size: 4rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: bold;
@@ -37,6 +37,9 @@
   }
 
   p {
-    margin-left: .75rem;
-    /* font-size: 2.5rem; */
+    /* margin-left: .75rem; */
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #6d6d6d;
+    letter-spacing: 0.04rem;
   }

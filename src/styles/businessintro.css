@@ -1,0 +1,108 @@
+business-intro-container {
+  width: 100%;
+}
+
+/* Ensure business-intro is full width */
+.business-intro {
+  width: 100%;
+  max-width: 1200px;
+  margin: 1rem;
+  flex-grow: 1;
+}
+
+/* Accordion item styling */
+.accordion-item {
+  background: #fff;
+  box-shadow: 0 1px 2px #3d3d3d1a;
+  border-radius: 1.2rem;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Keep container height stable while switching between sections */
+.accordion-content-wrapper {
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+/* Smooth transition */
+.accordion-content {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+/* Header: Title & Toggle Button */
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+
+/* Title styles */
+.accordion-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+/* Active section colors */
+.accordion-item:not(.expanded) .accordion-header h3 {
+  color: #9990BB;
+}
+.accordion-item.expanded .accordion-header h3 {
+  color: #3d3d3d;
+}
+
+/* Toggle button */
+.toggle-button {
+  font-family: Quicksand, sans-serif;
+  font-weight: 800;
+  font-size: large;
+  background: none;
+  color: #9990BB;
+  border-radius: 5rem;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.toggle-button:hover {
+  transform: scale(1.2);
+  color: #3d3d3d;
+}
+
+/* Restore proper bullet point formatting */
+.accordion-content ul {
+  list-style: none;
+  padding-left: 0.6rem;
+  margin: 0;
+}
+
+.accordion-content ul li {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #6d6d6d;
+  letter-spacing: 0.04rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  padding-left: 25px;
+}
+
+/* Custom bullet icon */
+.accordion-content ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: url('../assets/icons/logo.svg') no-repeat center;
+  background-size: contain;
+  width: 15px;
+  height: 15px;
+}
+

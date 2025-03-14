@@ -1,0 +1,47 @@
+/* Container: pills are aligned using flex-start with a 2rem gap */
+.interpersonal-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start;
+  margin: 2rem 2rem;
+}
+
+/* Pill styling */
+.pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #3d3d3d4a;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease, transform 0.3s ease;
+  will-change: background-color, color, transform;
+}
+
+/* Hover effect: subtle scale and shadow; text color changes */
+.pill:hover {
+  color: #9990bb;
+  transform: scale(1.05);
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); */
+}
+
+/* Expanded pill styling */
+.pill.expanded {
+  background: #9990bb;
+  color: #fff;
+  border: none;
+  transform: scale(1.05); /* Reset scaling when expanded */
+  box-shadow: none;
+}
+
+/* Center the text inside each pill */
+.pill-text {
+  text-align: center;
+  transition: opacity 0.3s ease-in-out;
+}

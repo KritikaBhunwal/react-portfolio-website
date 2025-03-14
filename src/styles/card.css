@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 :root {
   --primary-purple: #9990bb;
   --primary-white: #f3f3f3;
   --primary-yellow: #fee269;
   --text-dark: #333;
   --text-light: #fff;
+}
+
+/* Apply a smooth transition to all animatable properties globally */
+* {
+  transition: all 0.3s ease;
 }
 
 /* Card Container */
@@ -26,9 +34,10 @@
   /* background-color: var(--primary-white); */
   border-radius: 2rem;
   box-shadow: 1px 1px 4px rgba(200, 200, 200, 0.5);
-  max-width: 1200px;
+  /* max-width: 1200px; */
   width: 100%;
   overflow: hidden;
+  flex-wrap: wrap;
   /* gap: 5rem; */
 }
 
@@ -37,8 +46,27 @@
   flex-direction: row;
 }
 
+/* Laptop View: Different layout for Graphics Design */
+@media (min-width: 2025px) {
+  .cardText h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Laptop View: Different layout for Graphics Design */
+@media (max-width: 2024px) {
+  .card.reverse-tablet {
+    .cardText h2 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
 /* Tablet View: Different layout for Graphics Design */
-@media (max-width: 1024px) {
+@media (max-width: 1440px) {
+  /* body {
+    background-color: red !important;
+  } */
   .card.reverse-tablet {
     flex-direction: row-reverse;
   }
@@ -99,12 +127,13 @@
   text-decoration: none;
   background-color: var(--primary-purple);
   border-radius: 2rem;
-  padding: 0.6rem 1.2rem;
+  padding: 0.5rem 1.2rem;
   color: var(--text-light);
   display: inline-block;
-  margin-top: 1rem;
-  font-weight: 300;
-  transition: all 0.3s ease;
+  margin-top: 0rem;
+  margin-left: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
 }
 
 /* Hover Effect */
@@ -114,9 +143,22 @@
 }
 
 /* Responsive Typography */
-@media (max-width: 1024px) {
+@media (max-width: 2024px) {
   .cardText h2 {
     font-size: 1.5rem;
+  }
+  .cardText p {
+    font-size: 0.9rem;
+  }
+  .cta-button {
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 1024px) {
+  .cardText h2 {
+    font-size: 1.4rem;
   }
   .cardText p {
     font-size: 0.9rem;
@@ -129,13 +171,12 @@
 @media (max-width: 768px) {
   .cardText {
     text-align: flex-start;
-    /* padding: 2rem 2rem; */
   }
   .cardText h2 {
     font-size: 1.3rem;
   }
   .cardText p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   .cta-button {
     font-size: 0.8rem;

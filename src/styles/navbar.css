@@ -13,6 +13,7 @@
   z-index: 1000;
   border-radius: 1.6rem;
   padding: 0.4rem 1rem; /* Ensuring left and right padding */
+  margin: 0.5rem;
 }
 
 /* Navbar container */
@@ -24,7 +25,7 @@
 
 /* Logo */
 .navbar-logo img {
-  height: 32px;
+  height: 34px;
   padding: .1rem;
   transition: transform 0.3s ease;
 }
@@ -55,11 +56,12 @@
 /* Navigation Links */
 .nav-link {
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 1rem;
   border-radius: 0.96rem;
   color: var(--primary-white);
-  font-size: .8rem;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
   transition: all 0.3s ease;
 }
 
@@ -71,13 +73,14 @@
 .nav-link.active {
   background-color: var(--primary-purple);
   color: var(--navbar-bg);
+  font-weight: 600;
 }
 
 /* Hamburger Icon */
 .hamburger-icon {
   display: none;
   cursor: pointer;
-  width: 30px;
+  width: 32px;
   height: 24px;
   position: relative;
 }

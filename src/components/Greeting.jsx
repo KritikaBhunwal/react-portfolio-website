@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../styles/greeting.css";
 
 const languages = [
-  "Hello!", "नमस्ते,", "Bonjour!", "こんにちは", "Olá", "Hello!", "नमस्ते,", "안녕하세요", "Ciao!", "Привет", "Hello!", "नमस्ते,", "Hola!", "你好", "Γειά σου", "Hello!", "नमस्ते,", "נמסטे,", "שלום", "مرحبا"
+  "Hello!", "नमस्ते,", "Bonjour!", "こんにちは", "Olá", "Hello!", "नमस्ते,", "안녕하세요", "Ciao!", "Привет", "Hello!", "नमस्ते,", "Hola!", "你好", "Γειά σου", "Hello!", "नमस्ते,", "שלום", "مرحبا"
 ];
 
 const TypewriterText = ({ text }) => {

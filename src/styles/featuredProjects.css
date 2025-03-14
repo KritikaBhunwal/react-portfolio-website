@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+.featured-projects {
+  padding: 1rem;
+}
+
+.section-title {
+  font-family: 'Chonburi', serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* Horizontal Scroll Carousel */
+.featured-projects-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+}
+
+.featured-projects-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Override the default ProjectCard width for the carousel */
+.featured-projects-carousel .project-card {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: 100%; /* Mobile: 1 card per view */
+}
+
+/* Tablet view: show 2 cards */
+@media (min-width: 768px) {
+  .featured-projects-carousel .project-card {
+    width: 50%;
+  }
+}
+
+/* Desktop view: show up to 4 cards */
+@media (min-width: 1024px) {
+  .featured-projects-carousel .project-card {
+    width: 25%;
+  }
+}
+
+/* Swipe indicator shows only on mobile */
+.swipe-indicator {
+  display: none;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+@media (max-width: 767px) {
+  .swipe-indicator {
+    display: block;
+  }
+}

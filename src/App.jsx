@@ -1,7 +1,8 @@
-// src/App.js
 
 import React from "react";
 import AppRoutes from "./routes";
+
+// src/App.js
 
 function App() {
   return <AppRoutes />;

@@ -1,88 +1,82 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaFigma, FaHtml5, FaCss3, FaJs, FaReact } from "react-icons/fa";
-import { SiTailwindcss, SiAdobeillustrator, SiAdobephotoshop, SiAdobeaftereffects } from "react-icons/si";
+import { 
+  FaFigma, 
+  FaHtml5, 
+  FaCss3, 
+  FaJs, 
+  FaReact, 
+  FaPaintBrush, 
+  FaApple 
+} from "react-icons/fa";
+import { 
+  SiTailwindcss, 
+  SiAdobeillustrator, 
+  SiAdobeaftereffects, 
+  SiAdobephotoshop 
+} from "react-icons/si";
 import "../styles/skills.css";
 
-const technicalSkills = ["Digital Design", "Programming", "Content Creation", "Research & Presentation"];
-const interpersonalSkills = ["Creative Thinking", "Problem Solving", "Leadership", "Collaboration", "Networking & Marketing"];
 const softwareSkills = [
-  { name: "Figma", icon: <FaFigma /> },
   { name: "Photoshop", icon: <SiAdobephotoshop /> },
   { name: "Illustrator", icon: <SiAdobeillustrator /> },
   { name: "After Effects", icon: <SiAdobeaftereffects /> },
+  { name: "Procreate", icon: <FaPaintBrush /> },
+  { name: "Keynote", icon: <FaApple /> },
+  { name: "Figma", icon: <FaFigma /> },
   { name: "HTML", icon: <FaHtml5 /> },
   { name: "CSS", icon: <FaCss3 /> },
-  { name: "JavaScript", icon: <FaJs /> },
-  { name: "React", icon: <FaReact /> },
   { name: "Tailwind", icon: <SiTailwindcss /> },
+  { name: "JavaScript", icon: <FaJs /> },
+  { name: "React", icon: <FaReact /> }
+];
+
+const interpersonalSkills = [
+  "Communication",
+  "Research",
+  "Presentation",
+  "Leadership",
+  "Teamwork",
+  "Empathy",
+  "Adaptability",
+  "Creative Thinking",
+  "Problem Solving",
+  "Growth Mindset"
 ];
 
 const Skills = () => {
   return (
     <div className="skills-container">
-      {/* Technical Skills */}
-      {/* <motion.div className="skills-section"
-        initial={{ opacity: 0, y: 50 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <h2>Technical Skills</h2>
-        <div className="skills-list">
-          {technicalSkills.map((skill, index) => (
-            <motion.div key={index} className="skill-card"
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 200 }}
-            >
-              {skill}
-            </motion.div>
-          ))}
-        </div>
-      </motion.div> */}
-
-      {/* Interpersonal Skills */}
-      {/* <motion.div className="skills-section"
-        initial={{ opacity: 0, y: 50 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <h2>Interpersonal Skills</h2>
-        <div className="skills-list">
-          {interpersonalSkills.map((skill, index) => (
-            <motion.div key={index} className="skill-item"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              {skill}
-            </motion.div>
-          ))}
-        </div>
-      </motion.div> */}
-
-      {/* Software Proficiency */}
-      <motion.div className="skills-section"
-        initial={{ opacity: 0, y: 50 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+      {/* Software Skills Section */}
+      <div className="skills-section">
         {/* <h2>Software Proficiency</h2> */}
         <div className="software-grid">
           {softwareSkills.map((software, index) => (
-            <motion.div key={index} className="software-card"
-              whileHover={{ scale: 1.2, rotate: 5 }}
-              transition={{ type: "spring", stiffness: 200 }}
+            <motion.a
+              key={index}
+              href="#"
+              className="software-card"
+              // whileHover={{ scale: 1.1, color: "#9990BB" }}
+              transition={{ duration: 0.3 }}
             >
-              {software.icon}
+              <div className="software-icon">{software.icon}</div>
               <p>{software.name}</p>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
-      </motion.div>
+      </div>
+
+      {/* Interpersonal Skills Section */}
+      <div className="skills-section">
+        {/* <h2>Interpersonal Skills</h2> */}
+        <div className="interpersonal-skills">
+          {interpersonalSkills.map((skill, index) => (
+            <span key={index} className="pill">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
