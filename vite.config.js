@@ -5,6 +5,17 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  assetsInclude: ['**/*.glb', '**/*.gltf'],
+  plugins: [
+    react(),
+    tailwindcss(),
+    // reactRouter(),
+    // tsconfigPaths()
+  ],
+  assetsInclude: [
+    '**/*.glb',
+    '**/*.gltf'
+  ],
 })
+
+
+

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SectionHeading from './SectionHeading';
 import modelSrc1 from '../assets/models/GD_Comp1.glb'; // Project 1 Model
 import modelSrc2 from '../assets/models/GD_Comp2.glb'; // Project 2 Model
 import skyboxImage from '../assets/images/AdobeStock_bg.png';
@@ -9,8 +8,8 @@ import '../styles/3DBanner.css';
 const ThreeDBanner = () => {
   // Project data with separate models, titles, and descriptions
   const projects = [
-    { id: 'left', path: '/project1details', title: 'Project 1', description: 'This is a placeholder description for Project 1.', modelSrc: modelSrc1 },
-    { id: 'right', path: '/project2details', title: 'Project 2', description: 'This is a placeholder description for Project 2.', modelSrc: modelSrc2 }
+    { id: 'left', path: '/project1details', title: 'Fashion Styling', description: 'This is a placeholder description for Project 1.', modelSrc: modelSrc1 },
+    { id: 'right', path: '/project2details', title: '3D Composition', description: 'This is a placeholder description for Project 2.', modelSrc: modelSrc2 }
   ];
 
   const [expanded, setExpanded] = useState(null);
@@ -45,7 +44,6 @@ const ThreeDBanner = () => {
 
   return (
     <>
-      <SectionHeading />
       <div className="container">
         {projects.map((project) => (
           <div key={project.id} className={`banner-container-${project.id}`}>

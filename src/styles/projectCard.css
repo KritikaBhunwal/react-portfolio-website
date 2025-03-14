@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-purple: #9990bb;
+  --text-dark: #333;
+  --text-light: #fff;
+  --cta-default-bg: #3d3d3d;
+  --cta-hover-bg: var(--primary-purple);
+}
+
+/* Main Project Card Container (1/3 of the screen) */
+.project-card {
+  width: 33.33%;
+  box-sizing: border-box;
+  padding: 1rem;
+  font-family: "Quicksand", sans-serif;
+  color: var(--text-dark);
+}
+
+/* Content Wrapper */
+.project-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Top Row: Category Pill (left) & Software Icons (right) */
+.project-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.project-category a {
+  font-family: 'Chonburi', serif;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  background-color: #3d3d3d2a;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+}
+
+.software-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.software-icon {
+  color: var(--primary-purple);
+  transition: color 0.3s ease;
+}
+
+.software-icon:hover {
+  color: #3d3d3d;
+}
+
+/* Image Wrapper */
+.project-image-wrapper {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-image-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 2rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.project-image {
+  width: 100%;
+  display: block;
+  /* Initially zoomed in (scale 1.05) and in full greyscale */
+  transform: scale(1.05);
+  filter: grayscale(100%);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* On hover, only the image scales up (container remains fixed) */
+.project-image-container:hover .project-image {
+  transform: scale(1.1);
+  filter: grayscale(0);
+}
+
+/* Project Details */
+.project-details {
+  width: 100%;
+  padding: 0 1rem;
+  text-align: left;
+}
+
+.project-title {
+  font-family: 'Chonburi', serif;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-purple);
+}
+
+.project-description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* View Project Button: fixed size and position on hover */
+.view-button {
+  display: inline-block;
+  text-decoration: none;
+  background-color: var(--cta-default-bg);
+  color: var(--primary-purple);
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 1rem;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+/* On hover, button changes colors without affecting its size/position */
+.view-button:hover {
+  background-color: var(--cta-hover-bg);
+  color: var(--text-light);
+  border-color: var(--cta-hover-bg);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .project-card {
+    width: 100%;
+  }
+  .project-details {
+    padding: 0 0.5rem;
+  }
+}

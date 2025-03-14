@@ -112,9 +112,14 @@
   padding: 0.8rem;
   color: #3d3d3d; /* Slate */
   text-decoration: none;
-  text-shadow: 1px 1px 2px #C3B9E2;
+  /* text-shadow: 1px 1px 2px #C3B9E2; */
   cursor: pointer;
 }
+
+/* .project-title h3:hover {
+  color: #fff; 
+    text-shadow: 1px 1px 2px #C3B9E2;
+} */
 
 /* Expand button: 60px circle with 0.8rem padding */
 .expand-button {

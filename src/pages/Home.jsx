@@ -1,21 +1,25 @@
-import React from "react";
+// import React from "react";
 import Button from "../components/Button";
 import Banner from "../components/Banner.jsx";
+import SectionHeading from '../components/SectionHeading';
 import ThreeDBanner from "../components/ThreeDBanner";
-import Card from "../components/Card";  
+import Career from "../components/Career";
+import WorkTogether from "../components/WorkTogether";
+
+
 import "../styles/card.css";
 import "../styles/home.css";
-import Career from "../components/Career";
-import Skills from "../components/Skills.jsx";
-import WorkTogether from "../components/WorkTogether";
+import FeaturedProjects from "../components/FeaturedProjects.jsx";
 
 const Home = () => {
   return (
     <div className="p-4">
       <Banner />
+      <SectionHeading title="My Work" />
       <ThreeDBanner />
       <Career />
-      {/* <Skills /> */}
+      <SectionHeading title="Featured Projects" />
+      <FeaturedProjects />
       <WorkTogether />
       
       <h1>Welcome to My Portfolio</h1>
