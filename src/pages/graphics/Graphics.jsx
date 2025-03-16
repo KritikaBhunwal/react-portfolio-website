@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import SectionHeading from "../../components/SectionHeading";
 import FeaturedProjects from "../../components/FeaturedProjects.jsx";
 import ProjectContent from "../../components/ProjectContent.jsx";
-import Gallery from "../../components/Gallery.jsx";
-import PortfolioGallery from "../../components/PortfolioGallery.jsx";
+import GraphicsProjects from "../../components/GraphicsProjects.jsx";
 import Testimonials from "../../components/Testimonial.jsx";
 
 // Import banner images
@@ -11,6 +10,7 @@ import GraphicBannerBase from "../../assets/images/GraphicBannerBase.png";
 import GraphicBannerTop from "../../assets/images/GraphicBannerTop.png";
 
 import "../../styles/graphics.css";
+
 
 const Graphics = () => {
   useEffect(() => {
@@ -52,9 +52,8 @@ const Graphics = () => {
           "<strong>Impact:</strong> Bold visuals that captivate audiences."
         ]} 
       />
-      <Gallery />
-      <SectionHeading title="Digital Illustrations" />
-      <PortfolioGallery />
+      <SectionHeading title= "Project Showcase" />
+      <GraphicsProjects />
       <SectionHeading title="Client Testimonials" />
       <Testimonials />
       <SectionHeading title="Featured Projects" />
