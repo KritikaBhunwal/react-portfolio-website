@@ -21,6 +21,16 @@
   transition: width 0.8s ease;
 }
 
+.banner-container-left {
+  margin-left: 2rem;
+  margin-right: 1rem;
+}
+
+.banner-container-right {
+  margin-left: 1rem;
+  margin-right: 2rem;
+}
+
 /* On hover, container expands to full width */
 .banner-container-left:hover,
 .banner-container-right:hover {
@@ -31,7 +41,8 @@
 /* Wrapper for model-viewer for positioning overlay controls */
 .model-wrapper {
   position: relative;
-  margin: 1rem;
+  /* margin-left: 2rem;
+  margin-right: 2rem; */
   
 }
 

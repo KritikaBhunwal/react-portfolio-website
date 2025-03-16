@@ -3,17 +3,16 @@ import Banner from "../components/Banner.jsx";
 import SectionHeading from '../components/SectionHeading';
 import ThreeDBanner from "../components/ThreeDBanner";
 import Career from "../components/Career";
+import FeaturedProjects from "../components/FeaturedProjects.jsx";
 import WorkTogether from "../components/WorkTogether";
 
-
-import "../styles/card.css";
 import "../styles/home.css";
-import FeaturedProjects from "../components/FeaturedProjects.jsx";
 
 const Home = () => {
   return (
-    <div className="p-4">
+    <div className="home">
       <Banner />
+
       <SectionHeading title="My Work" />
       <ThreeDBanner />
       <Career />

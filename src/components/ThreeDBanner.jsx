@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import modelSrc1 from '../assets/models/GD_Comp1.glb'; // Project 1 Model
-import modelSrc2 from '../assets/models/GD_Comp2.glb'; // Project 2 Model
+import modelSrc1 from '../assets/models/GD_Comp1.glb'; // Fashion Styling Model
+import modelSrc2 from '../assets/models/GD_Comp2.glb'; // 3D Composition Model
 import skyboxImage from '../assets/images/AdobeStock_bg.png';
-import '../styles/3DBanner.css';
+import '../styles/ThreeDBanner.css';
 
 const ThreeDBanner = () => {
-  // Project data with separate models, titles, and descriptions
+  // Updated project data: Fashion Styling now navigates to the FashionStyling component.
   const projects = [
-    { id: 'left', path: '/project1details', title: 'Fashion Styling', description: 'This is a placeholder description for Project 1.', modelSrc: modelSrc1 },
-    { id: 'right', path: '/project2details', title: '3D Composition', description: 'This is a placeholder description for Project 2.', modelSrc: modelSrc2 }
+    { id: 'left', path: '/fashionstyling', title: 'Fashion Styling', description: 'This is a placeholder description for Project 1.', modelSrc: modelSrc1 },
+    { id: 'right', path: 'https://adobeaero.app.link/LEmWcqYJNNb', title: '3D Composition', description: 'This is a placeholder description for Project 2.', modelSrc: modelSrc2 }
   ];
 
   const [expanded, setExpanded] = useState(null);
@@ -42,6 +42,23 @@ const ThreeDBanner = () => {
     }
   };
 
+  // Helper to conditionally render internal or external links
+  const renderProjectLink = (project, children) => {
+    if (project.path.startsWith('http')) {
+      return (
+        <a href={project.path} target="_blank" rel="noopener noreferrer" className="project-title">
+          {children}
+        </a>
+      );
+    } else {
+      return (
+        <Link to={project.path} className="project-title">
+          {children}
+        </Link>
+      );
+    }
+  };
+
   return (
     <>
       <div className="container">
@@ -59,9 +76,7 @@ const ThreeDBanner = () => {
               </div>
               {/* Overlay controls */}
               <div className="overlay-controls">
-                <Link to={project.path} className="project-title">
-                  <h3>{project.title}</h3>
-                </Link>
+                {renderProjectLink(project, <h3>{project.title}</h3>)}
                 <button className="expand-button" onClick={() => openModal(project.id)}>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                     <path fill="currentColor" d="M4 4h6V2H2v8h2V4zm16 0v6h2V2H14v2h6zM4 20v-6H2v8h8v-2H4zm16 0h-6v2h8v-8h-2v6z" />
@@ -79,9 +94,7 @@ const ThreeDBanner = () => {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             {/* Project Title (Clickable) and Description in Top Left */}
             <div className="modal-header">
-              <Link to={projects.find((p) => p.id === expanded)?.path} className="modal-title">
-                <h2>{projects.find((p) => p.id === expanded)?.title}</h2>
-              </Link>
+              {renderProjectLink(projects.find((p) => p.id === expanded), <h2>{projects.find((p) => p.id === expanded)?.title}</h2>)}
               <p>{projects.find((p) => p.id === expanded)?.description}</p>
             </div>
 

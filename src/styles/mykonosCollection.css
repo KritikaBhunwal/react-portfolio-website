@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/* Use QuickSand and Chonburi fonts */
+.mykonos-collection {
+  font-family: 'Quicksand', 'Chonburi', sans-serif;
+  color: #3d3d3d;
+  padding: 2rem;
+  /* Removed background colour and margin */
+}
+
+/* Carousel Layout */
+.collection-carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+  padding-right: 2rem; /* extra padding to show part of next card */
+}
+
+.collection-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Collection Card - 5 items per view on desktop */
+.collection-card {
+  scroll-snap-align: start;
+  flex: 0 0 calc((100% - 4rem) / 5);
+  background: #fff;
+  border-radius: 2rem;
+  text-align: left;
+}
+
+/* Image Container with 2rem border radius and subtle shadow */
+.image-container {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.image-container img {
+  width: 100%;
+  display: block;
+  transition: opacity 0.5s ease;
+  border-radius: 2rem;
+}
+
+/* Artwork image initially visible */
+.artwork {
+  object-fit: cover;
+}
+
+/* Clothing image initially hidden; no scaling */
+.clothing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  opacity: 0;
+}
+
+/* On hover: clothing image fades in */
+.image-container:hover .clothing {
+  opacity: 1;
+}
+
+/* Card Info with smaller fonts */
+.card-info h3 {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #3d3d3d;
+}
+
+.card-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #3d3d3d;
+}
+
+/* Responsive Adjustments */
+/* Tablet: 3 items per view */
+@media (max-width: 1024px) {
+  .collection-card {
+    flex: 0 0 calc((100% - 2rem) / 3);
+  }
+}
+
+/* Mobile: 1 item per view */
+@media (max-width: 768px) {
+  .collection-card {
+    flex: 0 0 calc(100% - 1rem);
+  }
+  .swipe-indicator {
+    display: block;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #3d3d3d;
+    margin-top: 1rem;
+  }
+}
+
+/* Hide swipe indicator on larger screens */
+@media (min-width: 769px) {
+  .swipe-indicator {
+    display: none;
+  }
+}

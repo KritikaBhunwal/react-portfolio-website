@@ -1,0 +1,14 @@
+.footer {
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem; /* Equivalent to Tailwind's p-2 */
+    margin-top: 1rem;
+  }
+
+.footer p{
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.9;
+    margin: 1rem;
+}
+  
