@@ -3,7 +3,6 @@ import Card from "./Card";
 import collage1 from "../assets/images/collages-1.png";
 import collage2 from "../assets/images/collages-2.png";
 import collage3 from "../assets/images/collages-3.png";
-import "../styles/card.css";
 
 const careerOptions = [
   {

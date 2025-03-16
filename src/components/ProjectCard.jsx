@@ -15,9 +15,9 @@ const ProjectCard = ({
   projectDescription = "A complete website redesign focused on modern usability and sleek aesthetics.",
   // Software icons with links (React Icons will render at 28px)
   software = [
-    { name: "Photoshop", icon: <SiAdobephotoshop />, link: "/software/photoshop" },
-    { name: "Illustrator", icon: <SiAdobeillustrator />, link: "/software/illustrator" },
-    { name: "Figma", icon: <SiFigma />, link: "/software/figma" },
+    { name: "Photoshop", icon: <SiAdobephotoshop />, link: "#" },
+    { name: "Illustrator", icon: <SiAdobeillustrator />, link: "#" },
+    { name: "Figma", icon: <SiFigma />, link: "#" },
   ],
 }) => {
   return (
@@ -31,7 +31,7 @@ const ProjectCard = ({
           <div className="software-icons">
             {software.map((sw, index) => (
               <a key={index} href={sw.link} className="software-icon">
-                {React.cloneElement(sw.icon, { size: 28 })}
+                {React.cloneElement(sw.icon, { size: 24 })}
               </a>
             ))}
           </div>

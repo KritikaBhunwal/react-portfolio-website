@@ -29,5 +29,6 @@ node_modules/
 dist/
 build/
 files/
+
 # Ignore environment variables
 .env

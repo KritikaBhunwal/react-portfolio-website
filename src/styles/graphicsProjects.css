@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+/* Use QuickSand and Chonburi fonts */
+.graphics-projects {
+  font-family: "Quicksand", "Chonburi", sans-serif;
+  color: #3d3d3d;
+  padding: 2rem;
+}
+
+/* Carousel Layout */
+.graphics-carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 2rem;
+  padding-right: 4rem; /* Extra padding to show part of the next card */
+}
+
+.graphics-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Collection Card */
+.graphics-card {
+  scroll-snap-align: start;
+  flex: 0 0 calc((100% - 4rem) / 5);
+  /* background: #3d3d3d1a; */
+  /* padding: 1rem; */
+  border-radius: 2rem;
+  text-align: left;
+  margin-left: 2rem;
+}
+
+/* Image Container */
+.image-container {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img {
+  width: 100%;
+  display: block;
+  transition: opacity 0.5s ease;
+  border-radius: 2rem;
+  padding: 1rem;
+
+}
+
+/* Artwork initially visible */
+.artwork {
+  object-fit: cover;
+}
+
+/* Design image initially hidden */
+.design {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  opacity: 0;
+}
+
+/* On hover: Design fades in */
+.image-container:hover .design {
+  opacity: 1;
+}
+
+.card-info {
+  padding: 1rem;
+}
+
+/* Card Info */
+.card-info h3 {
+  margin: 1rem;
+  font-size: 1rem;
+  color: #3d3d3d;
+  margin-top: 1rem;
+}
+
+.card-info p {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #3d3d3d;
+}
+
+/* Explore Link */
+.explore-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #9990bb;
+  /* background-color: #3d3d3d1a; */
+  border-radius: 2rem;
+  /* padding: 0.5rem 1rem; */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.explore-link:hover {
+  color: #9990bb;
+  font-weight: 500;
+}
+
+/* Responsive Adjustments */
+/* Tablet: 3 items per view */
+@media (max-width: 1024px) {
+  .graphics-card {
+    flex: 0 0 calc((100% - 2rem) / 3);
+  }
+}
+
+/* Mobile: 1 item per view */
+@media (max-width: 768px) {
+  .graphics-card {
+    flex: 0 0 calc(100% - 1rem);
+  }
+  .swipe-indicator {
+    display: block;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #3d3d3d;
+    margin-top: 1rem;
+  }
+}
+
+/* Hide swipe indicator on larger screens */
+@media (min-width: 769px) {
+  .swipe-indicator {
+    display: none;
+  }
+}

@@ -13,7 +13,9 @@
   z-index: 1000;
   border-radius: 1.6rem;
   padding: 0.4rem 1rem; /* Ensuring left and right padding */
-  margin: 0.5rem;
+  margin-left: 1.8rem;
+  margin-right: 1.8rem;
+  margin-top: 1.4rem;
 }
 
 /* Navbar container */

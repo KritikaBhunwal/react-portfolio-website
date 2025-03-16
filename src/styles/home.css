@@ -4,42 +4,34 @@
 @tailwind components;
 @tailwind utilities; */
 
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    flex-direction: row;
-    
-    gap: 1rem; /* Optional: Add some space between the cards */
-    /* background-color: rgb(191, 200, 200); */
-  }
-  
-  @media (min-width: 1440px) {
-    .card-container {
-      flex-wrap: nowrap;
-    }
-  }
+h2 {
+  font-size: 3.4rem;
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #3d3d3d;
+  margin-left: 3rem;
+}
 
-  h2 {
-    font-size: 4rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    color: #3d3d3d;
-    margin-left: 1rem;
-  }
+h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #3d3d3d;
+  margin-left: 3rem;
+  margin-bottom: 1rem;
+}
 
-  h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #3d3d3d;
-    margin-left: 1rem;
-  }
+p {
+  margin-left: 3rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #6d6d6d;
+  letter-spacing: 0.04rem;
+}
 
-  p {
-    /* margin-left: .75rem; */
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: #6d6d6d;
-    letter-spacing: 0.04rem;
+
+@media (min-width: 1440px) {
+  .card-container {
+    flex-wrap: nowrap;
   }
+}

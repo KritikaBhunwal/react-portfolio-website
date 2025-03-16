@@ -1,0 +1,155 @@
+/* Overall wrapper with translucent background and rounded corners */
+.testimonials-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #3d3d3d1a;
+  border-radius: 2rem;
+  gap: 2rem;
+}
+
+/* Left container: static image */
+.testimonial-image-container {
+  flex: 0 0 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 2rem;
+  margin: 2rem 1rem;
+}
+
+/* Right container: testimonial display area */
+.testimonial-slider-container {
+  flex: 0 0 75%;
+  position: relative;
+  height: 200px;       /* Fixed height */
+  overflow: hidden;
+  margin-left: 1rem;
+  border-radius: 2rem;
+  background: #fff;
+}
+
+/* Each testimonial item occupies the entire slider container.
+   Full cycle is 21s (3 items × 7s each). */
+.testimonial-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: left;
+  opacity: 0;
+  animation: fadeCycle 21s linear infinite;
+}
+
+/* Stagger items so each is active for 7s without overlapping */
+.testimonial-item:nth-child(1) {
+  animation-delay: 0s;
+}
+.testimonial-item:nth-child(2) {
+  animation-delay: 7s;
+}
+.testimonial-item:nth-child(3) {
+  animation-delay: 14s;
+}
+
+/* --- Typewriter effect for each text element --- */
+
+/* Heading (message) styling with typewriter effect */
+.testimonial-message {
+  position: relative;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #9990bb;
+  overflow: hidden;
+}
+.testimonial-message::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  /* Reveals over the first 2s */
+  animation: typewriterHeading 2s steps(40, end) forwards;
+}
+
+/* Quote styling with typewriter effect */
+.testimonial-quote {
+  position: relative;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+.testimonial-quote::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  /* Delay until after heading finishes (2s) and runs for 2.5s */
+  animation: typewriterQuote 2.5s steps(60, end) forwards;
+  animation-delay: 2s;
+}
+
+/* Author styling with typewriter effect */
+.testimonial-author {
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #3d3d3d;
+  overflow: hidden;
+}
+.testimonial-author::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  /* Delay until after quote finishes (2s + 2.5s = 4.5s) and runs for 1.5s */
+  animation: typewriterAuthor 1.5s steps(30, end) forwards;
+  animation-delay: 4.5s;
+}
+
+/* --- Keyframes --- */
+
+/* Fade cycle for the entire testimonial item */
+@keyframes fadeCycle {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  25% { opacity: 1; }
+  30% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Typewriter effect for heading: from fully covering the text to revealing it */
+@keyframes typewriterHeading {
+  from { width: 100%; }
+  to { width: 0; }
+}
+
+/* Typewriter effect for quote */
+@keyframes typewriterQuote {
+  from { width: 100%; }
+  to { width: 0; }
+}
+
+/* Typewriter effect for author */
+@keyframes typewriterAuthor {
+  from { width: 100%; }
+  to { width: 0; }
+}
