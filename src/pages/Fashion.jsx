@@ -44,6 +44,9 @@ const Fashion = () => {
       <Gallery />
 
       <SectionHeading title="Fashion Design" />
+      <ProjectContent
+        title="Contemporary Fashion Design"
+        description="A collection of contemporary fashion designs inspired by the vibrant culture and colors of Mykonos island. The collection features a range of resortwear and holiday essentials designed for the modern women." />
       <SectionHeading title="Highlights from Mykonos Collection SS18" />
       <MykonosCollection />
       <PortfolioGallery />
