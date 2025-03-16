@@ -1,14 +1,59 @@
-import ThreeDBanner from "../components/ThreeDBanner";
+import React, { useEffect } from "react";
+import SectionHeading from "../components/SectionHeading";
+import MykonosCollection from "../components/MykonosCollection.jsx";
+import Testimonials from "../components/Testimonial.jsx";
+import FeaturedProjects from "../components/FeaturedProjects.jsx";
+
+import "../styles/fashion.css";
+import ProjectContent from "../components/ProjectContent.jsx";
+import Gallery from "../components/Gallery.jsx";
+import PortfolioGallery from "../components/PortfolioGallery.jsx";
 
 const Fashion = () => {
-    return (
-      <div className="p-8">
-        <h1 className="text-4xl font-bold">Welcome to My Fashion Design Portfolio</h1>
-        <p className="mt-4 text-xl">This is the Fashion Design page</p>
-        <ThreeDBanner />
+  useEffect(() => {
+    const banner = document.querySelector(".image-banner");
+    if (!banner) return;
+    const handleMouseMove = (e) => {
+      const rect = banner.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      banner.style.setProperty("--x", `${x}px`);
+      banner.style.setProperty("--y", `${y}px`);
+    };
+
+    banner.addEventListener("mousemove", handleMouseMove);
+    return () => banner.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  return (
+    <div className="fashion-container">
+      <div className="image-banner">
+        <img
+          src="/src/assets/images/FashionBannerBase.png"
+          alt="Base Banner"
+          className="base-image"
+        />
+        <img
+          src="/src/assets/images/FashionBannerTop.png"
+          alt="Top Banner"
+          className="top-image"
+        />
       </div>
-    );
-  };
-  
-  export default Fashion;
-  
+      <SectionHeading title="Fashion Styling" />
+      <ProjectContent />
+      <Gallery />
+
+      <SectionHeading title="Fashion Design" />
+      <SectionHeading title="Highlights from Mykonos Collection SS18" />
+      <MykonosCollection />
+      <PortfolioGallery />
+      <SectionHeading title="Kind Words" />
+      <Testimonials />
+      {/* Related Projects */}
+      <SectionHeading title="Related Projects" />
+      <FeaturedProjects />
+    </div>
+  );
+};
+
+export default Fashion;

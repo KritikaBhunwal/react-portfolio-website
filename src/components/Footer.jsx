@@ -1,10 +1,14 @@
+import React from "react";
+import "../styles/footer.css";
+
 const Footer = () => {
-    return (
-      <footer className="bg-gray-800 text-white text-center p-4 mt-8">
-        <p>&copy; 2025 Kritika Bhunwal. All rights reserved.</p>
-      </footer>
-    );
-  };
-  
-  export default Footer;
-  
+  return (
+    <footer className="footer">
+      <p>
+        &copy; 2025 Designed and Developed by Kritika Bhunwal. All rights reserved.
+      </p>
+    </footer>
+  );
+};
+
+export default Footer;

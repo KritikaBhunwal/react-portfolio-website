@@ -1,11 +1,11 @@
 .more-info-button {
     /* position: fixed; */
-    padding: 2rem; /* Padding around the button */
+    padding: 1rem; /* Padding around the button */
     /* display: inline-block; */
     display: flex;
     justify-content: right;
     align-items: right;
-    margin-right: 2rem;
+    margin-right: 4rem;
     transition: margin-top 0.3s ease; /* Smooth transition */
 
   }
@@ -21,7 +21,7 @@
   
   
   .rotating-text-svg {
-    opacity: 50%;
+    opacity: 40%;
     position: absolute;
     top: 0;
     left: 0;
@@ -35,6 +35,7 @@
   
   .rotating-text-svg:hover {
     opacity: 90%;
+    font-weight: 500;
   }
 
     /* Hover effect for the icon */
@@ -57,7 +58,7 @@
     .more-info-button {
         margin-top: 5rem;
         margin-bottom: 1.2rem;
-        margin-right: 2.5rem;
+        margin-right: 2rem;
         padding: 3rem;
     }
 }
