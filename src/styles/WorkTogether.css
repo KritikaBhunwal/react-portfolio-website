@@ -1,83 +1,172 @@
 /* Work Together Section */
 .work-together {
-    background: url("../assets/images/AdobeStock_bg.png") center/cover no-repeat;
-    height: 300px;
-    border-radius: 2rem;
-    display: flex;
+  background: url("../assets/images/AdobeStock_bg.jpg") center/cover no-repeat;
+  min-height: 350px;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: left;
+  position: relative;
+  /* padding: 3rem 2rem; */
+  margin: 0rem 2rem;
+  max-width: calc(100% - 4rem);
+  color: white;
+  backdrop-filter: blur(5px);
+}
+
+/* Left Section - Title & Email Button */
+.work-together-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Heading */
+.work-together h2 {
+  font-size: 2.4rem;
+  margin-top: -1rem;
+  margin-bottom: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Email Button */
+.email-button {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Space between icon and text */
+  padding: 0.6rem 3rem;
+  margin-top: 0.6rem;
+  margin-left: 3rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  color: #3d3d3d;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.email-button:hover {
+  background: #3d3d3d;
+  color: white;
+}
+
+/* Email Icon inside Button */
+.email-icon {
+  color: #3d3d3d;
+}
+
+.email-button:hover .email-icon {
+  color: white;
+}
+
+/* Right Section - Text & Icons (Hidden on Mobile) */
+.work-together-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Description */
+.work-together-info p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Icon Styling */
+.social-icons a {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  color: white;
+}
+
+.social-icons a:hover {
+  color: #9990bb;
+  opacity: 0.8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .work-together {
+    flex-direction: column;
+    text-align: center;
     align-items: center;
+  }
+
+  .work-together-content,
+  .work-together-info {
+    align-items: center;
+    text-align: center;
+    margin-left: -2.4rem;
+  }
+
+  .work-together h2 {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .work-together-info p {
+    font-size: 1.1rem;
+    display: none;
+
+  }
+
+  .email-button {
+    font-size: 1rem;
+    /* padding: 0.9rem 1rem; */
+  }
+}
+
+
+/* Mobile and Tablet View */
+@media (max-width: 768px) {
+  .work-together {
+    padding: 1.5rem;
+    min-height: 350px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .work-together-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .work-together h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .email-button {
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .social-icons {
+    flex-direction: row;
     justify-content: center;
-    text-align: center;
-    position: relative;
-    padding: 2rem;
-    margin: 1rem
+    margin-top: 1rem;
   }
-  
-  /* Dark Overlay for Better Readability */
-  .overlay {
-    /* background: rgba(0, 0, 0, 0.6); */
-    padding: 2rem;
-    border-radius: 2rem;
-    /* color: var(--primary-white); */
-    color: #3d3d3d;
-    width: 80%;
-    max-width: 70vw;
+
+  /* Hide Work-Together Info on Mobile */
+  .work-together-info {
+    display: none;
   }
-  
-  /* Heading */
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    color: #3d3d3d;
+
+  /* Show Social Icons after Email Button on Mobile */
+  .mobile-only {
+    display: flex;
   }
-  
-  /* Description */
-  p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Input Box */
-  .message-input {
-    width: 90%;
-    padding: 1rem;
-    border: none;
-    border-radius: 2rem;
-    font-size: 1rem;
-    color: #9990bb;
-    text-align: center;
-    /* color: var(--navbar-bg); */
-    /* background: var(--primary-white); */
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .message-input:hover {
-    background: #9990bb;
-    color: white;    
-  }
-  
-  .message-input:focus {
-    outline: none;
-    background: #9990bb;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .work-together {
-      height: 350px;
-    }
-  
-    h2 {
-      font-size: 1.8rem;
-    }
-  
-    p {
-      font-size: 0.9rem;
-    }
-  
-    .message-input {
-      font-size: 0.9rem;
-    }
-  }
-  
+}
