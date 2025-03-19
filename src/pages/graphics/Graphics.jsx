@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import SectionHeading from "../../components/SectionHeading";
-import FeaturedProjects from "../../components/FeaturedProjects.jsx";
 import ProjectContent from "../../components/ProjectContent.jsx";
 import GraphicsProjects from "../../components/GraphicsProjects.jsx";
-import Testimonials from "../../components/Testimonial.jsx";
 
 // Import banner images
 import GraphicBannerBase from "../../assets/images/GraphicBannerBase.png";
 import GraphicBannerTop from "../../assets/images/GraphicBannerTop.png";
 
 import "../../styles/graphics.css";
+import ProcreateDump from "../../components/ProcreateDump.jsx";
+import WorkTogether from "../../components/WorkTogether.jsx";
 
 
 const Graphics = () => {
@@ -54,10 +54,20 @@ const Graphics = () => {
       />
       <SectionHeading title= "Project Showcase" />
       <GraphicsProjects />
-      <SectionHeading title="Client Testimonials" />
-      <Testimonials />
-      <SectionHeading title="Featured Projects" />
-      <FeaturedProjects />
+      <SectionHeading title="Illustration" />
+      <ProjectContent 
+        title="Artistic Expression" 
+        description="A diverse collection of illustrations, from digital art to traditional media, showcasing a range of styles and techniques." 
+        highlights={[
+          "<strong>Imagination:</strong> Bringing ideas to life.",
+          "<strong>Detail:</strong> Precision and craftsmanship.",
+          "<strong>Emotion:</strong> Evoking feelings through art."
+        ]}
+      />
+      <SectionHeading title="Illustration Showcase" />
+      <ProcreateDump />
+      <SectionHeading title="Like my work?" />
+      <WorkTogether />
     </div>
   );
 };

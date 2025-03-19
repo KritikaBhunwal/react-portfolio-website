@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import modelSrc1 from '../assets/models/GD_Comp1.glb'; // Fashion Styling Model
 import modelSrc2 from '../assets/models/GD_Comp2.glb'; // 3D Composition Model
-import skyboxImage from '../assets/images/AdobeStock_bg.png';
+import skyboxImage from '../assets/images/AdobeStock_bg.jpeg';
 import '../styles/ThreeDBanner.css';
 
 const ThreeDBanner = () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { FaLinkedin, FaBehance } from "react-icons/fa";
-import Greeting from "../components/Greeting";
-import MoreInfo from "../components/MoreInfo";
+import Greeting from "./Greeting";
+import MoreInfo from "./MoreInfo";
 import "../styles/banner.css";
 
 const Banner = () => {
