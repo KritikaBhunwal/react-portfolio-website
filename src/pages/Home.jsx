@@ -1,10 +1,10 @@
 // import React from "react";
 import Banner from "../components/Banner.jsx";
-import SectionHeading from '../components/SectionHeading';
-import ThreeDBanner from "../components/ThreeDBanner";
-import Career from "../components/Career";
+import SectionHeading from '../components/SectionHeading.jsx';
+import ThreeDBanner from "../components/ThreeDBanner.jsx";
+import Career from "../components/Career.jsx";
 import FeaturedProjects from "../components/FeaturedProjects.jsx";
-import WorkTogether from "../components/WorkTogether";
+import WorkTogether from "../components/WorkTogether.jsx";
 
 import "../styles/home.css";
 
