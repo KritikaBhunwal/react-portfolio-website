@@ -12,7 +12,6 @@ const Home = () => {
   return (
     <div className="home">
       <Banner />
-
       <SectionHeading title="My Work" />
       <ThreeDBanner />
       <Career />

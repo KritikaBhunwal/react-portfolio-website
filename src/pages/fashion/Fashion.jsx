@@ -1,35 +1,21 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import SectionHeading from "../../components/SectionHeading";
+import SubSectionHeading from "../../components/SubSectionHeading";
 import MykonosCollection from "../../components/MykonosCollection.jsx";
 import Testimonials from "../../components/Testimonial.jsx";
 import FeaturedProjects from "../../components/FeaturedProjects.jsx";
 import ProjectContent from "../../components/ProjectContent.jsx";
 import Gallery from "../../components/Gallery.jsx";
 import PortfolioGallery from "../../components/PortfolioGallery.jsx";
+import ImageBanner from "../../components/ImageBanner.jsx";
+
+// Import Fashion banner images
+import FashionBannerBase from "../../assets/images/FashionBannerBase.png";
+import FashionBannerTop from "../../assets/images/FashionBannerTop.png";
 
 import "../../styles/fashion.css";
 
 const Fashion = () => {
-  const bannerRef = useRef(null);
-
-  useEffect(() => {
-    const banner = bannerRef.current;
-    if (!banner) return;
-
-    const handleMouseMove = (e) => {
-      const rect = banner.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      banner.style.setProperty("--x", `${x}px`);
-      banner.style.setProperty("--y", `${y}px`);
-    };
-
-    banner.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      banner.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
   // Reusable highlights for Fashion Styling
   const fashionStylingHighlights = [
     { bulletPointOne: "Personalized Looks", detail: "Ensembles tailored to reflect individual style and personality." },
@@ -48,22 +34,15 @@ const Fashion = () => {
 
   return (
     <div className="fashion-container">
-      <div className="image-banner" ref={bannerRef}>
-        <img
-          src="/src/assets/images/FashionBannerBase.png"
-          alt="Base Banner"
-          className="base-image"
-        />
-        <img
-          src="/src/assets/images/FashionBannerTop.png"
-          alt="Top Banner"
-          className="top-image"
-        />
-      </div>
-      <SectionHeading title="Fashion Styling" />
-      <ProjectContent 
-        highlights={fashionStylingHighlights}
+      <ImageBanner 
+        baseImage={FashionBannerBase}
+        topImage={FashionBannerTop}
+        baseAlt="Fashion Banner Base"
+        topAlt="Fashion Banner Top"
+        bannerClass="image-banner"
       />
+      <SectionHeading title="Fashion Styling" />
+      <ProjectContent highlights={fashionStylingHighlights} />
       <Gallery />
 
       <SectionHeading title="Fashion Design" />
@@ -75,11 +54,6 @@ const Fashion = () => {
       <SectionHeading title="Highlights from Mykonos Collection SS18" />
       <MykonosCollection />
       <PortfolioGallery />
-      <SectionHeading title="Kind Words" />
-      <Testimonials />
-      {/* Related Projects */}
-      <SectionHeading title="Related Projects" />
-      <FeaturedProjects />
     </div>
   );
 };

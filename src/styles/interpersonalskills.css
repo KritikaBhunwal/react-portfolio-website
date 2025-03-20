@@ -2,9 +2,9 @@
 .interpersonal-skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: flex-start;
-  margin: 2rem 2rem;
+  margin: 2rem 3rem;
 }
 
 /* Pill styling */
@@ -17,10 +17,10 @@
   border-radius: 999px;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
-  color: #3d3d3d4a;
+  color: #3d3d3d8a;
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease, transform 0.5s ease;
   will-change: background-color, color, transform;
 }
 
@@ -28,7 +28,7 @@
 .pill:hover {
   color: #9990bb;
   transform: scale(1.05);
-  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 /* Expanded pill styling */

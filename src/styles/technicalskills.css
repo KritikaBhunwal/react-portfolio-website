@@ -2,7 +2,8 @@
 .software-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 1rem;
+  /* gap: 1rem; */
+  margin: 0 1rem;
 }
 
 * {

@@ -12,6 +12,8 @@
   border-radius: 2rem;
   cursor: pointer;
   margin: 1rem;
+  /* Define default mask size variable */
+  --mask-size: 200px;
 }
 
 /* Base & Top Images */
@@ -23,71 +25,60 @@
   object-fit: cover;
   object-position: top center;
   top: 0;
+  /* The left offset centers the image using transform */
   left: 20%;
   transform: translateX(-20%);
 }
 
-/* Hover Effect */
+/* Base Image with Hover Mask */
 .base-image {
   z-index: 2;
   opacity: 1;
   transition: opacity 0.3s ease;
   mask-image: radial-gradient(
-    circle 200px at var(--x, 50%) var(--y, 50%),
+    circle var(--mask-size) at var(--x, 50%) var(--y, 50%),
     transparent 0%,
     transparent 60%,
     rgba(0, 0, 0, 1) 100%
   );
   -webkit-mask-image: radial-gradient(
-    circle 200px at var(--x, 50%) var(--y, 50%),
+    circle var(--mask-size) at var(--x, 50%) var(--y, 50%),
     transparent 0%,
     transparent 60%,
     rgba(0, 0, 0, 1) 100%
   );
 }
 
-/* Top Image */
+/* Top Image Layer */
 .top-image {
   z-index: 1;
-  width: 100%;
-  height: 100%;
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments using only max-width queries */
 @media (max-width: 1740px) {
   .image-banner {
-    height: 600px;
-  }
-  .base-image {
-    mask-image: radial-gradient(
-      circle 150px at var(--x, 50%) var(--y, 50%),
-      transparent 0%,
-      transparent 60%,
-      rgba(0, 0, 0, 1) 100%
-    );
+    height: 400px;
+    max-height: 400px;
+    --mask-size: 150px;
   }
 }
 
 @media (max-width: 1024px) {
   .image-banner {
-    height: 500px;
-  }
-  .base-image {
-    mask-image: radial-gradient(
-      circle 120px at var(--x, 50%) var(--y, 50%),
-      transparent 0%,
-      transparent 60%,
-      rgba(0, 0, 0, 1) 100%
-    );
+    height: 300px;
+    max-height: 300px;
+    --mask-size: 120px;
   }
 }
 
 @media (max-width: 800px) {
   .image-banner {
-    height: 300px;
+    height: 250px;
+    max-height: 250px;
   }
   .base-image {
     mask-image: none;
+    -webkit-mask-image: none;
     opacity: 1 !important;
   }
 }
@@ -95,5 +86,20 @@
 @media (max-width: 480px) {
   .image-banner {
     height: 250px;
+    max-height: 250px;
   }
+}
+
+/* ----- Highlights Styling ----- */
+/* Ensure highlights text is visible.
+   Use this class on your highlights container in ProjectContent */
+.highlights {
+  color: #333;
+  font-size: 1rem;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.highlights li {
+  margin-bottom: 0.5rem;
 }
