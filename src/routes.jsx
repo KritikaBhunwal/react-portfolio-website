@@ -12,16 +12,14 @@ import About from "./pages/About";
 
 // Import global components
 import Navbar from "./components/Navbar";
-// import ScrollToTop from "./components/ScrollToTop";
-import ScrollRestoration from "./components/ScrollRestoration";
+import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
 
 const AppRoutes = () => {
   return (
     <Router>
       <Navbar />
-      {/* <ScrollToTop /> */}
-      <ScrollRestoration />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/uiux/*" element={<UIUXIndex />} />

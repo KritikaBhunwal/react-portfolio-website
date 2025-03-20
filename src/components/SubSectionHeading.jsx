@@ -4,7 +4,7 @@ const SectionHeading = ({ title = 'Section Title' }) => {
   return (
     <div className="flex justify-center gap-[0px] items-baseline">
       <div>
-        <h3 className="text-[#3d3d3d] text-3xl font-bold mt-[2rem] whitespace-nowrap">
+        <h3 className="text-[#3d3d3d] text-3xl font-bold ml-[1rem] mt-[2rem] whitespace-nowrap">
           {title}
         </h3>
       </div>

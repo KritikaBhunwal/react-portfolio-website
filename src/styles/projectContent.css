@@ -1,34 +1,65 @@
 .project-content-container {
-    padding: 2rem 0;
-    font-family: 'Quicksand', sans-serif;
-  }
-    
+  padding: 2rem 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.description-section {
+  display: flex;
+  gap: 4rem;
+  /* margin-bottom: 3rem; */
+}
+
+.left-description {
+  flex: 1;
+  text-align: left;
+}
+
+.right-highlights {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+  gap: 1rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #9990bb;
+}
+
+.right-highlights ul {
+  list-style-type: disc;
+  padding-left: 4rem;
+}
+
+.right-highlights li {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive Styles */
+
+/* For tablets and small desktops */
+@media (max-width: 1024px) {
   .description-section {
-    display: flex;
-    gap: 4rem;
-    margin-bottom: 3rem;
-  }
-  .left-description {
-    flex: 1;
-    text-align: left;
-  }
-  .right-highlights {
-    flex: 1;
-    display: flex;
     flex-direction: column;
-    margin-right: 2rem;
-    gap: 1rem;
-  }
-  .section-title {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    color: #9990bb;
-  }
-  .right-highlights ul {
-    list-style-type: disc;
-    padding-left: 4rem;
-  }
-  .right-highlights li {
-    margin-bottom: 0.5rem;
+    gap: 2rem;
   }
   
+  .right-highlights {
+    margin-right: 2rem;
+    padding: 0 2rem;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .right-highlights ul {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

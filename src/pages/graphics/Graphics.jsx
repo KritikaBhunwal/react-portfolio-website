@@ -1,73 +1,58 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SectionHeading from "../../components/SectionHeading.jsx";
 import ProjectContent from "../../components/ProjectContent.jsx";
 import GraphicsProjects from "../../components/GraphicsProjects.jsx";
+import ProcreateDump from "../../components/ProcreateDump.jsx";
+import ImageBanner from "../../components/ImageBanner.jsx";
 
 // Import banner images
 import GraphicBannerBase from "../../assets/images/GraphicBannerBase.png";
 import GraphicBannerTop from "../../assets/images/GraphicBannerTop.png";
 
 import "../../styles/graphics.css";
-import ProcreateDump from "../../components/ProcreateDump.jsx";
-import WorkTogether from "../../components/WorkTogether.jsx";
 
+// Section 1: Graphic Design + Showcase Highlights
+const graphicDesignHighlights = [
+  { bulletPointOne: "Creative Vision", detail: "Innovative concepts that push creative boundaries." },
+  { bulletPointOne: "Visual Impact", detail: "Bold, dynamic designs that capture attention." },
+  { bulletPointOne: "Technical Excellence", detail: "High-quality execution across select projects." }
+];
+
+// Section 2: Artistic Showcase Highlights
+const artisticShowcaseHighlights = [
+  { bulletPointOne: "Expressive Artistry", detail: "Illustrations that evoke emotion and tell compelling stories." },
+  { bulletPointOne: "Innovative Techniques", detail: "A blend of traditional and digital methods for unique visuals." },
+  { bulletPointOne: "Attention to Detail", detail: "Meticulous craftsmanship in every illustration." }
+];
 
 const Graphics = () => {
-  useEffect(() => {
-    const banner = document.querySelector(".image-banner");
-    if (!banner) return;
-    const handleMouseMove = (e) => {
-      const rect = banner.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      banner.style.setProperty("--x", `${x}px`);
-      banner.style.setProperty("--y", `${y}px`);
-    };
-
-    banner.addEventListener("mousemove", handleMouseMove);
-    return () => banner.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
     <div className="graphics-container">
-      <div className="image-banner">
-        <img
-          src={GraphicBannerBase}
-          alt="Base Graphics Banner"
-          className="base-image"
-        />
-        <img
-          src={GraphicBannerTop}
-          alt="Top Graphics Banner"
-          className="top-image"
-        />
-      </div>
-      <SectionHeading title="Graphic Design" />
-      <ProjectContent 
-        title="Dynamic Visual Communication" 
-        description="An innovative exploration of visual storytelling, merging typography, color, and layout to craft engaging designs for diverse media platforms." 
-        highlights={[
-          "<strong>Creativity:</strong> Unleashing artistic potential.",
-          "<strong>Innovation:</strong> Cutting-edge design solutions.",
-          "<strong>Impact:</strong> Bold visuals that captivate audiences."
-        ]} 
+      <ImageBanner 
+        baseImage={GraphicBannerBase}
+        topImage={GraphicBannerTop}
+        baseAlt="Base Graphics Banner"
+        topAlt="Top Graphics Banner"
+        bannerClass="image-banner"
       />
-      <SectionHeading title= "Project Showcase" />
+
+      {/* Section 1: Graphic Design + Showcase */}
+      <SectionHeading title="Graphic Design Portfolio" />
+      <ProjectContent 
+        title="Dynamic Visual Communication"
+        description="A comprehensive exploration of innovative graphic design concepts along with a curated selection of projects that showcase our creative vision and technical excellence."
+        highlights={graphicDesignHighlights}
+      />
       <GraphicsProjects />
-      <SectionHeading title="Illustration" />
+
+      {/* Section 2: Artistic Showcase */}
+      <SectionHeading title="Artistic Showcase" />
       <ProjectContent 
-        title="Artistic Expression" 
-        description="A diverse collection of illustrations, from digital art to traditional media, showcasing a range of styles and techniques." 
-        highlights={[
-          "<strong>Imagination:</strong> Bringing ideas to life.",
-          "<strong>Detail:</strong> Precision and craftsmanship.",
-          "<strong>Emotion:</strong> Evoking feelings through art."
-        ]}
+        title="Expressive Illustrations"
+        description="A curated collection of illustrations that blend traditional techniques with modern digital artistry to evoke emotion and inspire imagination."
+        highlights={artisticShowcaseHighlights}
       />
-      <SectionHeading title="Illustration Showcase" />
       <ProcreateDump />
-      <SectionHeading title="Like my work?" />
-      <WorkTogether />
     </div>
   );
 };

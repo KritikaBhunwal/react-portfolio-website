@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SectionHeading from '../components/SectionHeading';
+import SubSectionHeading from '../components/SubSectionHeading';
 import { SiAdobephotoshop, SiAdobeillustrator } from 'react-icons/si';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { GiPaintBrush, GiDress } from 'react-icons/gi';
@@ -85,8 +85,8 @@ const PortfolioGallery = () => {
   const closeModal = () => setModalOpen(false);
 
   return (
-    <div className="gallery-container">
-      <SectionHeading title="Portfolio Fashion Gallery" />
+    <div className="gallery-container" style={{ marginLeft: '2rem' }}>
+      <SubSectionHeading title="Portfolio Fashion Gallery" />
       <div className="gallery-inner">
         {/* Thumbnails */}
         <div className="gallery-thumbnails">

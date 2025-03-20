@@ -1,3 +1,110 @@
+
+
+/* ---------- aboutContent.css ---------- */
+.about-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start; /* Ensures top alignment */
+  gap: 2rem;
+  margin: 0 2rem; /* Consistent outer spacing */
+}
+
+/* Left Section - 2/3 Width */
+.about-left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* margin-left: -2rem; */
+}
+
+.section-heading {
+  margin-left: 2rem; /* Adjust the value as needed */
+}
+
+
+/* Right Section - 1/3 Width */
+.about-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Text Sections */
+.artist-text,
+.designer-text {
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.8rem;
+  margin: 0; /* Prevent extra margins */
+}
+
+/* Business Intro Full Width */
+.business-intro-container {
+  width: 100%;
+}
+
+/* Ensure business-intro takes full width */
+.business-intro {
+  width: 100%;
+  flex-grow: 1;
+}
+
+/* Smooth Accordion Expansion */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out, padding 0.2s ease-in-out;
+}
+
+/* Expand when active */
+.accordion-item.expanded .accordion-content {
+  max-height: 500px;
+}
+
+/* Desktop & Laptop */
+@media (min-width: 1024px) {
+  .about-content {
+    flex-direction: row; /* Side-by-side */
+  }
+  .about-left,
+  .about-right {
+    flex: 1;
+  }
+}
+
+/* Tablet & Mobile */
+@media (max-width: 1024px) {
+  .about-content {
+    flex-direction: column; /* Stacked */
+  }
+  .about-left,
+  .about-right {
+    flex: 1;
+    width: 100%;
+  }
+  .business-intro {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .about-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    margin: 0.5rem;
+  }
+}
+
+/* ---------- about.css ---------- */
 .about-container {
   font-family: 'QuickSand', sans-serif;
 }
@@ -48,8 +155,6 @@
 /* Top Image */
 .top-image {
   z-index: 1;
-  width: 100%;
-  height: 100%;
 }
 
 /* Text Sections */
@@ -62,7 +167,7 @@
   margin: 0.5rem 1rem;
 }
 
-/* Fix Layout Issues */
+/* Flex Row Helper */
 .flex-row {
   display: flex;
   align-items: flex-start;
@@ -70,7 +175,7 @@
   flex-wrap: wrap;
 }
 
-/* Ensure business intro takes full width */
+/* Business Intro Full Width */
 .business-intro {
   width: 100%;
   max-width: 1200px;
@@ -78,7 +183,7 @@
   flex-grow: 1;
 }
 
-/* Ensure proper content spacing */
+/* Flex 1 Helper */
 .flex-1 {
   flex-grow: 1;
   min-width: 300px;
@@ -111,7 +216,6 @@
       rgba(0, 0, 0, 1) 100%
     );
   }
-  /* Ensure full width accordion */
   .business-intro {
     width: 100%;
     padding: 0;
@@ -131,7 +235,6 @@
     mask-image: none;
     opacity: 1 !important;
   }
-  /* Full width accordion */
   .business-intro {
     margin: 0;
   }

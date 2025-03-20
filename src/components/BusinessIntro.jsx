@@ -8,9 +8,9 @@ const BusinessIntro = () => {
       title: "My Goal as a Designer 🎨",
       content: (
         <ul>
-          <li>Design captivating visuals that spark creativity.</li>
+          <li>Design impactful visuals that spark creativity.</li>
           <li>Innovate beyond conventional boundaries.</li>
-          <li>Create user-friendly designs with a personal touch.</li>
+          <li>Create user-friendly designs with beautiful interfaces.</li>
         </ul>
       ),
     },
@@ -19,9 +19,9 @@ const BusinessIntro = () => {
       title: "My Mission as an Entrepreneur 🚀",
       content: (
         <ul>
-          <li>Empower startups with innovative solutions.</li>
-          <li>Drive impactful change with entrepreneurial spirit.</li>
-          <li>Foster collaborative growth in every venture.</li>
+          <li>Empower individuals with skills, knowledge and experience.</li>
+          <li>Drive impact with entrepreneurial spirit.</li>
+          <li>Foster collaborative growth for everyone in every venture.</li>
         </ul>
       ),
     },
@@ -30,9 +30,9 @@ const BusinessIntro = () => {
       title: "My Vision as an Expert 🤝",
       content: (
         <ul>
-          <li>Shape a future of seamless collaboration.</li>
+          <li>Shape future of innovation and collaboration.</li>
           <li>Deliver transformative digital experiences.</li>
-          <li>Create smarter solutions through expert insights.</li>
+          <li>Create smarter, faster and brighter solutions through expert insights.</li>
         </ul>
       ),
     },
