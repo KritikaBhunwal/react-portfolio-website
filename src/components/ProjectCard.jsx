@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { SiAdobephotoshop, SiAdobeillustrator, SiFigma } from "react-icons/si";
 import "../styles/projectCard.css";
 import ProjectCardImage from "../assets/images/ProjectCardSuzanne.png";
@@ -6,7 +7,8 @@ import ProjectCardImage from "../assets/images/ProjectCardSuzanne.png";
 const ProjectCard = ({
   // Category pill text and link
   category = "UX/UI Design",
-  categoryLink = "/ux-ui",
+  // Updated link to match the router path
+  categoryLink = "/uiux",
   // Project image and link (default image from assets)
   projectImage = ProjectCardImage,
   projectLink = "/project",
@@ -26,11 +28,11 @@ const ProjectCard = ({
         {/* Top Row: Category pill on left, Software icons on right */}
         <div className="project-top-row">
           <div className="project-category">
-            <a href={categoryLink}>{category}</a>
+            <Link to={categoryLink}>{category}</Link>
           </div>
           <div className="software-icons">
             {software.map((sw, index) => (
-              <a key={index} href={sw.link} className="software-icon">
+              <a key={index} href={sw.link} className="software-icon" title={sw.name}>
                 {React.cloneElement(sw.icon, { size: 24 })}
               </a>
             ))}
@@ -39,19 +41,19 @@ const ProjectCard = ({
 
         {/* Image Container */}
         <div className="project-image-wrapper">
-          <div
-            className="project-image-container"
-            onClick={() => window.location.href = projectLink}
-          >
-            <img src={projectImage} alt={projectTitle} className="project-image" />
-          </div>
+          <Link to={projectLink} className="project-image-container">
+            <img
+              src={projectImage}
+              alt={projectTitle}
+              className="project-image"
+            />
+          </Link>
         </div>
 
         {/* Project Details */}
         <div className="project-details">
           <h2 className="project-title">{projectTitle}</h2>
           <p className="project-description">{projectDescription}</p>
-          {/* <a href={projectLink} className="view-button">View Project</a> */}
         </div>
       </div>
     </div>

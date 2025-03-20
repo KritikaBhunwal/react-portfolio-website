@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+
+.banner {
+  margin-right: 2rem;
+}
 /* Social Icons Container */
 .social-icons {
   display: flex;
@@ -21,6 +25,44 @@
   opacity: 0.8;
 }
 
-h2:hover {
-  color: #3d3d3d;
+/* Responsive font sizes for Banner headings and paragraphs */
+h2 {
+  font-size: 2.5rem; /* Default font size for larger screens */
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+/* Medium screens */
+@media (max-width: 1024px) {
+  h2 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.125rem;
+  }
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.75rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .banner {
+    margin-right: ;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+  }
 }

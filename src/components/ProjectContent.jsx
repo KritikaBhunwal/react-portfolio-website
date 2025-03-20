@@ -1,26 +1,37 @@
 import React from 'react';
 import '../styles/projectContent.css';
 
-const ProjectContent = () => {
-  const projectTitle = "Elevate Your Style: Premier Fashion Styling Project for E-commerce";
-  
+const ProjectContent = ({ title, description, highlights }) => {
+  const defaultTitle = "Styling Project for E-commerce";
+  const defaultDescription =
+    "In my role as an online stylist, I curated fresh and trendy fashion looks for online e-commerce websites like Black is Pink and Baggout. I curated ensembles keeping in mind the diverse occasions, budgets, and individual styles.";
+    
+  // Updated default highlights with bulletPointOne instead of label
+  const defaultHighlights = [
+    { bulletPointOne: "Innovative Aesthetics", detail: "Fresh, trend-forward design elements that capture attention." },
+    { bulletPointOne: "Customer-Centric", detail: "Tailored looks that resonate with diverse style preferences." },
+    { bulletPointOne: "Seamless Integration", detail: "Effortless pairing of accessories and statement pieces." },
+    { bulletPointOne: "Versatile Styling", detail: "Outfits that transition perfectly from casual to formal settings." },
+    { bulletPointOne: "Sustainable Choices", detail: "Eco-friendly options that don’t compromise on style." },
+  ];
+
+  const usedHighlights = highlights || defaultHighlights;
+
   return (
     <div className="project-content-container">
       <div className="description-section">
         <div className="left-description">
-          <h2 className="section-title">{projectTitle}</h2>
-          <p>
-            In my role as an online stylist, I curated fashion looks for projects – Black is Pink and Baggout – to guide shoppers in making informed wardrobe choices. I crafted ensembles tailored to diverse occasions, budgets, and personalities.
-          </p>
+          <h2 className="section-title">{title || defaultTitle}</h2>
+          <p>{description || defaultDescription}</p>
         </div>
         <div className="right-highlights">
           <h2 className="section-title">Highlights</h2>
           <ul>
-            <li><strong>Versatility:</strong> Suitable for various events.</li>
-            <li><strong>Budget Consideration:</strong> Cost-effective without compromising style.</li>
-            <li><strong>Personalization:</strong> Tailored recommendations.</li>
-            <li><strong>Trend Awareness:</strong> Modern, chic elements.</li>
-            <li><strong>Accessory Coordination:</strong> Complementary accessories.</li>
+            {usedHighlights.map((item, index) => (
+              <li key={index}>
+                <strong>{item.bulletPointOne}:</strong> {item.detail}
+              </li>
+            ))}
           </ul>
         </div>
       </div>

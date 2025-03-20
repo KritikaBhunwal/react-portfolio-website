@@ -15,6 +15,23 @@
   padding-bottom: 1rem;
 }
 
+/* Styles for the project title */
+.project-title {
+  font-size: 1rem;
+  color: #9990bb;
+  margin-left: 0rem;  
+  font-weight: bold;     
+}
+
+/* Styles for the project description */
+.project-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;      
+  margin-left: 0rem;  
+}
+
+
 .featured-projects-carousel::-webkit-scrollbar {
   display: none;
 }

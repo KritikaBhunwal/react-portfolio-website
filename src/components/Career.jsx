@@ -8,27 +8,27 @@ const careerOptions = [
   {
     title: "UI/UX Design",
     description:
-      "I design user-centered, visually engaging digital experiences that seamlessly blend creativity with functionality, focusing on accessibility and usability.",
+      "At present, I am pursuing formal education in Web Design and Development from BCIT, Vancouver CA. I design user-centered, visually engaging digital experiences that smoothly blend creativity with functionality, focusing on problem solving and innovation.",
     image: collage3,
-    link: "#",
+    link: "/uiux/UIUX",
     desktopReverse: false, // Image Left, Text Right
     tabletReverse: false, // Image Left, Text Right
   },
   {
     title: "Graphic Design",
     description:
-      "I create visually compelling designs that communicate ideas effectively and leave a lasting impression for branding, advertising, and digital media.",
+      "I was always drawn to visual designs that communicated ideas effectively. So, I self-taught myself Graphic Design and did some cool branding, advertising, and digital media projects over the span of 7 years for different industries.",
     image: collage2,
-    link: "./graphics/graphics.html",
+    link: "/graphics/Graphics",
     desktopReverse: false, // Image Left, Text Right
     tabletReverse: true, // Image Right, Text Left
   },
   {
     title: "Fashion Design",
     description:
-      "I specialize in transforming concepts into market-ready collections, from trend research to detailed sketches and collaborating with patternmakers.",
+      "After graduating from NIFT, New Delhi IN in 2016, I began my career as a Fashion Designer. My work involved trend research, styling, technical sketching and collaboration with designers, vendors and patternmakers to create market-ready Womenswear clothing.",
     image: collage1,
-    link: "./fashion/fashion.html",
+    link: "/fashion/Fashion",
     desktopReverse: false, // Image Left, Text Right
     tabletReverse: false, // Image Left, Text Right
   },

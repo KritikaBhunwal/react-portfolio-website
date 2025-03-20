@@ -2,13 +2,34 @@ import React from "react";
 import { FaLinkedin, FaBehance, FaEnvelope } from "react-icons/fa";
 import "../styles/WorkTogether.css";
 
+const socialLinks = [
+  {
+    icon: <FaEnvelope size={30} />,
+    link: "mailto:kritikabhunwal@gmail.com?subject=Project Inquiry",
+    label: "Send an Email",
+    external: false,
+  },
+  {
+    icon: <FaLinkedin size={27} />,
+    link: "https://www.linkedin.com/in/kritikabhunwal/",
+    label: "LinkedIn Profile",
+    external: true,
+  },
+  {
+    icon: <FaBehance size={33} />,
+    link: "https://www.behance.net/kritikabhunwal",
+    label: "Behance Profile",
+    external: true,
+  },
+];
+
 const WorkTogether = () => {
   return (
     <section className="work-together">
-      {/* Left Section - Heading & Email Button */}
       <div className="work-together-content">
-        <h2>Let's Make Things <br></br>Happen Together!</h2>
-
+        <h2>
+          Let's Make Things <br /> Happen Together!
+        </h2>
         <a
           href="mailto:kritikabhunwal@gmail.com?subject=Project Inquiry"
           className="email-button"
@@ -18,40 +39,27 @@ const WorkTogether = () => {
         </a>
       </div>
 
-      {/* Right Section - Description & Social Icons */}
       <div className="work-together-info">
         <p>
           <strong>Working Together</strong>
           <br />
           Have a project in mind or ideas to discuss?
           <br />
-          Feel free to
-          drop me a message, and I'll get back to you in 48 hours.
+          Feel free to drop me a message, and I'll get back to you in 48 hours.
         </p>
 
         <div className="social-icons">
-          <a
-            href="mailto:kritikabhunwal@gmail.com?subject=Project Inquiry"
-            aria-label="Send an Email"
-          >
-            <FaEnvelope size={30} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/kritikabhunwal/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn Profile"
-          >
-            <FaLinkedin size={28} />
-          </a>
-          <a
-            href="https://www.behance.net/kritikabhunwal"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Behance Profile"
-          >
-            <FaBehance size={34} />
-          </a>
+          {socialLinks.map(({ icon, link, label, external }, index) => (
+            <a
+              key={index}
+              href={link}
+              aria-label={label}
+              target={external ? "_blank" : undefined}
+              rel={external ? "noopener noreferrer" : undefined}
+            >
+              {icon}
+            </a>
+          ))}
         </div>
       </div>
     </section>

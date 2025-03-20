@@ -35,7 +35,8 @@
 .email-button {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Space between icon and text */
+  gap: 1rem;
+  /* Space between icon and text */
   padding: 0.6rem 3rem;
   margin-top: 0.6rem;
   margin-left: 3rem;
@@ -83,10 +84,12 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-top: -0.4rem;
 }
 
 /* Icon Styling */
 .social-icons a {
+  /* margin-top: -4rem; */
   transition: transform 0.3s ease, opacity 0.3s ease;
   color: white;
 }
@@ -119,15 +122,14 @@
   .work-together-info p {
     font-size: 1.1rem;
     display: none;
-
   }
 
   .email-button {
     font-size: 1rem;
+    margin-top: 2rem;
     /* padding: 0.9rem 1rem; */
   }
 }
-
 
 /* Mobile and Tablet View */
 @media (max-width: 768px) {
@@ -145,13 +147,18 @@
   }
 
   .work-together h2 {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     text-align: center;
   }
 
   .email-button {
     font-size: 0.9rem;
     padding: 0.8rem 1rem;
+    display: flex;
+  }
+
+  .email-icon {
+    display: none;
   }
 
   .social-icons {
@@ -161,9 +168,9 @@
   }
 
   /* Hide Work-Together Info on Mobile */
-  .work-together-info {
+  /* .work-together-info {
     display: none;
-  }
+  } */
 
   /* Show Social Icons after Email Button on Mobile */
   .mobile-only {

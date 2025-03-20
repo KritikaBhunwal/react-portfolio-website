@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SectionHeading from "../../components/SectionHeading";
+import SectionHeading from "../../components/SectionHeading.jsx";
 import ProjectContent from "../../components/ProjectContent.jsx";
 import GraphicsProjects from "../../components/GraphicsProjects.jsx";
 
