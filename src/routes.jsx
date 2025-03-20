@@ -5,24 +5,28 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Import your pages
 import Home from "./pages/Home";
-import UIUXIndex from "./pages/UIUX/UIUX"; // Main UI/UX page (with subpages inside the folder)
-import GraphicsIndex from "./pages/Graphics/Graphics"; // Main Graphics page (with subpages)
-import Fashion from "./pages/Fashion";
+import UIUXIndex from "./pages/uiux/UIUX"; // Main UI/UX page (with subpages inside the folder)
+import GraphicsIndex from "./pages/graphics/Graphics"; // Main Graphics page (with subpages)
+import Fashion from "./pages/fashion/Fashion";
 import About from "./pages/About";
 
 // Import global components
 import Navbar from "./components/Navbar";
+// import ScrollToTop from "./components/ScrollToTop";
+import ScrollRestoration from "./components/ScrollRestoration";
 import Footer from "./components/Footer";
 
 const AppRoutes = () => {
   return (
     <Router>
       <Navbar />
+      {/* <ScrollToTop /> */}
+      <ScrollRestoration />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/uiux/*" element={<UIUXIndex />} />
         <Route path="/graphics/*" element={<GraphicsIndex />} />
-        <Route path="/fashion" element={<Fashion />} />
+        <Route path="/fashion/*" element={<Fashion />} />
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />

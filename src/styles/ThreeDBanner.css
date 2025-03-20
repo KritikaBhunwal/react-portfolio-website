@@ -1,62 +1,165 @@
-/* src/styles/3DBanner.css */
+@import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-/* Main container: side-by-side layout */
+/* ================================
+   Global & Container Layout
+=================================== */
 .container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   width: 100%;
   justify-content: space-around;
+  padding: 0 2rem;
+  gap: 2rem;
 }
 
-/* Banner containers: each takes 50% width */
 .banner-container-left,
 .banner-container-right {
   width: 50%;
   height: 50%;
   position: relative;
-  /* padding: .8rem; */
-  /* margin: 1rem; */
   border-radius: 2rem;
   transition: width 0.8s ease;
 }
 
-.banner-container-left {
-  margin-left: 2rem;
-  margin-right: 1rem;
-}
-
-.banner-container-right {
-  margin-left: 1rem;
-  margin-right: 2rem;
-}
-
-/* On hover, container expands to full width */
 .banner-container-left:hover,
 .banner-container-right:hover {
-  /* width: 66.66%; */
   width: 100%;
 }
 
-/* Wrapper for model-viewer for positioning overlay controls */
+/* ================================
+   Model Viewer & Overlay Controls
+=================================== */
 .model-wrapper {
   position: relative;
-  /* margin-left: 2rem;
-  margin-right: 2rem; */
-  
 }
 
-/* Modal Header (Title & Description) */
+.model-container {
+  width: 100%;
+  height: 28.125rem; /* 450px */
+  margin-top: 0.625rem; /* 10px */
+  background-color: #f5f5f5;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+/* Overlay for project info remains at bottom left */
+.overlay-controls {
+  position: absolute;
+  bottom: 1rem;
+  left: 2rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.model-wrapper:hover .overlay-controls {
+  opacity: 1;
+}
+
+/* ================================
+   Project Title & Description
+=================================== */
+.project-title {
+  text-decoration: none;
+}
+
+.project-info {
+  text-align: left;
+}
+
+.project-info h3 {
+  margin: 0;
+  padding: 0.8rem;
+  color: #9990bb;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.project-info h3:hover {
+  color: #3d3d3d;
+}
+
+.project-info p {
+  margin: 0;
+  padding: 0 0.8rem 0.8rem;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  color: #3d3d3d;
+}
+
+/* ================================
+   Expand Button – Positioned at Top Right of Model Preview
+   (Only visible on hover)
+=================================== */
+.expand-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.75rem; /* 44px */
+  height: 2.75rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  opacity: 0; /* Hidden by default */
+}
+
+.model-wrapper:hover .expand-button {
+  opacity: 1;
+}
+
+.expand-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.1875rem 0.375rem rgba(0, 0, 0, 0.2);
+  color: #B28FDB;
+}
+
+/* ================================
+   Modal Styles
+=================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* background: rgba(0, 0, 0, 0.2); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: transform 1s ease-in-out, color 0.5s ease;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* background: #000; */
+  overflow: hidden;
+}
+
 .modal-header {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 1.25rem; /* 20px */
+  left: 1.25rem;
   color: #3D3D3D;
   z-index: 100;
-  max-width: 300px;
+  max-width: 18.75rem; /* 300px */
 }
 
-/* Clickable Project Title */
 .modal-title {
   text-decoration: none;
   color: #3D3D3D;
@@ -67,207 +170,158 @@
   color: #9990BB;
 }
 
-/* Project Title Styling */
 .modal-title h2 {
   margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-/* Project Description Styling */
 .modal-header p {
-  margin: 5px 0 0;
+  margin: 0.3125rem 0 0;
   font-size: 1rem;
   font-weight: 300;
   opacity: 0.9;
+  margin-left: 3rem;
 }
 
-
-.project-title {
-  text-decoration: none;
-}
-
-
-/* Model container */
-.model-container {
-  width: 100%;
-  height: 450px;
-  margin-top: 10px;
-  background-color: #f5f5f5;
-  border-radius: 2rem;
-  overflow: hidden;
-  
-}
-
-/* Overlay controls: project title (bottom left) and expand button (bottom right) */
-.overlay-controls {
-  position: absolute;
-
-  bottom: 1rem;
-  left: 2rem;
-  right: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.model-wrapper:hover .overlay-controls {
-  opacity: 1;
-}
-
-/* Project title styling */
-.project-title h3 {
-  margin: 0;
-  padding: 0.8rem;
-  color: #3d3d3d; /* Slate */
-  text-decoration: none;
-  /* text-shadow: 1px 1px 2px #C3B9E2; */
-  cursor: pointer;
-}
-
-/* .project-title h3:hover {
-  color: #fff; 
-    text-shadow: 1px 1px 2px #C3B9E2;
-} */
-
-/* Expand button: 60px circle with 0.8rem padding */
-.expand-button {
-  width: 44px;
-  height: 44px;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-}
-
-.expand-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  color: #B28FDB; /* Secondary purple on hover */
-}
-/* Modal overlay: covers entire viewport with no white space */
-.modal-overlay {
-  position: fixed;
-  top: 0rem;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(61, 61, 61, 0.8); /* Slate with 80% opacity */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  transition: transform 1s ease-in-out, color 0.5s ease;
-}
-
-/* Modal content: fills the overlay */
-.modal-content {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: #000; /* Use black so no white space is visible */
-  overflow: hidden;
-}
-
-/* Full-screen model viewer inside the modal, placed behind the buttons */
-.modal-model-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 1; /* Lower z-index so buttons appear on top */
-}
-
-/* Modal close button at top right */
+/* Modal Close Button */
 .modal-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 44px;
-  height: 44px;
-  padding: 0.8rem;
+  top: 1.25rem; /* 20px */
+  right: 1.25rem;
+  width: 2.75rem; /* 44px */
+  height: 2.75rem;
+  padding: 0;
   border: none;
   border-radius: 50%;
   background: #ffffff;
-  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-  z-index: 100;  /* Higher z-index to remain visible */
+  z-index: 100;
 }
 
-.modal-close:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  color: #B28FDB;
+.modal-close p {
+  margin: 0;
+  text-align: center;
 }
 
-/* Modal previous & next buttons at vertical center */
+/* Modal Navigation Buttons */
 .modal-prev,
 .modal-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  padding: 0.2rem;
+  width: 2.25rem; /* 36px */
   border: none;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-  z-index: 10; /* Ensure these buttons stay above the model viewer */
+  z-index: 10;
 }
 
 .modal-prev {
-  left: 10px;
+  left: 0.625rem; /* 10px */
 }
 
 .modal-next {
-  right: 10px;
+  right: 0.625rem;
 }
 
 .modal-prev:hover,
 .modal-next:hover {
   transform: translateY(-50%) scale(1.05);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
   color: #B28FDB;
 }
 
-
-/* Responsive adjustments */
+/* ================================
+   Mobile Carousel Styles
+=================================== */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
   }
+
+  .expand-button {
+    opacity: 1;
+  }
+  
   .banner-container-left,
   .banner-container-right {
     width: 100%;
   }
+  
   .model-container {
-    height: 500px;
+    height: 31.25rem; /* 500px */
   }
+  
+  /* Keep expand button hidden by default, visible on hover as in desktop */
   .expand-button,
   .modal-close,
   .modal-prev,
   .modal-next {
-    width: 44px;
-    height: 44px;
+    width: 2.75rem;
+    height: 2.75rem;
   }
+  
+  .overlay-controls {
+    opacity: 1 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
   .project-title h3 {
     font-size: 0.9rem;
+    /* margin-left: -1rem; */
+  }
+
+  
+  /* Mobile Carousel Container */
+  .banner-container-mobile {
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Mobile Carousel Controls */
+  .carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+  
+  .carousel-controls button {
+    width: 2.25rem;
+    height: 2.25rem;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  }
+  
+  .carousel-controls button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    color: #B28FDB;
   }
 }

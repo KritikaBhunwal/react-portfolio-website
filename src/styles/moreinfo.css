@@ -5,7 +5,7 @@
     display: flex;
     justify-content: right;
     align-items: right;
-    margin-right: 4rem;
+    margin-right: 2rem;
     transition: margin-top 0.3s ease; /* Smooth transition */
 
   }
@@ -35,7 +35,7 @@
   
   .rotating-text-svg:hover {
     opacity: 90%;
-    font-weight: 500;
+    /* font-weight: 500; */
   }
 
     /* Hover effect for the icon */
@@ -58,7 +58,6 @@
     .more-info-button {
         margin-top: 5rem;
         margin-bottom: 1.2rem;
-        margin-right: 2rem;
         padding: 3rem;
     }
 }
