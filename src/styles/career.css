@@ -144,9 +144,9 @@
 }
 
 /* Responsive Typography */
-@media (max-width: 2024px) {
+@media (max-width: 4048px) {
   .cardText h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   .cardText p {
     font-size: 0.9rem;
@@ -159,7 +159,7 @@
 /* Responsive Typography */
 @media (max-width: 1024px) {
   .cardText h2 {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
   }
   .cardText p {
     font-size: 0.9rem;
@@ -174,7 +174,7 @@
     text-align: flex-start;
   }
   .cardText h2 {
-    font-size: 1.3rem;
+    font-size: 1.0rem;
   }
   .cardText p {
     font-size: 0.9rem;

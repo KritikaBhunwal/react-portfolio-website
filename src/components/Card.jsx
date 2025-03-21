@@ -1,9 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DOMPurify from "dompurify"
+import parse from 'html-react-parser';
 import "../styles/career.css";
 
 const Card = ({ title, description, image, link, desktopReverse, tabletReverse }) => {
+  
   const scrollToTop = () => window.scrollTo(0, 0);
+
+  const cleanDescription = DOMPurify.sanitize(description);
 
   return (
     <div 
@@ -23,7 +28,7 @@ const Card = ({ title, description, image, link, desktopReverse, tabletReverse }
         >
           <h2>{title}</h2>
         </Link>
-        <p>{description}</p>
+        <p>{parse(cleanDescription)}</p>
         <Link
           to={link}
           onClick={scrollToTop}

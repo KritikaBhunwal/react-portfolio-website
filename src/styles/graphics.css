@@ -1,9 +1,10 @@
-/* Graphics Page Styles */
+/* ========== Graphics Page Styles ========== */
 .graphics-container {
   font-family: 'QuickSand', sans-serif;
+  /* padding: 1rem; */
 }
 
-/* Banner Section */
+/* ======= Banner Section ======= */
 .image-banner {
   position: relative;
   height: 800px;
@@ -12,11 +13,9 @@
   border-radius: 2rem;
   cursor: pointer;
   margin: 1rem;
-  /* Define default mask size variable */
   --mask-size: 200px;
 }
 
-/* Base & Top Images */
 .base-image,
 .top-image {
   position: absolute;
@@ -25,12 +24,10 @@
   object-fit: cover;
   object-position: top center;
   top: 0;
-  /* The left offset centers the image using transform */
   left: 20%;
   transform: translateX(-20%);
 }
 
-/* Base Image with Hover Mask */
 .base-image {
   z-index: 2;
   opacity: 1;
@@ -49,12 +46,67 @@
   );
 }
 
-/* Top Image Layer */
 .top-image {
   z-index: 1;
 }
 
-/* Responsive Adjustments using only max-width queries */
+/* ======= Video Section ======= */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+  border-radius: 2rem;
+  margin: 1rem 3rem;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+}
+
+/* ======= Software Icons Section ======= */
+.software-icons-below {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.software-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #3d3d3d;
+  background: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.software-icon:hover {
+  color: #9990bb;
+  transform: scale(1.1);
+}
+
+.software-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ======= Responsive Adjustments ======= */
 @media (max-width: 1740px) {
   .image-banner {
     height: 400px;
@@ -69,6 +121,11 @@
     max-height: 300px;
     --mask-size: 120px;
   }
+
+  .software-icons-below {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 800px) {
@@ -76,10 +133,16 @@
     height: 250px;
     max-height: 250px;
   }
+
   .base-image {
     mask-image: none;
     -webkit-mask-image: none;
     opacity: 1 !important;
+  }
+
+  .software-icons-below {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -88,15 +151,22 @@
     height: 250px;
     max-height: 250px;
   }
+
+  .software-icons-below {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .software-icon {
+    justify-content: center;
+  }
 }
 
-/* ----- Highlights Styling ----- */
-/* Ensure highlights text is visible.
-   Use this class on your highlights container in ProjectContent */
+/* ======= Highlights Styling ======= */
 .highlights {
   color: #333;
   font-size: 1rem;
-  margin: 1rem 0;
+  margin: 1rem ;
   padding: 0 1rem;
 }
 

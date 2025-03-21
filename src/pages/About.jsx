@@ -9,6 +9,13 @@ import BusinessIntro from '../components/BusinessIntro.jsx';
 import ImageBanner from '../components/ImageBanner.jsx';
 
 import '../styles/about.css';
+import ProjectContent from '../components/ProjectContent.jsx';
+
+const collaborationHighlights = [
+  { bulletPointOne: "Collaborative Approach", detail: "A strong belief in teamwork and open communication to achieve the best results." },
+  { bulletPointOne: "Creative Problem Solving", detail: "Using design thinking to find innovative solutions tailored to unique business needs." },
+  { bulletPointOne: "Detail-Oriented Execution", detail: "Ensuring high-quality, polished, and impactful visual storytelling." },
+];
 
 const AboutContent = () => {
   return (
@@ -16,7 +23,7 @@ const AboutContent = () => {
       <div className="about-left">
         <SubSectionHeading title="As an Artist" />
         <p className="artist-text">
-          I enjoy creating illustrations through different mediums exploring uniquely identified themes, translating the inner monologue through a vibrant set of colours, emotions and forms, encompassing illustrative details and delicacies for my audience on digital and tactile canvas. I like to enjoy a variety of music while I explore the palette.
+          I enjoy creating illustrations through different mediums exploring uniquely identified themes, translating the inner monologue through a vibrant set of colours, emotions, and forms, encompassing illustrative details and delicacies for my audience on digital and tactile canvas. I like to enjoy a variety of music while I explore the palette.
         </p>
         <SubSectionHeading title="As a Designer" />
         <p className="designer-text">
@@ -47,6 +54,14 @@ const About = () => {
       <TechnicalSkills />
       <SectionHeading title="Interpersonal Skills" />
       <InterpersonalSkills />
+
+      {/* New Let's Work Together Section */}
+      <SectionHeading title="Let's Work Together" />
+      {/* <ProjectContent 
+        title="A Partnership Rooted in Creativity & Collaboration"
+        description="I thrive in creative collaborations that push boundaries and bring fresh perspectives to the table. Whether it's branding, illustration, UX/UI, or strategic design thinking, I am eager to contribute innovative solutions tailored to your vision. Let’s build something impactful together!"
+        highlights={collaborationHighlights}
+      /> */}
       <WorkTogether />
     </div>
   );

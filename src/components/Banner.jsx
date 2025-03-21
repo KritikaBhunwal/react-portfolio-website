@@ -14,14 +14,14 @@ const Banner = () => {
         <br />
         ...and how these impact our daily lives!
       </p>
-      <div className="social-icons">
+      <div className="banner-icons social-icons">
         <a
           href="https://www.linkedin.com/in/kritikabhunwal/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn Profile"
         >
-          <FaLinkedin size={28} />
+          <FaLinkedin size={24} />
         </a>
         <a
           href="https://www.behance.net/kritikabhunwal"

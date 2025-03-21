@@ -9,7 +9,7 @@
   text-align: left;
   position: relative;
   /* padding: 3rem 2rem; */
-  margin: 0rem 2rem;
+  margin: 1rem 2rem;
   max-width: calc(100% - 4rem);
   color: white;
   backdrop-filter: blur(5px);
