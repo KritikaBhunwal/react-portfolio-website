@@ -4,7 +4,6 @@
 /* Container for the entire FeaturedProjects section */
 .featured-projects {
   padding: 1rem;
-  /* optional background or styling could go here */
 }
 
 /* Horizontal Scroll Carousel */
@@ -18,31 +17,31 @@
 }
 
 .featured-projects-carousel::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for a cleaner UI */
+  display: none; /* hide scrollbar for a cleaner UI */
 }
 
-/* Each ProjectCard takes a full "viewport" width on mobile */
+/* Each ProjectCard takes full "viewport" width on mobile */
 .featured-projects-carousel .project-card {
   scroll-snap-align: start;
   flex: 0 0 auto;
-  width: 100%; 
+  width: 100%;
 }
 
-/* Tablet: show 2 cards per "viewport" width */
+/* Tablet: show 2 cards per view */
 @media (min-width: 768px) {
   .featured-projects-carousel .project-card {
     width: 50%;
   }
 }
 
-/* Desktop: show up to 4 cards per "viewport" width */
+/* Desktop: show up to 4 cards per view */
 @media (min-width: 1024px) {
   .featured-projects-carousel .project-card {
     width: 25%;
   }
 }
 
-/* Project Title & Description (applied inside ProjectCard) */
+/* Project Title & Description */
 .project-title {
   font-size: 1rem;
   font-weight: bold;
@@ -57,17 +56,18 @@
   margin-left: 0;
 }
 
-/* Swipe Indicator */
+
+/* Swipe indicator shown only on mobile */
 .swipe-indicator {
-  display: none; /* hidden on larger screens */
-  text-align: center;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: #777;
+  display: none;
 }
 
 @media (max-width: 767px) {
   .swipe-indicator {
     display: block;
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #777;
   }
 }

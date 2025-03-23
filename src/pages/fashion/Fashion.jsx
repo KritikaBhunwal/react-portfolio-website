@@ -1,5 +1,4 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import SEO from "../../components/SEO.jsx";
 import SectionHeading from "../../components/SectionHeading";
 import MykonosCollection from "../../components/MykonosCollection.jsx";
@@ -71,7 +70,6 @@ const Fashion = () => {
         "@type": "WebPage",
         "@id": "#FashionPage",
         name: "A Fashion Journey – Mykonos & Beyond",
-        // "url": "#",
         description:
           "A narrative exploring modern fashion design and styling, infused with Mykonos-inspired color and flair.",
       },
@@ -88,52 +86,48 @@ const Fashion = () => {
   };
 
   return (
-    <div className="fashion-container">
-      {/*
-        If your SEO component doesn't handle <meta name="robots" />, we can add it here:
-      */}
-      <Helmet>
-        <meta name="robots" content="index, follow" />
-      </Helmet>
-
+    <>
       <SEO
         title="A Fashion Journey – Mykonos & Beyond"
         description="Step into a world where breezy Mykonos inspiration meets cutting-edge design. Uncover delicate stitches, bold prints, and narratives woven into every garment—an unforgettable odyssey of fashion."
         keywords="fashion, styling, design, Mykonos, resort wear, womenswear, wardrobe, style tips, cultural fusion, modern aesthetics"
-        // url="#"  {/* Placeholder link */}
-        // image="#"  {/* Placeholder link for share images */}
+        url="https://www.kritikabhunwal.com/fashion"
+        image="https://kritikabhunwal.com/assets/fashion-banner.png"  // Replace with your actual share image URL
         type="article"
         lang="en"
+        robots="index,follow"
         structuredData={structuredData}
       />
 
-      <ImageBanner
-        baseImage={FashionBannerBase}
-        topImage={FashionBannerTop}
-        baseAlt="Fashion Banner Base"
-        topAlt="Fashion Banner Top"
-        bannerClass="image-banner"
-      />
+      <div className="fashion-container">
+        <ImageBanner
+          baseImage={FashionBannerBase}
+          topImage={FashionBannerTop}
+          baseAlt="Fashion Banner Base"
+          topAlt="Fashion Banner Top"
+          bannerClass="image-banner"
+        />
 
-      <SectionHeading title="Fashion Styling" />
-      <ProjectContent
-        title="Dress to Impress"
-        description="Step into a realm of curated style experiences, where personal expression meets subtle sophistication and trendy fusion. This introduction sets the stage for ensembles that reflect ones personality and trends they follow and prepare them to shine in every occasion. I bring an authentic touch of personalization while choosing the right clothing for my client. Window-Shopping is like a breeze with me :)"
-        highlights={fashionStylingHighlights}
-      />
-      <Gallery />
+        <SectionHeading title="Fashion Styling" />
+        <ProjectContent
+          title="Dress to Impress"
+          description="Step into a realm of curated style experiences, where personal expression meets subtle sophistication and trendy fusion. This introduction sets the stage for ensembles that reflect one's personality and the trends they follow—preparing you to shine on every occasion. I bring an authentic touch of personalization to help choose the perfect outfit."
+          highlights={fashionStylingHighlights}
+        />
+        <Gallery />
 
-      <SectionHeading title="Fashion Design" />
-      <ProjectContent
-        title="Scarlet Ross : SS18 Mykonos Womenswear Collection"
-        description="Join a sun-kissed odyssey across the shores of Mykonos. This collection reflects the island’s carefree spirit in vibrant, contemporary apparel—a companion for the bold, modern wanderer. Special Thanks to Sujata Maheshwari, the founder of the brand Scarlet Ross, for believing in me and my capabilities. "
-        highlights={fashionDesignHighlights}
-      />
+        <SectionHeading title="Fashion Design" />
+        <ProjectContent
+          title="Scarlet Ross : SS18 Mykonos Womenswear Collection"
+          description="Join a sun-kissed odyssey across the shores of Mykonos. This collection reflects the island’s carefree spirit in vibrant, contemporary apparel—a companion for the bold, modern wanderer. Special thanks to Sujata Maheshwari, founder of Scarlet Ross, for believing in my capabilities."
+          highlights={fashionDesignHighlights}
+        />
 
-      <SectionHeading title="Highlights from Mykonos Collection SS18" />
-      <MykonosCollection />
-      <PortfolioGallery />
-    </div>
+        <SectionHeading title="Highlights from Mykonos Collection SS18" />
+        <MykonosCollection />
+        <PortfolioGallery />
+      </div>
+    </>
   );
 };
 

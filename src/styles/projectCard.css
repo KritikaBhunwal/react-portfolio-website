@@ -51,14 +51,24 @@
   /* gap: 0.8rem; */
 }
 
+/* Example: White background for icons */
 .software-icon {
+  background-color: #fff; /* white background */
+  border-radius: 4px;
+  padding: 0.3rem;
+  margin-left: 0.3rem; /* optional spacing between icons */
   color: var(--primary-purple);
-  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .software-icon:hover {
   color: #3d3d3d;
+  background-color: #f0f0f0; /* subtle hover effect */
 }
+
 
 /* Image Wrapper */
 .project-image-wrapper {
@@ -108,6 +118,21 @@
   font-size: 1rem;
   margin-bottom: 1rem;
 }
+
+/* Ensures the link is visible and nicely styled */
+.project-link {
+  margin-top: 0.5rem;
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #3d3d3d;
+  text-decoration: underline; /* or none, but underline is more obvious */
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #9990bb;
+}
+
 
 /* View Project Button: fixed size and position on hover */
 .view-button {

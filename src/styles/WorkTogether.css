@@ -79,6 +79,14 @@
   line-height: 1.5;
 }
 
+/* Social Icons */
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: -0.4rem;
+}
+
 /* Icon Styling */
 .social-icons a {
   /* margin-top: -4rem; */
@@ -155,8 +163,7 @@
 
   .social-icons {
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: center;
     margin-top: 1rem;
   }
 

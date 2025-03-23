@@ -1,63 +1,148 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SiAdobephotoshop, SiAdobeillustrator, SiFigma } from "react-icons/si";
+import {
+  SiAdobephotoshop,
+  SiAdobeillustrator,
+  SiFigma,
+  SiJavascript,
+} from "react-icons/si";
 import "../styles/projectCard.css";
 import ProjectCardImage from "../assets/images/ProjectCardSuzanne.png";
 
-const ProjectCard = ({
-  // Category pill text and link
+/**
+ * Decide which icons to show based on the project info.
+ * @param {string} projectTitle - Title of the project (for detecting keywords like "Hellow" or "JavaScript Games").
+ * @param {string} projectLink - Link of the project (for detecting "figma.com").
+ * @returns An array of icon objects with `name`, `icon`, and `link`.
+ */
+function getIconsForProject({ projectTitle, projectLink }) {
+  // We'll build an array of icons based on conditions:
+  const icons = [];
+
+  // 1) If the link includes "figma.com", show Figma
+  if (projectLink.includes("figma.com")) {
+    icons.push({
+      name: "Figma",
+      icon: <SiFigma />,
+      link: projectLink, // or "#"
+    });
+  }
+
+  // 2) If the title includes "JavaScript Games", show JavaScript icon
+  if (projectTitle.toLowerCase().includes("javascript games")) {
+    icons.push({
+      name: "JavaScript",
+      icon: <SiJavascript />,
+      link: "#",
+    });
+  }
+
+  // 3) If the title includes "Hellow", add Illustrator icon
+  if (projectTitle.toLowerCase().includes("hellow")) {
+    icons.push({
+      name: "Illustrator",
+      icon: <SiAdobeillustrator />,
+      link: "#",
+    });
+  }
+
+  // 4) If none of the above conditions matched,
+  //    or if we want to *always* show a fallback, add Photoshop
+  if (icons.length === 0) {
+    icons.push({
+      name: "Photoshop",
+      icon: <SiAdobephotoshop />,
+      link: "#",
+    });
+  }
+
+  return icons;
+}
+
+function ProjectCard({
   category = "UX/UI Design",
-  // Updated link to match the router path
   categoryLink = "/uiux",
-  // Project image and link (default image from assets)
   projectImage = ProjectCardImage,
   projectLink = "/project",
-  // Project title and description
   projectTitle = "Project Case Study for Website Redesign",
   projectDescription = "A complete website redesign focused on modern usability and sleek aesthetics.",
-  // Software icons with links (React Icons will render at 28px)
-  software = [
-    { name: "Photoshop", icon: <SiAdobephotoshop />, link: "#" },
-    { name: "Illustrator", icon: <SiAdobeillustrator />, link: "#" },
-    { name: "Figma", icon: <SiFigma />, link: "#" },
-  ],
-}) => {
+}) {
+  // Helper function to check if link is external
+  const isExternal = (url) => url.startsWith("http");
+
+  // Decide how to render the top category link
+  const CategoryLink = isExternal(categoryLink) ? "a" : Link;
+  // Decide how to render the project image link
+  const ImageLink = isExternal(projectLink) ? "a" : Link;
+
+  // Dynamically get the icons
+  const softwareIcons = getIconsForProject({ projectTitle, projectLink });
+
   return (
-    <div className="project-card">
-      <div className="project-card-content">
-        {/* Top Row: Category pill on left, Software icons on right */}
-        <div className="project-top-row">
-          <div className="project-category">
-            <Link to={categoryLink}>{category}</Link>
-          </div>
-          <div className="software-icons">
-            {software.map((sw, index) => (
-              <a key={index} href={sw.link} className="software-icon" title={sw.name}>
-                {React.cloneElement(sw.icon, { size: 24 })}
-              </a>
-            ))}
-          </div>
+    <article className="project-card">
+      {/* Top row: category pill (left), software icons (right) */}
+      <header className="project-top-row">
+        <div className="project-category">
+          <CategoryLink
+            {...(isExternal(categoryLink)
+              ? { href: categoryLink, target: "_blank", rel: "noopener noreferrer" }
+              : { to: categoryLink })}
+          >
+            {category}
+          </CategoryLink>
         </div>
 
-        {/* Image Container */}
-        <div className="project-image-wrapper">
-          <Link to={projectLink} className="project-image-container">
-            <img
-              src={projectImage}
-              alt={projectTitle}
-              className="project-image"
-            />
+        {/* Software icons */}
+        <div className="software-icons">
+          {softwareIcons.map((sw, index) => (
+            <a
+              key={index}
+              href={sw.link}
+              className="software-icon"
+              title={sw.name}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {/* Set size=24, but also ensure background is white in CSS */}
+              {React.cloneElement(sw.icon, { size: 24 })}
+            </a>
+          ))}
+        </div>
+      </header>
+
+      {/* Image container */}
+      <ImageLink
+        {...(isExternal(projectLink)
+          ? { href: projectLink, target: "_blank", rel: "noopener noreferrer" }
+          : { to: projectLink })}
+        className="project-image-container"
+      >
+        <img src={projectImage} alt={projectTitle} className="project-image" />
+      </ImageLink>
+
+      {/* Project details */}
+      <section className="project-details">
+        <h2 className="project-title">{projectTitle}</h2>
+        <p className="project-description">{projectDescription}</p>
+
+        {/* 1) Show the project link below details: */}
+        {isExternal(projectLink) ? (
+          <a
+            href={projectLink}
+            className="project-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Project
+          </a>
+        ) : (
+          <Link to={projectLink} className="project-link">
+            View Project
           </Link>
-        </div>
-
-        {/* Project Details */}
-        <div className="project-details">
-          <h2 className="project-title">{projectTitle}</h2>
-          <p className="project-description">{projectDescription}</p>
-        </div>
-      </div>
-    </div>
+        )}
+      </section>
+    </article>
   );
-};
+}
 
 export default ProjectCard;

@@ -60,6 +60,9 @@
 /* ========== Right Section: Highlights ========== */
 .right-highlights {
   flex: 1;
+  font-weight: 300;
+  line-height: 1.4rem;
+  color: #3d3d3d;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -116,13 +119,16 @@
     width: auto;
     min-width: 100px;
   }
+  .highlights-title {
+    margin-left: 0rem;
+  }
 
   .right-highlights {
-    margin-left: 2rem;
+    margin-left: 0rem;
     align-self: flex-start;
   }
 
   .highlights-list {
-    padding-left: 2rem;
+    padding-left: 1rem;
   }
 }

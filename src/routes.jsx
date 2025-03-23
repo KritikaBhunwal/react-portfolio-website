@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import UIUXIndex from "./pages/uiux/UIUX"; // Main UI/UX page (with subpages inside the folder)
 import GraphicsIndex from "./pages/graphics/Graphics"; // Main Graphics page (with subpages)
 import Fashion from "./pages/fashion/Fashion";
-import About from "./pages/About";
+import About from "./pages/about/About";
 
 // Import global components
 import Navbar from "./components/Navbar";
@@ -25,7 +25,7 @@ const AppRoutes = () => {
         <Route path="/uiux/*" element={<UIUXIndex />} />
         <Route path="/graphics/*" element={<GraphicsIndex />} />
         <Route path="/fashion/*" element={<Fashion />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about/*" element={<About />} />
       </Routes>
       <Footer />
     </Router>

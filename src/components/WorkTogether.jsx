@@ -10,13 +10,13 @@ const socialLinks = [
     external: false,
   },
   {
-    icon: <FaLinkedin size={27} />,
+    icon: <FaLinkedin size={28} />,
     link: "https://www.linkedin.com/in/kritikabhunwal/",
     label: "LinkedIn Profile",
     external: true,
   },
   {
-    icon: <FaBehance size={33} />,
+    icon: <FaBehance size={34} />,
     link: "https://www.behance.net/kritikabhunwal",
     label: "Behance Profile",
     external: true,
