@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import modelSrc1 from "../assets/models/GD_Comp1.glb"; // Fashion Styling Model
-import modelSrc2 from "../assets/models/GD_Comp2.glb"; // 3D Composition Model
+import modelSrc1 from "../assets/models/GD_Comp1.glb"; // Fashion Styling
+import modelSrc2 from "../assets/models/GD_Comp2.glb"; // 3D Composition
 import skyboxImage from "../assets/images/AdobeStock_bg.jpeg";
 import "../styles/ThreeDBanner.css";
 
@@ -12,7 +12,7 @@ const projects = [
     title: "Fashion Styling",
     description: "Styling is picking the right outfit for the right occasion",
     modelSrc: modelSrc1,
-  },  
+  },
   {
     id: "right",
     path: "https://adobeaero.app.link/LEmWcqYJNNb",
@@ -29,9 +29,7 @@ const ThreeDBanner = () => {
 
   // Update mobile flag on resize
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -59,15 +57,17 @@ const ThreeDBanner = () => {
   };
 
   // Mobile carousel navigation
-  const goToPrev = () => {
+  const goToPrev = (e) => {
+    e.stopPropagation();
     setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
   };
 
-  const goToNext = () => {
+  const goToNext = (e) => {
+    e.stopPropagation();
     setCurrentIndex((prev) => (prev + 1) % projects.length);
   };
 
-  // Render a link based on internal vs. external path
+  // Internal vs. external link
   const renderProjectLink = (project, children) => {
     if (project.path.startsWith("http")) {
       return (
@@ -88,26 +88,30 @@ const ThreeDBanner = () => {
     );
   };
 
-  // Get current project for modal display
   const currentProject = projects.find((p) => p.id === expanded);
 
-  // Render projects based on viewport
+  // Render either mobile carousel or side-by-side (desktop)
   const renderProjects = () => {
     if (isMobile) {
+      // MOBILE
       const project = projects[currentIndex];
       return (
         <div className="banner-container-mobile" key={project.id}>
-          <div className="model-wrapper">
+          <div
+            className="model-wrapper"
+            // Entire area is clickable => open modal
+            onClick={() => openModal(project.id)}
+          >
             <div className="model-container">
+              {/* No camera-controls => no scroll hijacking */}
               <model-viewer
                 src={project.modelSrc}
                 skybox-image={skyboxImage}
-                camera-controls
-                touch-action="pan-y"
                 style={{ width: "100%", height: "100%" }}
-              ></model-viewer>
+              />
+              <div className="model-overlay" />
             </div>
-            {/* Overlay showing title and description */}
+
             <div className="overlay-controls">
               {renderProjectLink(
                 project,
@@ -117,10 +121,18 @@ const ThreeDBanner = () => {
                 </div>
               )}
             </div>
-            {/* Expand button (visible only on hover) */}
+
+            {/* 
+              We keep the expand button for visual emphasis
+              but also attach an onClick that stops event propagation 
+              if you want to handle it separately.
+            */}
             <button
               className="expand-button"
-              onClick={() => openModal(project.id)}
+              onClick={(e) => {
+                e.stopPropagation();
+                openModal(project.id);
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -135,6 +147,7 @@ const ThreeDBanner = () => {
               </svg>
             </button>
           </div>
+
           <div className="carousel-controls">
             <button onClick={goToPrev}>
               <svg
@@ -160,18 +173,23 @@ const ThreeDBanner = () => {
         </div>
       );
     } else {
+      // DESKTOP
       return projects.map((project) => (
         <div key={project.id} className={`banner-container-${project.id}`}>
-          <div className="model-wrapper">
+          <div
+            className="model-wrapper"
+            // Entire area is clickable => open modal
+            onClick={() => openModal(project.id)}
+          >
             <div className="model-container">
               <model-viewer
                 src={project.modelSrc}
                 skybox-image={skyboxImage}
-                camera-controls
-                touch-action="pan-y"
                 style={{ width: "100%", height: "100%" }}
-              ></model-viewer>
+              />
+              <div className="model-overlay" />
             </div>
+
             <div className="overlay-controls">
               {renderProjectLink(
                 project,
@@ -181,9 +199,14 @@ const ThreeDBanner = () => {
                 </div>
               )}
             </div>
+
+            {/* Expand button shown on hover; stops event propagation */}
             <button
               className="expand-button"
-              onClick={() => openModal(project.id)}
+              onClick={(e) => {
+                e.stopPropagation();
+                openModal(project.id);
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -245,15 +268,14 @@ const ThreeDBanner = () => {
               </button>
             )}
             <div className="modal-model-container" style={{ position: "relative" }}>
+              {/* In the modal, we enable camera-controls for 3D interactivity */}
               <model-viewer
                 src={currentProject.modelSrc}
                 skybox-image={skyboxImage}
                 camera-controls
-                disable-zoom
-                touch-action="pan-y"
                 style={{ width: "100%", height: "100%" }}
-              ></model-viewer>
-              <div className="model-overlay"></div>
+              />
+              <div className="model-overlay" />
             </div>
           </div>
         </div>

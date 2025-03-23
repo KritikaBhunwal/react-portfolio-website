@@ -36,7 +36,7 @@
   background: #fff;
   border-radius: 1rem;
   padding: 1rem;
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -59,13 +59,14 @@
 .testimonial-message {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #9990bb;
 }
 
 .testimonial-quote {
   font-size: 1rem;
   line-height: 1.4;
   margin-bottom: 0.5rem;
+  font-weight: 300;
   color: #555;
 }
 
@@ -80,6 +81,7 @@
   display: flex;
   justify-content: flex-start;
   margin-top: 1rem;
+  margin-left: 4rem;
   width: 100%;
 }
 
@@ -88,7 +90,7 @@
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  border-radius: 2rem;
   cursor: pointer;
   transition: background 0.2s ease;
   margin-left: -1rem;
@@ -97,12 +99,12 @@
 }
 
 .testimonial-controls button:hover {
-  background: #555;
+  background: #9990bb;
 }
 
 @media (max-width: 1440px) {
   .testimonial-content {
-    margin-left: -4rem;
+    margin-left: 0rem;
   }
 }
 
@@ -127,6 +129,10 @@
 
   .testimonial-content {
     margin-left: -4rem;
+  }
+
+  .testimonial-controls {
+    margin-left: 0rem;
   }
 
   .testimonial-image-container {

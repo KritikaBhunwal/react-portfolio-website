@@ -19,7 +19,6 @@
   width: 50%;
   height: 50%;
   position: relative;
-  border-radius: 2rem;
   transition: width 0.8s ease;
 }
 
@@ -28,8 +27,13 @@
   width: 100%;
 }
 
+.banner-container-mobile {
+  width: 100%;
+  position: relative;
+}
+
 /* ================================
-   Model Viewer & Overlay Controls
+   Model Viewer & Overlay 
 =================================== */
 .model-wrapper {
   position: relative;
@@ -40,11 +44,34 @@
   height: 28.125rem; /* 450px */
   margin-top: 0.625rem; /* 10px */
   background-color: #f5f5f5;
+  /* Round corners + hide overflow => neat card layout */
   border-radius: 2rem;
   overflow: hidden;
 }
 
-/* Overlay for project info remains at bottom left */
+/* Opaque overlay hidden by default; pointer-events none so it doesn't block clicks */
+.model-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 50% opaque white */
+  pointer-events: none;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+/* We show the overlay on hover */
+.model-wrapper:hover .model-overlay {
+  opacity: 1;
+}
+
+/* ================================
+   Overlay Controls for Title/Desc
+=================================== */
 .overlay-controls {
   position: absolute;
   bottom: 1rem;
@@ -54,10 +81,11 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  opacity: 0;
+  opacity: 0; /* hidden by default */
   transition: opacity 0.3s ease;
 }
 
+/* Show the text on hover */
 .model-wrapper:hover .overlay-controls {
   opacity: 1;
 }
@@ -76,13 +104,13 @@
 .project-info h3 {
   margin: 0;
   padding: 0.8rem;
-  color: #9990bb;
+  color: #fff;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .project-info h3:hover {
-  color: #3d3d3d;
+  color: #ccbeff;
 }
 
 .project-info p {
@@ -90,11 +118,11 @@
   padding: 0 0.8rem 0.8rem;
   font-family: 'Quicksand', sans-serif;
   font-size: 1rem;
-  color: #3d3d3d;
+  color: #fff;
 }
 
 /* ================================
-   Expand Button – Positioned at Top Right of Model Preview
+   Expand Button – top right
    (Only visible on hover)
 =================================== */
 .expand-button {
@@ -107,13 +135,14 @@
   border: none;
   border-radius: 50%;
   background: #fff;
+  color: #3d3d3d;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-  opacity: 0; /* Hidden by default */
+  opacity: 0; /* hidden by default */
 }
 
 .model-wrapper:hover .expand-button {
@@ -147,7 +176,6 @@
   position: relative;
   width: 100%;
   height: 100%;
-  /* background: #000; */
   overflow: hidden;
 }
 
@@ -160,17 +188,7 @@
   max-width: 18.75rem; /* 300px */
 }
 
-.modal-title {
-  text-decoration: none;
-  color: #3D3D3D;
-  transition: color 0.3s ease-in-out;
-}
-
-.modal-title:hover {
-  color: #9990BB;
-}
-
-.modal-title h2 {
+.modal-header h2 {
   margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
@@ -181,7 +199,13 @@
   font-size: 1rem;
   font-weight: 300;
   opacity: 0.9;
-  margin-left: 3rem;
+  /* margin-left: 3rem; */
+}
+
+.modal-model-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 /* Modal Close Button */
@@ -251,48 +275,31 @@
     flex-direction: column;
   }
 
-  .expand-button {
-    opacity: 1;
-  }
-  
   .banner-container-left,
   .banner-container-right {
     width: 100%;
   }
-  
+
   .model-container {
     height: 31.25rem; /* 500px */
   }
-  
-  /* Keep expand button hidden by default, visible on hover as in desktop */
-  .expand-button,
-  .modal-close,
-  .modal-prev,
-  .modal-next {
-    width: 2.75rem;
-    height: 2.75rem;
-  }
-  
+
+  /* We show overlays by default on mobile (optional) */
   .overlay-controls {
     opacity: 1 !important;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  
-  .project-title h3 {
-    font-size: 0.9rem;
-    /* margin-left: -1rem; */
   }
 
-  
+  /* Expand button might as well be visible on mobile */
+  .expand-button {
+    opacity: 1;
+  }
+
   /* Mobile Carousel Container */
   .banner-container-mobile {
     width: 100%;
     position: relative;
   }
-  
+
   /* Mobile Carousel Controls */
   .carousel-controls {
     position: absolute;
@@ -304,7 +311,7 @@
     justify-content: space-between;
     padding: 0 1rem;
   }
-  
+
   .carousel-controls button {
     width: 2.25rem;
     height: 2.25rem;
@@ -318,7 +325,7 @@
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
   }
-  
+
   .carousel-controls button:hover {
     transform: scale(1.05);
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);

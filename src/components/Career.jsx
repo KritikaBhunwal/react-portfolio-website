@@ -4,11 +4,12 @@ import collage1 from "../assets/images/collages-1.png";
 import collage2 from "../assets/images/collages-2.png";
 import collage3 from "../assets/images/collages-3.png";
 
+
 const careerOptions = [
   {
     title: "UI/UX Design",
     description:
-      "At present, I am pursuing formal education in Web Design and Development from BCIT, Vancouver CA. I design user-centered, visually engaging digital experiences that smoothly blend creativity with functionality, focusing on problem solving and innovation.",
+      "At present, I am pursuing formal education in Web Design and Development from BCIT, Vancouver CA.<br /><br /> I design user-centered, visually engaging digital experiences that smoothly blend creativity with functionality, focusing on problem solving and innovation.",
     image: collage3,
     link: "/uiux/UIUX",
     desktopReverse: false, // Image Left, Text Right
@@ -17,7 +18,7 @@ const careerOptions = [
   {
     title: "Graphic Design",
     description:
-      "I was always drawn to visual designs that communicated ideas effectively. So, I self-taught myself Graphic Design and did some cool branding, advertising, and digital media projects over the span of 7 years for different industries.",
+      "I have been always drawn to visual designs that communicated ideas effectively.<br /><br /> So, I self-taught myself Graphic Design and did some cool branding, advertising, and digital media projects over the span of 7 years for different industries.",
     image: collage2,
     link: "/graphics/Graphics",
     desktopReverse: false, // Image Left, Text Right
@@ -26,7 +27,7 @@ const careerOptions = [
   {
     title: "Fashion Design",
     description:
-      "After graduating from NIFT, New Delhi IN in 2016, I began my career as a Fashion Designer. My work involved trend research, styling, technical sketching and collaboration with designers, vendors and patternmakers to create market-ready Womenswear clothing.",
+      "After graduating from NIFT, New Delhi IN in 2016, I began my career as a Fashion Designer.<br /><br /> My work involved trend research, styling, technical sketching and collaboration with designers, vendors and patternmakers to create market-ready Womenswear clothing.",
     image: collage1,
     link: "/fashion/Fashion",
     desktopReverse: false, // Image Left, Text Right

@@ -9,7 +9,7 @@
   text-align: left;
   position: relative;
   /* padding: 3rem 2rem; */
-  margin: 0rem 2rem;
+  margin: 1rem 2rem;
   max-width: calc(100% - 4rem);
   color: white;
   backdrop-filter: blur(5px);
@@ -77,14 +77,6 @@
   margin-bottom: 1.5rem;
   max-width: 500px;
   line-height: 1.5;
-}
-
-/* Social Icons */
-.social-icons {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: -0.4rem;
 }
 
 /* Icon Styling */
@@ -163,7 +155,8 @@
 
   .social-icons {
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     margin-top: 1rem;
   }
 

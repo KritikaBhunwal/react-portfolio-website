@@ -21,7 +21,7 @@
 /* ----- Thumbnails (Vertical Sidebar) ----- */
 .gallery-thumbnails {
   flex: 0 0 20%;
-  max-width: 12%;
+  max-width: 20%;
   padding: 0.8rem;
   border: 1px solid #ddd;
   border-radius: 2rem;
@@ -118,12 +118,13 @@
 
 .gallery-info h3 {
   margin: 0;
-  font-size: calc(var(--gallery-height) / 25);
+  font-size: 1rem;
 }
 
 .gallery-info p {
+  font-family: 'Quicksand', sans-serif;
   margin: 0;
-  font-size: calc(var(--gallery-height) / 30);
+  font-size: 1rem;
 }
 
 .icon-section {

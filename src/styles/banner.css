@@ -1,37 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-
 .banner {
   margin-right: 2rem;
 }
+
 /* Social Icons Container */
 .social-icons {
   display: flex;
   gap: 12px;
-  margin-top: -0.4rem;
   margin-left: 3rem;
+  /* color: #3d3d3d; */
+  /* background-color: #9990bb; */
 }
 
+/* Ensure icons are visible */
+.banner-icons.social-icons a {
+  color: #3d3d3d; /* 🔥 Set a dark default color */
+  margin-top: 1rem;
+  align-self: center;
+  transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+}
 /* Icon hover effect */
-.social-icons a {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  color: #3d3d3d;
-}
-
 .social-icons a:hover {
-  /* transform: scale(1.1); */
-  color: #9990bb;
+  color: #9990bb; /* 🔥 Highlight color on hover */
   opacity: 0.8;
 }
 
 /* Responsive font sizes for Banner headings and paragraphs */
 h2 {
-  font-size: 2.5rem; /* Default font size for larger screens */
+  font-size: 2.5rem;
+  color: #3d3d3d; /* 🔥 Ensure heading is visible */
 }
 
 p {
   font-size: 1.25rem;
+  color: #333; /* 🔥 Improve contrast */
 }
 
 /* Medium screens */
@@ -57,12 +61,19 @@ p {
 /* Extra small screens */
 @media (max-width: 480px) {
   .banner {
-    margin-right: ;
+    margin-right: 1rem; /* 🔥 Added missing margin */
   }
+  
   h2 {
     font-size: 1.5rem;
   }
+
   p {
     font-size: 1rem;
+  }
+
+  .social-icons {
+    gap: 10px;
+    margin-left: 1rem;
   }
 }

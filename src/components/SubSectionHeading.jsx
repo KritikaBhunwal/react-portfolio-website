@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SectionHeading = ({ title = 'Section Title' }) => {
+const SubSectionHeading = ({ title = 'Section Title' }) => {
   return (
     <div className="flex justify-center gap-[0px] items-baseline">
       <div>
@@ -13,4 +13,4 @@ const SectionHeading = ({ title = 'Section Title' }) => {
   );
 };
 
-export default SectionHeading;
+export default SubSectionHeading;

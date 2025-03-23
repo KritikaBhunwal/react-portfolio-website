@@ -1,65 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+/* Container for the entire FeaturedProjects section */
 .featured-projects {
   padding: 1rem;
+  /* optional background or styling could go here */
 }
 
 /* Horizontal Scroll Carousel */
 .featured-projects-carousel {
   display: flex;
   overflow-x: auto;
-  gap: 0.1rem;
-  scroll-snap-type: x mandatory;
+  gap: 0.5rem;
+  scroll-snap-type: x mandatory; 
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
-
-/* Styles for the project title */
-.project-title {
-  font-size: 1rem;
-  color: #9990bb;
-  margin-left: 0rem;  
-  font-weight: bold;     
-}
-
-/* Styles for the project description */
-.project-description {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.5;      
-  margin-left: 0rem;  
-}
-
 
 .featured-projects-carousel::-webkit-scrollbar {
-  display: none;
+  display: none; /* Hide scrollbar for a cleaner UI */
 }
 
-/* Override the default ProjectCard width for the carousel */
+/* Each ProjectCard takes a full "viewport" width on mobile */
 .featured-projects-carousel .project-card {
   scroll-snap-align: start;
   flex: 0 0 auto;
-  width: 100%; /* Mobile: 1 card per view */
+  width: 100%; 
 }
 
-/* Tablet view: show 2 cards */
+/* Tablet: show 2 cards per "viewport" width */
 @media (min-width: 768px) {
   .featured-projects-carousel .project-card {
     width: 50%;
   }
 }
 
-/* Desktop view: show up to 4 cards */
+/* Desktop: show up to 4 cards per "viewport" width */
 @media (min-width: 1024px) {
   .featured-projects-carousel .project-card {
     width: 25%;
   }
 }
 
-/* Swipe indicator shows only on mobile */
+/* Project Title & Description (applied inside ProjectCard) */
+.project-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #9990bb;
+  margin-left: 0;
+}
+
+.project-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  margin-left: 0;
+}
+
+/* Swipe Indicator */
 .swipe-indicator {
-  display: none;
+  display: none; /* hidden on larger screens */
   text-align: center;
   margin-top: 0.5rem;
   font-size: 0.9rem;

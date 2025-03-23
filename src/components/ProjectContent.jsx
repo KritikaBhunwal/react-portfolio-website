@@ -1,54 +1,33 @@
 import React from "react";
 import "../styles/projectContent.css";
 
-const ProjectContent = ({ title, description, highlights }) => {
-  const defaultTitle = "Styling Project for E-commerce";
-  const defaultDescription =
-    "In my role as an online stylist, I curated fresh and trendy fashion looks for online e-commerce websites like Black is Pink and Baggout. I curated ensembles keeping in mind the diverse occasions, budgets, and individual styles.";
-
-  // Updated default highlights with bulletPointOne instead of label
-  const defaultHighlights = [
-    {
-      bulletPointOne: "Innovative Aesthetics",
-      detail: "Fresh, trend-forward design elements that capture attention.",
-    },
-    {
-      bulletPointOne: "Customer-Centric",
-      detail: "Tailored looks that resonate with diverse style preferences.",
-    },
-    {
-      bulletPointOne: "Seamless Integration",
-      detail: "Effortless pairing of accessories and statement pieces.",
-    },
-    {
-      bulletPointOne: "Versatile Styling",
-      detail:
-        "Outfits that transition perfectly from casual to formal settings.",
-    },
-    {
-      bulletPointOne: "Sustainable Choices",
-      detail: "Eco-friendly options that don’t compromise on style.",
-    },
-  ];
-
-  const usedHighlights = highlights || defaultHighlights;
-
+const ProjectContent = ({ title, description, highlights, icons = [] }) => {
   return (
     <div className="project-content-container">
-      <div className="description-section" style={{ marginRight: "2rem" }}>
+      <div className="description-section">
+        {/* Left Section: Title, Description, Icons */}
         <div className="left-description">
-          <h2 className="section-title">{title || defaultTitle}</h2>
-          <p>{description || defaultDescription}</p>
+          <h2 className="project-title">{title}</h2>
+          <p className="project-description">{description}</p>
+
+          {/* Icons Section - Render only if icons exist */}
+          {icons.length > 0 && (
+            <div className="icon-section">
+              {icons.map((icon, index) => (
+                <div className="icon-card" key={index}>
+                  {icon.icon}
+                  <span>{icon.name}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-        <div className="right-highlights" style={{ marginRight: "2rem" }}>
-          <h2
-            className="section-title"
-            style={{ color: "#3d3d3d", fontSize: "1.5rem" }}
-          >
-            Highlights
-          </h2>
-          <ul>
-            {usedHighlights.map((item, index) => (
+
+        {/* Right Section: Highlights */}
+        <div className="right-highlights">
+          <h3 className="highlights-title">Highlights</h3>
+          <ul className="highlights-list">
+            {highlights.map((item, index) => (
               <li key={index}>
                 <strong>{item.bulletPointOne}:</strong> {item.detail}
               </li>
