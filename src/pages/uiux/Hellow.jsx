@@ -1,420 +1,607 @@
-import React, { useState } from 'react';
+import { useState } from "react";
+import SectionHeading from "../../components/SectionHeading";
+import PDFViewer from "../../components/pdfViewer";
 
 const Hellow = () => {
-  // State for the full-screen gallery view
-  const [fullViewIndex, setFullViewIndex] = useState(null);
-  const [galleryOpen, setGalleryOpen] = useState(false);
+  // Modal preview state for images from Approach, Problem Statement, and Solution sections
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalIndex, setModalIndex] = useState(0);
 
-  // Array of gallery images for the full-screen view
-  const galleryImages = [
-    "/assets/images/Hellow3.jpeg", // Project Summary
-    // "/assets/images/pps-game-2.png", // Research
-    // "/src/assets/images/pps-game-3.png", // Intended Audience
-    // "/src/assets/images/pps-game-4.png", // Problem Statement
-    // "/src/assets/images/pps-game-5.png", // Solution
-    // "/src/assets/images/pps-game-6.png", // Approach
-    // "/src/assets/images/pps-game-7.png", // Risks
-    // "/src/assets/images/pps-game-8.png", // Bibliography
+  // Define image arrays with captions
+  const approachImages = [
+    { src: "/src/assets/images/HellowSketch.png", caption: "Hellow Sketch" },
+    {
+      src: "/src/assets/images/Hellow-StyleSheet.jpg",
+      caption: "Hellow App StyleSheet",
+    },
+  ];
+  const problemImages = [
+    { src: "/src/assets/images/Hellow1.jpg", caption: "Create new Memories with Hellow and Your Loved Ones " },
+    { src: "/src/assets/images/Hellow2.jpg", caption: "With Hellow, Prioritize People over Platform!" },
+    { src: "/src/assets/images/Hellow3.jpg", caption: "Asunchronous Communication through Hellow App for everyone." },
+  ];
+  const solutionImages = [
+    {
+      src: "/src/assets/images/Hellow-SplashScreen.jpg",
+      caption: "Hellow App Splash Screen",
+    },
+    {
+      src: "/src/assets/images/Hellow-Onboarding.jpg",
+      caption: "Hellow App Onboarding",
+    },
+    {
+      src: "/src/assets/images/Hellow-SignInBoy.jpg",
+      caption: "Hellow App Sign In Boy",
+    },
+    {
+      src: "/src/assets/images/Hellow-SignInGirl.jpg",
+      caption: "Hellow App Sign In Girl",
+    },
   ];
 
-  const openFullView = (index) => {
-    setFullViewIndex(index);
-    setGalleryOpen(true);
-  };
+  // Combined modal images (order: Approach, then Problem Statement, then Solution)
+  const modalImages = [...approachImages, ...problemImages, ...solutionImages];
 
-  const closeFullView = () => {
-    setFullViewIndex(null);
-    setGalleryOpen(false);
+  // Modal control functions
+  const openModal = (index) => {
+    setModalIndex(index);
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+  const nextModalImage = () => {
+    setModalIndex((prev) => (prev < modalImages.length - 1 ? prev + 1 : 0));
+  };
+  const prevModalImage = () => {
+    setModalIndex((prev) => (prev > 0 ? prev - 1 : modalImages.length - 1));
   };
 
   return (
     <div className="hellow-container">
-      {/* Report Header */}
-      <header className="report-header">
-        <h1>
-          Hellow you there? Facilitating Connection with Family and Friends
-          Across Different Time Zones
-        </h1>
-        <div className="report-authors">
-          <span>Kritika Bhunwal</span> | <span>Holly Munn</span> |{" "}
-          <span>24 June 2023</span>
-        </div>
-      </header>
-
-      {/* Table of Contents */}
-      <section className="table-of-contents">
-        <h2>Table of Content</h2>
-        <ul>
-          <li>Project Summary</li>
-          <li>Research</li>
-          <li>Intended Audience</li>
-          <li>Problem Statement</li>
-          <li>Solution</li>
-          <li>Approach</li>
-          <li>Risks</li>
-          <li>Bibliography</li>
-        </ul>
-      </section>
-
-      {/* Project Summary Section */}
-      <section className="report-section">
-        <div className="section-heading">
-          <h2>Project Summary</h2>
-          <hr />
-        </div>
-        <div className="section-content">
-          <p>
-            Introducing Hellow, a pro-social app designed to facilitate regular
-            communication among loved ones despite time differences across
-            different time zones. With a vision to foster strong connections
-            across borders, Hellow benefits international students, multinational
-            professionals, and travelers abroad. Its asynchronous communication
-            style coordinates time zones by finding overlapping slots, ensuring
-            seamless scheduling. The app offers a simple interface with a reliable
-            time zone database, high security, and customizable notifications based
-            on mood or availability. Hellow’s adoption strategy revolves around
-            compassion, interaction, and collaboration—coupled with VR features that
-            keep people virtually connected.
-          </p>
-          <div className="section-image">
-            <img
-              src="/src/assets/images/pps-game-1.png"
-              alt="Project Summary Preview"
-              className="game-preview-image"
-              onClick={() => openFullView(0)}
-            />
+      <img
+        src="/src/assets/icons/HellowYouThere.svg"
+        alt="Hellow Icon"
+        className="hellow-icon"
+      />
+      {/* Full-width Banner */}
+      <div className="hellow-banner">
+        <header className="report-header">
+          <div className="header-text">
+            <h2>Hellow you there?</h2>
+            <h3>
+              An app idea that helps build meaningful Connection with Family and
+              Friends Across Different Time Zones
+            </h3>
           </div>
-        </div>
-      </section>
-
-      {/* Research Section */}
-      <section className="report-section">
-        <div className="section-heading">
-          <h2>Research</h2>
-          <hr />
-        </div>
-        <div className="section-content">
-          <p>
-            In the era of global expansion, people are moving across borders for
-            better job opportunities, education, travel, and more. Recent United
-            Nations data reveals a 3.6% increase in global migration from 221
-            million in 2010 to 281 million in 2020—even with a COVID-19 slowdown.
-            Approximately 73% of migrants are working-age, with nearly 65% residing
-            in high-income countries. A study including Microsoft employees found
-            that while synchronous communication fosters connection, it poses
-            challenges across time zones—highlighting the need for efficient
-            asynchronous methods.
-          </p>
-          <div className="section-image">
-            <img
-              src="/src/assets/images/pps-game-2.png"
-              alt="Research Preview"
-              className="game-preview-image"
-              onClick={() => openFullView(1)}
-            />
+          <div className="report-authors">
+            <span>
+              <strong>Kritika Bhunwal</strong>
+            </span>{" "}
+            | <span>Holly Munn</span> | <span>24 June 2023</span>
           </div>
-        </div>
-      </section>
+        </header>
+      </div>
 
-      {/* Intended Audience Section */}
-      <section className="report-section">
-        <div className="section-heading">
-          <h2>Intended Audience</h2>
-          <hr />
-        </div>
-        <div className="section-content">
-          <p>
-            Global migration and varying time zones challenge real-time
-            communication. Students studying abroad, international workers,
-            travelers, and their families struggle to maintain live connections.
-            Hellow’s asynchronous approach enables these users to connect at
-            their convenience—supporting emotional well-being, social inclusion,
-            and a stronger sense of community.
-          </p>
-          <div className="section-image">
-            <img
-              src="/src/assets/images/pps-game-3.png"
-              alt="Intended Audience Preview"
-              className="game-preview-image"
-              onClick={() => openFullView(2)}
+      {/* Main Content Wrapper (8rem left/right margin) */}
+      <div className="main-content">
+        <div className="desktop-layout">
+          <nav className="table-of-contents">
+            <h3>Table of Content</h3>
+            <ul>
+              <li>
+                <a href="#project-title" style={{ color: "#3d3d3d" }}>
+                  Hellow
+                </a>
+              </li>
+              <li>
+                <a href="#project-summary" style={{ color: "#3d3d3d" }}>
+                  Project Summary
+                </a>
+              </li>
+              <li>
+                <a href="#research" style={{ color: "#3d3d3d" }}>
+                  Research
+                </a>
+              </li>
+              <li>
+                <a href="#intended-audience" style={{ color: "#3d3d3d" }}>
+                  Intended Audience
+                </a>
+              </li>
+              <li>
+                <a href="#problem-statement" style={{ color: "#3d3d3d" }}>
+                  Problem Statement
+                </a>
+              </li>
+              <li>
+                <a href="#solution" style={{ color: "#3d3d3d" }}>
+                  Solution
+                </a>
+              </li>
+              <li>
+                <a href="#approach" style={{ color: "#3d3d3d" }}>
+                  Approach
+                </a>
+              </li>
+              <li>
+                <a href="#risks" style={{ color: "#3d3d3d" }}>
+                  Risks
+                </a>
+              </li>
+              <li>
+                <a href="#bibliography" style={{ color: "#3d3d3d" }}>
+                  Bibliography
+                </a>
+              </li>
+              <li>
+                <a href="#collaboration" style={{ color: "#3d3d3d" }}>
+                  Looking to Collaborate?
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Vertical Line */}
+          <div className="vertical-line"></div>
+
+          <main className="content">
+            {/* Project Title Section */}
+            <section id="project-title" className="report-section">
+              <div className="section-heading">
+                <h3>Hellow</h3>
+                <hr />
+              </div>
+              <div className="section-content">
+                <p>
+                  An asynchronous way of communication.
+                  <br />
+                  <br />
+                  If you have Family and Friends Across Different Time Zones,
+                  this app idea is dedicated to you and your loved ones!
+                </p>
+              </div>
+            </section>
+
+            {/* Project Summary Section */}
+            <section id="project-summary" className="report-section">
+              <div className="section-heading">
+                <h3>Project Summary</h3>
+                <hr />
+              </div>
+              <div className="section-content">
+                <p>
+                  Introducing Hellow, a pro-social app designed to facilitate
+                  regular communication among loved ones despite time
+                  differences. With a vision to foster strong connections across
+                  borders, Hellow benefits international students, multinational
+                  professionals, and travelers abroad. <br />
+                  <br />
+                  Its asynchronous communication style finds overlapping time
+                  slots for seamless scheduling. The app offers a simple
+                  interface with a reliable time zone database, high security,
+                  and customizable notifications. Hellow’s adoption strategy
+                  revolves around compassion, interaction, and
+                  collaboration—coupled with VR features that keep people
+                  virtually connected.
+                </p>
+              </div>
+            </section>
+
+            {/* Research Section */}
+            <section id="research" className="report-section">
+              <div className="section-heading">
+                <h3>Research</h3>
+                <hr />
+              </div>
+              <div className="section-content">
+                <p>
+                  In the era of global expansion, people are moving across
+                  borders for better job opportunities, education, travel, and
+                  more. Recent UN data reveals a 3.6% increase in global
+                  migration from 221 million in 2010 to 281 million in 2020—even
+                  with a COVID-19 slowdown. Approximately 73% of migrants are
+                  working-age, with nearly 65% residing in high-income
+                  countries. <br />
+                  <br />A study including Microsoft employees found that while
+                  synchronous communication fosters connection, it poses
+                  challenges across time zones—highlighting the need for
+                  efficient asynchronous methods.
+                </p>
+              </div>
+            </section>
+
+            {/* Intended Audience Section */}
+            <section id="intended-audience" className="report-section">
+              <div className="section-heading">
+                <h3>Intended Audience</h3>
+                <hr />
+              </div>
+              <div className="section-content">
+                <p>
+                  Global migration and varying time zones challenge real-time
+                  communication. Students studying abroad, international
+                  workers, travelers, and their families struggle to maintain
+                  live connections. <br />
+                  <br />
+                  Hellow’s asynchronous approach enables these users to connect
+                  at their convenience—supporting emotional well-being, social
+                  inclusion, and community.
+                </p>
+              </div>
+            </section>
+
+            {/* Problem Statement Section */}
+            <section id="problem-statement" className="report-section">
+              <div className="section-heading">
+                <h3>Problem Statement</h3>
+                <hr />
+              </div>
+              <div className="section-content">
+                <p>
+                  Coordinating real-time interactions across different time
+                  zones is complex. Hellow recognizes the struggle of
+                  maintaining constant communication with loved ones when
+                  schedules clash. <br />
+                  <br />
+                  To address this, the app offers customizable notifications
+                  that reflect mood, availability, and relationship
+                  dynamics—prioritizing urgent messages while supporting a
+                  relaxed, asynchronous style.
+                </p>
+                {/* Problem Statement Gallery */}
+                <div className="section-gallery">
+                  {problemImages.map((img, idx) => (
+                    <img
+                      key={idx}
+                      src={img.src}
+                      alt={img.caption}
+                      onClick={() => openModal(approachImages.length + idx)}
+                      className="gallery-image"
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Solution Section */}
+            <section id="solution" className="report-section">
+              <div className="section-heading">
+                <h3>Solution</h3>
+                <hr />
+              </div>
+              <div className="section-content">
+                <p>
+                  Hellow provides a solution to cross-time zone challenges by
+                  establishing routines and leveraging technology for
+                  asynchronous interactions. <br />
+                  <br />
+                  With scheduled notifications, personalized settings, and a
+                  user-friendly interface, the app bridges the gap between
+                  different geolocations—allowing users to stay connected at
+                  their own pace.
+                </p>
+                {/* Solution Gallery */}
+                <div className="section-gallery">
+                  {solutionImages.map((img, idx) => (
+                    <img
+                      key={idx}
+                      src={img.src}
+                      alt={img.caption}
+                      onClick={() =>
+                        openModal(
+                          approachImages.length + problemImages.length + idx
+                        )
+                      }
+                      className="gallery-image"
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Approach Section */}
+            <section id="approach" className="report-section">
+              <div className="section-headingh">
+                <h3>Approach</h3>
+                <hr />
+              </div>
+              <div className="section-content">
+                <p>
+                  Responding to global migration and remote work challenges,
+                  Hellow adopts an asynchronous model. <br />
+                  <br />
+                  This approach reduces the pressure of real-time connectivity
+                  while ensuring regular, meaningful engagement. By leveraging
+                  VR technology, the app creates a sense of presence that
+                  bridges emotional distances—empowering users to connect
+                  despite time differences.
+                </p>
+                {/* Approach Gallery */}
+                <div className="section-gallery-approach">
+                  {approachImages.map((img, idx) => (
+                    <img
+                      key={idx}
+                      src={img.src}
+                      alt={img.caption}
+                      onClick={() => openModal(idx)}
+                      className="gallery-image"
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Risks Section */}
+            <section id="risks" className="report-section">
+              <div className="section-heading">
+                <h3>Risks</h3>
+                <hr />
+              </div>
+              <div className="section-content">
+                <p>
+                  Like any communication app, Hellow faces risks related to
+                  privacy, security, and technical disruptions.
+                  <br />
+                  <br />
+                  Additionally, challenges around user engagement, market
+                  competition, cultural barriers, and monetization require
+                  careful attention. Ongoing updates and user feedback are
+                  essential to mitigate these risks.
+                </p>
+              </div>
+            </section>
+
+            {/* Bibliography Section */}
+            <section id="bibliography" className="report-section">
+              <div className="section-heading">
+                <h3>Bibliography</h3>
+                <hr />
+              </div>
+              <div className="section-content">
+                <p>
+                  Hellow, like any communication app, poses certain risks that
+                  need to be addressed.
+                </p>
+              </div>
+            </section>
+
+            <SectionHeading title="Youtube Video" />
+
+            {/* Embedded video */}
+            <div className="video-container">
+            <iframe width="800" height="315" src="https://www.youtube-nocookie.com/embed/EQihKwl7xzc?si=shnZVc6kRcv20HBk&amp;controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+            </div>
+
+            <SectionHeading title="Presentation Pdf" />
+            <PDFViewer 
+              src="/src/assets/files/KritikaBhunwal_TechnicalSolutionProposal_Presentation.pdf" 
+              width="100%" 
+              height="340px" 
+              style={{ borderRadius: "2rem", marginLeft: "5rem"}}
             />
-          </div>
-        </div>
-      </section>
 
-      {/* Problem Statement Section */}
-      <section className="report-section">
-        <div className="section-heading">
-          <h2>Problem Statement</h2>
-          <hr />
+
+            {/* Collaboration Section */}
+            <section
+              id="collaboration"
+              className="report-section collaboration-section"
+            >
+              <div className="section-heading">
+                <h3>Looking to Collaborate?</h3>
+                <hr />
+              </div>
+              <div className="section-content">
+                <h3>Let’s Build Something Amazing Together!</h3>
+                <p>
+                  I am passionate about creating meaningful designs that
+                  resonate and inspire. Whether it’s branding, UX/UI, or
+                  creative problem-solving, I’m here to bring your vision to
+                  life. Let’s collaborate and make an impact!
+                </p>
+                <ul className="collaboration-highlights">
+                  <li>
+                    <strong>Collaborative Approach:</strong> A strong belief in
+                    teamwork and open communication to achieve the best results.
+                  </li>
+                  <li>
+                    <strong>Creative Problem Solving:</strong> Using design
+                    thinking to find innovative solutions tailored to unique
+                    business needs.
+                  </li>
+                  <li>
+                    <strong>Detail-Oriented Execution:</strong> Ensuring
+                    high-quality, polished, and impactful visual storytelling.
+                  </li>
+                </ul>
+              </div>
+
+            </section>
+          </main>
         </div>
-        <div className="section-content">
-          <p>
-            Coordinating real-time interactions across different time zones is
-            complex. Hellow recognizes the struggle of maintaining constant
-            communication with loved ones when schedules and time zones clash. To
-            address this, the app offers customizable notifications that reflect
-            mood, availability, and relationship dynamics—prioritizing urgent
-            messages while supporting a relaxed, asynchronous conversation style.
-          </p>
-          <div className="section-image">
+      </div>
+
+      {/* Modal Preview for Images */}
+      {modalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button className="modal-close" onClick={closeModal}>
+              ✖
+            </button>
+            <button className="modal-prev" onClick={prevModalImage}>
+              ❮
+            </button>
             <img
-              src="/src/assets/images/pps-game-4.png"
-              alt="Problem Statement Preview"
-              className="game-preview-image"
-              onClick={() => openFullView(3)}
+              src={modalImages[modalIndex].src}
+              alt={modalImages[modalIndex].caption}
+              className="modal-image"
             />
+            <p className="modal-caption">{modalImages[modalIndex].caption}</p>
+            <button className="modal-next" onClick={nextModalImage}>
+              ❯
+            </button>
           </div>
-        </div>
-      </section>
 
-      {/* Solution Section */}
-      <section className="report-section">
-        <div className="section-heading">
-          <h2>Solution</h2>
-          <hr />
-        </div>
-        <div className="section-content">
-          <p>
-            Hellow provides a solution to the challenges of cross-time zone
-            communication by establishing routines and leveraging technology for
-            asynchronous interactions. With scheduled notifications, personalized
-            settings, and a user-friendly interface, the app bridges the gap
-            between different geolocations, allowing users to stay connected at
-            their own pace.
-          </p>
-          <div className="section-image">
-            <img
-              src="/src/assets/images/pps-game-5.png"
-              alt="Solution Preview"
-              className="game-preview-image"
-              onClick={() => openFullView(4)}
-            />
-          </div>
-        </div>
-      </section>
 
-      {/* Approach Section */}
-      <section className="report-section">
-        <div className="section-heading">
-          <h2>Approach</h2>
-          <hr />
-        </div>
-        <div className="section-content">
-          <p>
-            Responding to the challenges of global migration and remote work, Hellow
-            adopts an asynchronous model. This approach reduces the pressure of
-            real-time connectivity while ensuring regular, meaningful engagement.
-            By leveraging VR technology, the app creates a sense of presence that
-            bridges emotional distances—empowering users to connect despite time
-            differences.
-          </p>
-          <div className="section-image">
-            <img
-              src="/src/assets/images/pps-game-6.png"
-              alt="Approach Preview"
-              className="game-preview-image"
-              onClick={() => openFullView(5)}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Risks Section */}
-      <section className="report-section">
-        <div className="section-heading">
-          <h2>Risks</h2>
-          <hr />
-        </div>
-        <div className="section-content">
-          <p>
-            Like any communication app, Hellow faces risks related to privacy,
-            security, and technical disruptions. Additionally, user engagement,
-            market competition, cultural and language barriers, and monetization
-            challenges need to be addressed. Ongoing updates and user feedback are
-            essential to mitigate these risks.
-          </p>
-          <div className="section-image">
-            <img
-              src="/src/assets/images/pps-game-7.png"
-              alt="Risks Preview"
-              className="game-preview-image"
-              onClick={() => openFullView(6)}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Bibliography Section */}
-      <section className="report-section">
-        <div className="section-heading">
-          <h2>Bibliography</h2>
-          <hr />
-        </div>
-        <div className="section-content">
-          <p>
-            Hellow, like any communication app, poses certain risks that need to be
-            addressed.
-          </p>
-          <div className="section-image">
-            <img
-              src="/src/assets/images/pps-game-8.png"
-              alt="Bibliography Preview"
-              className="game-preview-image"
-              onClick={() => openFullView(7)}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Collaboration Section */}
-      <section className="report-section collaboration-section">
-        <div className="section-heading">
-          <h2>Looking to Collaborate?</h2>
-          <hr />
-        </div>
-        <div className="section-content">
-          <h3>Let’s Build Something Amazing Together!</h3>
-          <p>
-            I am passionate about creating meaningful designs that resonate and
-            inspire. Whether it’s branding, UX/UI, or creative problem-solving, I’m
-            here to bring your vision to life. Let’s collaborate and make an impact!
-          </p>
-          <ul className="collaboration-highlights">
-            <li>
-              <strong>Collaborative Approach:</strong> A strong belief in teamwork
-              and open communication to achieve the best results.
-            </li>
-            <li>
-              <strong>Creative Problem Solving:</strong> Using design thinking to
-              find innovative solutions tailored to unique business needs.
-            </li>
-            <li>
-              <strong>Detail-Oriented Execution:</strong> Ensuring high-quality,
-              polished, and impactful visual storytelling.
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      {/* Full-Screen Gallery View */}
-      {galleryOpen && fullViewIndex !== null && (
-        <div className="full-view-overlay">
-          <button className="close-btn" onClick={closeFullView}>
-            ✖
-          </button>
-          <button
-            className="prev-btn"
-            onClick={() =>
-              setFullViewIndex((prev) =>
-                prev > 0 ? prev - 1 : galleryImages.length - 1
-              )
-            }
-          >
-            ❮
-          </button>
-          <img
-            src={galleryImages[fullViewIndex]}
-            alt={`Preview ${fullViewIndex + 1}`}
-            className="full-view-image"
-          />
-          <button
-            className="next-btn"
-            onClick={() =>
-              setFullViewIndex((prev) =>
-                prev < galleryImages.length - 1 ? prev + 1 : 0
-              )
-            }
-          >
-            ❯
-          </button>
         </div>
       )}
 
       {/* Inline CSS */}
       <style>{`
+        html {
+          scroll-behavior: smooth;
+        }
+        /* Global & Container Styles */
         .hellow-container {
-          max-width: 900px;
-          margin: 0 auto;
-          padding: 20px;
-          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          color: #333;
-          line-height: 1.6;
+          color: #3d3d3d;
+          font-family: 'Quicksand', sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+        /* Full-width Banner */
+        .hellow-banner {
+          width: 100vw;
+        //   background: #fefefe;
+          padding: 1rem 2rem;
+          box-sizing: border-box;
+
         }
         .report-header {
-          text-align: center;
-          margin-bottom: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
         }
-        .report-header h1 {
-          font-size: 2.5rem;
-          margin-bottom: 10px;
+        .hellow-icon {
+        //   width: 50px;
+          height: auto;
+          margin: 1rem 2rem;
+        }
+        .header-text h2 {
+          font-size: 3rem;
+          margin-left: 8rem;
+        //   margin-right: 8rem;
+          color: #3d3d3d;
+        }
+        .header-text h3 {
+          font-size: 1.75rem;
+          margin-left: 8rem;
+          color: #3d3d3d;
+          margin-right: 8rem;
         }
         .report-authors {
           font-size: 0.9rem;
-          color: #777;
+          font-weight: bold;
+          color: #cbbfee;
+          margin-left: 8rem;
+        }
+        /* Main Content Wrapper */
+        .main-content {
+          margin: 0 8rem;
+        }
+        /* Desktop Layout */
+        .desktop-layout {
+          display: flex;
+          gap: 2rem;
+          margin: 2rem 0;
         }
         .table-of-contents {
-          margin-bottom: 40px;
+          flex: 0 0 200px;
+          position: sticky;
+          top: 0;
+          align-self: flex-start;
+          margin-left: 1rem;
+          padding: 1rem;
+          line-height: 2rem;
         }
-        .table-of-contents h2 {
+        /* Vertical Line */
+        .vertical-line {
+          width: 1px;
+          background: #ccc;
+          margin: 1rem;
+          align-self: stretch;
+        }
+        .table-of-contents h3 {
           font-size: 1.8rem;
-          border-bottom: 2px solid #ccc;
-          padding-bottom: 5px;
+          margin: 0;
+          padding-bottom: 0.5rem;
+          border-bottom: 1px solid #ccc;
+          font-weight: bold;
+          color: #cbbfee;
         }
         .table-of-contents ul {
-          list-style-type: none;
+          list-style: none;
           padding-left: 0;
+          margin-top: 1rem;
         }
         .table-of-contents li {
-          margin: 5px 0;
+          margin: .5rem 0;
         }
+
+        .table-of-contents a {
+          text-decoration: none;
+          color: #3d3d3d;
+          font-weight: bold;
+          font-size: 1rem;
+        }
+        .table-of-contents li:active {
+          background-olor: #cbbfee;
+        }
+        .content {
+          flex: 1;
+          padding: 1rem;
+        }
+        /* Report Sections */
         .report-section {
-          margin-bottom: 40px;
+          margin-bottom: 3rem;
+          text-align: left;
         }
-        .section-heading h2 {
+        .section-heading h3 {
           font-size: 2rem;
-          margin-bottom: 10px;
+          margin: 0;
+          font-weight: bold;
+          color: #cbbfee;
         }
         .section-heading hr {
           border: none;
-          height: 2px;
-          background-color: #eee;
-          margin-bottom: 20px;
+          height: 1px;
+          background-color: #ccc;
+          margin: 1.3rem 0 2rem 0;
         }
         .section-content {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
+          margin-bottom: 1rem;
         }
         .section-content p {
           font-size: 1rem;
-          margin: 0;
+          margin: 2rem;
         }
-        .section-image {
-          text-align: center;
+        /* Gallery Styles - 2 images per row */
+        .section-gallery {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          justify-content: flex-start;
+          margin: 0 2rem;
         }
-        .game-preview-image {
-          max-width: 100%;
-          border-radius: 8px;
+        .section-gallery-approach {
+        
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 0 2rem;
+        }
+        .gallery-image, .gallery-image-approach {
+          flex: 1 1 calc(50% - 1rem);
+          max-width: calc(50% - 1rem);
           cursor: pointer;
+          border-radius: 2rem;
           transition: transform 0.3s ease;
         }
-        .game-preview-image:hover {
-          transform: scale(1.02);
+        .gallery-image:hover, .gallery-image-approach:hover {
+          transform: scale(1.01);
         }
-        .collaboration-section {
-          background-color: #f9f9f9;
-          padding: 20px;
-          border-radius: 8px;
-        }
-        .collaboration-highlights {
-          list-style-type: disc;
-          margin-left: 20px;
-        }
-        .collaboration-highlights li {
-          margin-bottom: 5px;
-        }
-        .full-view-overlay {
+
+        /* Modal Styles */
+        .modal-overlay {
           position: fixed;
           top: 0;
           left: 0;
@@ -426,33 +613,86 @@ const Hellow = () => {
           justify-content: center;
           z-index: 1000;
         }
-        .full-view-image {
-          max-width: 90%;
-          max-height: 80%;
-          border-radius: 8px;
+        .modal-content {
+          position: relative;
+          background: #fff;
+          padding: 2rem;
+          border-radius: 2rem;
+          text-align: center;
+          max-width: 100%;
+          max-height: 90%;
         }
-        .close-btn, .prev-btn, .next-btn {
+        .modal-image {
+          max-width: auto;
+          max-height: 90%;
+          border-radius: 2rem;
+        }
+        .modal-caption {
+          margin-top: 0.5rem;
+          font-size: 1rem;
+          color: #3d3d3d;
+          margin-left: 0rem;
+        }
+        .modal-close, .modal-prev, .modal-next {
           position: absolute;
           background: transparent;
           border: none;
-          color: #fff;
           font-size: 2rem;
           cursor: pointer;
-          padding: 10px;
+          padding: 0.7rem;
+          color: #3d3d3d;
         }
-        .close-btn {
-          top: 20px;
-          right: 20px;
+        .modal-close {
+          top: 10px;
+          right: 10px;
         }
-        .prev-btn {
-          left: 20px;
+        .modal-prev {
+          left: 10px;
           top: 50%;
           transform: translateY(-50%);
         }
-        .next-btn {
-          right: 20px;
+        .modal-next {
+          right: 10px;
           top: 50%;
           transform: translateY(-50%);
+        }
+        /* Collaboration Section */
+        .collaboration-section {
+          background-color: #f9f9f9;
+          padding: 3rem;
+          border-radius: 2rem;
+          margin-top: 2rem;
+          margin-left: -2rem;
+        }
+        .collaboration-highlights {
+          list-style: disc;
+          margin-left: 3rem;
+        }
+        .collaboration-highlights li {
+          margin-bottom: 0.5rem;
+          margin-left: 1rem;
+          font-size: 1rem;
+        }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+          .desktop-layout {
+            flex-direction: column;
+            margin: 1rem;
+          }
+          .table-of-contents {
+            border-right: none;
+            border-bottom: 1px solid #ccc;
+            max-height: none;
+            position: relative;
+            top: auto;
+            margin-bottom: 1rem;
+          }
+          .vertical-line {
+            display: none;
+          }
+          .main-content {
+            margin: 0 1rem;
+          }
         }
       `}</style>
     </div>

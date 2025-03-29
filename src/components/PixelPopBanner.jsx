@@ -1,7 +1,9 @@
 // PixelPopBanner.jsx
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/pixelPopBanner.css";
+import PropTypes from "prop-types";
 
 function PixelPopBanner({
   heading = "PixelPop Studio", // default heading
@@ -57,5 +59,10 @@ function PixelPopBanner({
     </div>
   );
 }
+PixelPopBanner.propTypes = {
+  heading: PropTypes.string,
+  showButton: PropTypes.bool,
+  showParagraph: PropTypes.bool,
+};
 
 export default PixelPopBanner;

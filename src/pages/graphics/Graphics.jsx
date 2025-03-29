@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import SEO from "../../components/SEO.jsx";
@@ -127,6 +128,7 @@ const Graphics = () => {
           highlights={motionGraphicsHighlights}
           icons={motionGraphicsIcons}
         />
+        <SectionHeading title="Youtube Video" />
 
         {/* Embedded video */}
         <div className="video-container">

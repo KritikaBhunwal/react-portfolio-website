@@ -1,7 +1,6 @@
-import React from "react";
+import "react";
 import Banner from "../components/Banner.jsx";
 import PixelPopBanner from "../components/PixelPopBanner.jsx";
-// import JavaScriptGames from "../pages/uiux/JavaScriptGames.jsx"
 import SectionHeading from "../components/SectionHeading";
 import TechnicalSkills from "../components/TechnicalSkills.jsx";
 import InterpersonalSkills from "../components/InterpersonalSkills.jsx";
@@ -10,7 +9,6 @@ import Career from "../components/Career";
 import ProjectContent from "../components/ProjectContent.jsx";
 import WorkTogether from "../components/WorkTogether";
 import SEO from "../components/SEO";
-
 
 import "../styles/home.css";
 
