@@ -1,6 +1,6 @@
 /* Define color variables */
 :root {
-  --primary-purple: #C3B9E2;
+  --primary-purple: #cbbfee;
   --primary-white: #F3F3F3;
   --primary-yellow: #FEE269;
   --navbar-bg: #3D3D3D;
@@ -28,7 +28,7 @@
 /* Logo */
 .navbar-logo img {
   height: 34px;
-  padding: .1rem;
+  padding: 0.1rem;
   transition: transform 0.3s ease;
 }
 
@@ -36,12 +36,6 @@
   /* transform: scale(1.1); */
   animation: rotateScaleLogo 4s ease-in-out infinite;
 }
-
-/* Rotating animation */
-/* .rotating-logo {
-  animation: rotateScaleLogo 4s ease-in-out infinite;
-  animation-delay: 2s;
-} */
 
 @keyframes rotateScaleLogo {
   0% { transform: rotate(0deg) scale(1); }
@@ -53,6 +47,7 @@
 .menu-horizontal {
   display: flex;
   gap: 1rem;
+  align-items: center; /* Align main menu items */
 }
 
 /* Navigation Links */
@@ -78,6 +73,20 @@
   font-weight: 600;
 }
 
+.dropdown-link {
+  font-size: small;
+  background-color: #3d3d3d;
+  color: #C3B9E2;
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  border-radius: 1rem;
+}
+
+.dropdown-link:hover {
+  color: #F3F3F3;
+  background-color: #2d2d2d;
+}
+
 /* Hamburger Icon */
 .hamburger-icon {
   display: none;
@@ -89,14 +98,13 @@
 
 .hamburger-icon .bar {
   width: 100%;
-  height: .24rem;
+  height: 0.24rem;
   background-color: var(--primary-white);
   border-radius: 2px;
   position: absolute;
   transition: all 0.3s ease;
 }
 
-/* Default hamburger state */
 .hamburger-icon .bar:nth-child(1) {
   top: 0;
 }
@@ -109,7 +117,6 @@
   top: 20px;
 }
 
-/* Close icon when menu is open */
 .hamburger-icon.open .bar:nth-child(1) {
   transform: rotate(45deg);
   top: 10px;
@@ -142,12 +149,10 @@
   z-index: 999;
 }
 
-/* Slide-in Effect */
 .mobile-menu.open {
   transform: translateX(0);
 }
 
-/* Mobile Menu Content */
 .mobile-menu-content {
   display: flex;
   flex-direction: column;
@@ -159,14 +164,50 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  /* Hide desktop menu */
   .menu-horizontal {
     display: none;
   }
 
-  /* Show hamburger */
   .hamburger-icon {
     display: block;
     z-index: 1000;
+  }
+}
+
+/* Desktop Dropdown for Subpages (views larger than tablet) */
+@media (min-width: 768px) {
+  .nav-dropdown {
+    position: relative;
+  }
+  
+  .nav-dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Remove gap so dropdown touches main menu */
+    left: 0;
+    background-color: #2d2d2d;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    min-width: 180px;
+  }
+  
+  .nav-dropdown:hover .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .nav-dropdown .dropdown-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .nav-dropdown .dropdown-menu a:hover {
+    background-color: #9990bb;
+    color: #3d3d3d;
   }
 }

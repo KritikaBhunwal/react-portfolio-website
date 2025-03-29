@@ -48,7 +48,7 @@ const TechnicalSkills = () => {
             key={index}
             href="#"
             className="software-card"
-            transition={{ duration: 0.1 }}
+            transition={{ duration: 0.01 }}
           >
             <div className="software-icon">{software.icon}</div>
             <p>{software.name}</p>

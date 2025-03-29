@@ -1,0 +1,61 @@
+// PixelPopBanner.jsx
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "../styles/pixelPopBanner.css";
+
+function PixelPopBanner({
+  heading = "PixelPop Studio", // default heading
+  showButton = true,
+  showParagraph = true,
+}) {
+  // State for cursor position
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+  // Effect to track mouse movement and update cursor position
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setCursorPosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  return (
+    <div className="pixelpop-banner">
+      {/* Custom heading */}
+      <h1 className="banner-title">{heading}</h1>
+
+      {/* Console Image with upDown motion */}
+      <img
+        src="/src/assets/images/pps-image-console.png"
+        alt="Gaming Console"
+        className="banner-console"
+      />
+
+      {showParagraph && (
+        <p className="game-prompt">Relive the Nostalgia of Old School Games</p>
+      )}
+
+      {showButton && (
+        <Link to="/uiux/javascript-games">
+          <button className="play-button">Play Now</button>
+        </Link>
+      )}
+
+      {/* Custom Cursor with a subtle pulse */}
+      <div
+        className="custom-cursor"
+        style={{
+          left: `${cursorPosition.x}px`,
+          top: `${cursorPosition.y}px`,
+        }}
+      ></div>
+    </div>
+  );
+}
+
+export default PixelPopBanner;

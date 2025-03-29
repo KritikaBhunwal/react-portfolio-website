@@ -1,16 +1,17 @@
-// src/routes.js
-
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// Import your pages
+// Pages
 import Home from "./pages/Home";
-import UIUXIndex from "./pages/uiux/UIUX"; // Main UI/UX page (with subpages inside the folder)
-import GraphicsIndex from "./pages/graphics/Graphics"; // Main Graphics page (with subpages)
+import UIUXIndex from "./pages/uiux/UIUX";
+import JavaScriptGames from "./pages/uiux/JavaScriptGames";
+import Hellow from "./pages/uiux/Hellow";
+import SmokingGun from "./pages/uiux/SmokingGun";
+import GraphicsIndex from "./pages/graphics/Graphics";
+import LogoDesign from "./pages/graphics/LogoDesign";
 import Fashion from "./pages/fashion/Fashion";
 import About from "./pages/about/About";
 
-// Import global components
+// Shared layout
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
@@ -21,11 +22,18 @@ const AppRoutes = () => {
       <Navbar />
       <ScrollToTop />
       <Routes>
+        {/* Top-level pages */}
         <Route path="/" element={<Home />} />
-        <Route path="/uiux/*" element={<UIUXIndex />} />
-        <Route path="/graphics/*" element={<GraphicsIndex />} />
-        <Route path="/fashion/*" element={<Fashion />} />
-        <Route path="/about/*" element={<About />} />
+        <Route path="/uiux" element={<UIUXIndex />} />
+        <Route path="/graphics" element={<GraphicsIndex />} />
+        <Route path="/fashion" element={<Fashion />} />
+        <Route path="/about" element={<About />} />
+
+        {/* Standalone subpages */}
+        <Route path="/uiux/javascript-games" element={<JavaScriptGames />} />
+        <Route path="/uiux/hellow" element={<Hellow />} />
+        <Route path="/uiux/smoking-gun" element={<SmokingGun />} />
+        <Route path="/graphics/logo-design" element={<LogoDesign />} />
       </Routes>
       <Footer />
     </Router>

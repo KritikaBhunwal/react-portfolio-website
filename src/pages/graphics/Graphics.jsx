@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet, Link } from "react-router-dom";
 import SEO from "../../components/SEO.jsx";
 import SectionHeading from "../../components/SectionHeading.jsx";
 import ProjectContent from "../../components/ProjectContent.jsx";
@@ -60,7 +61,7 @@ const motionGraphicsIcons = [
   { name: "Adobe Audition", icon: <SiAdobeaudition size={24} /> },
 ];
 
-// Structured Data for the Graphics page
+// Structured Data
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -77,14 +78,15 @@ const Graphics = () => {
         description="Explore a comprehensive portfolio of innovative graphic design, expressive illustrations, and dynamic motion graphics that bring visual storytelling to life."
         keywords="graphic design, artistic showcase, motion graphics, illustration, creative, digital art"
         url="https://www.kritikabhunwal.com/graphics"
-        image="https://kritikabhunwal.com/assets/graphics-banner.png" // Replace with your actual share image URL
+        image="https://kritikabhunwal.com/assets/graphics-banner.png"
         type="website"
         lang="en"
         robots="index,follow"
         structuredData={structuredData}
       />
+
       <div className="graphics-container">
-        <ImageBanner 
+        <ImageBanner
           baseImage={GraphicBannerBase}
           topImage={GraphicBannerTop}
           baseAlt="Base Graphics Banner"
@@ -92,9 +94,14 @@ const Graphics = () => {
           bannerClass="image-banner"
         />
 
+        {/* Optional link to subpage */}
+        <div className="subpage-links">
+          <Link to="logo-design" className="subpage-link">Go to Logo Design Showcase</Link>
+        </div>
+
         {/* Section 1: Graphic Design + Showcase */}
         <SectionHeading title="Graphic Design Portfolio" />
-        <ProjectContent 
+        <ProjectContent
           title="Dynamic Visual Communication"
           description="A comprehensive exploration of innovative graphic design concepts along with a curated selection of projects that showcase our creative vision and technical excellence."
           highlights={graphicDesignHighlights}
@@ -104,7 +111,7 @@ const Graphics = () => {
 
         {/* Section 2: Artistic Showcase */}
         <SectionHeading title="Artistic Showcase" />
-        <ProjectContent 
+        <ProjectContent
           title="Expressive Illustrations"
           description="A curated collection of illustrations that blend traditional techniques with modern digital artistry to evoke emotion and inspire imagination."
           highlights={artisticShowcaseHighlights}
@@ -114,24 +121,27 @@ const Graphics = () => {
 
         {/* Section 3: Motion Graphics Project */}
         <SectionHeading title="Creative Expression through Motion Graphics" />
-        <ProjectContent 
+        <ProjectContent
           title="Illustrations in Motion: A Music Video Experiment"
           description="As part of a school project and my ongoing artistic journey, I brought my illustrations to life by creating a motion graphics interpretation of a music video. This project was an exploration of movement, rhythm, and storytelling through animation. Every frame was carefully crafted to reflect the song’s energy, emotion, and narrative. It was an exciting fusion of my passion for illustration, animation, and music."
           highlights={motionGraphicsHighlights}
           icons={motionGraphicsIcons}
         />
 
-        {/* YouTube Video Embed */}
+        {/* Embedded video */}
         <div className="video-container">
-          <iframe 
+          <iframe
             className="youtube-video"
-            src="https://www.youtube.com/embed/lvmDSN6cZfc" 
+            src="https://www.youtube.com/embed/lvmDSN6cZfc"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
         </div>
+
+        {/* Subpage content rendered here */}
+        <Outlet />
       </div>
     </>
   );
