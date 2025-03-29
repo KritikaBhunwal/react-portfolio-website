@@ -22,6 +22,7 @@
   align-self: center;
   transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
 }
+
 /* Icon hover effect */
 .social-icons a:hover {
   color: #9990bb; /* 🔥 Highlight color on hover */
@@ -42,7 +43,7 @@ p {
 /* Medium screens */
 @media (max-width: 1024px) {
   h2 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
   p {
     font-size: 1.125rem;
@@ -52,9 +53,9 @@ p {
 /* Small screens */
 @media (max-width: 768px) {
   h2 {
-    font-size: 1.75rem;
+    font-size: 2.75rem;
   }
   p {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 }

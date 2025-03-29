@@ -1,8 +1,27 @@
 import { useEffect, useState } from "react";
 import "../styles/greeting.css";
+import PropTypes from "prop-types";
 
 const languages = [
-  "Hello!", "नमस्ते,", "Bonjour!", "こんにちは", "Olá", "Hello!", "नमस्ते,", "안녕하세요", "Ciao!", "Привет", "Hello!", "नमस्ते,", "Hola!", "你好", "Γειά σου", "Hello!", "नमस्ते,", "שלום", "مرحبا"
+  "Hello!",
+  "नमस्ते,",
+  "Bonjour!",
+  "こんにちは",
+  "Olá",
+  "Hello!",
+  "नमस्ते,",
+  "안녕하세요",
+  "Ciao!",
+  "Привет",
+  "Hello!",
+  "नमस्ते,",
+  "Hola!",
+  "你好",
+  "Γειά σου",
+  "Hello!",
+  "नमस्ते,",
+  "שלום",
+  "مرحبا",
 ];
 
 const TypewriterText = ({ text }) => {
@@ -42,6 +61,9 @@ const Greeting = () => {
       </h1>
     </div>
   );
+};
+TypewriterText.propTypes = {
+  text: PropTypes.string.isRequired,
 };
 
 export default Greeting;

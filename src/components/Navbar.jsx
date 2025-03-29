@@ -43,25 +43,13 @@ const Navbar = () => {
               UI/UX
             </NavLink>
             <div className="dropdown-menu">
-              <NavLink
-                to="/uiux/javascript-games"
-                onClick={closeMobileMenu}
-                className="dropdown-item"
-              >
+              <NavLink to="/uiux/javascript-games" onClick={closeMobileMenu} className="dropdown-item">
                 JavaScript Games
               </NavLink>
-              <NavLink
-                to="/uiux/hellow"
-                onClick={closeMobileMenu}
-                className="dropdown-item"
-              >
+              <NavLink to="/uiux/hellow" onClick={closeMobileMenu} className="dropdown-item">
                 Hellow
               </NavLink>
-              <NavLink
-                to="/uiux/smoking-gun"
-                onClick={closeMobileMenu}
-                className="dropdown-item"
-              >
+              <NavLink to="/uiux/smoking-gun" onClick={closeMobileMenu} className="dropdown-item">
                 Smoking Gun
               </NavLink>
             </div>
@@ -79,37 +67,25 @@ const Navbar = () => {
               GRAPHICS
             </NavLink>
             <div className="dropdown-menu">
-              <NavLink
-                to="/graphics/logo-design"
-                onClick={closeMobileMenu}
-                className="dropdown-item"
-              >
+              <NavLink to="/graphics/logo-design" onClick={closeMobileMenu} className="dropdown-item">
                 Logo Design
               </NavLink>
             </div>
           </div>
 
-          <NavLink
-            to="/fashion"
-            onClick={closeMobileMenu}
-            className={({ isActive }) =>
+          <NavLink to="/fashion" onClick={closeMobileMenu} className={({ isActive }) =>
               isActive ? "nav-link active" : "nav-link"
-            }
-          >
+            }>
             FASHION
           </NavLink>
-          <NavLink
-            to="/about"
-            onClick={closeMobileMenu}
-            className={({ isActive }) =>
+          <NavLink to="/about" onClick={closeMobileMenu} className={({ isActive }) =>
               isActive ? "nav-link active" : "nav-link"
-            }
-          >
+            }>
             ABOUT
           </NavLink>
         </div>
 
-        {/* Hamburger Icon */}
+        {/* Hamburger Toggle */}
         <button
           className={`hamburger-icon ${mobileMenuOpen ? "open" : ""}`}
           onClick={toggleMobileMenu}
@@ -124,68 +100,15 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}>
         <div className="mobile-menu-content">
-          <button
-            className="close-icon"
-            onClick={closeMobileMenu}
-            aria-label="Close mobile menu"
-          >
-            <span className="bar"></span>
-            <span className="bar"></span>
-          </button>
-
-          <NavLink
-            to="/"
-            onClick={closeMobileMenu}
-            className={({ isActive }) =>
-              isActive ? "nav-link active" : "nav-link"
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink to="/uiux" onClick={closeMobileMenu} className="nav-link">
-            UI/UX
-          </NavLink>
-          <NavLink
-            to="/uiux/javascript-games"
-            onClick={closeMobileMenu}
-            className="dropdown-link"
-          >
-            JavaScript Games
-          </NavLink>
-          <NavLink
-            to="/uiux/hellow"
-            onClick={closeMobileMenu}
-            className="dropdown-link"
-          >
-            Hellow
-          </NavLink>
-          <NavLink
-            to="/uiux/smoking-gun"
-            onClick={closeMobileMenu}
-            className="dropdown-link"
-          >
-            Smoking Gun
-          </NavLink>
-          <NavLink
-            to="/graphics"
-            onClick={closeMobileMenu}
-            className="nav-link"
-          >
-            Graphics
-          </NavLink>
-          <NavLink
-            to="/graphics/logo-design"
-            onClick={closeMobileMenu}
-            className="dropdown-link"
-          >
-            Logo Design
-          </NavLink>
-          <NavLink to="/fashion" onClick={closeMobileMenu} className="nav-link">
-            Fashion
-          </NavLink>
-          <NavLink to="/about" onClick={closeMobileMenu} className="nav-link">
-            About
-          </NavLink>
+          <NavLink to="/" onClick={closeMobileMenu} className="nav-link">Home</NavLink>
+          <NavLink to="/uiux" onClick={closeMobileMenu} className="nav-link">UI/UX</NavLink>
+          <NavLink to="/uiux/javascript-games" onClick={closeMobileMenu} className="dropdown-link">JavaScript Games</NavLink>
+          <NavLink to="/uiux/hellow" onClick={closeMobileMenu} className="dropdown-link">Hellow</NavLink>
+          <NavLink to="/uiux/smoking-gun" onClick={closeMobileMenu} className="dropdown-link">Smoking Gun</NavLink>
+          <NavLink to="/graphics" onClick={closeMobileMenu} className="nav-link">Graphics</NavLink>
+          <NavLink to="/graphics/logo-design" onClick={closeMobileMenu} className="dropdown-link">Logo Design</NavLink>
+          <NavLink to="/fashion" onClick={closeMobileMenu} className="nav-link">Fashion</NavLink>
+          <NavLink to="/about" onClick={closeMobileMenu} className="nav-link">About</NavLink>
         </div>
       </div>
     </nav>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import SectionHeading from "./SectionHeading";
 import bgImage from "/bg-image-blank.png"; // Import the background image
 
 const CatchGame = () => {

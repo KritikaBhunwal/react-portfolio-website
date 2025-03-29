@@ -1,21 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import DOMPurify from "dompurify"
-import parse from 'html-react-parser';
+import DOMPurify from "dompurify";
+import parse from "html-react-parser";
 import "../styles/career.css";
+import PropTypes from "prop-types";
 
-const Card = ({ title, description, image, link, desktopReverse, tabletReverse }) => {
-  
+const Card = ({
+  title,
+  description,
+  image,
+  link,
+  desktopReverse,
+  tabletReverse,
+}) => {
   const scrollToTop = () => window.scrollTo(0, 0);
 
   const cleanDescription = DOMPurify.sanitize(description);
 
   return (
-    <div 
-      className={`card ${desktopReverse ? "reverse-desktop" : ""} ${tabletReverse ? "reverse-tablet" : ""}`}
+    <div
+      className={`card ${desktopReverse ? "reverse-desktop" : ""} ${
+        tabletReverse ? "reverse-tablet" : ""
+      }`}
     >
       <div className="cardImage">
-        <Link to={link} onClick={scrollToTop} style={{ textDecoration: "none" }}>
+        <Link
+          to={link}
+          onClick={scrollToTop}
+          style={{ textDecoration: "none" }}
+        >
           <img src={image} alt={title} />
         </Link>
       </div>
@@ -40,6 +53,14 @@ const Card = ({ title, description, image, link, desktopReverse, tabletReverse }
       </div>
     </div>
   );
+};
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  desktopReverse: PropTypes.bool,
+  tabletReverse: PropTypes.bool,
 };
 
 export default Card;

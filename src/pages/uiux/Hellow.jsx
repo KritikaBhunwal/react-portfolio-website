@@ -16,9 +16,9 @@ const Hellow = () => {
     },
   ];
   const problemImages = [
-    { src: "/src/assets/images/Hellow1.jpg", caption: "Create new Memories with Hellow and Your Loved Ones " },
-    { src: "/src/assets/images/Hellow2.jpg", caption: "With Hellow, Prioritize People over Platform!" },
-    { src: "/src/assets/images/Hellow3.jpg", caption: "Asunchronous Communication through Hellow App for everyone." },
+    { src: "/Hellow1.jpg", caption: "Create new Memories with Hellow and Your Loved Ones " },
+    { src: "/Hellow2.jpg", caption: "With Hellow, Prioritize People over Platform!" },
+    { src: "/Hellow3.jpg", caption: "Asunchronous Communication through Hellow App for everyone." },
   ];
   const solutionImages = [
     {
@@ -375,7 +375,7 @@ const Hellow = () => {
 
             <SectionHeading title="Presentation Pdf" />
             <PDFViewer 
-              src="/src/assets/files/KritikaBhunwal_TechnicalSolutionProposal_Presentation.pdf" 
+              src="/KritikaBhunwal_TechnicalSolutionProposal_Presentation.pdf" 
               width="100%" 
               height="340px" 
               style={{ borderRadius: "2rem", marginLeft: "5rem"}}

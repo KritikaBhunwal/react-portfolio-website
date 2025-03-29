@@ -1,4 +1,3 @@
-import React from "react";
 import { FaLinkedin, FaBehance } from "react-icons/fa";
 import Greeting from "../components/Greeting";
 import MoreInfo from "../components/MoreInfo";
@@ -8,9 +7,9 @@ const Banner = () => {
   return (
     <div className="banner">
       <Greeting />
-      <h2>I'm Kritika Bhunwal</h2>
+      <h2>I&apos;m Kritika Bhunwal</h2>
       <p>
-        I'm passionate about design, research and development,
+        I&apos;m passionate about design, research and development,
         <br />
         ...and how these impact our daily lives!
       </p>
@@ -32,7 +31,14 @@ const Banner = () => {
           <FaBehance size={28} />
         </a>
       </div>
-      <MoreInfo />
+      <MoreInfo
+        icon="/info-icon.svg"
+        text="Click here to know more about me!"
+        iconSize={50}
+        textSize={30}
+        gap={28}
+        link="/About.jsx"
+      />
     </div>
   );
 };

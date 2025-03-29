@@ -18,7 +18,8 @@
 }
 
 .project-title {
-  font-size: 1rem; /* Increased size for better visual hierarchy */
+  font-size: 1rem;
+  /* Increased size for better visual hierarchy */
   color: #9990bb;
   margin-bottom: 1rem;
 }
@@ -68,20 +69,46 @@
   gap: 1rem;
   margin-top: 2rem;
   margin-left: 0rem;
-  align-self: flex-start; /* Aligns with the project title */
+  align-self: flex-start;
+  /* Aligns with the project title */
 }
 
 .highlights-title {
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #3d3d3d;
   margin-left: 1rem;
 }
 
 .highlights-list {
-  list-style-type: disc;
-  padding-left: 2rem;
+  list-style: none;
+  padding-left: 25px;
+  /* Match icon spacing */
   padding-bottom: 2rem;
+  margin-top: 0rem;
+  /* Remove negative margin unless you really need it */
 }
+
+.highlights-list li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  /* Ensures better vertical alignment */
+}
+
+.highlights-list li::before {
+  content: '';
+  position: absolute;
+  left: -2%;
+  top: 50%;
+  /* Center vertically */
+  transform: translateY(-50%);
+  background: url('/logo.svg') no-repeat center;
+  background-size: contain;
+  width: 14px;
+  height: 14px;
+}
+
 
 /* ========== Responsive Styles ========== */
 
@@ -103,22 +130,24 @@
 }
 
 /* Mobile Devices */
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
   .project-title {
-    font-size: 1.75rem; /* Slightly smaller title for mobile */
+    font-size: 1.75rem;
+    /* Slightly smaller title for mobile */
   }
 
   /* Stack highlights below icons */
   .icon-section {
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
   }
 
   .icon-card {
     width: auto;
     min-width: 100px;
   }
+
   .highlights-title {
     margin-left: 0rem;
   }

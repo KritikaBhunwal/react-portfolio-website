@@ -1,7 +1,7 @@
-import React, { useState, useRef } from "react";
-import "../styles/businessIntro.css";
+import { useState, useRef } from "react";
+import "../styles/businessValues.css";
 
-const BusinessIntro = () => {
+const BusinessValues = () => {
   const items = [
     {
       id: "goal",
@@ -72,4 +72,4 @@ const BusinessIntro = () => {
   );
 };
 
-export default BusinessIntro;
+export default BusinessValues;

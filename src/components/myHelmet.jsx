@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet';
 
 const MyHelmet = () => (
@@ -6,7 +5,7 @@ const MyHelmet = () => (
     {/* Basic Meta Tags */}
     <html lang="en" />
     <meta charSet="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./myFavicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/myFavicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {/* SEO Meta Tags */}

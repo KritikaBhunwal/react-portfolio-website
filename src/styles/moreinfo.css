@@ -1,64 +1,66 @@
 .more-info-button {
-    /* position: fixed; */
-    /* padding: 1rem; Padding around the button */
-    /* display: inline-block; */
-    display: flex;
-    justify-content: right;
-    align-items: right;
-    margin-right: 2rem;
-    transition: margin-top 0.3s ease; /* Smooth transition */
+  /* position: fixed; */
+  /* padding: 1rem; Padding around the button */
+  /* display: inline-block; */
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  margin-right: 2rem;
+  transition: margin-top 0.3s ease;
+  /* Smooth transition */
 
-  }
-  
-  .icon-wrapper {
-    position: relative;
-  }
-  
-  .logo {
-    z-index: 100;
-    transition: transform 1.2s, filter 0.3s;
-  }
-  
-  
-  .rotating-text-svg {
-    opacity: 40%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: visible; /* Allows text to extend beyond the SVG bounds */
-    /* pointer-events:visibleFill; Lets clicks pass through to the Link */
-    transform-origin: center;
-    animation: rotate 15s linear infinite;
-  }
-  
-  .rotating-text-svg:hover {
-    opacity: 90%;
-    /* font-weight: 500; */
-  }
-
-    /* Hover effect for the icon */
-  .logo:hover {
-      transform: scale(.8);
-      filter: brightness(1.2);
-  }
-
-  /* Rotation animation */
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .more-info-button {
-        margin-top: 5rem;
-        margin-bottom: 1.2rem;
-        padding: 2rem;
-    }
 }
-  
+
+.icon-wrapper {
+  position: relative;
+}
+
+.logo {
+  z-index: 100;
+  transition: transform 1.2s, filter 0.3s;
+}
+
+
+.rotating-text-svg {
+  opacity: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  /* Allows text to extend beyond the SVG bounds */
+  /* pointer-events:visibleFill; Lets clicks pass through to the Link */
+  transform-origin: center;
+  animation: rotate 15s linear infinite;
+}
+
+.rotating-text-svg:hover {
+  opacity: 90%;
+  /* font-weight: 500; */
+}
+
+/* Hover effect for the icon */
+.logo:hover {
+  transform: scale(.8);
+  filter: brightness(1.2);
+}
+
+/* Rotation animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .more-info-button {
+    margin-top: 5rem;
+    margin-bottom: 1.2rem;
+    padding: 2rem;
+  }
+}

@@ -1,13 +1,14 @@
-import React from "react";
+import "react";
 import { Link } from "react-router-dom";
 import logo from "/logo.svg"; // adjust the relative path as needed
 import "../styles/MoreInfo.css";
+import PropTypes from "prop-types";
 
 const MoreInfo = ({
   iconSize = 50, // default icon size in pixels
   textSize = 30, // default text size in pixels
   text = "Click here to know more about me!",
-  gap = 28     // extra space between the icon and the rotating text
+  gap = 28, // extra space between the icon and the rotating text
 }) => {
   // Calculate radius based on the icon size and gap
   const radius = iconSize + gap;
@@ -16,12 +17,17 @@ const MoreInfo = ({
   // Calculate the center coordinate within the viewBox
   const centerCoord = iconSize / 2 + gap;
   // Construct the circular path for the rotating text
-  const d = `M${centerCoord},${centerCoord} m-${radius},0 a${radius},${radius} 0 1,1 ${radius * 2},0 a${radius},${radius} 0 1,1 -${radius * 2},0`;
+  const d = `M${centerCoord},${centerCoord} m-${radius},0 a${radius},${radius} 0 1,1 ${
+    radius * 2
+  },0 a${radius},${radius} 0 1,1 -${radius * 2},0`;
 
   return (
     <div className="more-info-button">
       <Link to="/about">
-        <div className="icon-wrapper" style={{ width: iconSize, height: iconSize }}>
+        <div
+          className="icon-wrapper"
+          style={{ width: iconSize, height: iconSize }}
+        >
           <img
             src={logo}
             alt="More Info"
@@ -43,6 +49,12 @@ const MoreInfo = ({
       </Link>
     </div>
   );
+};
+MoreInfo.propTypes = {
+  iconSize: PropTypes.number,
+  textSize: PropTypes.number,
+  text: PropTypes.string,
+  gap: PropTypes.number,
 };
 
 export default MoreInfo;

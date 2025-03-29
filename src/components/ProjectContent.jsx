@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/projectContent.css";
 
 const ProjectContent = ({ title, description, highlights, icons = [] }) => {

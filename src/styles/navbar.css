@@ -1,4 +1,4 @@
-/* Define color variables */
+/* ---------- CSS Variables ---------- */
 :root {
   --primary-purple: #cbbfee;
   --primary-white: #F3F3F3;
@@ -6,26 +6,23 @@
   --navbar-bg: #3D3D3D;
 }
 
-/* Main Navbar */
+/* ---------- Navbar ---------- */
 .navbar {
   background-color: var(--navbar-bg);
-  position: relative;
-  z-index: 1000;
   border-radius: 1.6rem;
-  padding: 0.4rem 1rem; /* Ensuring left and right padding */
-  margin-left: 1.8rem;
-  margin-right: 1.8rem;
-  margin-top: 1.4rem;
+  padding: 0.4rem 1rem;
+  margin: 1.4rem 1.8rem 0;
+  z-index: 1000;
+  position: relative;
 }
 
-/* Navbar container */
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Logo */
+/* ---------- Logo ---------- */
 .navbar-logo img {
   height: 34px;
   padding: 0.1rem;
@@ -33,7 +30,6 @@
 }
 
 .navbar-logo img:hover {
-  /* transform: scale(1.1); */
   animation: rotateScaleLogo 4s ease-in-out infinite;
 }
 
@@ -43,14 +39,13 @@
   100% { transform: rotate(360deg) scale(1); }
 }
 
-/* Desktop Menu */
+/* ---------- Desktop Menu ---------- */
 .menu-horizontal {
   display: flex;
   gap: 1rem;
-  align-items: center; /* Align main menu items */
+  align-items: center;
 }
 
-/* Navigation Links */
 .nav-link {
   text-decoration: none;
   padding: 0.4rem 1rem;
@@ -87,24 +82,30 @@
   background-color: #2d2d2d;
 }
 
-/* Hamburger Icon */
+/* ---------- Hamburger Icon (Three-Bar to X) ---------- */
 .hamburger-icon {
   display: none;
-  cursor: pointer;
   width: 32px;
   height: 24px;
   position: relative;
+  z-index: 1001;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .hamburger-icon .bar {
+  display: block;
+  position: absolute;
   width: 100%;
-  height: 0.24rem;
+  height: 3px;
   background-color: var(--primary-white);
   border-radius: 2px;
-  position: absolute;
   transition: all 0.3s ease;
+  left: 0;
 }
 
+/* Bar Positions */
 .hamburger-icon .bar:nth-child(1) {
   top: 0;
 }
@@ -117,6 +118,7 @@
   top: 20px;
 }
 
+/* Transform into X */
 .hamburger-icon.open .bar:nth-child(1) {
   transform: rotate(45deg);
   top: 10px;
@@ -135,7 +137,7 @@
   background-color: var(--primary-purple);
 }
 
-/* Mobile Menu */
+/* ---------- Mobile Menu ---------- */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -156,13 +158,13 @@
 .mobile-menu-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100%;
+  padding: 5rem 1rem 2rem;
   gap: 1.5rem;
+  height: 100%;
 }
 
-/* Responsive Design */
+/* ---------- Responsive Rules ---------- */
 @media (max-width: 768px) {
   .menu-horizontal {
     display: none;
@@ -170,34 +172,33 @@
 
   .hamburger-icon {
     display: block;
-    z-index: 1000;
   }
 }
 
-/* Desktop Dropdown for Subpages (views larger than tablet) */
+/* ---------- Desktop Dropdown (hover) ---------- */
 @media (min-width: 768px) {
   .nav-dropdown {
     position: relative;
   }
-  
+
   .nav-dropdown .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%; /* Remove gap so dropdown touches main menu */
+    top: 100%;
     left: 0;
     background-color: #2d2d2d;
     padding: 0.5rem 0;
-    border-radius: 0.5rem; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     min-width: 180px;
   }
-  
+
   .nav-dropdown:hover .dropdown-menu {
     display: flex;
     flex-direction: column;
   }
-  
+
   .nav-dropdown .dropdown-menu a {
     display: block;
     color: #fff;
@@ -205,7 +206,7 @@
     padding: 0.5rem 1rem;
     transition: background-color 0.3s, color 0.3s;
   }
-  
+
   .nav-dropdown .dropdown-menu a:hover {
     background-color: #9990bb;
     color: #3d3d3d;

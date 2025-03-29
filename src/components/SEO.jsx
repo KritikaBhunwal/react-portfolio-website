@@ -30,7 +30,7 @@ const SEO = ({
       {/* Basic Meta Tags */}
       <html lang={lang} />
       <meta charSet="UTF-8" />
-      <link rel="icon" type="image/svg+xml" href="./myFavicon.svg" />
+      <link rel="icon" type="image/svg+xml" href="/myFavicon.svg" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       {/* Robots - control indexing */}
