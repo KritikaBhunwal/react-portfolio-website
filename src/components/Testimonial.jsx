@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AboutPhoto from "../assets/images/AboutPhoto.png";
+import AboutPhoto from "/AboutPhoto.png";
 import "../styles/testimonial.css";
 
 const testimonials = [

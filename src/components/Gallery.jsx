@@ -4,13 +4,13 @@ import { FaShoppingCart, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { GiDress } from 'react-icons/gi';
 import SubSectionHeading from '../components/SubSectionHeading';
 
-import FS1 from '../assets/images/FashionStyling1.jpg';
-import FS2 from '../assets/images/FashionStyling2.jpg';
-import FS3 from '../assets/images/FashionStyling3.jpg';
-import FS4 from '../assets/images/FashionStyling4.jpg';
-import FS5 from '../assets/images/FashionStyling5.jpg';
-import FS6 from '../assets/images/FashionStyling6.jpg';
-import FS7 from '../assets/images/FashionStyling7.jpg';
+import FS1 from '/FashionStyling1.jpg';
+import FS2 from '/FashionStyling2.jpg';
+import FS3 from '/FashionStyling3.jpg';
+import FS4 from '/FashionStyling4.jpg';
+import FS5 from '/FashionStyling5.jpg';
+import FS6 from '/FashionStyling6.jpg';
+import FS7 from '/FashionStyling7.jpg';
 
 import '../styles/gallery.css';
 

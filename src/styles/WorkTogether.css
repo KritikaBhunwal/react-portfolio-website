@@ -1,6 +1,6 @@
 /* Work Together Section */
 .work-together {
-  background: url("../assets/images/AdobeStock_bg.jpg") center/cover no-repeat;
+  background: url("/AdobeStock_bg.jpg") center/cover no-repeat;
   min-height: 350px;
   border-radius: 2rem;
   display: flex;

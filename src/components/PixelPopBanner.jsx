@@ -33,7 +33,7 @@ function PixelPopBanner({
 
       {/* Console Image with upDown motion */}
       <img
-        src="/src/assets/images/pps-image-console.png"
+        src="/pps-image-console.png"
         alt="Gaming Console"
         className="banner-console"
       />

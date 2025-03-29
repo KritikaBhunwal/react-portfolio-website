@@ -9,8 +9,8 @@ import ProcreateDump from "../../components/ProcreateDump.jsx";
 import ImageBanner from "../../components/ImageBanner.jsx";
 
 // Import banner images
-import GraphicBannerBase from "../../assets/images/GraphicBannerBase.png";
-import GraphicBannerTop from "../../assets/images/GraphicBannerTop.png";
+import GraphicBannerBase from "/GraphicBannerBase.png";
+import GraphicBannerTop from "/GraphicBannerTop.png";
 
 // Import Icons
 import { FaPaintBrush } from "react-icons/fa";

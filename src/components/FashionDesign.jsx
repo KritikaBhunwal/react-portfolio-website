@@ -2,34 +2,31 @@ import React, { useState } from 'react';
 import SectionHeading from '../components/SectionHeading';
 import '../styles/fashionDesign.css';
 
-// Banner image
-import bannerGif from '../assets/images/banner.gif';
-
 // Design Collection Images
-import clothing1 from '../assets/images/clothing1.jpg';
-import Artwork1 from '../assets/images/Artwork1.jpg';
-import clothing2 from '../assets/images/clothing2.jpg';
-import Artwork2 from '../assets/images/Artwork2.jpg';
-import clothing3 from '../assets/images/clothing3.jpg';
-import Artwork3 from '../assets/images/Artwork3.jpg';
-import clothing4 from '../assets/images/clothing4.jpg';
-import Artwork4 from '../assets/images/Artwork4.jpg';
-import clothing5 from '../assets/images/clothing5.jpg';
-import Artwork5 from '../assets/images/Artwork5.jpg';
-import clothing6 from '../assets/images/clothing6.jpg';
-import Artwork6 from '../assets/images/Artwork6.jpg';
-import clothing7 from '../assets/images/clothing7.jpg';
-import Artwork7 from '../assets/images/Artwork7.jpg';
-import clothing8 from '../assets/images/clothing8.jpg';
-import Artwork8 from '../assets/images/Artwork8.jpg';
+import clothing1 from '/clothing1.jpg';
+import Artwork1 from '/Artwork1.jpg';
+import clothing2 from '/clothing2.jpg';
+import Artwork2 from '/Artwork2.jpg';
+import clothing3 from '/clothing3.jpg';
+import Artwork3 from '/Artwork3.jpg';
+import clothing4 from '/clothing4.jpg';
+import Artwork4 from '/Artwork4.jpg';
+import clothing5 from './clothing5.jpg';
+import Artwork5 from '/Artwork5.jpg';
+import clothing6 from '/clothing6.jpg';
+import Artwork6 from 'Artwork6.jpg';
+import clothing7 from '/clothing7.jpg';
+import Artwork7 from '/Artwork7.jpg';
+import clothing8 from '/clothing8.jpg';
+import Artwork8 from '/Artwork8.jpg';
 
 // Process Slider Images
-import Artwork01 from '../assets/images/Artwork01.jpg';
-import Artwork02 from '../assets/images/Artwork02.jpg';
-import Artwork03 from '../assets/images/Artwork03.jpg';
-import Artwork04 from '../assets/images/Artwork04.jpg';
-import Artwork05 from '../assets/images/Artwork05.jpg';
-import Artwork06 from '../assets/images/Artwork06.jpg';
+import Artwork01 from 'Artwork01.jpg';
+import Artwork02 from '/Artwork02.jpg';
+import Artwork03 from '/Artwork03.jpg';
+import Artwork04 from '/Artwork04.jpg';
+import Artwork05 from '/Artwork05.jpg';
+import Artwork06 from '/Artwork06.jpg';
 
 const designCards = [
   {

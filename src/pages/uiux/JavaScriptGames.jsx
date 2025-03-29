@@ -35,7 +35,7 @@ const JavaScriptGames = () => {
         {/* Game Card for Paddle Fury */}
         <div className="game-card">
           <img
-            src="/src/assets/images/pps-game-1.png"
+            src="/pps-game-1.png"
             alt="Paddle Fury Game Preview"
             className="game-preview-image"
           />
@@ -51,7 +51,7 @@ const JavaScriptGames = () => {
         {/* Game Card for Catch Game */}
         <div className="game-card">
           <img
-            src="/src/assets/images/pps-game-2.png"
+            src="/pps-game-2.png"
             alt="Catch Game Preview"
             className="game-preview-image"
           />

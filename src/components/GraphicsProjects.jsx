@@ -2,18 +2,18 @@ import React from "react";
 import "../styles/graphicsProjects.css";
 
 // Import images
-import gdWork1a from "../assets/images/GD-Work-1a.jpg";
-import gdWork1b from "../assets/images/GD-Work-1b.jpg";
-import gdWork2a from "../assets/images/GD-Work-2a.jpg";
-import gdWork2b from "../assets/images/GD-Work-2b.jpg";
-import gdWork3a from "../assets/images/GD-Work-3a.jpg";
-import gdWork3b from "../assets/images/GD-Work-3b.jpg";
-import gdWork4a from "../assets/images/GD-Work-4a.jpg";
-import gdWork4b from "../assets/images/GD-Work-4b.jpg";
-import gdWork5a from "../assets/images/GD-Work-5a.jpg";
-import gdWork5b from "../assets/images/GD-Work-5b.jpg";
-import gdWork6a from "../assets/images/GD-Work-6a.jpg";
-import gdWork6b from "../assets/images/GD-Work-6b.jpg";
+import gdWork1a from "/GD-Work-1a.jpg";
+import gdWork1b from "/GD-Work-1b.jpg";
+import gdWork2a from "/GD-Work-2a.jpg";
+import gdWork2b from "/GD-Work-2b.jpg";
+import gdWork3a from "/GD-Work-3a.jpg";
+import gdWork3b from "/GD-Work-3b.jpg";
+import gdWork4a from "/GD-Work-4a.jpg";
+import gdWork4b from "/GD-Work-4b.jpg";
+import gdWork5a from "/GD-Work-5a.jpg";
+import gdWork5b from "/GD-Work-5b.jpg";
+import gdWork6a from "/GD-Work-6a.jpg";
+import gdWork6b from "/GD-Work-6b.jpg";
 
 const graphicsProjects = [
   {

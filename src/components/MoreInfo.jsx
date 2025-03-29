@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/icons/logo.svg"; // adjust the relative path as needed
+import logo from "/logo.svg"; // adjust the relative path as needed
 import "../styles/MoreInfo.css";
 
 const MoreInfo = ({

@@ -8,8 +8,8 @@ import PortfolioGallery from "../../components/PortfolioGallery.jsx";
 import ImageBanner from "../../components/ImageBanner.jsx";
 
 // Import banner images
-import FashionBannerBase from "/src/assets/images/FashionBannerBase.png";
-import FashionBannerTop from "/src/assets/images/FashionBannerTop.png";
+import FashionBannerBase from "/FashionBannerBase.png";
+import FashionBannerTop from "/FashionBannerTop.png";
 
 import "../../styles/fashion.css";
 

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import bgImage from "../assets/images/bg-image-blank.png";
+import bgImage from "/bg-image-blank.png";
 
 const PaddleFuryGame = () => {
   const canvasRef = useRef(null);

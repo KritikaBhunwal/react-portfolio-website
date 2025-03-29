@@ -1,23 +1,23 @@
 import React from 'react';
 import '../styles/mykonosCollection.css';
 
-import artwork1 from '../assets/images/Artwork1.jpg';
-import artwork2 from '../assets/images/Artwork2.jpg';
-import artwork3 from '../assets/images/Artwork3.jpg';
-import artwork4 from '../assets/images/Artwork4.jpg';
-import artwork5 from '../assets/images/Artwork5.jpg';
-import artwork6 from '../assets/images/Artwork6.jpg';
-import artwork7 from '../assets/images/Artwork7.jpg';
-import artwork8 from '../assets/images/Artwork8.jpg';
+import artwork1 from '/Artwork1.jpg';
+import artwork2 from '/Artwork2.jpg';
+import artwork3 from '/Artwork3.jpg';
+import artwork4 from '/Artwork4.jpg';
+import artwork5 from '/Artwork5.jpg';
+import artwork6 from '/Artwork6.jpg';
+import artwork7 from '/Artwork7.jpg';
+import artwork8 from '/Artwork8.jpg';
 
-import clothing1 from '../assets/images/clothing1.jpg';
-import clothing2 from '../assets/images/clothing2.jpg';
-import clothing3 from '../assets/images/clothing3.jpg';
-import clothing4 from '../assets/images/clothing4.jpg';
-import clothing5 from '../assets/images/clothing5.jpg';
-import clothing6 from '../assets/images/clothing6.jpg';
-import clothing7 from '../assets/images/clothing7.jpg';
-import clothing8 from '../assets/images/clothing8.jpg';
+import clothing1 from '/clothing1.jpg';
+import clothing2 from '/clothing2.jpg';
+import clothing3 from '/clothing3.jpg';
+import clothing4 from '/clothing4.jpg';
+import clothing5 from '/clothing5.jpg';
+import clothing6 from '/clothing6.jpg';
+import clothing7 from '/clothing7.jpg';
+import clothing8 from '/clothing8.jpg';
 
 const collectionItems = [
   {

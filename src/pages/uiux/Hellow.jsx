@@ -9,9 +9,9 @@ const Hellow = () => {
 
   // Define image arrays with captions
   const approachImages = [
-    { src: "/src/assets/images/HellowSketch.png", caption: "Hellow Sketch" },
+    { src: "/HellowSketch.png", caption: "Hellow Sketch" },
     {
-      src: "/src/assets/images/Hellow-StyleSheet.jpg",
+      src: "/Hellow-StyleSheet.jpg",
       caption: "Hellow App StyleSheet",
     },
   ];
@@ -22,19 +22,19 @@ const Hellow = () => {
   ];
   const solutionImages = [
     {
-      src: "/src/assets/images/Hellow-SplashScreen.jpg",
+      src: "/Hellow-SplashScreen.jpg",
       caption: "Hellow App Splash Screen",
     },
     {
-      src: "/src/assets/images/Hellow-Onboarding.jpg",
+      src: "/Hellow-Onboarding.jpg",
       caption: "Hellow App Onboarding",
     },
     {
-      src: "/src/assets/images/Hellow-SignInBoy.jpg",
+      src: "/Hellow-SignInBoy.jpg",
       caption: "Hellow App Sign In Boy",
     },
     {
-      src: "/src/assets/images/Hellow-SignInGirl.jpg",
+      src: "/Hellow-SignInGirl.jpg",
       caption: "Hellow App Sign In Girl",
     },
   ];
@@ -60,7 +60,7 @@ const Hellow = () => {
   return (
     <div className="hellow-container">
       <img
-        src="/src/assets/icons/HellowYouThere.svg"
+        src="/HellowYouThere.svg"
         alt="Hellow Icon"
         className="hellow-icon"
       />

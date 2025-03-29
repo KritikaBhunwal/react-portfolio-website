@@ -6,7 +6,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: url('/src/assets/images/bg-image-blank.png') no-repeat center center;
+    background: url('/bg-image-blank.png') no-repeat center center;
     background-size: cover;
     animation: fadeIn 1s ease-out forwards;
     border-radius: 2rem;

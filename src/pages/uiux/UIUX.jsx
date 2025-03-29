@@ -7,8 +7,8 @@ import ProjectContent from "../../components/ProjectContent.jsx";
 import ImageBanner from "../../components/ImageBanner.jsx";
 
 // Images
-import UXUIBannerBase from "../../assets/images/UXUIBannerBase.png";
-import UXUIBannerTop from "../../assets/images/UXUIBannerTop.png";
+import UXUIBannerBase from "/UXUIBannerBase.png";
+import UXUIBannerTop from "/UXUIBannerTop.png";
 
 import "../../styles/uiux.css";
 

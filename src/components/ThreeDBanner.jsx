@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import modelSrc1 from "../assets/models/GD_Comp1.glb"; // Fashion Styling
-import modelSrc2 from "../assets/models/GD_Comp2.glb"; // 3D Composition
-import skyboxImage from "../assets/images/AdobeStock_bg.jpeg";
+import modelSrc1 from "/GD_Comp1.glb"; // Fashion Styling
+import modelSrc2 from "/GD_Comp2.glb"; // 3D Composition
+import skyboxImage from "/AdobeStock_bg.jpeg";
 import "../styles/ThreeDBanner.css";
 
 const projects = [

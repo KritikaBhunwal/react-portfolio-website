@@ -5,12 +5,12 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { GiPaintBrush, GiDress } from 'react-icons/gi';
 
 // Import portfolio images
-import PF1 from '../assets/images/Artwork01.jpg';
-import PF2 from '../assets/images/Artwork02.jpg';
-import PF3 from '../assets/images/Artwork03.jpg';
-import PF4 from '../assets/images/Artwork04.jpg';
-import PF5 from '../assets/images/Artwork05.jpg';
-import PF6 from '../assets/images/Artwork06.jpg';
+import PF1 from '/Artwork01.jpg';
+import PF2 from '/Artwork02.jpg';
+import PF3 from '/Artwork03.jpg';
+import PF4 from '/Artwork04.jpg';
+import PF5 from '/Artwork05.jpg';
+import PF6 from '/Artwork06.jpg';
 
 import '../styles/portfolioGallery.css';
 

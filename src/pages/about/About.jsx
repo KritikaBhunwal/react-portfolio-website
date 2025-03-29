@@ -12,8 +12,8 @@ import ProjectContent from '../../components/ProjectContent.jsx';
 
 import '../../styles/about.css';
 
-import AboutBannerBase from "/src/assets/images/FashionBannerBase.png";
-import AboutBannerTop from "/src/assets/images/FashionBannerTop.png";
+import AboutBannerBase from "/FashionBannerBase.png";
+import AboutBannerTop from "/FashionBannerTop.png";
 
 const collaborationHighlights = [
   { bulletPointOne: "Collaborative Approach", detail: "A strong belief in teamwork and open communication to achieve the best results." },

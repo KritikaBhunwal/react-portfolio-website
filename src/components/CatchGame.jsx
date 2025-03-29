@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import bgImage from "../assets/images/bg-image-blank.png"; // Import the background image
+import bgImage from "/bg-image-blank.png"; // Import the background image
 
 const CatchGame = () => {
   const canvasRef = useRef(null);
@@ -294,7 +294,7 @@ const CatchGame = () => {
         position: "relative",
         fontFamily: "Quicksand, sans-serif",
         backgroundColor: "#2d2d2d",
-        backgroundImage: "url('/assets/images/bg-image-blank.png')",
+        backgroundImage: "url('/bg-image-blank.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         borderRadius: "2rem",
