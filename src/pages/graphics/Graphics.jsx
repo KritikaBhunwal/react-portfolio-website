@@ -23,6 +23,7 @@ import {
 } from "react-icons/si";
 
 import "../../styles/graphics.css";
+import WorkTogether from "../../components/WorkTogether.jsx";
 
 // Section 1: Graphic Design + Showcase Highlights
 const graphicDesignHighlights = [
@@ -95,10 +96,10 @@ const Graphics = () => {
           bannerClass="image-banner"
         />
 
-        {/* Optional link to subpage */}
+        {/* Optional link to subpage
         <div className="subpage-links">
           <Link to="logo-design" className="subpage-link">Go to Logo Design Showcase</Link>
-        </div>
+        </div> */}
 
         {/* Section 1: Graphic Design + Showcase */}
         <SectionHeading title="Graphic Design Portfolio" />
@@ -143,7 +144,8 @@ const Graphics = () => {
         </div>
 
         {/* Subpage content rendered here */}
-        <Outlet />
+        {/* <Outlet /> */}
+        <WorkTogether />
       </div>
     </>
   );

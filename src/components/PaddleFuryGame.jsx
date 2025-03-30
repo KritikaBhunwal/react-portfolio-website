@@ -7,7 +7,6 @@ const PaddleFuryGame = () => {
   const [started, setStarted] = useState(false);
   const [paused, setPaused] = useState(false);
   const pausedRef = useRef(paused);
-
   useEffect(() => {
     pausedRef.current = paused;
   }, [paused]);
@@ -15,6 +14,15 @@ const PaddleFuryGame = () => {
   const [highScore, setHighScore] = useState(
     Number(localStorage.getItem("paddleFuryHighScore")) || 0
   );
+
+  // State and refs to manage game-over and restart timing
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [restartAllowed, setRestartAllowed] = useState(false);
+  const gameOverRef = useRef(false);
+  const restartAllowedRef = useRef(restartAllowed);
+  useEffect(() => {
+    restartAllowedRef.current = restartAllowed;
+  }, [restartAllowed]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -25,13 +33,12 @@ const PaddleFuryGame = () => {
 
   useEffect(() => {
     if (!started) return;
-
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
     let paddle = {
-      width: canvas.width * 0.4,
-      height: 40,
+      width: canvas.width * 0.2,
+      height: 30,
       x: canvas.width / 2 - (canvas.width * 0.4) / 2,
       y: canvas.height - 60,
       speed: 12,
@@ -46,7 +53,6 @@ const PaddleFuryGame = () => {
     };
 
     let score = 0;
-    let gameOver = false;
     let animationFrameId;
 
     function drawPaddle() {
@@ -101,18 +107,24 @@ const PaddleFuryGame = () => {
         canvas.height / 2 + 40
       );
 
-      ctx.fillStyle = "#9990bb";
-      ctx.beginPath();
-      if (ctx.roundRect) {
-        ctx.roundRect(canvas.width / 2 - 100, canvas.height / 2 + 80, 200, 50, 25);
-      } else {
-        ctx.fillRect(canvas.width / 2 - 100, canvas.height / 2 + 80, 200, 50);
-      }
-      ctx.fill();
+      if (restartAllowedRef.current) {
+        ctx.fillStyle = "#9990bb";
+        ctx.beginPath();
+        if (ctx.roundRect) {
+          ctx.roundRect(canvas.width / 2 - 100, canvas.height / 2 + 80, 200, 50, 25);
+        } else {
+          ctx.fillRect(canvas.width / 2 - 100, canvas.height / 2 + 80, 200, 50);
+        }
+        ctx.fill();
 
-      ctx.fillStyle = "#fff";
-      ctx.font = `${canvas.width * 0.035}px Quicksand`;
-      ctx.fillText("Play Again", canvas.width / 2, canvas.height / 2 + 115);
+        ctx.fillStyle = "#fff";
+        ctx.font = `${canvas.width * 0.035}px Quicksand`;
+        ctx.fillText("Play Again", canvas.width / 2, canvas.height / 2 + 115);
+      } else {
+        ctx.fillStyle = "#fff";
+        ctx.font = `${canvas.width * 0.035}px Quicksand`;
+        ctx.fillText("Please wait...", canvas.width / 2, canvas.height / 2 + 115);
+      }
     }
 
     function moveBall() {
@@ -138,28 +150,25 @@ const PaddleFuryGame = () => {
       }
 
       if (ball.y - ball.radius > canvas.height) {
-        gameOver = true;
-        if (score > highScore) {
-          setHighScore(score);
-          localStorage.setItem("paddleFuryHighScore", score);
+        if (!gameOverRef.current) {
+          gameOverRef.current = true;
+          setIsGameOver(true);
+          if (score > highScore) {
+            setHighScore(score);
+            localStorage.setItem("paddleFuryHighScore", score);
+          }
+          // Allow restart after 3 seconds
+          setTimeout(() => {
+            setRestartAllowed(true);
+          }, 3000);
         }
       }
     }
 
     function handleCanvasClick(e) {
-      const rect = canvas.getBoundingClientRect();
-      const scaleX = canvas.width / rect.width;
-      const scaleY = canvas.height / rect.height;
-      const x = (e.clientX - rect.left) * scaleX;
-      const y = (e.clientY - rect.top) * scaleY;
-
-      if (gameOver) {
-        if (
-          x > canvas.width / 2 - 100 &&
-          x < canvas.width / 2 + 100 &&
-          y > canvas.height / 2 + 80 &&
-          y < canvas.height / 2 + 130
-        ) {
+      // If game is over and restart is allowed, restart game
+      if (isGameOver) {
+        if (restartAllowed) {
           restartGame();
         }
       } else {
@@ -215,7 +224,7 @@ const PaddleFuryGame = () => {
         moveBall();
       }
 
-      if (gameOver) {
+      if (gameOverRef.current) {
         showGameOver();
       } else {
         animationFrameId = requestAnimationFrame(gameLoop);
@@ -225,13 +234,15 @@ const PaddleFuryGame = () => {
     gameLoop();
 
     function restartGame() {
+      // Reset game state variables
       score = 0;
       ball.x = canvas.width / 2;
       ball.y = canvas.height / 2;
       ball.dx = 4;
       ball.dy = 4;
-      gameOver = false;
-      setPaused(false);
+      gameOverRef.current = false;
+      setIsGameOver(false);
+      setRestartAllowed(false);
       gameLoop();
     }
 
@@ -243,7 +254,7 @@ const PaddleFuryGame = () => {
       window.removeEventListener("deviceorientation", handleTilt);
       canvas.removeEventListener("click", handleCanvasClick);
     };
-  }, [started, highScore]);
+  }, [started, highScore, isGameOver, restartAllowed]);
 
   return (
     <div className="paddle-game-container">

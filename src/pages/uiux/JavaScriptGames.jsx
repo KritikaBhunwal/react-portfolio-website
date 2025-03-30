@@ -5,6 +5,7 @@ import FigmaFrame from "../../components/FigmaFrame";
 import CatchGame from "../../components/CatchGame";
 import PaddleFuryGame from "../../components/PaddleFuryGame";
 import "../../styles/javaScriptGames.css";
+import WorkTogether from "../../components/WorkTogether";
 
 const JavaScriptGames = () => {
   const [modalGame, setModalGame] = useState(null);
@@ -79,6 +80,7 @@ const JavaScriptGames = () => {
           </div>
         </div>
       )}
+      <WorkTogether />
     </section>
   );
 };

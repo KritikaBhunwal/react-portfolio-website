@@ -12,6 +12,7 @@ import FashionBannerBase from "/FashionBannerBase.png";
 import FashionBannerTop from "/FashionBannerTop.png";
 
 import "../../styles/fashion.css";
+import WorkTogether from "../../components/WorkTogether.jsx";
 
 const Fashion = () => {
   // Fashion Styling Highlights
@@ -126,6 +127,7 @@ const Fashion = () => {
         <SectionHeading title="Highlights from Mykonos Collection SS18" />
         <MykonosCollection />
         <PortfolioGallery />
+        <WorkTogether />
       </div>
     </>
   );

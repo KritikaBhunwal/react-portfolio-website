@@ -11,6 +11,7 @@ import UXUIBannerBase from "/UXUIBannerBase.png";
 import UXUIBannerTop from "/UXUIBannerTop.png";
 
 import "../../styles/uiux.css";
+import WorkTogether from "../../components/WorkTogether.jsx";
 
 // SEO Structured Data
 const structuredData = {
@@ -80,12 +81,13 @@ const UIUX = () => {
         <SectionHeading title="UI UX Product Showcase" />
         <UIUXProjects />
 
-        {/* Subpage CTA */}
+        {/* Subpage CTA
         <div className="uxui-subpage-cta">
           <Link to="/uiux/javascript-games" className="subpage-link" aria-label="View JavaScript Games Project">
             → View JavaScript Games Project
           </Link>
-        </div>
+        </div> */}
+        <WorkTogether />
       </main>
     </>
   );

@@ -5,9 +5,9 @@ import Home from "./pages/Home";
 import UIUXIndex from "./pages/uiux/UIUX";
 import JavaScriptGames from "./pages/uiux/JavaScriptGames";
 import Hellow from "./pages/uiux/Hellow";
-import SmokingGun from "./pages/uiux/SmokingGun";
+// import SmokingGun from "./pages/uiux/SmokingGun";
 import GraphicsIndex from "./pages/graphics/Graphics";
-import LogoDesign from "./pages/graphics/LogoDesign";
+// import LogoDesign from "./pages/graphics/LogoDesign";
 import Fashion from "./pages/fashion/Fashion";
 import About from "./pages/about/About";
 
@@ -32,8 +32,8 @@ const AppRoutes = () => {
         {/* Standalone subpages */}
         <Route path="/uiux/javascript-games" element={<JavaScriptGames />} />
         <Route path="/uiux/hellow" element={<Hellow />} />
-        <Route path="/uiux/smoking-gun" element={<SmokingGun />} />
-        <Route path="/graphics/logo-design" element={<LogoDesign />} />
+        {/* <Route path="/uiux/smoking-gun" element={<SmokingGun />} /> */}
+        {/* <Route path="/graphics/logo-design" element={<LogoDesign />} /> */}
       </Routes>
       <Footer />
     </Router>

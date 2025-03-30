@@ -103,6 +103,7 @@
   border-radius: 2px;
   transition: all 0.3s ease;
   left: 0;
+  top: 20px;
 }
 
 /* Bar Positions */

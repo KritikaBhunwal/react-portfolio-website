@@ -17,13 +17,13 @@ import '../styles/gallery.css';
 const Gallery = () => {
   // Reverse the sequence by reversing the array
   const images = [
-    { src: FS1, title: "Styling Inspo 1", description: "Placeholder text to explain that image." },
-    { src: FS2, title: "Styling Inspo 2", description: "Placeholder text to explain that image." },
-    { src: FS3, title: "Styling Inspo 3", description: "Placeholder text to explain that image." },
-    { src: FS4, title: "Styling Inspo 4", description: "Placeholder text to explain that image." },
-    { src: FS5, title: "Styling Inspo 5", description: "Placeholder text to explain that image." },
-    { src: FS6, title: "Styling Inspo 6", description: "Placeholder text to explain that image." },
-    { src: FS7, title: "Styling Inspo 7", description: "Placeholder text to explain that image." }
+    { src: FS1, title: "Styling Inspo for OfficeWear", description: "Modest and Classy look for everyday office wear!" },
+    { src: FS2, title: "Styling Inspo for Shopping Day", description: "Whether a friends' outing or a shopping day by yourself, dress to impress!" },
+    { src: FS3, title: "Styling Inspo for Wedding", description: "For the times you want to look best in the traditional attires." },
+    { src: FS4, title: "Styling Inspo A Festive Day", description: "For the perfect makeover from office chic to modern sleek traditionals for any festive occasion!" },
+    { src: FS5, title: "Styling Inspo Boho Chic", description: "For the bohemian girl-next-door in you!" },
+    { src: FS6, title: "Styling Inspo Celebrity Inspired", description: "Donning a perfect airport look inspired by celebrities!" },
+    { src: FS7, title: "Styling Inspo My Favs", description: "A style that I love to follow- Monochrome :)" }
   ].reverse();
 
   const [activeImage, setActiveImage] = useState(0);

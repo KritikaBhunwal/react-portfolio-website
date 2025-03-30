@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SectionHeading from "../../components/SectionHeading";
 import PDFViewer from "../../components/pdfViewer";
+import WorkTogether from "../../components/WorkTogether";
 
 const Hellow = () => {
   // Modal preview state for images from Approach, Problem Statement, and Solution sections
@@ -377,8 +378,8 @@ const Hellow = () => {
             <PDFViewer 
               src="/KritikaBhunwal_TechnicalSolutionProposal_Presentation.pdf" 
               width="100%" 
-              height="340px" 
-              style={{ borderRadius: "2rem", marginLeft: "5rem"}}
+              height="600px" 
+              style={{ borderRadius: "2rem", marginLeft: "4rem"}}
             />
 
 
@@ -415,7 +416,7 @@ const Hellow = () => {
                   </li>
                 </ul>
               </div>
-
+                  <WorkTogether />
             </section>
           </main>
         </div>
@@ -658,7 +659,7 @@ const Hellow = () => {
         }
         /* Collaboration Section */
         .collaboration-section {
-          background-color: #f9f9f9;
+          // background-color: #f9f9f9;
           padding: 3rem;
           border-radius: 2rem;
           margin-top: 2rem;

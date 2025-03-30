@@ -7,7 +7,7 @@ import {
   SiJavascript,
 } from "react-icons/si";
 import "../styles/projectCard.css";
-import ProjectCardImage from "/ProjectCardSuzanne.png";
+import ProjectCardImage from "/ProjectCardPlaceholder.png";
 
 /**
  * Decide which icons to show based on the project info.

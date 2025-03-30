@@ -20,7 +20,7 @@ const CatchGame = () => {
     highScoreRef.current = highScore;
   }, [highScore]);
 
-  const basket = useRef({ x: 0, y: 0, width: 200, height: 40 });
+  const basket = useRef({ x: 0, y: 0, width: 150, height: 30 });
   const leaves = useRef([]);
   const intervalRef = useRef(null);
   const requestRef = useRef(null);

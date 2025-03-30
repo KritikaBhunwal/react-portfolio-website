@@ -49,9 +49,9 @@ const Navbar = () => {
               <NavLink to="/uiux/hellow" onClick={closeMobileMenu} className="dropdown-item">
                 Hellow
               </NavLink>
-              <NavLink to="/uiux/smoking-gun" onClick={closeMobileMenu} className="dropdown-item">
+              {/* <NavLink to="/uiux/smoking-gun" onClick={closeMobileMenu} className="dropdown-item">
                 Smoking Gun
-              </NavLink>
+              </NavLink> */}
             </div>
           </div>
 
@@ -66,11 +66,11 @@ const Navbar = () => {
             >
               GRAPHICS
             </NavLink>
-            <div className="dropdown-menu">
+            {/* <div className="dropdown-menu">
               <NavLink to="/graphics/logo-design" onClick={closeMobileMenu} className="dropdown-item">
                 Logo Design
               </NavLink>
-            </div>
+            </div> */}
           </div>
 
           <NavLink to="/fashion" onClick={closeMobileMenu} className={({ isActive }) =>
@@ -104,9 +104,9 @@ const Navbar = () => {
           <NavLink to="/uiux" onClick={closeMobileMenu} className="nav-link">UI/UX</NavLink>
           <NavLink to="/uiux/javascript-games" onClick={closeMobileMenu} className="dropdown-link">JavaScript Games</NavLink>
           <NavLink to="/uiux/hellow" onClick={closeMobileMenu} className="dropdown-link">Hellow</NavLink>
-          <NavLink to="/uiux/smoking-gun" onClick={closeMobileMenu} className="dropdown-link">Smoking Gun</NavLink>
+          {/* <NavLink to="/uiux/smoking-gun" onClick={closeMobileMenu} className="dropdown-link">Smoking Gun</NavLink> */}
           <NavLink to="/graphics" onClick={closeMobileMenu} className="nav-link">Graphics</NavLink>
-          <NavLink to="/graphics/logo-design" onClick={closeMobileMenu} className="dropdown-link">Logo Design</NavLink>
+          {/* <NavLink to="/graphics/logo-design" onClick={closeMobileMenu} className="dropdown-link">Logo Design</NavLink> */}
           <NavLink to="/fashion" onClick={closeMobileMenu} className="nav-link">Fashion</NavLink>
           <NavLink to="/about" onClick={closeMobileMenu} className="nav-link">About</NavLink>
         </div>

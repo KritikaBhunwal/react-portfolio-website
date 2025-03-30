@@ -26,15 +26,15 @@
 
 /* Hover effect: subtle scale and shadow; text color changes */
 .pill:hover {
-  color: #9990bb;
+  color: #cbbfee;
   transform: scale(1.05);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 /* Expanded pill styling */
 .pill.expanded {
-  background: #9990bb;
-  color: #fff;
+  background: #cbbfee5a;
+  color: #3d3d3d;
   border: none;
   transform: scale(1.05); /* Reset scaling when expanded */
   box-shadow: none;
