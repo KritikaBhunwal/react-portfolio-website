@@ -28,6 +28,7 @@
     "react-share": "^5.2.2",
     "react-slick": "^0.30.3",
     "react-swipeable": "^7.0.2",
+    "sitemap": "^8.0.0",
     "slick-carousel": "^1.8.1",
     "tailwind": "^2.3.1"
   },
