@@ -36,12 +36,23 @@
   background: #cbbfee5a;
   color: #3d3d3d;
   border: none;
-  transform: scale(1.05); /* Reset scaling when expanded */
-  box-shadow: none;
+  transform: scale(1.05); /* Keep a subtle scale */
+  /* box-shadow: 0 2px 2px #3d3d3d1a; */
+  white-space: normal; /* Allow text to wrap */
+  /* max-width: 300px;  Optional: limit maximum width */
+  margin: 0 0.5rem;  /* Keep similar margin */
 }
 
 /* Center the text inside each pill */
 .pill-text {
-  text-align: center;
+  text-align: left;
+  margin-left: 0.2rem;
   transition: opacity 0.3s ease-in-out;
+}
+
+/* Hidden measurement element */
+.hidden-measure {
+  visibility: hidden;
+  white-space: nowrap;
+  position: absolute;
 }

@@ -1,0 +1,46 @@
+.catch-game-container {
+    margin: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    font-family: "Quicksand, sans-serif";
+    background-color: #2d2d2d;
+    background-image: url("/bg-image-blank.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 2rem;
+    overflow: hidden;
+  }
+  
+  /* Responsive margin for smaller screens */
+  @media (max-width: 768px) {
+    .catch-game-container {
+      margin: 2rem;
+    }
+  }
+  
+  /* Canvas occupies full width and adjusts height responsively */
+  .catch-game-canvas {
+    border-radius: 2rem;
+    background-color: transparent;
+    width: 100%;
+    height: calc(100vh - 15rem);
+  }
+  
+  @media (max-width: 768px) {
+    .catch-game-canvas {
+      height: calc(100vh - 10rem);
+    }
+  }
+  
+  /* Additional breakpoint for very small screens */
+  @media (max-width: 480px) {
+    .catch-game-container {
+      margin: 1rem;
+    }
+  }
+  
+  /* Further adjustments for 1024px, 1440px, and 2024px can be added as needed */
+  

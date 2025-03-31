@@ -38,8 +38,8 @@ function PixelPopBanner({
         className="banner-console"
       />
 
-      {showParagraph && (
-        <p className="game-prompt">Relive the Nostalgia of Old School Games</p>
+{showParagraph && (
+        <p className="game-prompt">Relive the Nostalgia of Old School Arcade Games</p>
       )}
 
       {showButton && (

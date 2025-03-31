@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import SectionHeading from "./SectionHeading";
 import bgImage from "/bg-image-blank.png"; // Import the background image
+import "../styles/catchGame.css";
 
 const CatchGame = () => {
   const canvasRef = useRef(null);
@@ -14,13 +14,14 @@ const CatchGame = () => {
     () => Number(localStorage.getItem("catchGameHighScore")) || 0
   );
 
-  // A ref to always have the latest highScore
+  // Keep high score updated
   const highScoreRef = useRef(highScore);
   useEffect(() => {
     highScoreRef.current = highScore;
   }, [highScore]);
 
-  const basket = useRef({ x: 0, y: 0, width: 150, height: 30 });
+  // Refs for game objects
+  const basket = useRef({ x: 0, y: 0, width: 180, height: 60 });
   const leaves = useRef([]);
   const intervalRef = useRef(null);
   const requestRef = useRef(null);
@@ -40,7 +41,7 @@ const CatchGame = () => {
     pausedRef.current = paused;
   }, [paused]);
 
-  // Real-time high score update: whenever score exceeds current highScore, update it
+  // Update high score in real time
   useEffect(() => {
     if (score > highScore) {
       setHighScore(score);
@@ -48,12 +49,13 @@ const CatchGame = () => {
     }
   }, [score, highScore]);
 
-  // Load background image once using the imported image
+  // Load the background image
   useEffect(() => {
     bgImageRef.current = new Image();
     bgImageRef.current.src = bgImage;
   }, []);
 
+  // Start (or restart) the game
   const startGame = () => {
     setScore(0);
     setLives(5);
@@ -66,13 +68,21 @@ const CatchGame = () => {
       cancelAnimationFrame(requestRef.current);
     }
     requestRef.current = requestAnimationFrame(gameLoop);
+    intervalRef.current = setInterval(() => {
+      if (!gameOverRef.current && !pausedRef.current) {
+        createLeaf(canvasRef.current);
+      }
+    }, 1000);
   };
 
+  // Create a new ball (leaf)
+  // On desktop (canvas.width ≥1440): fixed 30px radius; otherwise, 3% of canvas width.
   const createLeaf = (canvas) => {
+    let ballRadius = canvas.width >= 1440 ? 30 : canvas.width * 0.03;
     leaves.current.push({
       x: Math.random() * canvas.width,
-      y: 20,
-      radius: 20,
+      y: ballRadius,
+      radius: ballRadius,
       speed: 2 + Math.random() * 3,
     });
   };
@@ -80,16 +90,14 @@ const CatchGame = () => {
   const gameLoop = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-
-    // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw the background image (if loaded) so it appears behind game elements
+    // Draw background image if loaded
     if (bgImageRef.current && bgImageRef.current.complete) {
       ctx.drawImage(bgImageRef.current, 0, 0, canvas.width, canvas.height);
     }
 
-    // Draw semi-transparent overlay so that the background shows through slightly
+    // Draw semi-transparent overlay
     ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
     ctx.beginPath();
     if (ctx.roundRect) {
@@ -108,24 +116,24 @@ const CatchGame = () => {
         moveLeaves();
         checkCollisions(canvas);
       } else {
-        // Draw pause overlay when paused
+        // Draw pause overlay
         ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "#fff";
-        ctx.font = "50px Quicksand";
+        ctx.fillStyle = "#cbbfee";
+        ctx.font = "30px Quicksand";
         ctx.textAlign = "center";
         ctx.fillText("Paused", canvas.width / 2, canvas.height / 2);
       }
     } else {
       drawGameOver(ctx, canvas);
     }
-
     requestRef.current = requestAnimationFrame(gameLoop);
   };
 
+  // Draw the paddle (basket)
   const drawBasket = (ctx) => {
     const { x, y, width, height } = basket.current;
-    ctx.fillStyle = "#9990bb";
+    ctx.fillStyle = "#cbbfee";
     ctx.beginPath();
     if (ctx.roundRect) {
       ctx.roundRect(x, y, width, height, 32);
@@ -157,12 +165,10 @@ const CatchGame = () => {
         leaf.y + leaf.radius >= by &&
         leaf.x > bx &&
         leaf.x < bx + width;
-
       if (caught) {
         setScore((prev) => prev + 1);
         return false;
       }
-
       if (leaf.y > canvas.height) {
         setLives((prev) => {
           const updated = prev - 1;
@@ -174,7 +180,6 @@ const CatchGame = () => {
         });
         return false;
       }
-
       return true;
     });
   };
@@ -182,52 +187,110 @@ const CatchGame = () => {
   const drawUI = (ctx) => {
     ctx.fillStyle = "#fff";
     ctx.font = "20px Quicksand";
+    ctx.textAlign = "left";
     ctx.fillText(`Score: ${scoreRef.current}`, 20, 30);
     ctx.fillText(`Lives: ${livesRef.current}`, 20, 60);
   };
 
+  // Draw the Game Over modal with scores and a "Play Again" button.
+  // On desktop (canvas.width ≥768), scores are in one row; on smaller screens, in a column.
   const drawGameOver = (ctx, canvas) => {
-    // Draw game over overlay
+    const isMobile = canvas.width < 768;
+    // Draw overlay
     ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = "#9990bb";
-    ctx.font = "50px Chonburi";
+    // Title
+    const titleFontSize = isMobile ? 40 : 50;
+    ctx.fillStyle = "#cbbfee";
+    ctx.font = `${titleFontSize}px Chonburi`;
     ctx.textAlign = "center";
-    ctx.fillText("Game Over", canvas.width / 2, canvas.height / 2 - 50);
+    ctx.fillText(
+      "Game Over",
+      canvas.width / 2,
+      canvas.height / 2 - (isMobile ? 100 : 120)
+    );
 
+    // Scores
+    if (isMobile) {
+      const scoreFontSize = 20;
+      ctx.fillStyle = "#fff";
+      ctx.font = `${scoreFontSize}px Quicksand`;
+      ctx.textAlign = "center";
+      ctx.fillText(
+        `Final Score: ${scoreRef.current}`,
+        canvas.width / 2,
+        canvas.height / 2 - 40
+      );
+      ctx.fillText(
+        `High Score: ${highScoreRef.current}`,
+        canvas.width / 2,
+        canvas.height / 2 - 10
+      );
+    } else {
+      const scoreFontSize = 30;
+      ctx.fillStyle = "#fff";
+      ctx.font = `${scoreFontSize}px Quicksand`;
+      ctx.textAlign = "left";
+      ctx.fillText(
+        `Final Score: ${scoreRef.current}`,
+        canvas.width * 0.1,
+        canvas.height / 2 - 40
+      );
+      ctx.textAlign = "right";
+      ctx.fillText(
+        `High Score: ${highScoreRef.current}`,
+        canvas.width * 0.9,
+        canvas.height / 2 - 40
+      );
+    }
 
-    ctx.fillStyle = "#fff";
-    ctx.font = "30px Quicksand";
-    ctx.fillText(`Final Score: ${scoreRef.current}`, canvas.width / 2, canvas.height / 2);
-    ctx.fillText(`High Score: ${highScoreRef.current}`, canvas.width / 2, canvas.height / 2 + 40);
+    // Play Again Button
+    const buttonWidth = 150;
+    const buttonHeight = 50;
+    const buttonFontSize = isMobile ? 20 : 25;
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = "#cbbfee"; // Use cbbfee for button background
+    ctx.font = `${buttonFontSize}px Quicksand`;
 
-    // Draw Play Again button
-    // Draw Play Again button
-    ctx.fillStyle = "#9990bb";
+    let playAgainX, playAgainY;
+    if (isMobile) {
+      playAgainX = canvas.width / 2 - buttonWidth / 2;
+      playAgainY = canvas.height / 2 + 60;
+    } else {
+      playAgainX = canvas.width / 2 - buttonWidth / 2;
+      playAgainY = canvas.height / 2 + 20;
+    }
     ctx.beginPath();
     if (ctx.roundRect) {
-      ctx.roundRect(canvas.width / 2 - 100, canvas.height / 2 + 80, 200, 50, 25); // Increased corner radius to 25
+      ctx.roundRect(playAgainX, playAgainY, buttonWidth, buttonHeight, 25);
     } else {
-      ctx.fillRect(canvas.width / 2 - 100, canvas.height / 2 + 80, 200, 50);
+      ctx.fillRect(playAgainX, playAgainY, buttonWidth, buttonHeight);
     }
     ctx.fill();
-
-    ctx.fillStyle = "#fff";
-    ctx.font = "25px Quicksand";
-    ctx.fillText("Play Again", canvas.width / 2, canvas.height / 2 + 115);
+    ctx.fillStyle = "#3d3d3d";
+    ctx.textAlign = "center";
+    ctx.fillText("Play Again", playAgainX + buttonWidth / 2, playAgainY + buttonHeight / 2);
   };
 
   useEffect(() => {
     if (!started) return;
-
     const canvas = canvasRef.current;
-    // Set internal canvas dimensions based on rendered size
     const rect = canvas.getBoundingClientRect();
     canvas.width = rect.width;
     canvas.height = rect.height;
-    basket.current.x = canvas.width / 2 - 100;
-    basket.current.y = canvas.height - 100;
+
+    // Set responsive paddle dimensions:
+    // Desktop (canvas.width ≥1440): fixed 150x50; otherwise, use percentages.
+    if (canvas.width >= 1440) {
+      basket.current.width = 150;
+      basket.current.height = 50;
+    } else {
+      basket.current.width = canvas.width * 0.2;
+      basket.current.height = canvas.height * 0.04;
+    }
+    basket.current.x = canvas.width / 2 - basket.current.width / 2;
+    basket.current.y = canvas.height - basket.current.height - canvas.height * 0.05;
 
     const handleMouseMove = (e) => {
       if (gameOverRef.current) return;
@@ -245,24 +308,28 @@ const CatchGame = () => {
       const scaleY = canvas.height / rect.height;
       const x = (e.clientX - rect.left) * scaleX;
       const y = (e.clientY - rect.top) * scaleY;
-
       if (gameOverRef.current) {
-        // Check if "Play Again" button is clicked
-        const inPlayAgainButton =
-          x > canvas.width / 2 - 100 &&
-          x < canvas.width / 2 + 100 &&
-          y > canvas.height / 2 + 80 &&
-          y < canvas.height / 2 + 130;
-        if (inPlayAgainButton) {
-          setScore(0);
-          setLives(5);
-          setGameOver(false);
-          gameOverRef.current = false;
-          leaves.current = [];
-          requestRef.current = requestAnimationFrame(gameLoop);
+        // Check if click is in the Play Again button area
+        const buttonWidth = 150;
+        const buttonHeight = 50;
+        let playAgainX, playAgainY;
+        if (canvas.width < 768) {
+          playAgainX = canvas.width / 2 - buttonWidth / 2;
+          playAgainY = canvas.height / 2 + 60;
+        } else {
+          playAgainX = canvas.width / 2 - buttonWidth / 2;
+          playAgainY = canvas.height / 2 + 20;
+        }
+        const inPlayAgain =
+          x > playAgainX &&
+          x < playAgainX + buttonWidth &&
+          y > playAgainY &&
+          y < playAgainY + buttonHeight;
+        if (inPlayAgain) {
+          startGame();
         }
       } else {
-        // Toggle pause if game is in progress
+        // Toggle pause during gameplay
         setPaused((prev) => !prev);
       }
     };
@@ -270,8 +337,9 @@ const CatchGame = () => {
     canvas.addEventListener("mousemove", handleMouseMove);
     canvas.addEventListener("click", handleClick);
 
+    // Create new balls at intervals (only if not paused or game over)
     intervalRef.current = setInterval(() => {
-      if (!gameOverRef.current) createLeaf(canvas);
+      if (!gameOverRef.current && !pausedRef.current) createLeaf(canvas);
     }, 1000);
 
     requestRef.current = requestAnimationFrame(gameLoop);
@@ -285,31 +353,8 @@ const CatchGame = () => {
   }, [started]);
 
   return (
-    <div
-      style={{
-        margin: "4rem 4rem",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        position: "relative",
-        fontFamily: "Quicksand, sans-serif",
-        backgroundColor: "#2d2d2d",
-        backgroundImage: "url('/bg-image-blank.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        borderRadius: "2rem",
-      }}
-    >
-      <canvas
-        ref={canvasRef}
-        style={{
-          borderRadius: "2rem",
-          backgroundColor: "transparent",
-          width: "100%",
-          height: "calc(100vh - 17rem)",
-        }}
-      />
+    <div className="catch-game-container">
+      <canvas ref={canvasRef} className="catch-game-canvas" />
     </div>
   );
 };

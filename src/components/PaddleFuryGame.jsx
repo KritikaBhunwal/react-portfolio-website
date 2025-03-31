@@ -4,7 +4,6 @@ import "../styles/paddleFuryGame.css";
 
 const PaddleFuryGame = () => {
   const canvasRef = useRef(null);
-  const [started, setStarted] = useState(false);
   const [paused, setPaused] = useState(false);
   const pausedRef = useRef(paused);
   useEffect(() => {
@@ -15,15 +14,14 @@ const PaddleFuryGame = () => {
     Number(localStorage.getItem("paddleFuryHighScore")) || 0
   );
 
-  // State and refs to manage game-over and restart timing
+  // Using ref to store final score so it can be reliably displayed on game over
+  const finalScoreRef = useRef(0);
+
   const [isGameOver, setIsGameOver] = useState(false);
   const [restartAllowed, setRestartAllowed] = useState(false);
   const gameOverRef = useRef(false);
-  const restartAllowedRef = useRef(restartAllowed);
-  useEffect(() => {
-    restartAllowedRef.current = restartAllowed;
-  }, [restartAllowed]);
 
+  // Set canvas dimensions on mount
   useEffect(() => {
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
@@ -32,25 +30,34 @@ const PaddleFuryGame = () => {
   }, []);
 
   useEffect(() => {
-    if (!started) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    let paddle = {
-      width: canvas.width * 0.2,
-      height: 30,
-      x: canvas.width / 2 - (canvas.width * 0.4) / 2,
-      y: canvas.height - 60,
-      speed: 12,
-    };
+    // Set paddle dimensions similar to the basket in CatchGame
+    let paddle = {};
+    if (canvas.width >= 1440) {
+      paddle.width = 150;
+      paddle.height = 50;
+    } else {
+      paddle.width = canvas.width * 0.2;
+      paddle.height = canvas.height * 0.04;
+    }
+    paddle.x = canvas.width / 2 - paddle.width / 2;
+    paddle.y = canvas.height - paddle.height - canvas.height * 0.05;
+    paddle.speed = 15; // for keyboard control
 
+    // Set ball dimensions similar to the leaf in CatchGame
     let ball = {
       x: canvas.width / 2,
       y: canvas.height / 2,
-      radius: 15,
       dx: 4,
-      dy: 4,
+      dy: -4, // start moving upward
     };
+    if (canvas.width >= 1440) {
+      ball.radius = 30;
+    } else {
+      ball.radius = canvas.width * 0.03;
+    }
 
     let score = 0;
     let animationFrameId;
@@ -77,54 +84,100 @@ const PaddleFuryGame = () => {
     function drawScore() {
       ctx.fillStyle = "#fff";
       ctx.font = `${canvas.width * 0.025}px Quicksand`;
+      ctx.textAlign = "left";
       ctx.fillText(`Score: ${score}`, 10, 30);
     }
 
     function showPaused() {
       ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#fff";
-      ctx.font = `${canvas.width * 0.06}px Quicksand`;
+      ctx.fillStyle = "#cbbfee";
+      ctx.font = "30px Quicksand";
       ctx.textAlign = "center";
       ctx.fillText("Paused", canvas.width / 2, canvas.height / 2);
     }
 
+    // Game over screen mimicking the CatchGame layout and functionality
     function showGameOver() {
+      const isMobile = canvas.width < 768;
+      // Draw overlay
       ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#9990bb";
-      ctx.font = `${canvas.width * 0.06}px Chonburi`;
+      // Title
+      const titleFontSize = isMobile ? 40 : 50;
+      ctx.fillStyle = "#cbbfee";
+      ctx.font = `${titleFontSize}px Chonburi`;
       ctx.textAlign = "center";
-      ctx.fillText("Game Over", canvas.width / 2, canvas.height / 2 - 60);
-
-      ctx.fillStyle = "#fff";
-      ctx.font = `${canvas.width * 0.04}px Quicksand`;
-      ctx.fillText(`Final Score: ${score}`, canvas.width / 2, canvas.height / 2);
       ctx.fillText(
-        `High Score: ${score > highScore ? score : highScore}`,
+        "Game Over",
         canvas.width / 2,
-        canvas.height / 2 + 40
+        canvas.height / 2 - (isMobile ? 100 : 120)
       );
 
-      if (restartAllowedRef.current) {
-        ctx.fillStyle = "#9990bb";
-        ctx.beginPath();
-        if (ctx.roundRect) {
-          ctx.roundRect(canvas.width / 2 - 100, canvas.height / 2 + 80, 200, 50, 25);
-        } else {
-          ctx.fillRect(canvas.width / 2 - 100, canvas.height / 2 + 80, 200, 50);
-        }
-        ctx.fill();
-
+      // Scores
+      if (isMobile) {
+        const scoreFontSize = 20;
         ctx.fillStyle = "#fff";
-        ctx.font = `${canvas.width * 0.035}px Quicksand`;
-        ctx.fillText("Play Again", canvas.width / 2, canvas.height / 2 + 115);
+        ctx.font = `${scoreFontSize}px Quicksand`;
+        ctx.textAlign = "center";
+        ctx.fillText(
+          `Final Score: ${finalScoreRef.current}`,
+          canvas.width / 2,
+          canvas.height / 2 - 40
+        );
+        ctx.fillText(
+          `High Score: ${highScore}`,
+          canvas.width / 2,
+          canvas.height / 2 - 10
+        );
       } else {
+        const scoreFontSize = 30;
         ctx.fillStyle = "#fff";
-        ctx.font = `${canvas.width * 0.035}px Quicksand`;
-        ctx.fillText("Please wait...", canvas.width / 2, canvas.height / 2 + 115);
+        ctx.font = `${scoreFontSize}px Quicksand`;
+        ctx.textAlign = "left";
+        ctx.fillText(
+          `Final Score: ${finalScoreRef.current}`,
+          canvas.width * 0.1,
+          canvas.height / 2 - 40
+        );
+        ctx.textAlign = "right";
+        ctx.fillText(
+          `High Score: ${highScore}`,
+          canvas.width * 0.9,
+          canvas.height / 2 - 40
+        );
       }
+
+      // Play Again Button
+      const buttonWidth = 150;
+      const buttonHeight = 50;
+      const buttonFontSize = isMobile ? 20 : 25;
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = "#cbbfee";
+      ctx.font = `${buttonFontSize}px Quicksand`;
+      let playAgainX, playAgainY;
+      if (isMobile) {
+        playAgainX = canvas.width / 2 - buttonWidth / 2;
+        playAgainY = canvas.height / 2 + 60;
+      } else {
+        playAgainX = canvas.width / 2 - buttonWidth / 2;
+        playAgainY = canvas.height / 2 + 20;
+      }
+      ctx.beginPath();
+      if (ctx.roundRect) {
+        ctx.roundRect(playAgainX, playAgainY, buttonWidth, buttonHeight, 25);
+      } else {
+        ctx.fillRect(playAgainX, playAgainY, buttonWidth, buttonHeight);
+      }
+      ctx.fill();
+      ctx.fillStyle = "#3d3d3d";
+      ctx.textAlign = "center";
+      ctx.fillText(
+        "Play Again",
+        playAgainX + buttonWidth / 2,
+        playAgainY + buttonHeight / 2
+      );
     }
 
     function moveBall() {
@@ -145,22 +198,24 @@ const PaddleFuryGame = () => {
       ) {
         ball.dy *= -1;
         score++;
-        ball.dx *= 1.1;
-        ball.dy *= 1.1;
+        // Use a smaller speed increase
+        ball.dx *= 1.02;
+        ball.dy *= 1.02;
       }
 
       if (ball.y - ball.radius > canvas.height) {
         if (!gameOverRef.current) {
           gameOverRef.current = true;
           setIsGameOver(true);
+          // Save the final score using the ref
+          finalScoreRef.current = score;
+          localStorage.setItem("paddleFuryFinalScore", score);
           if (score > highScore) {
             setHighScore(score);
             localStorage.setItem("paddleFuryHighScore", score);
           }
-          // Allow restart after 3 seconds
-          setTimeout(() => {
-            setRestartAllowed(true);
-          }, 3000);
+          // Allow immediate restart
+          setRestartAllowed(true);
         }
       }
     }
@@ -195,7 +250,10 @@ const PaddleFuryGame = () => {
       if (e.key === "ArrowLeft" || e.key.toLowerCase() === "a") {
         paddle.x = Math.max(paddle.x - paddle.speed, 0);
       } else if (e.key === "ArrowRight" || e.key.toLowerCase() === "d") {
-        paddle.x = Math.min(paddle.x + paddle.speed, canvas.width - paddle.width);
+        paddle.x = Math.min(
+          paddle.x + paddle.speed,
+          canvas.width - paddle.width
+        );
       }
     }
 
@@ -234,12 +292,11 @@ const PaddleFuryGame = () => {
     gameLoop();
 
     function restartGame() {
-      // Reset game state variables
       score = 0;
       ball.x = canvas.width / 2;
       ball.y = canvas.height / 2;
       ball.dx = 4;
-      ball.dy = 4;
+      ball.dy = -4; // start upward again
       gameOverRef.current = false;
       setIsGameOver(false);
       setRestartAllowed(false);
@@ -254,16 +311,11 @@ const PaddleFuryGame = () => {
       window.removeEventListener("deviceorientation", handleTilt);
       canvas.removeEventListener("click", handleCanvasClick);
     };
-  }, [started, highScore, isGameOver, restartAllowed]);
+  }, [highScore, isGameOver, restartAllowed]);
 
   return (
     <div className="paddle-game-container">
       <canvas ref={canvasRef} className="paddle-canvas" />
-      {!started && (
-        <div className="game-start-overlay" onClick={() => setStarted(true)}>
-          <button className="game-start-button">Play</button>
-        </div>
-      )}
     </div>
   );
 };

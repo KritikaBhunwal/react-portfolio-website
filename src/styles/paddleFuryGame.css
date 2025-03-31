@@ -1,64 +1,37 @@
 .paddle-game-container {
+  margin: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  font-family: "Quicksand", sans-serif;
+  background-color: #2d2d2d;
+  background-image: url("/bg-image-blank.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+/* Responsive margin for smaller screens */
+@media (max-width: 768px) {
+  .paddle-game-container {
     margin: 2rem;
-    padding: 1rem;
-    max-width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    font-family: "Quicksand", sans-serif;
-    background-color: #2d2d2d;
-    background-image: url("/bg-image-blank.png");
-    background-size: cover;
-    background-position: center;
-    border-radius: 2rem;
   }
-  
+}
+
+/* Canvas occupies full width and adjusts height responsively */
+.paddle-canvas {
+  border-radius: 2rem;
+  background-color: transparent;
+  width: 100%;
+  height: calc(100vh - 15rem);
+  touch-action: none; /* Prevent scrolling on touch devices */
+}
+
+@media (max-width: 768px) {
   .paddle-canvas {
-    width: 100%;
-    max-width: 100%;
-    height: calc(100vh - 17rem);
-    border-radius: 2rem;
-    background-color: transparent;
-    touch-action: none; /* Prevents scrolling while playing on touch devices */
+    height: calc(100vh - 10rem);
   }
-  
-  .game-start-overlay {
-    padding: 2rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2rem;
-    z-index: 10;
-  }
-  
-  .game-start-button {
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-    background-color: #9990bb;
-    color: #fff;
-    border: none;
-    border-radius: 2rem;
-    cursor: pointer;
-    font-family: "Quicksand", sans-serif;
-  }
-  
-  @media (max-width: 768px) {
-    .paddle-canvas {
-      height: 60vh;
-    }
-  
-    .game-start-button {
-      font-size: 1.2rem;
-      padding: 0.8rem 1.5rem;
-    }
-  }
-  
+}

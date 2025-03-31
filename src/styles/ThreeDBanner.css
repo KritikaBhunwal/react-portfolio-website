@@ -32,6 +32,7 @@
 /* Model Viewer & Overlay  */
 .model-wrapper {
   position: relative;
+  /* padding: 2rem; */
 }
 
 .model-container {
@@ -59,6 +60,7 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: 2rem;
+  /* padding: 2rem; */
   overflow: hidden;
 }
 
@@ -89,9 +91,6 @@
   opacity: 1;
 }
 
-/* ================================
-   Project Title & Description
-=================================== */
 .project-title {
   text-decoration: none;
 }
@@ -120,10 +119,6 @@
   color: #fff;
 }
 
-/* ================================
-   Expand Button – top right
-   (Only visible on hover)
-=================================== */
 .expand-button {
   position: absolute;
   top: 1rem;
@@ -156,9 +151,6 @@
   color: #B28FDB;
 }
 
-/* ================================
-   Modal Styles
-=================================== */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -188,6 +180,7 @@
   color: #3D3D3D;
   z-index: 100;
   max-width: 18.75rem;
+  padding: 2rem;
   /* 300px */
 }
 
@@ -200,7 +193,7 @@
 .modal-header p {
   margin: 0.3125rem 0 0;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   opacity: 0.9;
   /* margin-left: 3rem; */
 }
@@ -274,9 +267,6 @@
   color: #B28FDB;
 }
 
-/* ================================
-   Mobile Carousel Styles
-=================================== */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
