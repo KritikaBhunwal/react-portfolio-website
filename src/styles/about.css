@@ -1,6 +1,5 @@
 /* ---------- Global About Page Styles ---------- */
 
-/* Container & Typography */
 .about-container {
   font-family: 'QuickSand', sans-serif;
 }
@@ -46,13 +45,18 @@
   );
 }
 
+/* Reveal behind image on hover/tap */
+.image-banner:hover .base-image,
+.image-banner:active .base-image {
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
 .top-image {
   z-index: 1;
 }
 
 /* ---------- Text & Content Sections ---------- */
-
-/* About Content Layout */
 .about-content {
   display: flex;
   flex-direction: row;
@@ -62,7 +66,6 @@
   margin: 0 2rem;
 }
 
-/* Left & Right Panels */
 .about-left,
 .about-right {
   display: flex;
@@ -70,7 +73,6 @@
   justify-content: flex-start;
 }
 
-/* Set Left Panel to take a bit more space if needed */
 .about-left {
   flex: 2;
 }
@@ -79,9 +81,6 @@
   flex: 2;
 }
 
-/* Sub-section Headings are assumed to be styled within their own component */
-
-/* Text for Artist & Designer */
 .artist-text,
 .designer-text {
   font-size: 1.1rem;
@@ -90,7 +89,6 @@
   margin: 0;
 }
 
-/* Business Intro (ensuring full width) */
 .business-intro,
 .business-intro-container {
   width: 100%;
@@ -99,7 +97,6 @@
   margin: 1rem auto;
 }
 
-/* Section Heading Adjustment */
 .section-heading {
   margin-left: 2rem;
 }
@@ -110,7 +107,6 @@
   overflow: hidden;
   transition: max-height 0.4s ease-in-out, padding 0.2s ease-in-out;
 }
-
 .accordion-item.expanded .accordion-content {
   max-height: 500px;
 }
@@ -129,8 +125,6 @@
 }
 
 /* ---------- Responsive Styles ---------- */
-
-/* Desktop & Larger Screens */
 @media (min-width: 1024px) {
   .about-content {
     flex-direction: row;
@@ -141,7 +135,6 @@
   }
 }
 
-/* Tablet & Mobile */
 @media (max-width: 1024px) {
   .about-content {
     flex-direction: column;
@@ -156,7 +149,6 @@
   }
 }
 
-/* Small Mobile Devices */
 @media (max-width: 480px) {
   .about-content {
     margin: 0.5rem;
@@ -200,10 +192,7 @@
   .image-banner {
     height: 300px;
   }
-  .base-image {
-    mask-image: none;
-    opacity: 1 !important;
-  }
+  /* Removed forced mask-image: none; kept the effect */
   .business-intro {
     margin: 0;
   }

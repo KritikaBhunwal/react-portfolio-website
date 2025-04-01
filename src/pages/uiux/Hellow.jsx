@@ -383,11 +383,17 @@ const Hellow = () => {
               src="/KritikaBhunwal_TechnicalSolutionProposal_Presentation.pdf"
               width="100%"
               height="600rem"
-              style={{ borderRadius: "2rem", marginLeft: "4rem" }}
+              style={{
+                borderRadius: "2rem",
+                marginLeft: "4rem",
+                height: "600rem",
+                maxHeight: "400rem",
+              }}
             />
-
-            {/* New Let's Work Together Section */}
-            <SectionHeading title="Let's Work Together" />
+          </main>
+        </div>
+                    {/* New Let's Work Together Section */}
+                    <SectionHeading title="Let's Work Together" />
             <ProjectContent
               title="A Partnership Rooted in Creativity & Collaboration"
               description="I thrive in creative collaborations that push boundaries and bring fresh perspectives to the table. Whether it's branding, illustration, UX/UI, or strategic design thinking, I am eager to contribute innovative solutions tailored to your vision. Let’s build something impactful together!"
@@ -414,8 +420,6 @@ const Hellow = () => {
                 },
               ]}
             />
-          </main>
-        </div>
         <WorkTogether />
       </div>
 

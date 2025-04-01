@@ -36,12 +36,14 @@ const JavaScriptGamesContent = () => {
   ];
 
   return (
-    <ProjectContent
-      title={title}
-      description={description}
-      highlights={highlights}
-      icons={icons}
-    />
+    <div style={{ margin: "0rem" }}>
+      <ProjectContent
+        title={title}
+        description={description}
+        highlights={highlights}
+        icons={icons}
+      />
+    </div>
   );
 };
 

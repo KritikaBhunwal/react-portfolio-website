@@ -1,3 +1,4 @@
+/* Container styling for Paddle Fury Game */
 .paddle-game-container {
   margin: 4rem;
   display: flex;
@@ -14,22 +15,23 @@
   overflow: hidden;
 }
 
-/* Responsive margin for smaller screens */
+/* Reduce margin on smaller screens */
 @media (max-width: 768px) {
   .paddle-game-container {
     margin: 2rem;
   }
 }
 
-/* Canvas occupies full width and adjusts height responsively */
+/* Canvas styling: full width with responsive height */
 .paddle-canvas {
   border-radius: 2rem;
   background-color: transparent;
   width: 100%;
   height: calc(100vh - 15rem);
-  touch-action: none; /* Prevent scrolling on touch devices */
+  touch-action: none; /* Prevents default scrolling on touch devices */
 }
 
+/* Responsive adjustments for the canvas on smaller screens */
 @media (max-width: 768px) {
   .paddle-canvas {
     height: calc(100vh - 10rem);

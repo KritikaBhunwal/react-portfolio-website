@@ -1,4 +1,5 @@
-.catch-game-container {
+/* Container styling for Meteor Rush Game */
+.meteor-game-container {
   margin: 4rem;
   display: flex;
   justify-content: center;
@@ -14,75 +15,70 @@
   overflow: hidden;
 }
 
-/* Breakpoint for screens ≤2024px (Ultra-wide screens) */
+/* Breakpoints for responsive container margins */
 @media (max-width: 2024px) {
-  .catch-game-container {
+  .meteor-game-container {
     margin: 3rem;
   }
 }
 
-/* Breakpoint for screens ≤1440px */
 @media (max-width: 1440px) {
-  .catch-game-container {
+  .meteor-game-container {
     margin: 2.5rem;
   }
 }
 
-/* Breakpoint for screens ≤1024px (Tablet) */
 @media (max-width: 1024px) {
-  .catch-game-container {
+  .meteor-game-container {
     margin: 2rem;
   }
 }
 
-/* Responsive margin for smaller screens */
 @media (max-width: 768px) {
-  .catch-game-container {
+  .meteor-game-container {
     margin: 2rem;
   }
 }
 
-/* Additional breakpoint for very small screens */
 @media (max-width: 480px) {
-  .catch-game-container {
+  .meteor-game-container {
     margin: 1rem;
   }
 }
 
-/* Canvas occupies full width and adjusts height responsively */
-.catch-game-canvas {
+/* Canvas styling: full width and responsive height/width */
+.meteor-game-canvas {
   border-radius: 2rem;
   background-color: transparent;
-  width: 100%;
-  height: calc(100vh - 15rem);
   width: calc(100vw - 15rem);
+  height: calc(100vh - 15rem);
 }
 
-/* Adjust canvas height at different breakpoints */
+/* Adjust canvas dimensions at different breakpoints */
 @media (max-width: 2024px) {
-  .catch-game-canvas {
-    height: calc(100vh - 14rem);
+  .meteor-game-canvas {
     width: calc(100vw - 14rem);
+    height: calc(100vh - 14rem);
   }
 }
 
 @media (max-width: 1440px) {
-  .catch-game-canvas {
-    height: calc(100vh - 13rem);
+  .meteor-game-canvas {
     width: calc(100vw - 13rem);
+    height: calc(100vh - 13rem);
   }
 }
 
 @media (max-width: 1024px) {
-  .catch-game-canvas {
-    height: calc(100vh - 12rem);
+  .meteor-game-canvas {
     width: calc(100vw - 12rem);
+    height: calc(100vh - 12rem);
   }
 }
 
 @media (max-width: 768px) {
-  .catch-game-canvas {
-    height: calc(100vh - 10rem);
+  .meteor-game-canvas {
     width: calc(100vw - 10rem);
+    height: calc(100vh - 10rem);
   }
 }
