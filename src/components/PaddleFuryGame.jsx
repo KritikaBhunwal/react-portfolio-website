@@ -44,7 +44,7 @@ const PaddleFuryGame = () => {
     }
     paddle.x = canvas.width / 2 - paddle.width / 2;
     paddle.y = canvas.height - paddle.height - canvas.height * 0.05;
-    paddle.speed = 15; // for keyboard control
+    paddle.speed = 12; // for keyboard control
 
     // Set ball dimensions similar to the leaf in CatchGame
     let ball = {
@@ -91,8 +91,8 @@ const PaddleFuryGame = () => {
     function showPaused() {
       ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#cbbfee";
-      ctx.font = "30px Quicksand";
+      ctx.fillStyle = "#fff";
+      ctx.font = `${canvas.width * 0.06}px Quicksand`;
       ctx.textAlign = "center";
       ctx.fillText("Paused", canvas.width / 2, canvas.height / 2);
     }

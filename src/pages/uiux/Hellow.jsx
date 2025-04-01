@@ -382,7 +382,7 @@ const Hellow = () => {
             <PDFViewer
               src="/KritikaBhunwal_TechnicalSolutionProposal_Presentation.pdf"
               width="100%"
-              height="400rem"
+              height="600rem"
               style={{ borderRadius: "2rem", marginLeft: "4rem" }}
             />
 

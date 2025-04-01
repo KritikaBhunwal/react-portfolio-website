@@ -33,5 +33,6 @@
 @media (max-width: 768px) {
   .paddle-canvas {
     height: calc(100vh - 10rem);
+    width: calc(100vw - 10rem);
   }
 }

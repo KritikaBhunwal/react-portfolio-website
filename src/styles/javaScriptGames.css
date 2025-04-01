@@ -1,54 +1,25 @@
-
-.uiux-subpage {
-  margin: 0 3rem;
-}
-
+/* Layout */
 .uiux-subpage-content {
-  margin: 0 6rem;
+  margin: 0 8rem;
 }
 
 .uiux-subpage-content p {
   font-size: 1rem;
-  margin: 2rem;
+  margin: 2rem 2rem;
 }
 
-/* =======================
-   Games Container & Cards
-========================== */
+/* Games container */
 .games-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
   gap: 2rem;
-  margin: 2rem;
+  margin: 2rem 2rem;
   flex-wrap: wrap;
 }
 
-.two-column-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start; /* aligns items to the start of the row */
-  align-items: flex-start;
-  gap: 2rem;
-  margin: 2rem 0;
-}
-
-.two-column-container .column {
-  flex: 1;
-  min-width: 300px; /* Ensures columns don’t shrink too much on small screens */
-}
-
-.two-column-container .column ul {
-  margin-left: 2rem;
-}
-.two-column-container .column ul {
-  list-style-position: outside;
-  padding-left: 2rem;
-}
-
-
-
+/* Game card */
 .game-card {
   flex: 1;
   max-width: 100%;
@@ -57,9 +28,7 @@
   border-radius: 2rem;
 }
 
-/* =======================
-   Image Wrapper & Effects
-========================== */
+/* Image wrapper to isolate image and overlay from headings */
 .image-wrapper {
   position: relative;
   cursor: pointer;
@@ -67,6 +36,7 @@
   overflow: hidden;
 }
 
+/* Game preview image */
 .game-preview-image {
   width: 100%;
   height: auto;
@@ -79,6 +49,7 @@
   transform: scale(1.01);
 }
 
+/* Overlay on hover */
 .overlay {
   position: absolute;
   top: 0;
@@ -98,13 +69,10 @@
   opacity: 1;
 }
 
-/* =======================
-   Play Button
-========================== */
+/* Play button */
 .play-button {
   padding: 0.75rem 1.5rem;
-  margin-top: 4rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
   border: none;
   border-radius: 9999px;
   background-color: #cbbfee;
@@ -117,9 +85,7 @@
   transform: scale(1.1);
 }
 
-/* =======================
-   Modal Styles
-========================== */
+/* Modal */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -160,66 +126,14 @@
   cursor: pointer;
 }
 
-/* =======================
-   Responsive Adjustments
-========================== */
-
-/* For screens ≤1440px */
-@media (max-width: 1440px) {
-  .uiux-subpage-content {
-    margin: 0 4rem;
-  }
-  
-  .uiux-subpage-content p {
-    font-size: 0.9rem;
-    margin: 2rem 2rem;
-  }
-  
-  .games-container {
-    margin: 2rem 1rem;
-  }
-  
-  .play-button {
-    font-size: 0.9rem;
-    padding: 0.65rem 1.2rem;
-    margin-top: 3rem;
-  }
-  
-  .modal-content {
-    max-width: 95%;
-    max-height: 95%;
-  }
-}
-
-/* For screens ≤768px */
+/* Responsive layout */
 @media (max-width: 768px) {
   .uiux-subpage-content {
     margin: 0 2rem;
   }
-  
-  .uiux-subpage-content p {
-    font-size: 0.85rem;
-    margin: 1.5rem 1.5rem;
-  }
-  
+
   .games-container {
     flex-direction: column;
     gap: 2rem;
-    margin: 1rem;
-  }
-
-  .two-column-container {
-    flex-direction: column;
-  }
-  
-  .play-button {
-    font-size: 0.8rem;
-    padding: 0.5rem 1rem;
-    margin-top: 2rem;
-  }
-  
-  .modal-content {
-    margin: 0.5rem;
-    padding: 0.5rem;
   }
 }

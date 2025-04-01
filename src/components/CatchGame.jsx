@@ -21,7 +21,7 @@ const CatchGame = () => {
   }, [highScore]);
 
   // Refs for game objects
-  const basket = useRef({ x: 0, y: 0, width: 180, height: 60 });
+  const basket = useRef({ x: 0, y: 0, width: 150, height: 50 });
   const leaves = useRef([]);
   const intervalRef = useRef(null);
   const requestRef = useRef(null);
@@ -119,8 +119,8 @@ const CatchGame = () => {
         // Draw pause overlay
         ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "#cbbfee";
-        ctx.font = "30px Quicksand";
+        ctx.fillStyle = "#fff";
+        ctx.font = "50px Quicksand";
         ctx.textAlign = "center";
         ctx.fillText("Paused", canvas.width / 2, canvas.height / 2);
       }

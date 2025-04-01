@@ -85,39 +85,6 @@ const JavaScriptGames = () => {
           user-friendly interfaces to engage visitors and provide them with an
           immersive gaming experience.
         </p>
-
-        {/* Two-Column Layout for Project Highlights and Technologies Used */}
-        {/* <div className="two-column-container">
-          <div className="column">
-            <SectionHeading title="Project Highlights" />
-            <ul>
-              <li>
-                Recreated classic arcade games using modern JavaScript and React.
-              </li>
-              <li>
-                Designed intuitive and nostalgic user interfaces for enhanced user
-                engagement.
-              </li>
-              <li>
-                Incorporated gamification elements to make the experience more
-                interactive.
-              </li>
-              <li>
-                Responsive design ensuring compatibility across devices.
-              </li>
-            </ul>
-          </div>
-          <div className="column">
-            <SectionHeading title="Technologies Used" />
-            {/* <p>This project was built using the following technologies:</p> */}
-            {/* <ul>
-              <li>React.js for building the user interface.</li>
-              <li>CSS for styling and animations.</li>
-              <li>JavaScript for game logic and interactivity.</li>
-              <li>Figma for UI/UX design and prototyping.</li>
-            </ul>
-          </div> */}
-        {/* </div>  */}
       </section>
 
       {/* Game Modal */}
