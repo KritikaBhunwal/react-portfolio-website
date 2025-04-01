@@ -1,13 +1,15 @@
-/* =======================
-   Base Layout & Typography
-========================== */
+
+.uiux-subpage {
+  margin: 0 3rem;
+}
+
 .uiux-subpage-content {
   margin: 0 6rem;
 }
 
 .uiux-subpage-content p {
   font-size: 1rem;
-  margin: 2rem 3rem;
+  margin: 2rem;
 }
 
 /* =======================

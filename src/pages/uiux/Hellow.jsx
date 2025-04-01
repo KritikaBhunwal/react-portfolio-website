@@ -1,7 +1,9 @@
 import { useState } from "react";
 import SectionHeading from "../../components/SectionHeading";
 import PDFViewer from "../../components/pdfViewer";
+import ProjectContent from "../../components/ProjectContent";
 import WorkTogether from "../../components/WorkTogether";
+import "../../styles/Hellow.css";
 
 const Hellow = () => {
   // Modal preview state for images from Approach, Problem Statement, and Solution sections
@@ -79,7 +81,7 @@ const Hellow = () => {
             <span>
               <strong>Kritika Bhunwal</strong>
             </span>{" "}
-            | <span>Holly Munn</span> | <span>24 June 2023</span>
+            | <span>Holly Munn</span> | <span>June, 2023</span>
           </div>
         </header>
       </div>
@@ -143,16 +145,10 @@ const Hellow = () => {
             </ul>
           </nav>
 
-          {/* Vertical Line */}
-          <div className="vertical-line"></div>
-
           <main className="content">
             {/* Project Title Section */}
             <section id="project-title" className="report-section">
-              <div className="section-heading">
-                <h3>Hellow</h3>
-                <hr />
-              </div>
+              <SectionHeading title="Hellow" />
               <div className="section-content">
                 <p>
                   An asynchronous way of communication.
@@ -166,10 +162,7 @@ const Hellow = () => {
 
             {/* Project Summary Section */}
             <section id="project-summary" className="report-section">
-              <div className="section-heading">
-                <h3>Project Summary</h3>
-                <hr />
-              </div>
+              <SectionHeading title="Project Summary" />
               <div className="section-content">
                 <p>
                   Introducing Hellow, a pro-social app designed to facilitate
@@ -191,10 +184,7 @@ const Hellow = () => {
 
             {/* Research Section */}
             <section id="research" className="report-section">
-              <div className="section-heading">
-                <h3>Research</h3>
-                <hr />
-              </div>
+              <SectionHeading title="Research" />
               <div className="section-content">
                 <p>
                   In the era of global expansion, people are moving across
@@ -214,10 +204,7 @@ const Hellow = () => {
 
             {/* Intended Audience Section */}
             <section id="intended-audience" className="report-section">
-              <div className="section-heading">
-                <h3>Intended Audience</h3>
-                <hr />
-              </div>
+              <SectionHeading title="Intended Audience" />
               <div className="section-content">
                 <p>
                   Global migration and varying time zones challenge real-time
@@ -234,10 +221,7 @@ const Hellow = () => {
 
             {/* Problem Statement Section */}
             <section id="problem-statement" className="report-section">
-              <div className="section-heading">
-                <h3>Problem Statement</h3>
-                <hr />
-              </div>
+              <SectionHeading title="Problem Statement" />
               <div className="section-content">
                 <p>
                   Coordinating real-time interactions across different time
@@ -267,10 +251,7 @@ const Hellow = () => {
 
             {/* Solution Section */}
             <section id="solution" className="report-section">
-              <div className="section-heading">
-                <h3>Solution</h3>
-                <hr />
-              </div>
+              <SectionHeading title="Solution" />
               <div className="section-content">
                 <p>
                   Hellow provides a solution to cross-time zone challenges by
@@ -303,10 +284,7 @@ const Hellow = () => {
 
             {/* Approach Section */}
             <section id="approach" className="report-section">
-              <div className="section-headingh">
-                <h3>Approach</h3>
-                <hr />
-              </div>
+              <SectionHeading title="Approach" />
               <div className="section-content">
                 <p>
                   Responding to global migration and remote work challenges,
@@ -335,10 +313,7 @@ const Hellow = () => {
 
             {/* Risks Section */}
             <section id="risks" className="report-section">
-              <div className="section-heading">
-                <h3>Risks</h3>
-                <hr />
-              </div>
+              <SectionHeading title="Risks" />
               <div className="section-content">
                 <p>
                   Like any communication app, Hellow faces risks related to
@@ -355,14 +330,34 @@ const Hellow = () => {
 
             {/* Bibliography Section */}
             <section id="bibliography" className="report-section">
-              <div className="section-heading">
-                <h3>Bibliography</h3>
-                <hr />
-              </div>
+              <SectionHeading title="Bibliography" />
               <div className="section-content">
                 <p>
-                  Hellow, like any communication app, poses certain risks that
-                  need to be addressed.
+                  UN. (2020). International Migration 2020 Highlights. Retrieved
+                  from www.un.org: https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2020_international_migration_highlights.pdf
+                </p>
+                <p>
+                  LLC, M. T. (2008). Time Zone Calculator. Retrieved from
+                  www.calculator.net:
+                  https://www.calculator.net/time-zone-calculator.html
+                </p>
+                <p>
+                  Ramkissoon, H. (2022, June). Prosociality in times of
+                  separation and loss. Retrieved from
+                  www.sciencedirect.com:
+                  https://www.sciencedirect.com/science/article/abs/pii/S2352250X21002426?via%3Dihub
+                </p>
+                <p>
+                  Fong, K. (2021, April 15). Asynchronous Communication is
+                  important for highly productive remote teams. Retrieved from
+                  www.forbes.com:
+                  https://www.forbes.com/sites/forbesbusinesscouncil/2021/04/15/asynchronous-communication-is-important-for-highly-productive-remote-teams/?sh=494da168c9a7
+                </p>
+                <p>
+                  Yasamin Heshmat, C. N. (2021, June 28). Family and friend
+                  communication over distance in Canada during the COVID-19
+                  pandemic. Retrieved from dl.acm.org:
+                  https://dl.acm.org/doi/10.1145/3461778.3462022
                 </p>
               </div>
             </section>
@@ -371,55 +366,57 @@ const Hellow = () => {
 
             {/* Embedded video */}
             <div className="video-container">
-            <iframe width="800" height="315" src="https://www.youtube-nocookie.com/embed/EQihKwl7xzc?si=shnZVc6kRcv20HBk&amp;controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+              <iframe
+                width="800"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/EQihKwl7xzc?si=shnZVc6kRcv20HBk&amp;controls=0"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
             </div>
 
             <SectionHeading title="Presentation Pdf" />
-            <PDFViewer 
-              src="/KritikaBhunwal_TechnicalSolutionProposal_Presentation.pdf" 
-              width="100%" 
-              height="600px" 
-              style={{ borderRadius: "2rem", marginLeft: "4rem"}}
+            <PDFViewer
+              src="/KritikaBhunwal_TechnicalSolutionProposal_Presentation.pdf"
+              width="100%"
+              height="400rem"
+              style={{ borderRadius: "2rem", marginLeft: "4rem" }}
             />
 
-
-            {/* Collaboration Section */}
-            <section
-              id="collaboration"
-              className="report-section collaboration-section"
-            >
-              <div className="section-heading">
-                <h3>Looking to Collaborate?</h3>
-                <hr />
-              </div>
-              <div className="section-content">
-                <h3>Let’s Build Something Amazing Together!</h3>
-                <p>
-                  I am passionate about creating meaningful designs that
-                  resonate and inspire. Whether it’s branding, UX/UI, or
-                  creative problem-solving, I’m here to bring your vision to
-                  life. Let’s collaborate and make an impact!
-                </p>
-                <ul className="collaboration-highlights">
-                  <li>
-                    <strong>Collaborative Approach:</strong> A strong belief in
-                    teamwork and open communication to achieve the best results.
-                  </li>
-                  <li>
-                    <strong>Creative Problem Solving:</strong> Using design
-                    thinking to find innovative solutions tailored to unique
-                    business needs.
-                  </li>
-                  <li>
-                    <strong>Detail-Oriented Execution:</strong> Ensuring
-                    high-quality, polished, and impactful visual storytelling.
-                  </li>
-                </ul>
-              </div>
-                  <WorkTogether />
-            </section>
+            {/* New Let's Work Together Section */}
+            <SectionHeading title="Let's Work Together" />
+            <ProjectContent
+              title="A Partnership Rooted in Creativity & Collaboration"
+              description="I thrive in creative collaborations that push boundaries and bring fresh perspectives to the table. Whether it's branding, illustration, UX/UI, or strategic design thinking, I am eager to contribute innovative solutions tailored to your vision. Let’s build something impactful together!"
+              highlights={[
+                {
+                  bulletPointOne: "Creative Branding",
+                  detail:
+                    "Unique and memorable visual identities that capture your brand's essence and set you apart in the marketplace.",
+                },
+                {
+                  bulletPointOne: "Illustration Expertise",
+                  detail:
+                    "Tailored illustrations that communicate your story with clarity, emotion, and a touch of artistry.",
+                },
+                {
+                  bulletPointOne: "UX/UI Design",
+                  detail:
+                    "User-centered design solutions that create seamless, engaging, and intuitive experiences.",
+                },
+                {
+                  bulletPointOne: "Strategic Design Thinking",
+                  detail:
+                    "Innovative problem-solving approaches that drive impactful, sustainable design outcomes.",
+                },
+              ]}
+            />
           </main>
         </div>
+        <WorkTogether />
       </div>
 
       {/* Modal Preview for Images */}
@@ -442,260 +439,8 @@ const Hellow = () => {
               ❯
             </button>
           </div>
-
-
         </div>
       )}
-
-      {/* Inline CSS */}
-      <style>{`
-        html {
-          scroll-behavior: smooth;
-        }
-        /* Global & Container Styles */
-        .hellow-container {
-          color: #3d3d3d;
-          font-family: 'Quicksand', sans-serif;
-          margin: 0;
-          padding: 0;
-        }
-        /* Full-width Banner */
-        .hellow-banner {
-          width: 100vw;
-        //   background: #fefefe;
-          padding: 1rem 2rem;
-          box-sizing: border-box;
-
-        }
-        .report-header {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-        }
-        .hellow-icon {
-        //   width: 50px;
-          height: auto;
-          margin: 1rem 2rem;
-        }
-        .header-text h2 {
-          font-size: 3rem;
-          margin-left: 8rem;
-        //   margin-right: 8rem;
-          color: #3d3d3d;
-        }
-        .header-text h3 {
-          font-size: 1.75rem;
-          margin-left: 8rem;
-          color: #3d3d3d;
-          margin-right: 8rem;
-        }
-        .report-authors {
-          font-size: 0.9rem;
-          font-weight: bold;
-          color: #cbbfee;
-          margin-left: 8rem;
-        }
-        /* Main Content Wrapper */
-        .main-content {
-          margin: 0 8rem;
-        }
-        /* Desktop Layout */
-        .desktop-layout {
-          display: flex;
-          gap: 2rem;
-          margin: 2rem 0;
-        }
-        .table-of-contents {
-          flex: 0 0 200px;
-          position: sticky;
-          top: 0;
-          align-self: flex-start;
-          margin-left: 1rem;
-          padding: 1rem;
-          line-height: 2rem;
-        }
-        /* Vertical Line */
-        .vertical-line {
-          width: 1px;
-          background: #ccc;
-          margin: 1rem;
-          align-self: stretch;
-        }
-        .table-of-contents h3 {
-          font-size: 1.8rem;
-          margin: 0;
-          padding-bottom: 0.5rem;
-          border-bottom: 1px solid #ccc;
-          font-weight: bold;
-          color: #cbbfee;
-        }
-        .table-of-contents ul {
-          list-style: none;
-          padding-left: 0;
-          margin-top: 1rem;
-        }
-        .table-of-contents li {
-          margin: .5rem 0;
-        }
-
-        .table-of-contents a {
-          text-decoration: none;
-          color: #3d3d3d;
-          font-weight: bold;
-          font-size: 1rem;
-        }
-        .table-of-contents li:active {
-          background-olor: #cbbfee;
-        }
-        .content {
-          flex: 1;
-          padding: 1rem;
-        }
-        /* Report Sections */
-        .report-section {
-          margin-bottom: 3rem;
-          text-align: left;
-        }
-        .section-heading h3 {
-          font-size: 2rem;
-          margin: 0;
-          font-weight: bold;
-          color: #cbbfee;
-        }
-        .section-heading hr {
-          border: none;
-          height: 1px;
-          background-color: #ccc;
-          margin: 1.3rem 0 2rem 0;
-        }
-        .section-content {
-          margin-bottom: 1rem;
-        }
-        .section-content p {
-          font-size: 1rem;
-          margin: 2rem;
-        }
-        /* Gallery Styles - 2 images per row */
-        .section-gallery {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-          justify-content: flex-start;
-          margin: 0 2rem;
-        }
-        .section-gallery-approach {
-        
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        margin: 0 2rem;
-        }
-        .gallery-image, .gallery-image-approach {
-          flex: 1 1 calc(50% - 1rem);
-          max-width: calc(50% - 1rem);
-          cursor: pointer;
-          border-radius: 2rem;
-          transition: transform 0.3s ease;
-        }
-        .gallery-image:hover, .gallery-image-approach:hover {
-          transform: scale(1.01);
-        }
-
-        /* Modal Styles */
-        .modal-overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(0,0,0,0.85);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 1000;
-        }
-        .modal-content {
-          position: relative;
-          background: #fff;
-          padding: 2rem;
-          border-radius: 2rem;
-          text-align: center;
-          max-width: 100%;
-          max-height: 90%;
-        }
-        .modal-image {
-          max-width: auto;
-          max-height: 90%;
-          border-radius: 2rem;
-        }
-        .modal-caption {
-          margin-top: 0.5rem;
-          font-size: 1rem;
-          color: #3d3d3d;
-          margin-left: 0rem;
-        }
-        .modal-close, .modal-prev, .modal-next {
-          position: absolute;
-          background: transparent;
-          border: none;
-          font-size: 2rem;
-          cursor: pointer;
-          padding: 0.7rem;
-          color: #3d3d3d;
-        }
-        .modal-close {
-          top: 10px;
-          right: 10px;
-        }
-        .modal-prev {
-          left: 10px;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-        .modal-next {
-          right: 10px;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-        /* Collaboration Section */
-        .collaboration-section {
-          // background-color: #f9f9f9;
-          padding: 3rem;
-          border-radius: 2rem;
-          margin-top: 2rem;
-          margin-left: -2rem;
-        }
-        .collaboration-highlights {
-          list-style: disc;
-          margin-left: 3rem;
-        }
-        .collaboration-highlights li {
-          margin-bottom: 0.5rem;
-          margin-left: 1rem;
-          font-size: 1rem;
-        }
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-          .desktop-layout {
-            flex-direction: column;
-            margin: 1rem;
-          }
-          .table-of-contents {
-            border-right: none;
-            border-bottom: 1px solid #ccc;
-            max-height: none;
-            position: relative;
-            top: auto;
-            margin-bottom: 1rem;
-          }
-          .vertical-line {
-            display: none;
-          }
-          .main-content {
-            margin: 0 1rem;
-          }
-        }
-      `}</style>
     </div>
   );
 };

@@ -16,12 +16,13 @@ const JavaScriptGames = () => {
   const handleCloseModal = () => setModalGame(null);
 
   return (
-    <section className="uiux-subpage">
+    <>
       <PixelPopBanner
         heading="Work Hard, Play Harder!"
         showButton={false}
         showParagraph={false}
       />
+      <section className="uiux-subpage">
 
       <section className="uiux-subpage-content">
         <SectionHeading title="JavaScript Games – UI/UX Project" />
@@ -134,9 +135,9 @@ const JavaScriptGames = () => {
       <div style={{ margin: "0 3rem" }}>
         <JavaScriptGamesContent />
       </div>
-      <FigmaFrame />
+      </section>
       <WorkTogether />
-    </section>
+    </>
   );
 };
 
