@@ -1,9 +1,16 @@
 /* ---------- PixelPop Banner Styles ---------- */
 
+/* CSS Custom Properties for reusability */
+:root {
+  --border-radius: 2rem;
+  --banner-margin: 1rem 2rem;
+}
+
 /* Container styling with background image and fade-in animation */
 .pixelpop-banner {
   position: relative;
-  min-height: 60vh;
+  /* max-height: 90vh; */
+  height: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,19 +18,18 @@
   background: url('/bg-image-blank.png') no-repeat center center;
   background-size: cover;
   animation: fadeIn 1s ease-out forwards;
-  border-radius: 2rem;
-  margin: 1rem 2rem;
+  border-radius: var(--border-radius);
+  margin: var(--banner-margin);
   overflow: hidden;
 }
 
 /* Title styling with gradient text and fadeInDown animation */
 .banner-title {
-  font-size: clamp(2.5rem, 6vw, 5rem); /* responsive title */
+  font-size: clamp(2.5rem, 6vw, 5rem); /* Responsive title */
   font-weight: bold;
   text-align: center;
-  top: 3rem;
-  margin: 3rem 1rem 2rem;
-  background: #cbbfee;
+  margin: 10rem 2rem;
+  background: linear-gradient(to bottom, #cbbfee, #cbbfee, #2379f2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: fadeInDown 1s ease-out forwards;
@@ -34,13 +40,13 @@
 
 /* Console image with upDown animation */
 .banner-console {
-  max-width: 70%;
+  max-width: 100%;
   height: auto;
   z-index: 3;
   margin-top: -7rem;
   border-radius: 0.5rem;
   animation: upDown 3s ease-in-out infinite;
-  position: relative;
+  position: absolute;
 }
 
 /* Game prompt text */
@@ -48,14 +54,14 @@
   color: #fff;
   text-align: center;
   font-size: clamp(1rem, 2vw, 1.25rem);
-  margin: -2rem 2rem 2rem 2rem;
+  margin: 4rem 2rem -3rem;
   z-index: 1;
   position: relative;
   max-width: 90%;
   line-height: 1.5;
 }
 
-/* Play button with fixed styling and pulse animation */
+/* Play button with pulse animation */
 .play-button {
   font-family: 'Quicksand', sans-serif;
   padding: 0.75rem 3rem;
@@ -76,7 +82,7 @@
   transform: scale(1.1);
 }
 
-/* Custom cursor styling with fixed positioning and pulse animation */
+/* Custom cursor styling with pulse animation */
 .custom-cursor {
   position: fixed;
   pointer-events: none;
@@ -91,16 +97,16 @@
 
 /* ---------- Animations ---------- */
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeInDown {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(-20px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
@@ -112,53 +118,131 @@
 }
 
 @keyframes cursorPulse {
-  0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.1);
-  }
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.1); }
 }
 
 /* ---------- Responsive Styles ---------- */
 
-@media (max-width: 768px) {
+/* For screens 2025px and above */
+@media (min-width: 2025px) {
   .banner-title {
-    top: 2rem;
-    font-size: 4rem;
+    top: -4rem;
+    font-size: 6rem;
   }
 
   .game-prompt {
-    font-size: 1rem;
-    margin-top: 1rem;
-  }
-
-  .banner-console {
-    max-width: 90%;
-    margin-top: -4rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .banner-title {
-    font-size: 2rem;
-    margin: 1rem;
-  }
-
-  .game-prompt {
-    font-size: 0.95rem;
-    padding: 1rem;
+    top: -28rem;
+    opacity: 1;
   }
 
   .play-button {
-    font-size: .8rem;
-    top: -4rem;
-    padding: 0.6rem 2rem;
-    margin: 0rem 1rem 0rem 1rem;
+    margin: 2rem 1rem 5rem;
   }
 
   .banner-console {
-    margin: -3.5rem 1rem;
-    max-width: 95%;
+    max-width: 50%;
+    margin-top: 7rem;
+  }
+}
+
+/* For screens up to 2024px */
+@media (max-width: 2024px) {
+  .banner-title {
+    top: -4rem;
+    font-size: 8rem;
+  }
+
+  .game-prompt {
+    top: -31rem;
+    font-size: 2rem;
+    opacity: 1;
+  }
+
+  .play-button {
+    margin: 2rem 1rem 5rem;
+  }
+
+  .banner-console {
+    max-width: 80%;
+    margin-top: 7rem;
+  }
+}
+
+/* For screens up to 1440px */
+@media (max-width: 1440px) {
+  .banner-title {
+    top: -4.5rem;
+    font-size: 5rem;
+  }
+
+  .game-prompt {
+    top: -27rem;
+    font-size: 1.4rem;
+  }
+
+  .play-button {
+    top: 2rem;
+    margin: 2rem 1rem 5rem;
+  }
+
+  .banner-console {
+    max-width: 100%;
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+  }
+}
+
+/* For screens up to 848px */
+@media (max-width: 848px) {
+  .banner-title {
+    top: -8;
+    font-size: 5rem;
+  }
+
+  .game-prompt {
+    opacity: 0;
+  }
+
+  .play-button {
+    top: -2rem;
+  }
+
+  .banner-console {
+    max-width: 110%;
+    margin-top: 8rem;
+  }
+}
+
+/* For screens up to 540px */
+@media (max-width: 540px) {
+  .pixelpop-banner {
+    position: relative;
+    /* max-height: 90vh; */
+    height: 700px;
+  }
+
+  .banner-title {
+    font-size: 2.5rem;
+    top: -4rem;
+  }
+
+  .game-prompt {
+    font-size: 0.8rem;
+    padding: 2rem;
+    top: -4rem;
+    opacity: 1;
+  }
+
+  .gameplay-button {
+    font-size: 0.8rem;
+    top: 0;
+    padding: 0.4rem 1rem;
+    margin: 2rem 1rem 6rem;
+  }
+
+  .banner-console {
+    margin: 3.5rem 1rem;
+    max-width: 160%;
   }
 }

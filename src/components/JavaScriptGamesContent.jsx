@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectContent from "./ProjectContent";
+import SectionHeading from "./SectionHeading";
 // Using react-icons for demonstration; adjust imports based on your project setup
 import { FaReact, FaCss3Alt, FaJsSquare } from "react-icons/fa";
 import { SiFigma } from "react-icons/si";
@@ -37,6 +38,7 @@ const JavaScriptGamesContent = () => {
 
   return (
     <div style={{ margin: "0rem" }}>
+      <SectionHeading title="Project Info"></SectionHeading>
       <ProjectContent
         title={title}
         description={description}

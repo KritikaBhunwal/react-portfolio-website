@@ -7,8 +7,7 @@
 /* ---------- Image Banner Section ---------- */
 .image-banner {
   position: relative;
-  height: 800px;
-  max-height: 800px;
+  min-height: 100px;
   overflow: hidden;
   border-radius: 2rem;
   cursor: pointer;
@@ -86,7 +85,7 @@
   font-size: 1.1rem;
   font-weight: 300;
   line-height: 1.8rem;
-  margin: 0;
+  margin: 0 2rem;
 }
 
 .business-intro,

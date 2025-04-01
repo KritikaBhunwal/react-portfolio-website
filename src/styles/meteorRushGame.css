@@ -78,7 +78,7 @@
 
 @media (max-width: 768px) {
   .meteor-game-canvas {
-    width: calc(100vw - 10rem);
-    height: calc(100vh - 10rem);
+    width: calc(100vw - 3rem);
+    height: calc(100vh - 3rem);
   }
 }

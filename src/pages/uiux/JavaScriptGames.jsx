@@ -8,6 +8,7 @@ import WorkTogether from "../../components/WorkTogether";
 import JavaScriptGamesContent from "../../components/JavascriptGamesContent";
 
 import "../../styles/javaScriptGames.css";
+import PixelPopBannerNoButton from "../../components/PixelPopBannerNoButton";
 
 const JavaScriptGames = () => {
   const [modalGame, setModalGame] = useState(null);
@@ -17,8 +18,8 @@ const JavaScriptGames = () => {
 
   return (
     <>
-      <PixelPopBanner
-        heading="Work Hard, Play Harder!"
+      <PixelPopBannerNoButton
+        heading="Game On!"
         showButton={false}
         showParagraph={false}
       />
@@ -57,6 +58,7 @@ const JavaScriptGames = () => {
                   <button className="play-button">Play</button>
                 </div>
               </div>
+              <p>My best score:88</p>
             </div>
 
             {/* Meteor Rush Game Card */}
@@ -75,8 +77,10 @@ const JavaScriptGames = () => {
                   <button className="play-button">Play</button>
                 </div>
               </div>
+              <p>My best score:172</p>
             </div>
           </div>
+
         </section>
 
 
