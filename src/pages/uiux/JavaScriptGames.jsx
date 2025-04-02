@@ -23,7 +23,7 @@ const JavaScriptGames = () => {
         showButton={false}
         showParagraph={false}
       />
-      <section className="uiux-subpage" style={{ margin: "0rem" }}>
+      <section className="uiux-subpage" style={{ margin: "2rem 6rem" }}>
         <section className="uiux-subpage-content">
           <SectionHeading title="90's Arcade Games Revamp" />
           <p>
@@ -48,7 +48,7 @@ const JavaScriptGames = () => {
                 className="paddleFuryTitle"
                 title="90's Kids Paddle Fury Arcade Game"
               />
-              <div className="image-wrapper" onClick={() => handleOpenModal("paddle")}>
+              <div className="image-wrapper" onClick={() => handleOpenModal("paddle")} style={{ borderRadius: "4rem" }}>
                 <img
                   src="/pps-game-1.png"
                   alt="Paddle Fury Game Preview"
@@ -67,7 +67,7 @@ const JavaScriptGames = () => {
                 className="meteorRushTitle"
                 title="90's Kids Meteor Rush Arcade Game"
               />
-              <div className="image-wrapper" onClick={() => handleOpenModal("meteor")}>
+              <div className="image-wrapper" onClick={() => handleOpenModal("meteor")} style={{ borderRadius: "4rem" }}>
                 <img
                   src="/pps-game-2.png"
                   alt="Meteor Rush Game Preview"
@@ -96,7 +96,7 @@ const JavaScriptGames = () => {
             </div>
           </div>
         )}
-        <JavaScriptGamesContent style={{ margin: "0" }}/>
+        <JavaScriptGamesContent style={{ margin: "2rem 4rem" }}/>
       </section>
       <WorkTogether />
     </>

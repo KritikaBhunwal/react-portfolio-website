@@ -27,7 +27,7 @@ const MeteorRushGame = () => {
 
   // Refs to hold mutable values for real-time updates inside the game loop
   const highScoreRef = useRef(highScore);
-  const basket = useRef({ x: 0, y: 0, width: 150, height: 50 });
+  const basket = useRef({ x: 0, y: 0, width: 180, height: 50 });
   const leaves = useRef([]);
   const intervalRef = useRef(null);
   const requestRef = useRef(null);
@@ -180,7 +180,7 @@ const MeteorRushGame = () => {
     ctx.fillStyle = "#cbbfee";
     ctx.beginPath();
     if (ctx.roundRect) {
-      ctx.roundRect(x, y, width, height, 32);
+      ctx.roundRect(x, y, width, height, 30);
     } else {
       ctx.fillRect(x, y, width, height);
     }
@@ -202,8 +202,8 @@ const MeteorRushGame = () => {
     ctx.fillStyle = "#fff";
     ctx.font = "20px Quicksand";
     ctx.textAlign = "left";
-    ctx.fillText(`Score: ${scoreRef.current}`, 20, 30);
-    ctx.fillText(`Lives: ${livesRef.current}`, 20, 60);
+    ctx.fillText(`Score: ${scoreRef.current}`, 30, 60);
+    ctx.fillText(`Lives: ${livesRef.current}`, 30, 90);
   };
 
   // --- Game Mechanics ---

@@ -124,7 +124,7 @@
     }
   }
   
-  @media (max-width: 2024px) {
+  @media (max-width: 3000px) {
     .pixelpop-nobanner {
         position: relative;
         height: 1080px;

@@ -4,13 +4,14 @@
 :root {
   --border-radius: 2rem;
   --banner-margin: 1rem 2rem;
+  --default-height: 800px;
+  --mobile-height: 700px;
 }
 
 /* Container styling with background image and fade-in animation */
 .pixelpop-banner {
   position: relative;
-  /* max-height: 90vh; */
-  height: 800px;
+  height: var(--default-height);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,7 +26,7 @@
 
 /* Title styling with gradient text and fadeInDown animation */
 .banner-title {
-  font-size: clamp(2.5rem, 6vw, 5rem); /* Responsive title */
+  font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: bold;
   text-align: center;
   margin: 10rem 2rem;
@@ -196,7 +197,7 @@
 /* For screens up to 848px */
 @media (max-width: 848px) {
   .banner-title {
-    top: -8;
+    top: -0.5rem;
     font-size: 5rem;
   }
 
@@ -217,9 +218,7 @@
 /* For screens up to 540px */
 @media (max-width: 540px) {
   .pixelpop-banner {
-    position: relative;
-    /* max-height: 90vh; */
-    height: 700px;
+    height: var(--mobile-height);
   }
 
   .banner-title {
@@ -234,7 +233,7 @@
     opacity: 1;
   }
 
-  .gameplay-button {
+  .play-button {
     font-size: 0.8rem;
     top: 0;
     padding: 0.4rem 1rem;

@@ -1,6 +1,6 @@
 /* Container styling for Paddle Fury Game */
 .paddle-game-container {
-  margin: 4rem;
+  margin: 4rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,71 +15,18 @@
   overflow: hidden;
 }
 
-/* Breakpoints for responsive container margins */
-@media (max-width: 2024px) {
+/* Responsive container margins for all breakpoints up to 2224px */
+@media (max-width: 3000px) {
   .paddle-game-container {
-    margin: 3rem;
-  }
-}
-
-@media (max-width: 1440px) {
-  .paddle-game-container {
-    margin: 2.5rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  .paddle-game-container {
-    margin: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .paddle-game-container {
-    margin: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .paddle-game-container {
-    margin: 1rem;
+    margin: 4rem;
   }
 }
 
 /* Canvas styling for Paddle Fury Game */
 .paddle-canvas {
-  border-radius: 2rem;
+  border-radius: 1rem;
   background-color: transparent;
-  width: calc(100vw - 15rem);
-  height: calc(100vh - 15rem);
+  width: calc(100vw - 10rem);
+  height: calc(100vh - 10rem);
   touch-action: none; /* Prevents default scrolling on touch devices */
-}
-
-/* Adjust canvas dimensions at different breakpoints */
-@media (max-width: 2024px) {
-  .paddle-canvas {
-    width: calc(100vw - 14rem);
-    height: calc(100vh - 14rem);
-  }
-}
-
-@media (max-width: 1440px) {
-  .paddle-canvas {
-    width: calc(100vw - 13rem);
-    height: calc(100vh - 13rem);
-  }
-}
-
-@media (max-width: 1024px) {
-  .paddle-canvas {
-    width: calc(100vw - 12rem);
-    height: calc(100vh - 12rem);
-  }
-}
-
-@media (max-width: 768px) {
-  .paddle-canvas {
-    width: calc(100vw - 3rem);
-    height: calc(100vh - 3rem);
-  }
 }

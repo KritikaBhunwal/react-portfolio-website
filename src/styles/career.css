@@ -107,14 +107,14 @@
 
 
 /* Extra Large Screens (2025px and up) */
-@media (min-width: 2025px) {
+/* @media (min-width: 2025px) {
   .cardText h2 {
     font-size: 2rem;
   }
-}
+} */
 
 /* Large Screens (up to 2024px) */
-@media (max-width: 2024px) {
+@media (max-width: 3000px) {
   /* For reverse-tablet cards to maintain base title size */
   .card.reverse-tablet .cardText h2 {
     font-size: 1.2rem;

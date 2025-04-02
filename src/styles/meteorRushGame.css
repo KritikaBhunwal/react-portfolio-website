@@ -1,12 +1,12 @@
 /* Container styling for Meteor Rush Game */
 .meteor-game-container {
-  margin: 4rem;
+  margin: 4rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: relative;
-  font-family: "Quicksand, sans-serif";
+  font-family: "Quicksand", sans-serif;
   background-color: #2d2d2d;
   background-image: url("/bg-image-blank.png");
   background-size: cover;
@@ -15,32 +15,8 @@
   overflow: hidden;
 }
 
-/* Breakpoints for responsive container margins */
-@media (max-width: 2024px) {
-  .meteor-game-container {
-    margin: 3rem;
-  }
-}
-
-@media (max-width: 1440px) {
-  .meteor-game-container {
-    margin: 2.5rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  .meteor-game-container {
-    margin: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .meteor-game-container {
-    margin: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
+/* Responsive container margins for all breakpoints up to 2024px */
+@media (max-width: 2224px) {
   .meteor-game-container {
     margin: 1rem;
   }
@@ -48,37 +24,8 @@
 
 /* Canvas styling: full width and responsive height/width */
 .meteor-game-canvas {
-  border-radius: 2rem;
+  border-radius: 1rem;
   background-color: transparent;
-  width: calc(100vw - 15rem);
-  height: calc(100vh - 15rem);
-}
-
-/* Adjust canvas dimensions at different breakpoints */
-@media (max-width: 2024px) {
-  .meteor-game-canvas {
-    width: calc(100vw - 14rem);
-    height: calc(100vh - 14rem);
-  }
-}
-
-@media (max-width: 1440px) {
-  .meteor-game-canvas {
-    width: calc(100vw - 13rem);
-    height: calc(100vh - 13rem);
-  }
-}
-
-@media (max-width: 1024px) {
-  .meteor-game-canvas {
-    width: calc(100vw - 12rem);
-    height: calc(100vh - 12rem);
-  }
-}
-
-@media (max-width: 768px) {
-  .meteor-game-canvas {
-    width: calc(100vw - 3rem);
-    height: calc(100vh - 3rem);
-  }
+  width: calc(100vw - 3rem);
+  height: calc(100vh - 3rem);
 }

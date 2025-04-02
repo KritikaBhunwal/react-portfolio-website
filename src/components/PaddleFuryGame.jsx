@@ -92,7 +92,7 @@ const PaddleFuryGame = () => {
     const playAgainY = isMobile ? canvas.height / 2 + 60 : canvas.height / 2 + 20;
     ctx.beginPath();
     if (ctx.roundRect) {
-      ctx.roundRect(playAgainX, playAgainY, buttonWidth, buttonHeight, 25);
+      ctx.roundRect(playAgainX, playAgainY, buttonWidth, buttonHeight, 30);
     } else {
       ctx.fillRect(playAgainX, playAgainY, buttonWidth, buttonHeight);
     }
@@ -111,10 +111,10 @@ const PaddleFuryGame = () => {
     // Set up the paddle properties
     const paddle = {};
     if (canvas.width >= 1440) {
-      paddle.width = 150;
+      paddle.width = 120;
       paddle.height = 50;
     } else {
-      paddle.width = canvas.width * 0.2;
+      paddle.width = canvas.width * 0.3;
       paddle.height = canvas.height * 0.04;
     }
     paddle.x = canvas.width / 2 - paddle.width / 2;
@@ -127,7 +127,7 @@ const PaddleFuryGame = () => {
       y: canvas.height / 2,
       dx: 4,
       dy: -4, // starts moving upward
-      radius: canvas.width >= 1440 ? 30 : canvas.width * 0.03,
+      radius: canvas.width >= 1440 ? 30 : canvas.width * 0.05,
     };
 
     // Initialize local score variable
@@ -139,7 +139,7 @@ const PaddleFuryGame = () => {
       ctx.fillStyle = "#9990bb";
       ctx.beginPath();
       if (ctx.roundRect) {
-        ctx.roundRect(paddle.x, paddle.y, paddle.width, paddle.height, 16);
+        ctx.roundRect(paddle.x, paddle.y, paddle.width, paddle.height, 30);
       } else {
         ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
       }
@@ -156,9 +156,9 @@ const PaddleFuryGame = () => {
 
     const drawScore = () => {
       ctx.fillStyle = "#fff";
-      ctx.font = `${canvas.width * 0.025}px Quicksand`;
+      ctx.font = `${canvas.width * 0.050}px Quicksand`;
       ctx.textAlign = "left";
-      ctx.fillText(`Score: ${score}`, 10, 30);
+      ctx.fillText(`Score: ${score}`, 30, 60);
     };
 
     const showPaused = () => {

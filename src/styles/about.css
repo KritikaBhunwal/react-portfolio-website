@@ -7,10 +7,10 @@
 /* ---------- Image Banner Section ---------- */
 .image-banner {
   position: relative;
-  min-height: 100px;
+  height:75rem;
   overflow: hidden;
   border-radius: 2rem;
-  cursor: pointer;
+  /* cursor: pointer; */
   margin: 1rem;
 }
 
@@ -47,8 +47,18 @@
 /* Reveal behind image on hover/tap */
 .image-banner:hover .base-image,
 .image-banner:active .base-image {
-  mask-image: none;
-  -webkit-mask-image: none;
+  mask-image: radial-gradient(
+    circle 200px at var(--x, 50%) var(--y, 50%),
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle 200px at var(--x, 50%) var(--y, 50%),
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 .top-image {
@@ -157,7 +167,7 @@
 /* Image Banner Responsive Adjustments */
 @media (max-width: 1740px) {
   .image-banner {
-    height: 600px;
+    height: 500px;
   }
   .base-image {
     mask-image: radial-gradient(
@@ -171,7 +181,7 @@
 
 @media (max-width: 1024px) {
   .image-banner {
-    height: 500px;
+    height: 400px;
   }
   .base-image {
     mask-image: radial-gradient(
@@ -199,6 +209,6 @@
 
 @media (max-width: 480px) {
   .image-banner {
-    height: 250px;
+    height: 200px;
   }
 }

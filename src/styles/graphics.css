@@ -7,8 +7,7 @@
 /* ======= Banner Section ======= */
 .image-banner {
   position: relative;
-  height: 800px;
-  max-height: 800px;
+  height: 60rem;
   overflow: hidden;
   border-radius: 2rem;
   cursor: pointer;

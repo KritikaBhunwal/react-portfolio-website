@@ -28,18 +28,18 @@ function PixelPopBanner({
 
   return (
     <div className="pixelpop-banner">
-      {/* Custom heading */}
       <h1 className="banner-title">{heading}</h1>
 
-      {/* Console Image with upDown motion */}
       <img
         src="/pps-image-console.png"
         alt="Gaming Console"
         className="banner-console"
       />
 
-{showParagraph && (
-        <p className="game-prompt">Relive the Nostalgia of Old School Arcade Games</p>
+      {showParagraph && (
+        <p className="game-prompt">
+          Relive the Nostalgia of Old School Arcade Games
+        </p>
       )}
 
       {showButton && (
@@ -48,7 +48,6 @@ function PixelPopBanner({
         </Link>
       )}
 
-      {/* Custom Cursor with a subtle pulse */}
       <div
         className="custom-cursor"
         style={{
@@ -59,6 +58,7 @@ function PixelPopBanner({
     </div>
   );
 }
+
 PixelPopBanner.propTypes = {
   heading: PropTypes.string,
   showButton: PropTypes.bool,
