@@ -27,7 +27,8 @@ const MeteorRushGame = () => {
 
   // Refs to hold mutable values for real-time updates inside the game loop
   const highScoreRef = useRef(highScore);
-  const basket = useRef({ x: 0, y: 0, width: 180, height: 50 });
+  // basket object will hold the paddle properties
+  const basket = useRef({ x: 0, y: 0, width: 0, height: 0 });
   const leaves = useRef([]);
   const intervalRef = useRef(null);
   const requestRef = useRef(null);
@@ -76,7 +77,7 @@ const MeteorRushGame = () => {
   }, []);
 
   // --- Unified Modal Function ---
-  // Now shows an extra line for Kritika's Score if applicable.
+  // Shows an extra line for Kritika's Score if applicable.
   const drawGameOverModal = (ctx, canvas, finalScore, currentHighScore, kritikaScoreValue) => {
     const isMobile = canvas.width < 768;
 
@@ -160,10 +161,11 @@ const MeteorRushGame = () => {
     }, 1000);
   };
 
-  // Create a new leaf object. Uses a fixed 30px radius on large screens (≥1440px)
-  // and a responsive percentage for smaller screens.
+  // Create a new leaf object.
+  // The leaf (ball) radius is 1/4th of the paddle’s length.
   const createLeaf = (canvas) => {
-    const ballRadius = canvas.width >= 1440 ? 30 : canvas.width * 0.03;
+    const paddleLength = canvas.width / 6; // 1/5th of the screen width
+    const ballRadius = paddleLength / 6; // 1/4th of paddle length
     leaves.current.push({
       x: Math.random() * canvas.width,
       y: ballRadius,
@@ -176,7 +178,12 @@ const MeteorRushGame = () => {
 
   // Draw the basket (paddle) on the canvas
   const drawBasket = (ctx) => {
-    const { x, y, width, height } = basket.current;
+    // Ensure paddle dimensions follow the rules
+    const width = canvasRef.current.width / 5; // 1/5th of screen width
+    const height = width / 4; // 1/4th of paddle length
+    basket.current.width = width;
+    basket.current.height = height;
+    const { x, y } = basket.current;
     ctx.fillStyle = "#cbbfee";
     ctx.beginPath();
     if (ctx.roundRect) {
@@ -299,14 +306,9 @@ const MeteorRushGame = () => {
     canvas.width = rect.width;
     canvas.height = rect.height;
 
-    // Set responsive basket dimensions based on screen width
-    if (canvas.width >= 1440) {
-      basket.current.width = 150;
-      basket.current.height = 50;
-    } else {
-      basket.current.width = canvas.width * 0.2;
-      basket.current.height = canvas.height * 0.04;
-    }
+    // Set paddle (basket) dimensions based on canvas width
+    basket.current.width = canvas.width / 5;
+    basket.current.height = basket.current.width / 4;
     basket.current.x = canvas.width / 2 - basket.current.width / 2;
     basket.current.y = canvas.height - basket.current.height - canvas.height * 0.05;
 
@@ -333,7 +335,7 @@ const MeteorRushGame = () => {
       if (gameOverRef.current) return;
       const tilt = e.gamma;
       if (tilt !== null) {
-        basket.current.x += tilt * 0.5; // Adjust factor as needed for smooth control
+        basket.current.x += tilt * 0.5;
         basket.current.x = Math.max(0, Math.min(canvas.width - basket.current.width, basket.current.x));
       }
     };

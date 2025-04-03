@@ -43,7 +43,7 @@ const PaddleFuryGame = () => {
   }, []);
 
   // --- Unified Modal Function ---
-  // Now includes an extra line for Kritika's Score if isKritika is true.
+  // Includes an extra line for Kritika's Score if isKritika is true.
   const drawGameOverModal = (ctx, canvas, finalScore, currentHighScore, kritikaScoreValue) => {
     const isMobile = canvas.width < 768;
     
@@ -108,26 +108,22 @@ const PaddleFuryGame = () => {
     const ctx = canvas.getContext("2d");
 
     // --- Initialize Game Objects ---
-    // Set up the paddle properties
+    // Set up the paddle properties based on the new requirements:
+    // Paddle length is 1/5th of the screen width and height is 1/4th of the paddle length.
     const paddle = {};
-    if (canvas.width >= 1440) {
-      paddle.width = 120;
-      paddle.height = 50;
-    } else {
-      paddle.width = canvas.width * 0.3;
-      paddle.height = canvas.height * 0.04;
-    }
+    paddle.width = canvas.width / 6;
+    paddle.height = paddle.width / 4;
     paddle.x = canvas.width / 2 - paddle.width / 2;
     paddle.y = canvas.height - paddle.height - canvas.height * 0.05;
     paddle.speed = 12; // for keyboard control
 
-    // Set up the ball properties
+    // Set up the ball properties, with radius 1/4th of paddle length.
     const ball = {
       x: canvas.width / 2,
       y: canvas.height / 2,
       dx: 4,
       dy: -4, // starts moving upward
-      radius: canvas.width >= 1440 ? 30 : canvas.width * 0.05,
+      radius: paddle.width / 6,
     };
 
     // Initialize local score variable
@@ -158,7 +154,7 @@ const PaddleFuryGame = () => {
       ctx.fillStyle = "#fff";
       ctx.font = `${canvas.width * 0.050}px Quicksand`;
       ctx.textAlign = "left";
-      ctx.fillText(`Score: ${score}`, 30, 60);
+      ctx.fillText(`Score: ${score}`, 40, 60);
     };
 
     const showPaused = () => {
