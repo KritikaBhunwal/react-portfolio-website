@@ -6,53 +6,48 @@ import {
   SiFigma,
   SiJavascript,
 } from "react-icons/si";
-import "../styles/projectCard.css";
-import ProjectCardImage from "/ProjectCardPlaceholder.png";
+import "../styles/projectCard.css"; // Our main card styling
+import PropTypes from "prop-types";
 
 /**
- * Decide which icons to show based on the project info.
- * @param {string} projectTitle - Title of the project (for detecting keywords like "Hellow" or "JavaScript Games").
- * @param {string} projectLink - Link of the project (for detecting "figma.com").
- * @returns An array of icon objects with `name`, `icon`, and `link`.
+ * Conditionally select icons based on project title or link
  */
 function getIconsForProject({ projectTitle, projectLink }) {
-  // We'll build an array of icons based on conditions:
   const icons = [];
 
-  // 1) If the link includes "figma.com", show Figma
+  // If the link includes "figma.com", show Figma
   if (projectLink.includes("figma.com")) {
     icons.push({
       name: "Figma",
       icon: <SiFigma />,
-      link: projectLink, // or "#"
+      // link: projectLink,
     });
   }
 
-  // 2) If the title includes "JavaScript Games", show JavaScript icon
+  // If the title includes "JavaScript Games", show JavaScript icon
   if (projectTitle.toLowerCase().includes("javascript games")) {
     icons.push({
       name: "JavaScript",
       icon: <SiJavascript />,
-      link: "#",
+      // link: "#",
     });
   }
 
-  // 3) If the title includes "Hellow", add Illustrator icon
+  // If the title includes "Hellow", add Illustrator icon
   if (projectTitle.toLowerCase().includes("hellow")) {
     icons.push({
       name: "Illustrator",
       icon: <SiAdobeillustrator />,
-      link: "#",
+      // link: "#",
     });
   }
 
-  // 4) If none of the above conditions matched,
-  //    or if we want to *always* show a fallback, add Photoshop
+  // If none of the above matched, default to Photoshop
   if (icons.length === 0) {
     icons.push({
       name: "Photoshop",
       icon: <SiAdobephotoshop />,
-      link: "#",
+      // link: "#",
     });
   }
 
@@ -60,72 +55,90 @@ function getIconsForProject({ projectTitle, projectLink }) {
 }
 
 function ProjectCard({
-  category = "UX/UI Design",
+  category = "UI/UX Design",
   categoryLink = "/uiux",
-  projectImage = ProjectCardImage,
+  // Provide a fallback main image if none is passed
+  projectImage = "/ProjectCardPlaceholder.png",
+  // Hover preview image (can be null or undefined if not used)
+  projectHoverImage = null,
   projectLink = "/project",
   projectTitle = "Project Case Study for Website Redesign",
   projectDescription = "A complete website redesign focused on modern usability and sleek aesthetics.",
 }) {
-  // Helper function to check if link is external
+  // Helper function to check if the link is external
   const isExternal = (url) => url.startsWith("http");
 
-  // Decide how to render the top category link
-  const CategoryLink = isExternal(categoryLink) ? "a" : Link;
-  // Decide how to render the project image link
-  const ImageLink = isExternal(projectLink) ? "a" : Link;
+  // Decide how to render the category link
+  const CategoryLinkTag = isExternal(categoryLink) ? "a" : Link;
+  // Decide how to render the main image link
+  const ImageLinkTag = isExternal(projectLink) ? "a" : Link;
 
-  // Dynamically get the icons
   const softwareIcons = getIconsForProject({ projectTitle, projectLink });
 
   return (
     <article className="project-card">
-      {/* Top row: category pill (left), software icons (right) */}
+      {/* Top row: Category + Software Icons */}
       <header className="project-top-row">
         <div className="project-category">
-          <CategoryLink
+          <CategoryLinkTag
             {...(isExternal(categoryLink)
-              ? { href: categoryLink, target: "_blank", rel: "noopener noreferrer" }
+              ? {
+                  href: categoryLink,
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                }
               : { to: categoryLink })}
           >
             {category}
-          </CategoryLink>
+          </CategoryLinkTag>
         </div>
 
-        {/* Software icons */}
-        <div className="software-icons">
+        <div className="project-software-icons">
           {softwareIcons.map((sw, index) => (
             <a
               key={index}
               href={sw.link}
-              className="software-icon"
+              className="proeject-software-icon"
               title={sw.name}
               target="_blank"
               rel="noopener noreferrer"
             >
-              {/* Set size=24, but also ensure background is white in CSS */}
               {React.cloneElement(sw.icon, { size: 24 })}
             </a>
           ))}
         </div>
       </header>
 
-      {/* Image container */}
-      <ImageLink
+      {/* Main image container with optional hover image */}
+      <ImageLinkTag
         {...(isExternal(projectLink)
           ? { href: projectLink, target: "_blank", rel: "noopener noreferrer" }
           : { to: projectLink })}
         className="project-image-container"
       >
-        <img src={projectImage} alt={projectTitle} className="project-image" />
-      </ImageLink>
+        {/* The normal image */}
+        <img
+          src={projectImage}
+          alt={projectTitle}
+          className="project-image"
+        />
+
+        {/* Hover-preview image (only rendered if projectHoverImage is not null) */}
+        {projectHoverImage && (
+          <img
+            src={projectHoverImage}
+            alt={`${projectTitle} Hover Preview`}
+            className="project-image-hover"
+          />
+        )}
+      </ImageLinkTag>
 
       {/* Project details */}
       <section className="project-details">
         <h2 className="project-title">{projectTitle}</h2>
         <p className="project-description">{projectDescription}</p>
 
-        {/* 1) Show the project link below details: */}
+        {/* "View Project" link */}
         {isExternal(projectLink) ? (
           <a
             href={projectLink}
@@ -144,5 +157,14 @@ function ProjectCard({
     </article>
   );
 }
+ProjectCard.propTypes = {
+  category: PropTypes.string,
+  categoryLink: PropTypes.string,
+  projectImage: PropTypes.string,
+  projectHoverImage: PropTypes.string,
+  projectLink: PropTypes.string,
+  projectTitle: PropTypes.string,
+  projectDescription: PropTypes.string,
+};
 
 export default ProjectCard;

@@ -11,8 +11,8 @@ const SEO = ({
   type,
   locale,
   siteName,
-  twitterSite,
-  twitterCreator,
+  // twitterSite,
+  // twitterCreator,
   structuredData,
   lang,
   robots,
@@ -55,15 +55,15 @@ const SEO = ({
       <meta property="og:locale" content={locale} />
       <meta property="og:site_name" content={siteName} />
 
-      {/* Twitter Card */}
+      {/* Twitter Card
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
-      {/* Twitter handle of site (e.g. @siteName) */}
+      Twitter handle of site (e.g. @siteName)
       {twitterSite && <meta name="twitter:site" content={twitterSite} />}
-      {/* Twitter handle of content creator */}
-      {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />}
+      Twitter handle of content creator
+      {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />} */}
 
       {/* JSON-LD Structured Data (if provided as prop) */}
       {structuredDataArray.map((schema, idx) => (
@@ -95,16 +95,16 @@ SEO.propTypes = {
 };
 
 SEO.defaultProps = {
-  title: 'Default Title',
-  description: 'Default description for my website.',
-  keywords: 'keyword1, keyword2, keyword3',
+  title: 'Kritika Bhunwal - Design Portfolio Website',
+  description: 'Explore my journey in Fashion Design, Graphic Design and UI UX Design and how I create interactive projects in the field of web design and development!',
+  keywords: 'Design, Research, Development, Fashion, Graphic, UiUx, UXUI, Front-End Development, Graphic Designer, Fashion Designer, UXUI Designer, UIUX Designer, Front-End Developer',
   url: 'https://www.example.com',
   image: 'https://www.example.com/default-image.png',
-  type: 'website',
+  type: 'portfolio website',
   locale: 'en_US', // typical default locale
-  siteName: 'Example Site',
-  twitterSite: null, // e.g. '@example'
-  twitterCreator: null, // e.g. '@creatorHandle'
+  siteName: 'Kritika Bhunwal',
+  // twitterSite: null, // e.g. '@example'
+  // twitterCreator: null, // e.g. '@creatorHandle'
   structuredData: null,
   lang: 'en',
   robots: 'index,follow', // controls whether bots index/follow the page

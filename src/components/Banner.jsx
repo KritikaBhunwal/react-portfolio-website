@@ -35,8 +35,8 @@ const Banner = () => {
         icon="/info-icon.svg"
         text="Click here to know more about me!"
         iconSize={50}
-        textSize={30}
-        gap={28}
+        textSize={31}
+        gap={32}
         link="/About.jsx"
       />
     </div>

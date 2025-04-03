@@ -32,6 +32,7 @@ const Card = ({
           <img src={image} alt={title} />
         </Link>
       </div>
+      
       <div className="cardText">
         <Link
           to={link}

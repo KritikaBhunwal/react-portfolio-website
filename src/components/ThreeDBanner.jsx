@@ -267,7 +267,10 @@ const ThreeDBanner = () => {
                 </svg>
               </button>
             )}
-            <div className="modal-model-container" style={{ position: "relative" }}>
+            <div
+              className="modal-model-container"
+              style={{ position: "relative" }}
+            >
               {/* In the modal, we enable camera-controls for 3D interactivity */}
               <model-viewer
                 src={currentProject.modelSrc}

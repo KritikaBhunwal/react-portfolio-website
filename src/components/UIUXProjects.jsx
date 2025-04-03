@@ -4,67 +4,110 @@ import "../styles/UIUXProjects.css";
 
 const UIUXProjects = () => {
   const projects = [
-    {
-      id: 1,
-      category: "App Development",
-      categoryLink: "/UIUX",
-      projectTitle: "Hellow : Asynchronous Way of Messaging",
-      projectDescription: "Explore the innovative asynchronous messaging app that redefines communication.",
-      projectLink: "/uiux/hellow",
-    },
+
     {
       id: 2,
-      category: "Web Development",
-      categoryLink: "/UIUX",
-      projectTitle: "90's Arcade JavaScript Games : Pixel-Pop Studio",
-      projectDescription: "Dive into the world of interactive JavaScript games with Pixel-Pop Studio.",
-      projectLink: "/uiux/JavaScript-Games",
+      category: "App Design",
+      categoryLink: "/uiux",
+      projectTitle: "Hellow : Prioritize People over Platform",
+      projectDescription:
+        "Explore the innovative asynchronous messaging app idea that redefines communication across different time-zones.",
+      projectLink: "/uiux/hellow",
+
+      // Provide the normal (placeholder) image
+      // projectImage: "/ProjectCardPlaceholder.png",
+      projectImage: "/ProjectCardHellow.png",
+      // projectHoverImage: "/ProjectCardPlaceholder.png",
     },
     {
       id: 3,
+      category: "Web Development",
+      categoryLink: "/uiux",
+      projectTitle: "Pixel-Pop Studio : 90's Arcade JavaScript Games",
+      projectDescription:
+        "Game Mode On! Dive into the world of interactive JavaScript games with Pixel-Pop Studio Games.",
+      projectLink: "/uiux/JavaScript-Games",
+
+      // No hover image => no expansion on hover
+      projectImage: "/ProjectCardGames.png",
+    },
+    {
+      id: 1,
       category: "UI/UX Design",
-      categoryLink: "/UIUX",
-      projectTitle: "Plant Easy : App Concept based on UX And UI Principles",
-      projectDescription: "Discover the app concept designed to make plant care effortless and enjoyable.",
-      projectLink: "https://www.figma.com/proto/69l5xZOXjWkdHJ8xZPlQA7/PlantEasy?node-id=84-391&p=f&t=UPs1ZUn9L95Tcf8v-1&scaling=scale-down&content-scaling=fixed&page-id=84%3A151&starting-point-node-id=84%3A391",
+      categoryLink: "/uiux",
+      projectTitle: "Kritika Bhunwal : Portfolio Website Design",
+      projectDescription:
+        "This project showcases the process that I followed for designing and developing my portfolio website.",
+      projectLink:
+        "https://www.figma.com/proto/QwIMymTyToy9PF7Yd1JsbC/Portfolio-Website-KritikaBhunwal?node-id=144-1672&t=3HebtMemoXxP33NU-1",
+      projectImage: "/ProjectCardPortfolio.png",
     },
     {
       id: 4,
-      category: "UI/UX Re-Design",
-      categoryLink: "/UIUX",
-      projectTitle: "Furry Tales Pet : Redesign Challenge",
-      projectDescription: "A redesign challenge focused on enhancing the user experience for pet lovers.",
-      projectLink: "https://tinalin.ca/projects/furry-tales",
-    },
-    {
-      id: 5,
-      category: "UI/UX Re-Design",
-      categoryLink: "/UIUX",
-      projectTitle: "Suzanne Collins Website Case Study",
-      projectDescription: "A case study on reimagining the Suzanne Collins website with a user-centered approach.",
-      projectLink: "https://www.behance.net/gallery/201546007/UX-UI-Case-Study-for-Suzanne-Collins-Website",
+      category: "UI/UX Design",
+      categoryLink: "/uiux",
+      projectTitle: "Plant Easy : App Concept based on UX And UI Principles",
+      projectDescription:
+        "Discover an app concept design to solve the problem of deforestation so that you can plant trees remotely!",
+      projectLink:
+        "https://www.figma.com/proto/69l5xZOXjWkdHJ8xZPlQA7/PlantEasy?node-id=84-391&p=f&t=UPs1ZUn9L95Tcf8v-1&scaling=scale-down&content-scaling=fixed&page-id=84%3A151&starting-point-node-id=84%3A391",
+
+      projectImage: "/ProjectCardPlantEasy.png",
+      // If you want a hover image, just add projectHoverImage here
+      // projectHoverImage: "/AnotherHoverImage.png"
     },
     {
       id: 6,
       category: "UI/UX Re-Design",
-      categoryLink: "/UIUX",
-      projectTitle: "Moja Coffee Website Improvement",
-      projectDescription: "Improving the Moja Coffee website to deliver a seamless user experience.",
-      projectLink: "https://www.canva.com/design/DAGXnrHiApc/_4qem8hThelU5xX150fjgw/edit?utm_content=DAGXnrHiApc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+      categoryLink: "/uiux",
+      projectTitle: "Moja Coffee : Website Improvement Group Project",
+      projectDescription:
+        "Improving the Moja Coffee website to deliver a seamless user experience using core UI/UX principles.",
+      projectLink:
+        "https://www.canva.com/design/DAGXnrHiApc/_4qem8hThelU5xX150fjgw/edit?utm_content=DAGXnrHiApc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+      projectImage: "/ProjectCardCoffee.png",
     },
     {
+      id: 5,
+      category: "UI/UX Re-Design",
+      categoryLink: "/uiux",
+      projectTitle: "Furry Tales Pet : Group Project for a Redesign Challenge",
+      projectDescription:
+        "A redesign challenge we participated in 2025, that focused on enhancing the user experience for pet lovers.",
+      projectLink: "https://tinalin.ca/projects/furry-tales",
+      projectImage: "/ProjectCardFurry.png",
+    },
+    // {
+    //   id: 8,
+    //   category: "QA and Design",
+    //   categoryLink: "/uiux",
+    //   projectTitle: "Planetarium Website : A Quality Assurance Group Project",
+    //   projectDescription:
+    //     "A project that I worked on as a QA Specialist and provided initial design ideas with QA insights.",
+    //   projectLink:
+    //     "#",
+    //   projectImage: "/ProjectCardMoon.png",
+    // },
+    {
       id: 7,
-      category: "UI/UX Design",
-      categoryLink: "/UIUX",
-      projectTitle: "Portfolio Website Design",
-      projectDescription: "Designing a portfolio website to showcase creative projects and skills.",
-      projectLink: "https://www.figma.com/proto/QwIMymTyToy9PF7Yd1JsbC/Portfolio-Website-KritikaBhunwal?node-id=142-1590&t=3HebtMemoXxP33NU-1",
+      category: "UI/UX Re-Design",
+      categoryLink: "/uiux",
+      projectTitle: "Suzanne Collins : My First Website Redesign Case Study",
+      projectDescription:
+        "My first UX/UI Case Study done in school t0 reimagine the Suzanne Collins website with a user-centered approach.",
+      projectLink:
+        "https://www.behance.net/gallery/201546007/UX-UI-Case-Study-for-Suzanne-Collins-Website",
+      projectImage: "/ProjectCardPlaceholder.png",
     },
   ];
 
   return (
     <div className="featured-projects">
-      <div className="featured-projects-carousel" role="region" aria-label="Featured Projects">
+      <div
+        className="featured-projects-carousel"
+        role="region"
+        aria-label="Featured Projects"
+      >
         {projects.map((project) => (
           <ProjectCard
             key={project.id}
@@ -73,6 +116,8 @@ const UIUXProjects = () => {
             projectTitle={project.projectTitle}
             projectDescription={project.projectDescription}
             projectLink={project.projectLink}
+            projectImage={project.projectImage}
+            projectHoverImage={project.projectHoverImage}
           />
         ))}
       </div>

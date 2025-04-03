@@ -1,3 +1,4 @@
+/* Global Imports & Variables */
 @import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
@@ -9,31 +10,25 @@
   --text-light: #fff;
 }
 
-/* Smooth transition on all animatable properties */
+/* Global Transition */
 * {
   transition: all 0.3s ease;
 }
 
-/* ================================
-   Card Container
-================================ */
+/* Card Container */
 .card-container {
   display: flex;
-  flex-direction: row; /* Default: row layout */
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 1rem;
   margin: 1.5rem 1rem;
-  gap: 2rem; /* Space between cards */
-  /* background-color: rgb(191, 200, 200); */
+  gap: 2rem;
 }
 
-/* ================================
-   Card Layout
-================================ */
+/* Card Layout */
 .card {
   display: flex;
-  flex-direction: row;  /* Image left, Text right by default */
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -43,60 +38,16 @@
   overflow: hidden;
 }
 
-/* Desktop View: "reverse-desktop" => row again (kept for future extension) */
+/* Reverse Desktop Layout (reserved for future use) */
 .card.reverse-desktop {
   flex-direction: row;
 }
 
-/* Laptop View (>=2025px) => bigger headings */
-@media (min-width: 2025px) {
-  .cardText h2 {
-    font-size: 2rem;
-  }
-}
-
-/* Laptop View (up to 2024px) 
-   If .card has "reverse-tablet," 
-   we want a bigger h2 
-*/
-@media (max-width: 2024px) {
-  .card.reverse-tablet .cardText h2 {
-    font-size: 1.2rem;
-  }
-}
-
-/* Tablet View (max-width: 1440px): "reverse-tablet" => row-reverse */
-@media (max-width: 1440px) {
-  /* body {
-    background-color: red !important;
-  } */
-  .card.reverse-tablet {
-    flex-direction: row-reverse;
-  }
-}
-
-/* Mobile View (max-width: 768px): image on top, text below */
-@media (max-width: 768px) {
-  .card {
-    flex-direction: column;
-  }
-
-  .card.reverse-desktop,
-  .card.reverse-tablet {
-    flex-direction: column; /* override reverse for mobile */
-  }
-
-  .cardImage img {
-    border-radius: 2rem 2rem; /* unify the top corners */
-  }
-}
-
-/* ================================
-   Card Image
-================================ */
+/* Card Image */
 .cardImage {
   flex: 1;
   width: 100%;
+  padding: 1rem 2rem 0rem 1rem;
 }
 
 .cardImage img {
@@ -106,38 +57,40 @@
   border-radius: 2rem;
 }
 
-/* Reverse-labeled cards => different corner rounding on desktop/tablet */
+/* Reverse-labeled Card Images */
 .card.reverse-desktop .cardImage img,
 .card.reverse-tablet .cardImage img {
   border-radius: 0 2rem 2rem 0;
 }
 
-/* ================================
-   Card Text
-================================ */
+/* Card Text */
 .cardText {
   flex: 1;
-  padding-left: 1rem;
-  padding-right: 3rem;
+  padding: 2rem 3rem 2rem 3rem;
   font-family: "Quicksand", sans-serif;
   color: var(--text-dark);
   text-align: left;
 }
 
-/* Card Heading */
+/* Title (h2) for all cards */
 .cardText h2 {
   font-family: "Chonburi", serif;
   color: var(--primary-purple);
+  font-size: 1.2rem;  /* Base font-size */
+  margin: 0 0 0.5rem;
 }
 
-/* ================================
-   Explore Button
-================================ */
+/* Description (p) */
+.cardText p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+/* Explore Button */
 .cta-button {
   display: inline-block;
-  margin-top: 1rem;
-  margin-left: 3rem;
-  margin-bottom: 2rem;
+  margin: 0rem 2rem 2rem 0rem;
   padding: 0.5rem 1.2rem;
   text-decoration: none;
   border-radius: 2rem;
@@ -147,53 +100,90 @@
   letter-spacing: 0.1rem;
 }
 
-/* Hover Effect on Button */
 .cta-button:hover {
   background-color: #3d3d3d;
   color: #9990bb;
 }
 
-/* ================================
-   Responsive Typography
-================================ */
-/* Up to 4048px => default "desktop" sizes */
-@media (max-width: 4048px) {
+
+/* Extra Large Screens (2025px and up) */
+/* @media (min-width: 2025px) {
   .cardText h2 {
+    font-size: 2rem;
+  }
+} */
+
+/* Large Screens (up to 2024px) */
+@media (max-width: 3000px) {
+  /* For reverse-tablet cards to maintain base title size */
+  .card.reverse-tablet .cardText h2 {
     font-size: 1.2rem;
-  }
-  .cardText p {
-    font-size: 0.9rem;
-  }
-  .cta-button {
-    font-size: 0.9rem;
   }
 }
 
-/* Up to 1024px => slightly smaller text */
+/* Tablet Screens (up to 1440px) */
+@media (max-width: 1440px) {
+  .card.reverse-tablet {
+    flex-direction: row-reverse;
+  }
+  .cardImage img {
+    border-radius: 2rem;
+  }
+  .cardText {
+    text-align: left;
+  }
+  .cardText h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Medium Screens (up to 1024px) */
 @media (max-width: 1024px) {
   .cardText h2 {
     font-size: 1.2rem;
   }
-  .cardText p {
-    font-size: 0.9rem;
-  }
+  .cardText p,
   .cta-button {
     font-size: 0.9rem;
   }
 }
 
-/* Up to 768px => mobile adjustments */
+/* Mobile Screens (up to 768px) */
 @media (max-width: 768px) {
+  .card,
+  .card.reverse-desktop,
+  .card.reverse-tablet {
+    flex-direction: column;
+  }
+  .cardImage img {
+    border-radius: 2rem;
+  }
   .cardText {
-    text-align: left; /* or "start" if you prefer */
+    text-align: left;
+  }
+  .cardText h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile Screens (up to 480px) */
+@media (max-width: 480px) {
+  .card,
+  .card.reverse-desktop,
+  .card.reverse-tablet {
+    flex-direction: column;
+  }
+  .cardImage img {
+    border-radius: 2rem;
+  }
+  .cardText {
+    text-align: left;
   }
   .cardText h2 {
     font-size: 1rem;
   }
-  .cardText p {
-    font-size: 0.9rem;
-  }
+  .cardText p,
   .cta-button {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
   }
 }

@@ -1,11 +1,14 @@
 import { useState } from "react";
 import PixelPopBanner from "../../components/PixelPopBanner";
 import SectionHeading from "../../components/SectionHeading";
-import FigmaFrame from "../../components/FigmaFrame";
-import CatchGame from "../../components/CatchGame";
+import SubSectionHeading from "../../components/SubSectionHeading";
+import MeteorRushGame from "../../components/MeteorRushGame";
 import PaddleFuryGame from "../../components/PaddleFuryGame";
-import "../../styles/javaScriptGames.css";
 import WorkTogether from "../../components/WorkTogether";
+import JavaScriptGamesContent from "../../components/JavascriptGamesContent";
+
+import "../../styles/javaScriptGames.css";
+import PixelPopBannerNoButton from "../../components/PixelPopBannerNoButton";
 
 const JavaScriptGames = () => {
   const [modalGame, setModalGame] = useState(null);
@@ -14,74 +17,89 @@ const JavaScriptGames = () => {
   const handleCloseModal = () => setModalGame(null);
 
   return (
-    <section className="uiux-subpage">
-      <PixelPopBanner
-        heading="Pixel Pop Studio Games"
+    <>
+      <PixelPopBannerNoButton
+        heading="Game On!"
         showButton={false}
         showParagraph={false}
       />
+      <section className="uiux-subpage" style={{ margin: "2rem 6rem" }}>
+        <section className="uiux-subpage-content">
+          <SectionHeading title="90's Arcade Games Revamp" />
+          <p>
+            This project is one of my favourite web development projects that I completed at
+            BCIT under the guidance of my instructor Joyce Lam. The goal of this
+            project was to bring back nostalgia by recreating all-time favorite
+            digital arcade games. I also wanted to incorporate gamification into my
+            project to stay up to date with the trends.
+            <br />
+            <br />
+            Showcasing interactive JavaScript games that I converted into a React
+            project for my portfolio website. Designed with simple yet engaging,
+            user-friendly interfaces and nostalgic experiences to bring back those
+            old school memories :)
+          </p>
 
-      <section className="uiux-subpage-content">
-        <SectionHeading title="JavaScript Games – UI/UX Project" />
-        <p>
-          This project is a one of the web development projects that I did in BCIT with my instructor Joyce Lam, where my goal is to bring back the nostalgia with all time favourite digital arcade games.
-          <br /><br />
-          Showcasing interactive JavaScript games that I converted into React project for my portfolio website. Designed with simple yet engaging user-friendly interfaces and nostalgic experiences to bring back those old school memories :)
-        </p>
+          <div className="games-container">
 
-        <div className="games-container">
-          {/* Paddle Fury Game Card */}
-          <div className="game-card">
-            <SectionHeading className="paddleFuryTitle" title="90's Kids Paddle Fury Arcade Game" color="#cbbfee" />
-            <div className="image-wrapper" onClick={() => handleOpenModal("paddle")}>
-              <img
-                src="/pps-game-1.png"
-                alt="Paddle Fury Game Preview"
-                className="game-preview-image"
+            {/* Paddle Fury Game Card */}
+            <div className="game-card">
+              <SubSectionHeading
+                className="paddleFuryTitle"
+                title="90's Kids Paddle Fury Arcade Game"
               />
-              <div className="overlay">
-                <button className="play-button">Play</button>
+              <div className="image-wrapper" onClick={() => handleOpenModal("paddle")} style={{ borderRadius: "4rem" }}>
+                <img
+                  src="/pps-game-1.png"
+                  alt="Paddle Fury Game Preview"
+                  className="game-preview-image"
+                />
+                <div className="overlay">
+                  <button className="play-button">Play</button>
+                </div>
               </div>
+              <p>My best score:88</p>
+            </div>
+
+            {/* Meteor Rush Game Card */}
+            <div className="game-card">
+              <SubSectionHeading
+                className="meteorRushTitle"
+                title="90's Kids Meteor Rush Arcade Game"
+              />
+              <div className="image-wrapper" onClick={() => handleOpenModal("meteor")} style={{ borderRadius: "4rem" }}>
+                <img
+                  src="/pps-game-2.png"
+                  alt="Meteor Rush Game Preview"
+                  className="game-preview-image"
+                />
+                <div className="overlay">
+                  <button className="play-button">Play</button>
+                </div>
+              </div>
+              <p>My best score:172</p>
             </div>
           </div>
 
-          {/* Catch Game Card */}
-          <div className="game-card">
-            <SectionHeading className="meteorRushTitle" title="90's Kids Meteor Rush Arcade Game" />
-            <div className="image-wrapper" onClick={() => handleOpenModal("catch")}>
-              <img
-                src="/pps-game-2.png"
-                alt="Catch Game Preview"
-                className="game-preview-image"
-              />
-              <div className="overlay">
-                <button className="play-button">Play</button>
-              </div>
+        </section>
+
+
+        {/* Game Modal */}
+        {modalGame && (
+          <div className="modal-overlay" onClick={handleCloseModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close-button" onClick={handleCloseModal}>
+                X
+              </button>
+              {modalGame === "paddle" && <PaddleFuryGame />}
+              {modalGame === "meteor" && <MeteorRushGame />}
             </div>
           </div>
-        </div>
-
-        <SectionHeading title="JavaScript Games – UI/UX Project" />
-        <p>
-          This is a subpage showcasing interactive JavaScript games designed with
-          user-friendly interfaces and engaging experiences.
-        </p>
-
-        <FigmaFrame />
+        )}
+        <JavaScriptGamesContent style={{ margin: "2rem 4rem" }}/>
       </section>
-
-      {/* Game Modal */}
-      {modalGame && (
-        <div className="modal-overlay" onClick={handleCloseModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close-button" onClick={handleCloseModal}>X</button>
-            {modalGame === "paddle" && <PaddleFuryGame />}
-            {modalGame === "catch" && <CatchGame />}
-          </div>
-        </div>
-      )}
       <WorkTogether />
-    </section>
+    </>
   );
 };
 

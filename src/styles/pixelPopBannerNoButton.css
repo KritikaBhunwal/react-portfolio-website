@@ -1,0 +1,191 @@
+/* ---------- PixelPop Banner Styles (No Button Version) ---------- */
+
+/* Container styling with background image and fade-in animation */
+.pixelpop-nobanner {
+    position: relative;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('/bg-image-blank.png') no-repeat center center;
+    background-size: cover;
+    animation: fadeIn 1s ease-out forwards;
+    border-radius: 2rem;
+    margin: 1rem 2rem;
+    overflow: hidden;
+  }
+  
+  /* Title styling with gradient text and fadeInDown animation */
+  .nobanner-title {
+    font-size: clamp(2.5rem, 6vw, 5rem); /* responsive title */
+    font-weight: bold;
+    text-align: center;
+    top: -5rem;
+    margin: 10rem 2rem;
+    background: linear-gradient(to bottom, #cbbfee, #cbbfee, #2d7cec);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInDown 1s ease-out forwards;
+    z-index: 2;
+    position: relative;
+    line-height: 1.2;
+  }
+  
+  /* Console image with upDown animation */
+  .nobanner-console {
+    max-width: 100%;
+    height: auto;
+    z-index: 3;
+    margin-top: -7rem;
+    border-radius: 0.5rem;
+    animation: upDown 3s ease-in-out infinite;
+    position: absolute;
+  }
+  
+  /* Prompt text (below heading) */
+  .playgame-prompt {
+    color: #fff;
+    text-align: center;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    margin: 4rem 2rem -3rem 2rem;
+    z-index: 1;
+    position: relative;
+    max-width: 90%;
+    line-height: 1.5;
+  }
+  
+  /* Custom cursor styling with fixed positioning and pulse animation */
+  .playcustom-cursor {
+    position: fixed;
+    pointer-events: none;
+    opacity: 0.4;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    animation: cursorPulse 1.5s ease-in-out infinite;
+  }
+  
+  /* ---------- Animations ---------- */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes upDown {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes cursorPulse {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+  
+  /* ---------- Responsive Styles ---------- */
+  @media (min-width: 2025px) {
+    .pixelpop-nobanner {
+        position: relative;
+        height: 1080px;
+    }
+
+    .nobanner-title {
+      top: -8rem;
+      font-size: 10rem;
+    }
+    .playgame-prompt {
+      opacity: 1;
+      top: -24rem;
+    }
+    .nobanner-console {
+      max-width: 75%;
+      margin-top: 4rem;
+    }
+  }
+  
+  @media (max-width: 3000px) {
+    .pixelpop-nobanner {
+        position: relative;
+        height: 1080px;
+    }
+    .nobanner-title {
+      top: 0rem;
+      font-size: 20rem;
+      opacity: 1;
+      background: linear-gradient(to bottom, #cbbfee5a, #cbbfee1a, #ffffff1a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nobanner-console {
+      max-width: 120%;
+      margin-top: 2rem;
+    }
+  }
+  
+  @media (max-width: 1440px) {
+    .nobanner-title {
+      top: -1rem;
+      font-size: 14rem;
+    }
+    
+    .nobanner-console {
+      max-width: 100%;
+      margin-top: 1rem;
+      margin-bottom: 3rem;
+    }
+  }
+  
+  @media (max-width: 848px) {
+    .nobanner-title {
+      top: -8rem;
+      font-size: 8rem;
+    }
+    .nobanner-title {
+        top: -8rem;
+        background: linear-gradient(to bottom, #cbbfee, #cbbfee, #3c63ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    .nobanner-console {
+      max-width: 150%;
+      margin-top: 16rem;
+    }
+  }
+  
+  @media (max-width: 540px) {
+    .pixelpop-nobanner {
+        position: relative;
+        height: 500px;
+    }
+    .nobanner-title {
+      font-size: 4rem;
+      top: -6rem;
+    }
+    .nobanner-console {
+      margin: 3.5rem 1rem;
+      max-width: 130%;
+    }
+  }
+  

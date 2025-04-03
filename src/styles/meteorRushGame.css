@@ -1,5 +1,5 @@
-/* Container styling for Paddle Fury Game */
-.paddle-game-container {
+/* Container styling for Meteor Rush Game */
+.meteor-game-container {
   margin: 4rem 2rem;
   display: flex;
   justify-content: center;
@@ -15,18 +15,17 @@
   overflow: hidden;
 }
 
-/* Responsive container margins for all breakpoints up to 2224px */
-@media (max-width: 3000px) {
-  .paddle-game-container {
-    margin: 4rem;
+/* Responsive container margins for all breakpoints up to 2024px */
+@media (max-width: 2224px) {
+  .meteor-game-container {
+    margin: 1rem;
   }
 }
 
-/* Canvas styling for Paddle Fury Game */
-.paddle-canvas {
+/* Canvas styling: full width and responsive height/width */
+.meteor-game-canvas {
   border-radius: 1rem;
   background-color: transparent;
-  width: calc(100vw - 10rem);
-  height: calc(100vh - 10rem);
-  touch-action: none; /* Prevents default scrolling on touch devices */
+  width: calc(100vw - 3rem);
+  height: calc(100vh - 3rem);
 }

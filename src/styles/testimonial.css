@@ -4,7 +4,7 @@
   align-items: stretch;
   justify-content: center;
   margin: 1rem 2rem;
-  max-width: 1400px;
+  max-width: 1600px;
   height: 300px;  /* Fixed height for the overall container */
   gap: 1rem;
   /* padding: 1rem; */
@@ -81,7 +81,7 @@
   display: flex;
   justify-content: flex-start;
   margin-top: 1rem;
-  margin-left: 4rem;
+  margin-left: 1rem;
   width: 100%;
 }
 
@@ -95,7 +95,6 @@
   transition: background 0.2s ease;
   margin-left: -1rem;
   margin-right: 1.8rem;
-
 }
 
 .testimonial-controls button:hover {
@@ -108,11 +107,12 @@
   }
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for mobile & small tablets */
 @media (max-width: 768px) {
   .testimonials-wrapper {
     flex-direction: column;
     height: auto;
+    margin: 1rem;
   }
 
   .testimonial-image-container,
@@ -120,19 +120,21 @@
     flex: none;
     width: 100%;
     height: auto;
-    /* margin-left: -0.5rem; */
   }
 
+  /* Remove extra margin and use padding for proper spacing */
   .testimonial-slider-container {
-    margin-left: 1rem;
+    margin: 0;
+    padding: 1rem;
   }
 
+  /* Remove negative margin for proper text wrapping */
   .testimonial-content {
-    margin-left: -4rem;
+    margin-left: 0;
   }
 
   .testimonial-controls {
-    margin-left: 0rem;
+    margin-left: 0.5rem;
   }
 
   .testimonial-image-container {

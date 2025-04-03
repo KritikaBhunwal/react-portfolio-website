@@ -9,7 +9,7 @@ const interpersonalSkills = [
   { skill: "Teamwork", phrase: "🤝 Collaboration leads to successful experiences." },
   { skill: "Empathy", phrase: "💖 I understand the importance of connecting deeply with others." },
   { skill: "Adaptability", phrase: "🔄 I find it easy to adapt to new challenges and situations." },
-  { skill: "Creative Thinking", phrase: "💡 I think outside the box to innovate and create original content." },
+  { skill: "Creative Thinking", phrase: "💡 I like to think outside the box to innovate and create original content." },
   { skill: "Problem Solving", phrase: "🛠 I find effective solutions by applying different perspectives to a situation." },
   { skill: "Growth Mindset", phrase: "🌱 I believe in continuously learning and improving." }
 ];
@@ -22,7 +22,7 @@ const InterpersonalSkillItem = ({ skill, phrase, isActive, onActivate, startAnim
   useEffect(() => {
     if (isActive && startAnimation) {
       let index = 0;
-      setDisplayedText(""); // Start empty
+      setDisplayedText(""); // Start with empty text for animation
       const interval = setInterval(() => {
         index++;
         setDisplayedText(phrase.substring(0, index));
@@ -30,15 +30,16 @@ const InterpersonalSkillItem = ({ skill, phrase, isActive, onActivate, startAnim
       }, 30);
       return () => clearInterval(interval);
     } else {
-      setDisplayedText(skill); // Reset when closed
+      setDisplayedText(skill); // Reset text when not active
     }
-  }, [isActive, phrase, startAnimation]);
+  }, [isActive, phrase, startAnimation, skill]);
 
   useEffect(() => {
-    if (hiddenRef.current) {
-      setContainerWidth(hiddenRef.current.offsetWidth + 20); // Add padding space
+    // Only update width if the pill is not expanded
+    if (hiddenRef.current && !isActive) {
+      setContainerWidth(hiddenRef.current.offsetWidth + 20); // add some extra space for padding
     }
-  }, [displayedText]);
+  }, [displayedText, isActive]);
 
   return (
     <>
@@ -46,26 +47,27 @@ const InterpersonalSkillItem = ({ skill, phrase, isActive, onActivate, startAnim
         className={`pill ${isActive ? "expanded" : ""}`}
         onClick={onActivate}
         style={{ 
-          width: containerWidth ? `${containerWidth}px` : "auto",
+          width: isActive ? "auto" : containerWidth ? `${containerWidth}px` : "auto",
           margin: isActive ? "0 0.5rem" : "0"
         }}
       >
-        <span className="pill-text">{isActive ? displayedText : skill}</span> {/* Hide closed pill text on expand */}
+        <span className="pill-text">{isActive ? displayedText : skill}</span>
       </div>
-      {/* Hidden text measurement */}
+      {/* Hidden element for measuring text width */}
       <span 
         className="hidden-measure" 
         ref={hiddenRef} 
         style={{ visibility: "hidden", whiteSpace: "nowrap", position: "absolute" }}
       >
-        {displayedText}
+        {isActive ? displayedText : skill}
       </span>
     </>
   );
 };
 
 const InterpersonalSkills = () => {
-  const defaultOpenIndex = interpersonalSkills.findIndex(skill => skill.skill === "Creative Thinking");
+  // Open "Creative Thinking" by default
+  const defaultOpenIndex = interpersonalSkills.findIndex(item => item.skill === "Creative Thinking");
   const [activeIndex, setActiveIndex] = useState(null);
   const [startAnimation, setStartAnimation] = useState(false);
   const sectionRef = useRef(null);
@@ -75,27 +77,22 @@ const InterpersonalSkills = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setTimeout(() => {
-            setActiveIndex(defaultOpenIndex); // Expand Creative Thinking after 2s
+            setActiveIndex(defaultOpenIndex);
             setStartAnimation(true);
-          }, 2000);
+          }, 1000);
         }
-      }, 
-      { threshold: 0.5 } // Trigger when 50% of the section is visible
+      },
+      { threshold: 0.5 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
-  }, []);
+  }, [defaultOpenIndex]);
 
   const togglePill = (index) => {
-    setActiveIndex(prev => (prev === index ? null : index)); // Only one pill open at a time
+    setActiveIndex(prev => (prev === index ? null : index));
   };
 
   return (

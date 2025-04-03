@@ -4,6 +4,7 @@
 /* Container for the entire FeaturedProjects section */
 .featured-projects {
   padding: 1rem;
+  margin-left: 1rem;
 }
 
 /* Horizontal Scroll Carousel */
@@ -46,21 +47,28 @@
   font-size: 1rem;
   font-weight: bold;
   color: #9990bb;
-  margin-left: 0;
+  margin-top: 1rem;
+  margin-left: 0rem;
 }
 
 .project-description {
   font-size: 1rem;
   color: #555;
   line-height: 1.5;
-  margin-left: 0;
+  margin-left: 0rem;
 }
 
-
-/* Swipe indicator shown only on mobile */
-.swipe-indicator {
-  display: none;
+.project-link {
+  font-size: 0.8rem;
+  font-weight: medium;
+  text-decoration: none;
+  border-radius: 2rem;
+  background-color: #cbbfee5a;
+  padding: 0.5rem 1rem;
+  line-height: 1.5;
+  margin-left: 0rem;
 }
+ 
 
 @media (max-width: 767px) {
   .swipe-indicator {

@@ -5,6 +5,8 @@
   border-radius: 2rem;
   display: flex;
   align-items: center;
+  gap: 2rem;
+  margin: 2rem;
   justify-content: space-around;
   text-align: left;
   position: relative;
@@ -26,6 +28,7 @@
 .work-together h2 {
   font-size: 2.4rem;
   margin-top: -1rem;
+  margin-left: 4rem;
   margin-bottom: 1.2rem;
   font-weight: bold;
   color: white;
@@ -34,7 +37,7 @@
 /* Email Button */
 .email-button {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   /* Space between icon and text */
   padding: 0.6rem 3rem;
