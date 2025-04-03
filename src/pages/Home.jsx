@@ -65,6 +65,7 @@ const Home = () => {
         <PixelPopBanner />
         {/* <JavaScriptGames /> */}
         <ThreeDBanner />
+        <SectionHeading title="Career Progression" />
         <Career />
         <SectionHeading title="Technical Skills" />
         <TechnicalSkills />

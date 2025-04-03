@@ -47,7 +47,7 @@ const Testimonial = () => {
   const activeTestimonial = testimonials[currentIndex];
 
   return (
-    <div className="testimonials-wrapper">
+    <div className="testimonials-wrapper" style={{ marginLeft: "7rem", marginRight: "rem"}}>
       <div className="testimonial-image-container">
         <img src={AboutPhoto} alt="About" className="testimonial-image" />
       </div>

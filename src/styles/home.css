@@ -4,30 +4,30 @@
 @tailwind components;
 @tailwind utilities; */
 
-h2 {
-  /* font-size: 3.4rem; */
+/* h2 {
+  font-size: 3.4rem;
   margin-top: 2.2rem;
   margin-bottom: 1rem;
   font-weight: bold;
   color: #3d3d3d;
   margin-left: 3rem;
-}
+} */
 
-h3 {
-  /* font-size: 1.2rem; */
+/* h3 {
+  font-size: 1.2rem;
   font-weight: bold;
   color: #3d3d3d;
   margin-left: 3rem;
   margin-bottom: 1rem;
-}
+} */
 
-p {
+/* p {
   margin-left: 3rem;
-  /* font-size: 1.2rem; */
+  font-size: 1.2rem;
   font-weight: 400;
   color: #6d6d6d;
   letter-spacing: 0.04rem;
-}
+} */
 
 
 @media (min-width: 1440px) {

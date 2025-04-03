@@ -52,7 +52,7 @@
 }
 
 /* Example: White background for icons */
-.software-icon {
+.project-software-icon {
   background-color: #fff; /* white background */
   border-radius: 4px;
   padding: 0.3rem;
@@ -64,7 +64,7 @@
   transition: color 0.03s ease, background-color 0.3s ease;
 }
 
-.software-icon:hover {
+.project-software-icon:hover {
   color: #3d3d3d;
   /* background-color: #f0f0f0; */
 }

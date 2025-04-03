@@ -56,7 +56,7 @@ const Greeting = () => {
 
   return (
     <div className="flex flex-col items-start justify-center mt-6 h-[6rem] text-left bg-gray-900 text-[#3D3D3D] px-4 ml-4">
-      <h1 className="text-[2rem] font-quicksand">
+      <h1 className="text-[1.8rem] font-quicksand">
         <TypewriterText text={languages[currentLangIndex]} />
       </h1>
     </div>

@@ -7,7 +7,7 @@
 /* ---------- Image Banner Section ---------- */
 .image-banner {
   position: relative;
-  height:75rem;
+  height:55rem;
   overflow: hidden;
   border-radius: 2rem;
   /* cursor: pointer; */
@@ -167,7 +167,7 @@
 /* Image Banner Responsive Adjustments */
 @media (max-width: 1740px) {
   .image-banner {
-    height: 500px;
+    height: 550px;
   }
   .base-image {
     mask-image: radial-gradient(
@@ -181,7 +181,7 @@
 
 @media (max-width: 1024px) {
   .image-banner {
-    height: 400px;
+    height: 440px;
   }
   .base-image {
     mask-image: radial-gradient(
@@ -199,7 +199,7 @@
     gap: 1.5rem;
   }
   .image-banner {
-    height: 300px;
+    height: 330px;
   }
   /* Removed forced mask-image: none; kept the effect */
   .business-intro {
@@ -209,6 +209,6 @@
 
 @media (max-width: 480px) {
   .image-banner {
-    height: 200px;
+    height: 220px;
   }
 }

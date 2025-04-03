@@ -28,7 +28,6 @@
 
 .base-image {
   z-index: 2;
-  opacity: 1;
   transition: opacity 0.3s ease;
   mask-image: radial-gradient(
     circle 200px at var(--x, 50%) var(--y, 50%),
@@ -44,7 +43,7 @@
   );
 }
 
-/* Reveal behind image on hover/tap */
+/* Remove mask on hover/tap */
 .image-banner:hover .base-image,
 .image-banner:active .base-image {
   mask-image: none;
@@ -53,8 +52,6 @@
 
 .top-image {
   z-index: 1;
-  width: 100%;
-  height: 100%;
 }
 
 /* Responsive Adjustments */
@@ -90,7 +87,6 @@
   .image-banner {
     height: 300px;
   }
-  /* Removed forced mask removal */
 }
 
 @media (max-width: 480px) {

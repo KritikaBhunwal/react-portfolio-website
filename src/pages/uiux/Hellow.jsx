@@ -420,8 +420,8 @@ const Hellow = () => {
                 },
               ]}
             />
-        <WorkTogether />
       </div>
+      <WorkTogether />
 
       {/* Modal Preview for Images */}
       {modalOpen && (
