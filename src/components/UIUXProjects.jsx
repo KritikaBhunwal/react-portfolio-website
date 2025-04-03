@@ -11,7 +11,7 @@ const UIUXProjects = () => {
       categoryLink: "/uiux",
       projectTitle: "Hellow : Prioritize People over Platform",
       projectDescription:
-        "Explore the innovative asynchronous messaging app idea that redefines communication across different time-zones.",
+        "An innovative asynchronous messaging app idea that redefines communication across different time-zones.",
       projectLink: "/uiux/hellow",
 
       // Provide the normal (placeholder) image
@@ -25,7 +25,7 @@ const UIUXProjects = () => {
       categoryLink: "/uiux",
       projectTitle: "Pixel-Pop Studio : 90's Arcade JavaScript Games",
       projectDescription:
-        "Game Mode On! Dive into the world of interactive JavaScript games with Pixel-Pop Studio Games.",
+        "Game Mode On! Dive into the world of interactive revamp of 90's Arcade Games with our Pixel-Pop Gaming Studio.",
       projectLink: "/uiux/JavaScript-Games",
 
       // No hover image => no expansion on hover
@@ -37,7 +37,7 @@ const UIUXProjects = () => {
       categoryLink: "/uiux",
       projectTitle: "Kritika Bhunwal : Portfolio Website Design",
       projectDescription:
-        "This project showcases the process that I followed for designing and developing my portfolio website.",
+        "Here I showcase the process that I followed for designing and developing my portfolio website from initial ideation to final design.",
       projectLink:
         "https://www.figma.com/proto/QwIMymTyToy9PF7Yd1JsbC/Portfolio-Website-KritikaBhunwal?node-id=144-1672&t=3HebtMemoXxP33NU-1",
       projectImage: "/ProjectCardPortfolio.png",
@@ -46,9 +46,9 @@ const UIUXProjects = () => {
       id: 4,
       category: "UI/UX Design",
       categoryLink: "/uiux",
-      projectTitle: "Plant Easy : App Concept based on UX And UI Principles",
+      projectTitle: "Plant Easy : UI/UX Based App Concept",
       projectDescription:
-        "Discover an app concept design to solve the problem of deforestation so that you can plant trees remotely!",
+        "Discover an app concept design to solve the problem of deforestation, so that you can plant trees remotely!",
       projectLink:
         "https://www.figma.com/proto/69l5xZOXjWkdHJ8xZPlQA7/PlantEasy?node-id=84-391&p=f&t=UPs1ZUn9L95Tcf8v-1&scaling=scale-down&content-scaling=fixed&page-id=84%3A151&starting-point-node-id=84%3A391",
 
@@ -62,7 +62,7 @@ const UIUXProjects = () => {
       categoryLink: "/uiux",
       projectTitle: "Moja Coffee : Website Improvement Group Project",
       projectDescription:
-        "Improving the Moja Coffee website to deliver a seamless user experience using core UI/UX principles.",
+        "Improving Moja Coffee website to create a smoother user experience using core UI/UX principles.",
       projectLink:
         "https://www.canva.com/design/DAGXnrHiApc/_4qem8hThelU5xX150fjgw/edit?utm_content=DAGXnrHiApc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
       projectImage: "/ProjectCardCoffee.png",
@@ -71,9 +71,9 @@ const UIUXProjects = () => {
       id: 5,
       category: "UI/UX Re-Design",
       categoryLink: "/uiux",
-      projectTitle: "Furry Tales Pet : Group Project for a Redesign Challenge",
+      projectTitle: "Furry Tales Pet : Website Redesign Challenge",
       projectDescription:
-        "A redesign challenge we participated in 2025, that focused on enhancing the user experience for pet lovers.",
+        "A redesign challenge we participated as a group of four in 2025, that focused on enhancing the user experience for pet lovers.",
       projectLink: "https://tinalin.ca/projects/furry-tales",
       projectImage: "/ProjectCardFurry.png",
     },
@@ -94,7 +94,7 @@ const UIUXProjects = () => {
       categoryLink: "/uiux",
       projectTitle: "Suzanne Collins : My First Website Redesign Case Study",
       projectDescription:
-        "My first UX/UI Case Study done in school t0 reimagine the Suzanne Collins website with a user-centered approach.",
+        "My first ever UX/UI Case Study done in school to reimagine the Suzanne Collins website with a user-centered approach and present the books in the most intuitive manner.",
       projectLink:
         "https://www.behance.net/gallery/201546007/UX-UI-Case-Study-for-Suzanne-Collins-Website",
       projectImage: "/ProjectCardPlaceholder.png",

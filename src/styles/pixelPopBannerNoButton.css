@@ -18,7 +18,7 @@
   
   /* Title styling with gradient text and fadeInDown animation */
   .nobanner-title {
-    font-size: clamp(2.5rem, 6vw, 5rem); /* responsive title */
+    font-size: calc(2.5rem + 2vw); /* responsive title using calc */
     font-weight: bold;
     text-align: center;
     top: -5rem;
@@ -159,8 +159,7 @@
   
   @media (max-width: 848px) {
     .nobanner-title {
-      top: -8rem;
-      font-size: 8rem;
+      font-size: 6rem;
     }
     .nobanner-title {
         top: -8rem;
@@ -169,11 +168,26 @@
         -webkit-text-fill-color: transparent;
       }
     .nobanner-console {
-      max-width: 150%;
-      margin-top: 16rem;
+      max-width: 140%;
+      margin-top: 8rem;
     }
   }
-  
+
+  @media (max-width: 680px) {
+    .pixelpop-nobanner {
+        position: relative;
+        height: 500px;
+    }
+    .nobanner-title {
+      font-size: 8rem;
+      top: -1rem;
+    }
+    .nobanner-console {
+      margin: 3.5rem 1rem;
+      max-width: 130%;
+    }
+  }
+    
   @media (max-width: 540px) {
     .pixelpop-nobanner {
         position: relative;
@@ -181,7 +195,23 @@
     }
     .nobanner-title {
       font-size: 4rem;
-      top: -6rem;
+      top: -3rem;
+    }
+    .nobanner-console {
+      margin: 3.5rem 1rem;
+      max-width: 130%;
+    }
+  }
+  
+  
+  @media (max-width: 520px) {
+    .pixelpop-nobanner {
+        position: relative;
+        height: 500px;
+    }
+    .nobanner-title {
+      font-size: 2rem;
+      top: -3rem;
     }
     .nobanner-console {
       margin: 3.5rem 1rem;

@@ -25,7 +25,7 @@ const UIUX = () => (
   <>
     <SEO
       title="UI/UX Design – User-Friendly Digital Experiences"
-      description="As a UI/UX Designer, I create digital products that are easy to use, visually appealing, and functional. My designs prioritize user experience, accessibility, and innovation."
+      description="As a UI/UX Designer, I create digital products that are easy to use, visually appealing, and simply functional. My designs prioritize user experience, accessibility, and innovation while utilizing design thinking and problem solving skills."
       keywords="UI UX, digital design, user experience, accessibility, innovation, responsive design, modern UI, creative UX"
       url="https://www.kritikabhunwal.com/uiux"
       image="https://kritikabhunwal.com/assets/uiux-banner.png"

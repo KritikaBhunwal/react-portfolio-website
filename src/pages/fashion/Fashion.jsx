@@ -6,16 +6,50 @@ import ProjectContent from "../../components/ProjectContent.jsx";
 import Gallery from "../../components/Gallery.jsx";
 import PortfolioGallery from "../../components/PortfolioGallery.jsx";
 import ImageBanner from "../../components/ImageBanner.jsx";
+import WorkTogether from "../../components/WorkTogether.jsx";
 
-// Import banner images
+import "../../styles/fashion.css";
+
+// Banner Images
 import FashionBannerBase from "/FashionBannerBase.png";
 import FashionBannerTop from "/FashionBannerTop.png";
 
-import "../../styles/fashion.css";
-import WorkTogether from "../../components/WorkTogether.jsx";
+// Structured Data for SEO
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "My Fashion Journey – Mykonos & Beyond",
+      description:
+        "A narrative exploring modern fashion design and styling, infused with Mykonos-inspired color and flair.",
+      url: "https://www.kritikabhunwal.com/fashion",
+    },
+    {
+      "@type": "Article",
+      "@id": "#MykonosArticle",
+      headline: "WomensWear SS18 Mykonos Collection",
+      author: {
+        "@type": "Person",
+        name: "Kritika Bhunwal",
+      },
+      datePublished: "2018",
+      description:
+        "A sun-kissed odyssey across the shores of Mykonos, bottling the island’s carefree spirit into contemporary womenswear apparel.",
+      image: "https://kritikabhunwal.com/assets/fashion-banner.png",
+      publisher: {
+        "@type": "Organization",
+        name: "Kritika Bhunwal as Fashion Designer",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://kritikabhunwal.com/assets/logo.png"
+        }
+      }
+    }
+  ]
+};
 
 const Fashion = () => {
-  // Fashion Styling Highlights
   const fashionStylingHighlights = [
     {
       bulletPointOne: "Personalized Looks",
@@ -39,7 +73,6 @@ const Fashion = () => {
     },
   ];
 
-  // Fashion Design Highlights
   const fashionDesignHighlights = [
     {
       bulletPointOne: "Innovative Patterns",
@@ -63,29 +96,6 @@ const Fashion = () => {
     },
   ];
 
-  // Multiple Schema Types: WebPage + Article in a single @graph
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": "#FashionPage",
-        name: "A Fashion Journey – Mykonos & Beyond",
-        description:
-          "A narrative exploring modern fashion design and styling, infused with Mykonos-inspired color and flair.",
-      },
-      {
-        "@type": "Article",
-        "@id": "#MykonosArticle",
-        headline: "WomensWear SS18 Mykonos Collection",
-        author: "Kritika",
-        datePublished: "2025-01-01",
-        description:
-          "A sun-kissed odyssey across the shores of Mykonos, bottling the island’s carefree spirit into contemporary apparel.",
-      },
-    ],
-  };
-
   return (
     <>
       <SEO
@@ -93,7 +103,7 @@ const Fashion = () => {
         description="Step into a world where breezy Mykonos inspiration meets cutting-edge design. Uncover delicate stitches, bold prints, and narratives woven into every garment—an unforgettable odyssey of fashion."
         keywords="fashion, styling, design, Mykonos, resort wear, womenswear, wardrobe, style tips, cultural fusion, modern aesthetics"
         url="https://www.kritikabhunwal.com/fashion"
-        image="https://kritikabhunwal.com/assets/fashion-banner.png"  // Replace with your actual share image URL
+        image="https://kritikabhunwal.com/assets/fashion-banner.png"
         type="article"
         lang="en"
         robots="index,follow"

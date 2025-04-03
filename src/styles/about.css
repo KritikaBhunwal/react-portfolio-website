@@ -95,7 +95,7 @@
   font-size: 1.1rem;
   font-weight: 300;
   line-height: 1.8rem;
-  margin: 0 2rem;
+  margin: 0 3rem;
 }
 
 .business-intro,
@@ -103,7 +103,7 @@
   width: 100%;
   flex-grow: 1;
   max-width: 1200px;
-  margin: 1rem auto;
+  margin: 1rem 2rem;
 }
 
 .section-heading {
@@ -199,7 +199,7 @@
     gap: 1.5rem;
   }
   .image-banner {
-    height: 330px;
+    height: 300px;
   }
   /* Removed forced mask-image: none; kept the effect */
   .business-intro {
@@ -209,6 +209,7 @@
 
 @media (max-width: 480px) {
   .image-banner {
-    height: 220px;
+    height: 140px;
+    border-radius: 1rem;
   }
 }

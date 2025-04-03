@@ -103,7 +103,7 @@
 }
 
 /* Responsive Adjustments */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .work-together {
     flex-direction: column;
     text-align: center;
@@ -119,7 +119,7 @@
 
   .work-together h2 {
     margin-top: 2rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .work-together-info p {
@@ -127,8 +127,15 @@
     display: none;
   }
 
+  .social-icons {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 0rem;
+    margin-left: 3rem;
+  }
+
   .email-button {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-top: 2rem;
     /* padding: 0.9rem 1rem; */
   }
@@ -150,8 +157,9 @@
   }
 
   .work-together h2 {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     text-align: center;
+    margin-bottom: -0.5rem;
   }
 
   .email-button {
@@ -167,7 +175,8 @@
   .social-icons {
     flex-direction: row;
     justify-content: flex-start;
-    margin-top: 1rem;
+    margin-top: 0rem;
+    margin-left: 3rem;
   }
 
   /* Hide Work-Together Info on Mobile */

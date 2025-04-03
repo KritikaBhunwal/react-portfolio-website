@@ -7,6 +7,7 @@ import ProjectContent from "../../components/ProjectContent.jsx";
 import GraphicsProjects from "../../components/GraphicsProjects.jsx";
 import ProcreateDump from "../../components/ProcreateDump.jsx";
 import ImageBanner from "../../components/ImageBanner.jsx";
+import WorkTogether from "../../components/WorkTogether.jsx";
 
 // Import banner images
 import GraphicBannerBase from "/GraphicBannerBase.png";
@@ -23,9 +24,36 @@ import {
 } from "react-icons/si";
 
 import "../../styles/graphics.css";
-import WorkTogether from "../../components/WorkTogether.jsx";
 
-// Section 1: Graphic Design + Showcase Highlights
+// SEO Structured Data
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.kritikabhunwal.com/graphics",
+      name: "Graphic Design & Artistic Showcase",
+      description:
+        "Explore a diverse portfolio featuring graphic design, digital illustrations, and motion graphics projects. Discover expressive visuals and storytelling through creative experimentation.",
+      url: "https://www.kritikabhunwal.com/graphics",
+    },
+    {
+      "@type": "CreativeWork",
+      name: "Illustrations in Motion: A Music Video Experiment",
+      creator: {
+        "@type": "Person",
+        name: "Kritika Bhunwal",
+      },
+      description:
+        "A visual experiment that fuses illustration, music, and animation into a cohesive motion graphic project. Every frame narrates a moment of rhythm and emotion.",
+      encodingFormat: "video/mp4",
+      thumbnailUrl: "https://kritikabhunwal.com/assets/graphics-banner.png",
+      url: "https://www.youtube.com/watch?v=lvmDSN6cZfc",
+      datePublished: "2025",
+    },
+  ],
+};
+
 const graphicDesignHighlights = [
   { bulletPointOne: "Creative Vision", detail: "Innovative concepts that push creative boundaries." },
   { bulletPointOne: "Visual Impact", detail: "Bold, dynamic designs that capture attention." },
@@ -37,7 +65,6 @@ const graphicDesignIcons = [
   { name: "Illustrator", icon: <SiAdobeillustrator size={24} /> },
 ];
 
-// Section 2: Artistic Showcase Highlights
 const artisticShowcaseHighlights = [
   { bulletPointOne: "Expressive Artistry", detail: "Illustrations that evoke emotion and tell compelling stories." },
   { bulletPointOne: "Innovative Techniques", detail: "A blend of traditional and digital methods for unique visuals." },
@@ -50,7 +77,6 @@ const artisticShowcaseIcons = [
   { name: "Illustrator", icon: <SiAdobeillustrator size={24} /> },
 ];
 
-// Section 3: Motion Graphics Project Highlights
 const motionGraphicsHighlights = [
   { bulletPointOne: "Storytelling through Motion", detail: "Illustrations transformed into dynamic visual narratives." },
   { bulletPointOne: "Rhythmic Synchronization", detail: "Seamless motion paired with the beats and emotions of the music." },
@@ -63,22 +89,13 @@ const motionGraphicsIcons = [
   { name: "Adobe Audition", icon: <SiAdobeaudition size={24} /> },
 ];
 
-// Structured Data
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Graphic Design & Artistic Showcase",
-  "description": "Explore a comprehensive portfolio of innovative graphic design, expressive illustrations, and dynamic motion graphics that bring visual storytelling to life.",
-  "url": "https://www.kritikabhunwal.com/graphics"
-};
-
 const Graphics = () => {
   return (
     <>
       <SEO
         title="Graphic Design & Artistic Showcase"
-        description="Explore a comprehensive portfolio of innovative graphic design, expressive illustrations, and dynamic motion graphics that bring visual storytelling to life."
-        keywords="graphic design, artistic showcase, motion graphics, illustration, creative, digital art"
+        description="Explore a diverse portfolio featuring graphic design, digital illustrations, and motion graphics. Discover expressive visuals, creative storytelling, and technical excellence that bring ideas to life."
+        keywords="graphic design, digital art, illustration, motion graphics, creative showcase, Kritika Bhunwal, design portfolio, Adobe tools, Procreate art, animation, visual storytelling"
         url="https://www.kritikabhunwal.com/graphics"
         image="https://kritikabhunwal.com/assets/graphics-banner.png"
         type="website"
@@ -96,12 +113,6 @@ const Graphics = () => {
           bannerClass="image-banner"
         />
 
-        {/* Optional link to subpage
-        <div className="subpage-links">
-          <Link to="logo-design" className="subpage-link">Go to Logo Design Showcase</Link>
-        </div> */}
-
-        {/* Section 1: Graphic Design + Showcase */}
         <SectionHeading title="Graphic Design Portfolio" />
         <ProjectContent
           title="Dynamic Visual Communication"
@@ -111,7 +122,6 @@ const Graphics = () => {
         />
         <GraphicsProjects />
 
-        {/* Section 2: Artistic Showcase */}
         <SectionHeading title="Artistic Showcase" />
         <ProjectContent
           title="Expressive Illustrations"
@@ -121,17 +131,15 @@ const Graphics = () => {
         />
         <ProcreateDump />
 
-        {/* Section 3: Motion Graphics Project */}
         <SectionHeading title="Creative Expression through Motion Graphics" />
         <ProjectContent
           title="Illustrations in Motion: A Music Video Experiment"
-          description="As part of a school project and my ongoing artistic journey, I brought my illustrations to life by creating a motion graphics interpretation of a music video. This project was an exploration of movement, rhythm, and storytelling through animation. Every frame was carefully crafted to reflect the song’s energy, emotion, and narrative. It was an exciting fusion of my passion for illustration, animation, and music."
+          description="As part of a school project and my ongoing artistic journey, I brought my illustrations to life by creating a motion graphics interpretation of a music video. This project was an exploration of movement, rhythm, and storytelling through animation. Every frame was carefully crafted to reflect the song’s energy, emotion, and narrative."
           highlights={motionGraphicsHighlights}
           icons={motionGraphicsIcons}
         />
-        <SectionHeading title="Youtube Video" />
 
-        {/* Embedded video */}
+        <SectionHeading title="Youtube Video" />
         <div className="video-container">
           <iframe
             className="youtube-video"
@@ -143,8 +151,6 @@ const Graphics = () => {
           ></iframe>
         </div>
 
-        {/* Subpage content rendered here */}
-        {/* <Outlet /> */}
         <WorkTogether />
       </div>
     </>

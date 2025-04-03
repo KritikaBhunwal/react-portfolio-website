@@ -15,15 +15,15 @@ import "../styles/home.css";
 const collaborationHighlights = [
   {
     bulletPointOne: "Collaborative Approach",
-    detail: "A strong belief in teamwork and open communication to achieve the best results.",
+    detail: "I believe in teamwork and open communication to achieve the best results.",
   },
   {
     bulletPointOne: "Creative Problem Solving",
-    detail: "Using design thinking to find innovative solutions tailored to unique business needs.",
+    detail: "I like to utilize design thinking to find innovative solutions personalized as per your business needs.",
   },
   {
-    bulletPointOne: "Detail-Oriented Execution",
-    detail: "Ensuring high-quality, polished, and impactful visual storytelling.",
+    bulletPointOne: "Always Detail-Oriented",
+    detail: "I take pride in ensuring high-quality in polished, and impactful visual storytelling.",
   },
 ];
 
@@ -45,7 +45,7 @@ const Home = () => {
           "@context": "https://schema.org",
           "@type": "Person",
           "name": "Kritika Bhunwal",
-          "jobTitle": "Front-End Designer and React Developer",
+          "jobTitle": "UI/UX Designer",
           "url": "https://www.kritikabhunwal.com/",
           "image": "https://kritikabhunwal.com/assets/logo-lDoHeESd.png",
           "sameAs": [
@@ -62,6 +62,7 @@ const Home = () => {
       <div className="home">
         <Banner />
         <SectionHeading title="My Work" />
+        <p style={{ marginLeft: "3rem", marginRight: "3rem" }}>As a Designer, I have had the opportunity to work in Fashion, Graphic and Tech Industries on multiple projects from Styling, Branding to UI/UX Design. Here's a sneak peak to some of my favourite projects that I had a lot of fun working on!<br></br><br></br> I welcome you to explore through my Design Journey...</p>
         <PixelPopBanner />
         {/* <JavaScriptGames /> */}
         <ThreeDBanner />

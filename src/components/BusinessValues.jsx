@@ -47,7 +47,7 @@ const BusinessValues = () => {
   };
 
   return (
-    <div className="business-intro">
+    <div className="business-intro" style={{ margin: "1rem"}}>
       {items.map((item) => {
         const isExpanded = expandedItem === item.id;
         return (

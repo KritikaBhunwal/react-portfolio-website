@@ -8,7 +8,7 @@ import {
   FaJs, 
   FaReact, 
   FaPaintBrush, 
-  FaApple 
+  // FaApple 
 } from "react-icons/fa";
 import { 
   SiTailwindcss, 
@@ -30,7 +30,7 @@ const softwareSkills = [
   { name: "Premiere Pro", icon: <SiAdobepremierepro /> },
   { name: "Audition", icon: <SiAdobeaudition /> },
   { name: "Procreate", icon: <FaPaintBrush /> },
-  { name: "Keynote", icon: <FaApple /> },
+  // { name: "Keynote", icon: <FaApple /> },
   { name: "Figma", icon: <FaFigma /> },
   { name: "HTML", icon: <FaHtml5 /> },
   { name: "CSS", icon: <FaCss3 /> },

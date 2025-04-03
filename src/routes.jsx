@@ -30,7 +30,7 @@ const AppRoutes = () => {
         <Route path="/about" element={<About />} />
 
         {/* Standalone subpages */}
-        <Route path="/uiux/javascript-games" element={<JavaScriptGames />} />
+        <Route path="/uiux/arcade-games" element={<JavaScriptGames />} />
         <Route path="/uiux/hellow" element={<Hellow />} />
         {/* <Route path="/uiux/smoking-gun" element={<SmokingGun />} /> */}
         {/* <Route path="/graphics/logo-design" element={<LogoDesign />} /> */}

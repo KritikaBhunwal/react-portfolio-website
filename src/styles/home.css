@@ -4,30 +4,83 @@
 @tailwind components;
 @tailwind utilities; */
 
-/* h2 {
-  font-size: 3.4rem;
-  margin-top: 2.2rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
-  color: #3d3d3d;
-  margin-left: 3rem;
-} */
-
-/* h3 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #3d3d3d;
-  margin-left: 3rem;
-  margin-bottom: 1rem;
-} */
-
-/* p {
-  margin-left: 3rem;
-  font-size: 1.2rem;
+/* ---------- Global Typography Styles ---------- */
+h2, h3, h4, p {
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
   font-weight: 400;
-  color: #6d6d6d;
-  letter-spacing: 0.04rem;
-} */
+  /* font-family: 'QuickSand', sans-serif; */
+  /* font-family: 'Chonburi', serif; */
+}
+
+/* Paragraph */
+p {
+  font-family: 'QuickSand', sans-serif;
+  color: #3d3d3d9a;
+  font-size: 0.875rem; /* default for smallest screen */
+}
+
+/* H2 */
+h2 {
+  font-family: 'Chonburi', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* H3 */
+h3 {
+  font-family: 'Chonburi', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* H4 */
+h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* ---------- Breakpoints ---------- */
+
+/* ≥480px */
+@media (min-width: 480px) {
+  p   { font-size: 0.95rem; }
+  h2  { font-size: 1.75rem; }
+  h3  { font-size: 1.4rem; }
+  h4  { font-size: 1.2rem; }
+}
+
+/* ≥768px */
+@media (min-width: 768px) {
+  p   { font-size: 1rem; } /* Base size for desktop */
+  h2  { font-size: 2rem; }
+  h3  { font-size: 1.5rem; }
+  h4  { font-size: 1.25rem; }
+}
+
+/* ≥992px */
+@media (min-width: 992px) {
+  p   { font-size: 1.05rem; }
+  h2  { font-size: 2.2rem; }
+  h3  { font-size: 1.65rem; }
+  h4  { font-size: 1.3rem; }
+}
+
+/* ≥1200px */
+@media (min-width: 1200px) {
+  p   { font-size: 1.1rem; }
+  h2  { font-size: 2.4rem; }
+  h3  { font-size: 1.8rem; }
+  h4  { font-size: 1.4rem; }
+}
+
+/* ≥1400px */
+@media (min-width: 1400px) {
+  p   { font-size: 1.15rem; }
+  h2  { font-size: 2.6rem; }
+  h3  { font-size: 2rem; }
+  h4  { font-size: 1.5rem; }
+}
 
 
 @media (min-width: 1440px) {

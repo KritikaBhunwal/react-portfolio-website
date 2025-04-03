@@ -93,6 +93,7 @@ const About = () => {
           baseAlt="Base Banner"
           topAlt="Top Banner"
         />
+        <SectionHeading title="A Little Bit About Me" />
         <AboutContent />
         <SectionHeading title="Kind Words" />
         <Testimonials />

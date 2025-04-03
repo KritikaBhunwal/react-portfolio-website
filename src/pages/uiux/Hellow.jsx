@@ -3,7 +3,18 @@ import SectionHeading from "../../components/SectionHeading";
 import PDFViewer from "../../components/pdfViewer";
 import ProjectContent from "../../components/ProjectContent";
 import WorkTogether from "../../components/WorkTogether";
+import SEO from "../../components/SEO.jsx";
+
 import "../../styles/Hellow.css";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Hellow – An Asynchronous Communication App",
+  description:
+    "Hellow is a pro-social app designed to foster meaningful connections with loved ones across different time zones. Ideal for international students, professionals, and families.",
+  url: "https://www.kritikabhunwal.com/uiux/hellow",
+};
 
 const Hellow = () => {
   // Modal preview state for images from Approach, Problem Statement, and Solution sections
@@ -19,9 +30,18 @@ const Hellow = () => {
     },
   ];
   const problemImages = [
-    { src: "/Hellow1.jpg", caption: "Create new Memories with Hellow and Your Loved Ones " },
-    { src: "/Hellow2.jpg", caption: "With Hellow, Prioritize People over Platform!" },
-    { src: "/Hellow3.jpg", caption: "Asunchronous Communication through Hellow App for everyone." },
+    {
+      src: "/Hellow1.jpg",
+      caption: "Create new Memories with Hellow and Your Loved Ones ",
+    },
+    {
+      src: "/Hellow2.jpg",
+      caption: "With Hellow, Prioritize People over Platform!",
+    },
+    {
+      src: "/Hellow3.jpg",
+      caption: "Asunchronous Communication through Hellow App for everyone.",
+    },
   ];
   const solutionImages = [
     {
@@ -62,6 +82,18 @@ const Hellow = () => {
 
   return (
     <div className="hellow-container">
+      <SEO
+        title="Hellow – Asynchronous Communication App"
+        description="Hellow is a communication app that helps friends and family stay connected across time zones. Designed with empathy, the app uses asynchronous communication and thoughtful UX to build meaningful connections without time pressure."
+        keywords="asynchronous communication app, app design, app ideas, time zone messaging, pro-social UX design, VR communication, cross-timezone app, Kritika Bhunwal, remote connection tool, digital empathy app"
+        url="https://www.kritikabhunwal.com/hellow"
+        image="https://kritikabhunwal.com/assets/hellow-banner.jpg"
+        type="website"
+        lang="en"
+        robots="index,follow"
+        structuredData={structuredData}
+      />
+
       <img
         src="/HellowYouThere.svg"
         alt="Hellow Icon"
@@ -334,7 +366,8 @@ const Hellow = () => {
               <div className="section-content">
                 <p>
                   UN. (2020). International Migration 2020 Highlights. Retrieved
-                  from www.un.org: https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2020_international_migration_highlights.pdf
+                  from www.un.org:
+                  https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2020_international_migration_highlights.pdf
                 </p>
                 <p>
                   LLC, M. T. (2008). Time Zone Calculator. Retrieved from
@@ -343,8 +376,7 @@ const Hellow = () => {
                 </p>
                 <p>
                   Ramkissoon, H. (2022, June). Prosociality in times of
-                  separation and loss. Retrieved from
-                  www.sciencedirect.com:
+                  separation and loss. Retrieved from www.sciencedirect.com:
                   https://www.sciencedirect.com/science/article/abs/pii/S2352250X21002426?via%3Dihub
                 </p>
                 <p>
@@ -392,34 +424,34 @@ const Hellow = () => {
             />
           </main>
         </div>
-                    {/* New Let's Work Together Section */}
-                    <SectionHeading title="Let's Work Together" />
-            <ProjectContent
-              title="A Partnership Rooted in Creativity & Collaboration"
-              description="I thrive in creative collaborations that push boundaries and bring fresh perspectives to the table. Whether it's branding, illustration, UX/UI, or strategic design thinking, I am eager to contribute innovative solutions tailored to your vision. Let’s build something impactful together!"
-              highlights={[
-                {
-                  bulletPointOne: "Creative Branding",
-                  detail:
-                    "Unique and memorable visual identities that capture your brand's essence and set you apart in the marketplace.",
-                },
-                {
-                  bulletPointOne: "Illustration Expertise",
-                  detail:
-                    "Tailored illustrations that communicate your story with clarity, emotion, and a touch of artistry.",
-                },
-                {
-                  bulletPointOne: "UX/UI Design",
-                  detail:
-                    "User-centered design solutions that create seamless, engaging, and intuitive experiences.",
-                },
-                {
-                  bulletPointOne: "Strategic Design Thinking",
-                  detail:
-                    "Innovative problem-solving approaches that drive impactful, sustainable design outcomes.",
-                },
-              ]}
-            />
+        {/* New Let's Work Together Section */}
+        <SectionHeading title="Let's Work Together" />
+        <ProjectContent
+          title="A Partnership Rooted in Creativity & Collaboration"
+          description="I thrive in creative collaborations that push boundaries and bring fresh perspectives to the table. Whether it's branding, illustration, UX/UI, or strategic design thinking, I am eager to contribute innovative solutions tailored to your vision. Let’s build something impactful together!"
+          highlights={[
+            {
+              bulletPointOne: "Creative Branding",
+              detail:
+                "Unique and memorable visual identities that capture your brand's essence and set you apart in the marketplace.",
+            },
+            {
+              bulletPointOne: "Illustration Expertise",
+              detail:
+                "Tailored illustrations that communicate your story with clarity, emotion, and a touch of artistry.",
+            },
+            {
+              bulletPointOne: "UX/UI Design",
+              detail:
+                "User-centered design solutions that create seamless, engaging, and intuitive experiences.",
+            },
+            {
+              bulletPointOne: "Strategic Design Thinking",
+              detail:
+                "Innovative problem-solving approaches that drive impactful, sustainable design outcomes.",
+            },
+          ]}
+        />
       </div>
       <WorkTogether />
 

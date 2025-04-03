@@ -1,5 +1,6 @@
 import { useState } from "react";
-import PixelPopBanner from "../../components/PixelPopBanner";
+import SEO from "../../components/SEO.jsx";
+import PixelPopBannerNoButton from "../../components/PixelPopBannerNoButton";
 import SectionHeading from "../../components/SectionHeading";
 import SubSectionHeading from "../../components/SubSectionHeading";
 import MeteorRushGame from "../../components/MeteorRushGame";
@@ -8,7 +9,15 @@ import WorkTogether from "../../components/WorkTogether";
 import JavaScriptGamesContent from "../../components/JavascriptGamesContent";
 
 import "../../styles/javaScriptGames.css";
-import PixelPopBannerNoButton from "../../components/PixelPopBannerNoButton";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "JavaScript Games – Interactive Web-Based Nostalgia",
+  description:
+    "Revisit 90s arcade gaming with fun, interactive JavaScript games turned into React projects. Enjoy accessible, responsive browser-based experiences.",
+  url: "https://www.kritikabhunwal.com/uiux/arcade-games",
+};
 
 const JavaScriptGames = () => {
   const [modalGame, setModalGame] = useState(null);
@@ -18,14 +27,27 @@ const JavaScriptGames = () => {
 
   return (
     <>
+      <SEO
+        title="JavaScript Games – Interactive Web-Based Nostalgia"
+        description="Explore nostalgic arcade games recreated with modern web technologies. These JavaScript games are accessible, responsive, and designed for an engaging experience. Built with React for a smooth and fun portfolio showcase."
+        keywords="JavaScript games, React games, 90s arcade, interactive games, web development, responsive design, retro gaming, gamification, fun coding projects"
+        url="https://www.kritikabhunwal.com/javascriptgames"
+        image="https://kritikabhunwal.com/assets/js-games-banner.png"
+        type="website"
+        lang="en"
+        robots="index,follow"
+        structuredData={structuredData}
+      />
+
       <PixelPopBannerNoButton
         heading="Game On!"
         showButton={false}
         showParagraph={false}
       />
+
       <section className="uiux-subpage" style={{ margin: "2rem 6rem" }}>
         <section className="uiux-subpage-content">
-          <SectionHeading title="90's Arcade Games Revamp" />
+          <SectionHeading title="90's Games Revamp" />
           <p>
             This project is one of my favourite web development projects that I completed at
             BCIT under the guidance of my instructor Joyce Lam. The goal of this
@@ -41,14 +63,17 @@ const JavaScriptGames = () => {
           </p>
 
           <div className="games-container">
-
             {/* Paddle Fury Game Card */}
             <div className="game-card">
               <SubSectionHeading
                 className="paddleFuryTitle"
-                title="90's Kids Paddle Fury Arcade Game"
+                title="PADDLE FURY"
               />
-              <div className="image-wrapper" onClick={() => handleOpenModal("paddle")} style={{ borderRadius: "4rem" }}>
+              <div
+                className="image-wrapper"
+                onClick={() => handleOpenModal("paddle")}
+                style={{ borderRadius: "4rem" }}
+              >
                 <img
                   src="/pps-game-1.png"
                   alt="Paddle Fury Game Preview"
@@ -58,16 +83,20 @@ const JavaScriptGames = () => {
                   <button className="play-button">Play</button>
                 </div>
               </div>
-              <p>My best score:88</p>
+              <p>My best score: 88</p>
             </div>
 
             {/* Meteor Rush Game Card */}
             <div className="game-card">
               <SubSectionHeading
                 className="meteorRushTitle"
-                title="90's Kids Meteor Rush Arcade Game"
+                title="METEOR RUSH"
               />
-              <div className="image-wrapper" onClick={() => handleOpenModal("meteor")} style={{ borderRadius: "4rem" }}>
+              <div
+                className="image-wrapper"
+                onClick={() => handleOpenModal("meteor")}
+                style={{ borderRadius: "4rem" }}
+              >
                 <img
                   src="/pps-game-2.png"
                   alt="Meteor Rush Game Preview"
@@ -77,12 +106,10 @@ const JavaScriptGames = () => {
                   <button className="play-button">Play</button>
                 </div>
               </div>
-              <p>My best score:172</p>
+              <p>My best score: 172</p>
             </div>
           </div>
-
         </section>
-
 
         {/* Game Modal */}
         {modalGame && (
@@ -96,8 +123,10 @@ const JavaScriptGames = () => {
             </div>
           </div>
         )}
-        <JavaScriptGamesContent style={{ margin: "2rem 4rem" }}/>
+
+        <JavaScriptGamesContent style={{ margin: "2rem 4rem" }} />
       </section>
+
       <WorkTogether />
     </>
   );
