@@ -38,7 +38,7 @@
 
 /* Game preview image */
 .game-preview-image {
-  width: 150%;
+  width: 120%;
   height: auto;
   object-fit: cover;
   display: block;

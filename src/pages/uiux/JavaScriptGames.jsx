@@ -5,6 +5,7 @@ import SectionHeading from "../../components/SectionHeading";
 import SubSectionHeading from "../../components/SubSectionHeading";
 import MeteorRushGame from "../../components/MeteorRushGame";
 import PaddleFuryGame from "../../components/PaddleFuryGame";
+import FigmaFrame from "../../components/FigmaFrame.jsx";
 import WorkTogether from "../../components/WorkTogether";
 import JavaScriptGamesContent from "../../components/JavascriptGamesContent";
 
@@ -16,7 +17,7 @@ const structuredData = {
   name: "JavaScript Games – Interactive Web-Based Nostalgia",
   description:
     "Revisit 90s arcade gaming with fun, interactive JavaScript games turned into React projects. Enjoy accessible, responsive browser-based experiences.",
-  url: "https://www.kritikabhunwal.com/uiux/arcade-games",
+  url: "https://www.kritikabhunwal.com/uiux/javascript-games",
 };
 
 const JavaScriptGames = () => {
@@ -83,7 +84,7 @@ const JavaScriptGames = () => {
                   <button className="play-button">Play</button>
                 </div>
               </div>
-              <p>My best score: 88</p>
+              <p>My best score: 71</p>
             </div>
 
             {/* Meteor Rush Game Card */}
@@ -106,7 +107,7 @@ const JavaScriptGames = () => {
                   <button className="play-button">Play</button>
                 </div>
               </div>
-              <p>My best score: 172</p>
+              <p>My best score: 88</p>
             </div>
           </div>
         </section>
@@ -123,10 +124,10 @@ const JavaScriptGames = () => {
             </div>
           </div>
         )}
-
         <JavaScriptGamesContent style={{ margin: "2rem 4rem" }} />
       </section>
-
+      <SectionHeading title="Figma Prototype" />
+      <FigmaFrame />
       <WorkTogether />
     </>
   );
