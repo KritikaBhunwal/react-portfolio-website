@@ -1,11 +1,11 @@
 import { useState } from "react";
-import SectionHeading from "../../components/SectionHeading";
-import PDFViewer from "../../components/pdfViewer";
-import ProjectContent from "../../components/ProjectContent";
-import WorkTogether from "../../components/WorkTogether";
-import SEO from "../../components/SEO.jsx";
+import SectionHeading from "../../../components/SectionHeading.jsx";
+import PDFViewer from "../../../components/pdfViewer";
+import ProjectContent from "../../../components/ProjectContent";
+import WorkTogether from "../../../components/WorkTogether";
+import SEO from "../../../components/SEO.jsx";
 
-import "../../styles/Hellow.css";
+import "../../../styles/Hellow.css";
 
 const structuredData = {
   "@context": "https://schema.org",

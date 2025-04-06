@@ -1,16 +1,16 @@
 import React from "react";
-import SEO from "../../components/SEO.jsx";
-import SectionHeading from "../../components/SectionHeading.jsx";
-import UIUXProjects from "../../components/UIUXProjects.jsx";
-import ProjectContent from "../../components/ProjectContent.jsx";
-import ImageBanner from "../../components/ImageBanner.jsx";
-import WorkTogether from "../../components/WorkTogether.jsx";
+import SEO from "../../../components/SEO.jsx";
+import SectionHeading from "../../../components/SectionHeading.jsx";
+import UIUXProjects from "../../../components/UIUXProjects.jsx";
+import ProjectContent from "../../../components/ProjectContent.jsx";
+import ImageBanner from "../../../components/ImageBanner.jsx";
+import WorkTogether from "../../../components/WorkTogether.jsx";
 
 // Images
 import UXUIBannerBase from "/UXUIBannerBase.png";
 import UXUIBannerTop from "/UXUIBannerTop.png";
 
-import "../../styles/uiux.css";
+import "../../../styles/uiux.css";
 
 const structuredData = {
   "@context": "https://schema.org",

@@ -1,14 +1,14 @@
 import React from "react";
-import SEO from "../../components/SEO.jsx";
-import SectionHeading from "../../components/SectionHeading";
-import MykonosCollection from "../../components/MykonosCollection.jsx";
-import ProjectContent from "../../components/ProjectContent.jsx";
-import Gallery from "../../components/Gallery.jsx";
-import PortfolioGallery from "../../components/PortfolioGallery.jsx";
-import ImageBanner from "../../components/ImageBanner.jsx";
-import WorkTogether from "../../components/WorkTogether.jsx";
+import SEO from "../../../components/SEO.jsx";
+import SectionHeading from "../../../components/SectionHeading.jsx";
+import MykonosCollection from "../../../components/MykonosCollection.jsx";
+import ProjectContent from "../../../components/ProjectContent.jsx";
+import Gallery from "../../../components/Gallery.jsx";
+import PortfolioGallery from "../../../components/PortfolioGallery.jsx";
+import ImageBanner from "../../../components/ImageBanner.jsx";
+import WorkTogether from "../../../components/WorkTogether.jsx";
 
-import "../../styles/fashion.css";
+import "../../../styles/fashion.css";
 
 // Banner Images
 import FashionBannerBase from "/FashionBannerBase.png";

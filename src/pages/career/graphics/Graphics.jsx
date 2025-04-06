@@ -1,13 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
-import SEO from "../../components/SEO.jsx";
-import SectionHeading from "../../components/SectionHeading.jsx";
-import ProjectContent from "../../components/ProjectContent.jsx";
-import GraphicsProjects from "../../components/GraphicsProjects.jsx";
-import ProcreateDump from "../../components/ProcreateDump.jsx";
-import ImageBanner from "../../components/ImageBanner.jsx";
-import WorkTogether from "../../components/WorkTogether.jsx";
+import SEO from "../../../components/SEO.jsx";
+import SectionHeading from "../../../components/SectionHeading.jsx";
+import ProjectContent from "../../../components/ProjectContent.jsx";
+import GraphicsProjects from "../../../components/GraphicsProjects.jsx";
+import ProcreateDump from "../../../components/ProcreateDump.jsx";
+import ImageBanner from "../../../components/ImageBanner.jsx";
+import WorkTogether from "../../../components/WorkTogether.jsx";
 
 // Import banner images
 import GraphicBannerBase from "/GraphicBannerBase.png";
@@ -23,7 +23,7 @@ import {
   SiAdobeaudition,
 } from "react-icons/si";
 
-import "../../styles/graphics.css";
+import "../../../styles/graphics.css";
 
 // SEO Structured Data
 const structuredData = {

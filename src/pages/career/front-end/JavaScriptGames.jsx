@@ -1,15 +1,15 @@
 import { useState } from "react";
-import SEO from "../../components/SEO.jsx";
-import PixelPopBannerNoButton from "../../components/PixelPopBannerNoButton";
-import SectionHeading from "../../components/SectionHeading";
-import SubSectionHeading from "../../components/SubSectionHeading";
-import MeteorRushGame from "../../components/MeteorRushGame";
-import PaddleFuryGame from "../../components/PaddleFuryGame";
-import FigmaFrame from "../../components/FigmaFrame.jsx";
-import WorkTogether from "../../components/WorkTogether";
-import JavaScriptGamesContent from "../../components/JavascriptGamesContent";
+import SEO from "../../../components/SEO.jsx";
+import PixelPopBannerNoButton from "../../../components/PixelPopBannerNoButton.jsx";
+import SectionHeading from "../../../components/SectionHeading.jsx";
+import SubSectionHeading from "../../../components/SubSectionHeading.jsx";
+import MeteorRushGame from "../../../components/MeteorRushGame.jsx";
+import PaddleFuryGame from "../../../components/PaddleFuryGame.jsx";
+import FigmaFrame from "../../../components/FigmaFrame.jsx";
+import WorkTogether from "../../../components/WorkTogether.jsx";
+import JavaScriptGamesContent from "../../../components/JavascriptGamesContent.jsx";
 
-import "../../styles/javaScriptGames.css";
+import "../../../styles/javaScriptGames.css";
 
 const structuredData = {
   "@context": "https://schema.org",

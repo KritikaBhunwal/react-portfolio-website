@@ -2,14 +2,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Pages
 import Home from "./pages/Home";
-import UIUXIndex from "./pages/uiux/UIUX";
-import JavaScriptGames from "./pages/uiux/JavaScriptGames";
-import Hellow from "./pages/uiux/Hellow";
-// import SmokingGun from "./pages/uiux/SmokingGun";
-import GraphicsIndex from "./pages/graphics/Graphics";
-// import LogoDesign from "./pages/graphics/LogoDesign";
-import Fashion from "./pages/fashion/Fashion";
+import CareerIndex from "./pages/career/Career";
 import About from "./pages/about/About";
+
+
+import UIUXIndex from "./pages/career/uiux/UIUX";
+import FrontEndIndex from "./pages/career/front-end/JavaScriptGames";
+import GraphicsIndex from "./pages/career/graphics/Graphics";
+import Fashion from "./pages/career/fashion/Fashion";
+
+import Hellow from "./pages/career/uiux/Hellow";
+// import SmokingGun from "./pages/uiux/SmokingGun";
+// import LogoDesign from "./pages/graphics/LogoDesign";
 
 // Shared layout
 import Navbar from "./components/Navbar";
@@ -24,14 +28,11 @@ const AppRoutes = () => {
       <Routes>
         {/* Top-level pages */}
         <Route path="/" element={<Home />} />
-        <Route path="/uiux" element={<UIUXIndex />} />
-        <Route path="/graphics" element={<GraphicsIndex />} />
-        <Route path="/fashion" element={<Fashion />} />
+        <Route path="career" element={<CareerIndex />} />
         <Route path="/about" element={<About />} />
 
         {/* Standalone subpages */}
-        <Route path="/uiux/javascript-games" element={<JavaScriptGames />} />
-        <Route path="/uiux/hellow" element={<Hellow />} />
+        <Route path="/hellow" element={<Hellow />} />
         {/* <Route path="/uiux/smoking-gun" element={<SmokingGun />} /> */}
         {/* <Route path="/graphics/logo-design" element={<LogoDesign />} /> */}
       </Routes>
