@@ -1,4 +1,4 @@
-import { FaLinkedin, FaBehance } from "react-icons/fa";
+import { FaLinkedin, FaBehanceSquare, FaGithubSquare } from "react-icons/fa";
 import Greeting from "../components/Greeting";
 import MoreInfo from "../components/MoreInfo";
 import "../styles/banner.css";
@@ -23,12 +23,20 @@ const Banner = () => {
           <FaLinkedin size={24} />
         </a>
         <a
+          href="https://github.com/KritikaBhunwal"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Github Profile"
+        >
+          <FaGithubSquare size={24} />
+        </a>
+        <a
           href="https://www.behance.net/kritikabhunwal"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Behance Profile"
         >
-          <FaBehance size={28} />
+          <FaBehanceSquare size={24} />
         </a>
       </div>
       <MoreInfo

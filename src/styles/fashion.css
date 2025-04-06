@@ -1,60 +1,6 @@
 /* ========== Fashion Page Styles ========== */
 .about-container {
-  font-family: 'QuickSand', sans-serif;
-}
-
-/* Banner Section */
-.image-banner {
-  position: relative;
-  height: 60rem;
-  overflow: hidden;
-  border-radius: 2rem;
-  cursor: pointer;
-  margin: 1rem;
-}
-
-/* Base & Top Images */
-.base-image,
-.top-image {
-  position: absolute;
-  top: 0;
-  left: 20%;
-  transform: translateX(-20%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.base-image {
-  z-index: 2;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-  mask-image: radial-gradient(
-    circle 200px at var(--x, 50%) var(--y, 50%),
-    transparent 0%,
-    transparent 60%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  -webkit-mask-image: radial-gradient(
-    circle 200px at var(--x, 50%) var(--y, 50%),
-    transparent 0%,
-    transparent 60%,
-    rgba(0, 0, 0, 1) 100%
-  );
-}
-
-/* Reveal behind image on hover/tap */
-.image-banner:hover .base-image,
-.image-banner:active .base-image {
-  mask-image: none;
-  -webkit-mask-image: none;
-}
-
-.top-image {
-  z-index: 1;
-  width: 100%;
-  height: 100%;
+  font-family: 'Quicksand', sans-serif;
 }
 
 /* Text Sections */
@@ -67,7 +13,7 @@
   margin: 0.5rem 1rem;
 }
 
-/* Fix Layout Issues */
+/* Layout Helpers */
 .flex-row {
   display: flex;
   align-items: flex-start;
@@ -75,7 +21,6 @@
   flex-wrap: wrap;
 }
 
-/* Ensure business intro takes full width */
 .business-intro {
   width: 100%;
   max-width: 1200px;
@@ -83,52 +28,13 @@
   flex-grow: 1;
 }
 
-/* Ensure proper content spacing */
 .flex-1 {
   flex-grow: 1;
   min-width: 300px;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 1740px) {
-  .image-banner {
-    height: 600px;
-  }
-  .base-image {
-    mask-image: radial-gradient(
-      circle 150px at var(--x, 50%) var(--y, 50%),
-      transparent 0%,
-      transparent 60%,
-      rgba(0, 0, 0, 1) 100%
-    );
-    -webkit-mask-image: radial-gradient(
-      circle 150px at var(--x, 50%) var(--y, 50%),
-      transparent 0%,
-      transparent 60%,
-      rgba(0, 0, 0, 1) 100%
-    );
-  }
-}
-
+/* Other responsive adjustments for non-banner elements */
 @media (max-width: 1024px) {
-  .image-banner {
-    height: 500px;
-  }
-  .base-image {
-    mask-image: radial-gradient(
-      circle 120px at var(--x, 50%) var(--y, 50%),
-      transparent 0%,
-      transparent 60%,
-      rgba(0, 0, 0, 1) 100%
-    );
-    -webkit-mask-image: radial-gradient(
-      circle 120px at var(--x, 50%) var(--y, 50%),
-      transparent 0%,
-      transparent 60%,
-      rgba(0, 0, 0, 1) 100%
-    );
-  }
-  /* Ensure full width accordion */
   .business-intro {
     width: 100%;
     padding: 0;
@@ -140,18 +46,5 @@
   .flex-row {
     flex-direction: column;
     gap: 1.5rem;
-  }
-  .image-banner {
-    height: 300px;
-  }
-  /* Removed the rule that hid .image-banner */
-  .business-intro {
-    margin: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .image-banner {
-    height: 250px;
   }
 }

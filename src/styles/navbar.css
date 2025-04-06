@@ -6,6 +6,12 @@
   --navbar-bg: #3D3D3D;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0rem;
+
+}
+
 /* ---------- Navbar ---------- */
 .navbar {
   background-color: var(--navbar-bg);

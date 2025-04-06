@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities; */
 
+* {
+  box-sizing: border-box;
+  margin: 0rem;
+
+}
+
 /* ---------- Global Typography Styles ---------- */
 h2, h3, h4, p {
   margin: 0 0 1rem 0;

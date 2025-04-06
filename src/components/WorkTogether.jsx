@@ -1,10 +1,10 @@
 import React from "react";
-import { FaLinkedin, FaBehance, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaBehanceSquare, FaEnvelope } from "react-icons/fa";
 import "../styles/WorkTogether.css";
 
 const socialLinks = [
   {
-    icon: <FaEnvelope size={30} />,
+    icon: <FaEnvelope size={29} />,
     link: "mailto:kritikabhunwal@gmail.com?subject=Project Inquiry",
     label: "Send an Email",
     external: false,
@@ -16,7 +16,7 @@ const socialLinks = [
     external: true,
   },
   {
-    icon: <FaBehance size={34} />,
+    icon: <FaBehanceSquare size={28} />,
     link: "https://www.behance.net/kritikabhunwal",
     label: "Behance Profile",
     external: true,

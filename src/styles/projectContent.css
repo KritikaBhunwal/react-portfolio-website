@@ -14,7 +14,6 @@
 .left-description {
   flex: 1;
   text-align: left;
-  /* margin-right: 3rem; */
 }
 
 .project-title {
@@ -27,7 +26,7 @@
 .project-description {
   font-size: 1rem;
   line-height: 1.6;
-  color: #333;
+  color: #3d3d3d9a;
   padding-bottom: 1rem;
 }
 
@@ -63,7 +62,7 @@
   flex: 1;
   font-weight: 300;
   line-height: 1.4rem;
-  color: #3d3d3d;
+  color: #3d3d3d9a;
   display: flex;
   flex-direction: column;
   gap: 1rem;
