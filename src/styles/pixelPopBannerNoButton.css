@@ -55,18 +55,6 @@
     line-height: 1.5;
   }
   
-  /* Custom cursor styling with fixed positioning and pulse animation */
-  .playcustom-cursor {
-    position: fixed;
-    pointer-events: none;
-    opacity: 0.4;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #fff;
-    animation: cursorPulse 1.5s ease-in-out infinite;
-  }
   
   /* ---------- Animations ---------- */
   @keyframes fadeIn {

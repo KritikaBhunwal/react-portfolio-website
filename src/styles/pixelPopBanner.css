@@ -41,7 +41,7 @@
 
 /* Console image with upDown animation */
 .banner-console {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
   z-index: 3;
   margin-top: -7rem;
@@ -84,7 +84,7 @@
 }
 
 /* Custom cursor styling with pulse animation */
-.custom-cursor {
+/* .custom-cursor {
   position: fixed;
   pointer-events: none;
   opacity: 0.4;
@@ -94,7 +94,7 @@
   border-radius: 50%;
   background-color: #fff;
   animation: cursorPulse 1.5s ease-in-out infinite;
-}
+} */
 
 /* ---------- Animations ---------- */
 @keyframes fadeIn {
@@ -105,7 +105,7 @@
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    /* transform: translateY(-20px); */
   }
   to {
     opacity: 1;

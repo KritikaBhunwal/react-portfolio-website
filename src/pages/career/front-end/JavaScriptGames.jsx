@@ -8,6 +8,7 @@ import PaddleFuryGame from "../../../components/PaddleFuryGame.jsx";
 import SnakeGame from "../../../components/SnakeGame.jsx";
 import FigmaFrame from "../../../components/FigmaFrame.jsx";
 import WorkTogether from "../../../components/WorkTogether.jsx";
+import CodeSnippet from "../../../components/CodeSnippet.jsx";
 import JavaScriptGamesContent from "../../../components/JavascriptGamesContent.jsx";
 
 import "../../../styles/javaScriptGames.css";
@@ -20,6 +21,116 @@ const structuredData = {
     "Revisit 90s arcade gaming with fun, interactive JavaScript games turned into React projects. Enjoy accessible, responsive browser-based experiences.",
   url: "https://www.kritikabhunwal.com/uiux/javascript-games",
 };
+
+// Define a sample code snippet that extracts the main game logic.
+const sampleCode = `
+useEffect(() => {
+  const canvas = canvasRef.current;
+  const ctx = canvas.getContext("2d");
+
+  // Load background image (if available)
+  const gameBg = new Image();
+  gameBg.src = bgImage;
+
+  // Define paddle properties
+  const paddle = {
+    width: canvas.width / 6,
+    height: canvas.width / 24, // paddle.height = paddle.width / 4
+    x: canvas.width / 2 - canvas.width / 12,
+    y: canvas.height - canvas.width / 24 - canvas.height * 0.05,
+    speed: 12,
+  };
+
+  // Define ball properties
+  const ball = {
+    x: canvas.width / 2,
+    y: canvas.height / 2,
+    dx: 4,
+    dy: -4,
+    radius: canvas.width / 36, // ball.radius = paddle.width / 6
+  };
+
+  let score = 0;
+  let animationFrameId;
+
+  // Draw paddle
+  const drawPaddle = () => {
+    ctx.fillStyle = "#9990bb";
+    ctx.beginPath();
+    if (ctx.roundRect) {
+      ctx.roundRect(paddle.x, paddle.y, paddle.width, paddle.height, 30);
+    } else {
+      ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
+    }
+    ctx.fill();
+  };
+
+  // Draw ball
+  const drawBall = () => {
+    ctx.fillStyle = "#fff";
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.closePath();
+  };
+
+  // Draw score
+  const drawScore = () => {
+    ctx.fillStyle = "#fff";
+    ctx.font = "20px Quicksand";
+    ctx.textAlign = "left";
+    ctx.fillText(\`Score: \${score}\`, 40, 60);
+  };
+
+  // Update ball position and handle collisions
+  const moveBall = () => {
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+
+    // Check side walls
+    if (ball.x - ball.radius < 0 || ball.x + ball.radius > canvas.width) {
+      ball.dx *= -1;
+    }
+    // Check top wall
+    if (ball.y - ball.radius < 0) {
+      ball.dy *= -1;
+    }
+    // Check collision with paddle
+    if (
+      ball.y + ball.radius >= paddle.y &&
+      ball.x > paddle.x &&
+      ball.x < paddle.x + paddle.width
+    ) {
+      ball.dy *= -1;
+      score++;
+      ball.dx *= 1.02;
+      ball.dy *= 1.02;
+    }
+    // Check if ball is missed (bottom)
+    if (ball.y - ball.radius > canvas.height) {
+      // Game over logic would be here
+    }
+  };
+
+  // Main game loop
+  const gameLoop = () => {
+    if (gameBg.complete) {
+      ctx.drawImage(gameBg, 0, 0, canvas.width, canvas.height);
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+    if (!pausedRef.current) {
+      drawPaddle();
+      drawBall();
+      drawScore();
+      moveBall();
+    }
+    // Request next frame if game is not over
+    animationFrameId = requestAnimationFrame(gameLoop);
+  };
+  gameLoop();
+}, []);
+`;
 
 const JavaScriptGames = () => {
   const [modalGame, setModalGame] = useState(null);
@@ -51,26 +162,15 @@ const JavaScriptGames = () => {
         <section className="uiux-subpage-content">
           <SectionHeading title="90's Games Revamp" />
           <p>
-            This project is one of my favourite web development projects that I completed at
-            BCIT under the guidance of my instructor Joyce Lam. The goal of this
-            project was to bring back nostalgia by recreating all-time favorite
-            digital arcade games. I also wanted to incorporate gamification into my
-            project to stay up to date with the trends.
-            <br />
-            <br />
-            Showcasing interactive JavaScript games that I converted into a React
-            project for my portfolio website. Designed with simple yet engaging,
-            user-friendly interfaces and nostalgic experiences to bring back those
-            old school memories :)
+            This project is one of my favourite web development projects that
+            I completed at BCIT. It revives nostalgic arcade games in a modern
+            React project with interactive, responsive interfaces.
           </p>
 
           <div className="games-container">
             {/* Paddle Fury Game Card */}
             <div className="game-card">
-              <SubSectionHeading
-                className="paddleFuryTitle"
-                title="PADDLE FURY"
-              />
+              <SubSectionHeading title="PADDLE FURY" className="paddleFuryTitle" />
               <div
                 className="image-wrapper"
                 onClick={() => handleOpenModal("paddle")}
@@ -88,11 +188,9 @@ const JavaScriptGames = () => {
               <p>My best score: 71</p>
             </div>
 
+            {/* Snake Game Card */}
             <div className="game-card">
-              <SubSectionHeading
-                className="SnakeTitle"
-                title="SNAKE GAME"
-              />
+              <SubSectionHeading title="SNAKE GAME" className="SnakeTitle" />
               <div
                 className="image-wrapper"
                 onClick={() => handleOpenModal("snake")}
@@ -112,10 +210,7 @@ const JavaScriptGames = () => {
 
             {/* Meteor Rush Game Card */}
             <div className="game-card">
-              <SubSectionHeading
-                className="meteorRushTitle"
-                title="METEOR RUSH"
-              />
+              <SubSectionHeading title="METEOR RUSH" className="meteorRushTitle" />
               <div
                 className="image-wrapper"
                 onClick={() => handleOpenModal("meteor")}
@@ -132,33 +227,9 @@ const JavaScriptGames = () => {
               </div>
               <p>My best score: 88</p>
             </div>
-
-            {/* Meteor Rush Game Card */}
-            {/* <div className="game-card">
-              <SubSectionHeading
-                className="meteorRushTitle"
-                title="METEOR RUSH"
-              />
-              <div
-                className="image-wrapper"
-                onClick={() => handleOpenModal("meteor")}
-                style={{ borderRadius: "4rem" }}
-              >
-                <img
-                  src="/pps-game-2.png"
-                  alt="Meteor Rush Game Preview"
-                  className="game-preview-image"
-                />
-                <div className="overlay">
-                  <button className="play-button">Play</button>
-                </div>
-              </div>
-              <p>My best score: 100</p>
-            </div> */}
           </div>
         </section>
 
-        {/* Game Modal */}
         {modalGame && (
           <div className="modal-overlay" onClick={handleCloseModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -171,10 +242,17 @@ const JavaScriptGames = () => {
             </div>
           </div>
         )}
+
         <JavaScriptGamesContent style={{ margin: "2rem 4rem" }} />
       </section>
+
       <SectionHeading title="Figma Prototype" />
       <FigmaFrame />
+
+      <SectionHeading title="Sample Code" />
+      <CodeSnippet codeString={sampleCode} language="jsx" />
+
+      <SectionHeading title="Let's Work Together" />
       <WorkTogether />
     </>
   );
