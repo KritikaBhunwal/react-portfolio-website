@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+/* ========== Container & Banner Layout ========== */
 .container {
   display: flex;
   flex-direction: row;
@@ -9,6 +10,7 @@
   justify-content: space-around;
   padding: 0 2rem;
   gap: 2rem;
+  border-radius: 2rem;
 }
 
 .banner-container-left,
@@ -24,54 +26,47 @@
   width: 100%;
 }
 
+/* Mobile container for carousel */
 .banner-container-mobile {
   width: 100%;
   position: relative;
 }
 
-/* Model Viewer & Overlay  */
+/* ========== 3D Model & Overlay Wrappers ========== */
 .model-wrapper {
   position: relative;
-  /* padding: 2rem; */
+  border-radius: 2rem;
 }
 
 .model-container {
   width: 100%;
-  height: 28.125rem;
-  /* 450px */
-  margin-top: 0.625rem;
-  /* 10px */
+  height: 40rem;
   background-color: #f5f5f5;
-  /* Round corners + hide overflow => neat card layout */
   border-radius: 2rem;
   overflow: hidden;
 }
 
-/* Opaque overlay hidden by default; pointer-events none so it doesn't block clicks */
+/* Overlay on hover */
 .model-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  /* 50% opaque white */
+  background: rgba(0,0,0,0.5);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: 2rem;
-  /* padding: 2rem; */
   overflow: hidden;
 }
 
-/* We show the overlay on hover */
 .model-wrapper:hover .model-overlay {
   opacity: 1;
+  border-radius: 2rem;
 }
 
-
-/* Overlay Controls for Title/Desc */
-
+/* Overlay controls (project info) hidden by default */
 .overlay-controls {
   position: absolute;
   bottom: 1rem;
@@ -82,11 +77,9 @@
   justify-content: flex-start;
   align-items: flex-start;
   opacity: 0;
-  /* hidden by default */
   transition: opacity 0.3s ease;
 }
 
-/* Show the text on hover */
 .model-wrapper:hover .overlay-controls {
   opacity: 1;
 }
@@ -119,26 +112,28 @@
   color: #fff;
 }
 
+/* Expand button (hover in desktop, always in mobile) */
 .expand-button {
   position: absolute;
   top: 1rem;
   right: 1rem;
   width: 2.75rem;
-  /* 44px */
   height: 2.75rem;
   padding: 0.5rem;
   border: none;
   border-radius: 50%;
-  background: #fff;
+  /* background: #fff; */
   color: #3d3d3d;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.02);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-  opacity: 0;
-  /* hidden by default */
+  transition: opacity 0.3s ease,
+              transform 0.3s ease,
+              box-shadow 0.3s ease,
+              color 0.3s ease;
+  opacity: 0; /* hidden by default for desktop */
 }
 
 .model-wrapper:hover .expand-button {
@@ -147,158 +142,148 @@
 
 .expand-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0.1875rem 0.375rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.1875rem 0.375rem rgba(0,0,0,0.2);
   color: #B28FDB;
 }
 
-.modal-overlay {
+/* ========== FULL VIEW OVERLAY (ProcreateDump Style) ========== */
+.full-view-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* background: rgba(0, 0, 0, 0.2); */
+  /* Dark semi-transparent background to highlight the content */
+  background: rgba(0,0,0,0.8);
+  z-index: 9990;
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 1000;
-  transition: transform 1s ease-in-out, color 0.5s ease;
+  justify-content: center;
 }
 
-.modal-content {
+/* The "modal card" or container in the center */
+.full-view-content {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  max-width: 60rem;
+  height: 80%;
+  max-height: 50rem;
+  /* background: #fff; */
+  border-radius: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.3);
   overflow: hidden;
+  z-index: 9991;
 }
 
-.modal-header {
+/* ========== CLOSE, PREV, NEXT BUTTONS ========== */
+.close-btn,
+.prev-btn,
+.next-btn {
   position: absolute;
-  top: 1.25rem;
-  /* 20px */
-  left: 1.25rem;
-  color: #3D3D3D;
-  z-index: 100;
-  max-width: 18.75rem;
-  padding: 2rem;
-  /* 300px */
-}
-
-.modal-header h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.modal-header p {
-  margin: 0.3125rem 0 0;
-  font-size: 1rem;
-  font-weight: 400;
-  opacity: 0.9;
-  /* margin-left: 3rem; */
-}
-
-.modal-model-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-/* Modal Close Button */
-.modal-close {
-  position: absolute;
-  top: 1.25rem;
-  /* 20px */
-  right: 1.25rem;
-  width: 2.75rem;
-  /* 44px */
-  height: 2.75rem;
-  padding: 0;
+  /* background: #fff; */
+  color: #3d3d3d; /* default color */
   border: none;
   border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.1);
+  width: 2.75rem; /* ~44px */
+  height: 2.75rem;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-  z-index: 100;
+  z-index: 9992;  /* above the content */
+  /* Only color changes on hover => no transform or box-shadow */
+  transition: color 0.3s ease;
 }
 
-.modal-close p {
-  margin: 0;
+/* Close button => top-right corner */
+.close-btn {
+  top: 1rem;
+  right: 1rem;
+}
+
+/* Prev & Next => center vertically on the sides */
+.prev-btn,
+.next-btn {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev-btn {
+  left: 1rem;
+}
+.next-btn {
+  right: 1rem;
+}
+
+/* Hover => only color change from #3d3d3d to #cbbfee */
+.close-btn:hover,
+.prev-btn:hover,
+.next-btn:hover {
+  color: #cbbfee;
+}
+
+/* 
+   Additional info block inside the modal: 
+   "modal-info" => for project details, center-aligned
+*/
+.modal-info {
+  width: 100%;
+  height: 30%;       /* Matches the 70% set for .model-container => total 100% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertically center the text */
+  align-items: center;       /* horizontally center the text */
   text-align: center;
 }
 
-/* Modal Navigation Buttons */
-.modal-prev,
-.modal-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 2.25rem;
-  /* 36px */
-  border: none;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-  z-index: 10;
+.modal-info h2 {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 1.3rem;
+  font-family: "Quicksand", sans-serif;
+  color: #3d3d3d;
 }
 
-.modal-prev {
-  left: 0.625rem;
-  /* 10px */
+.modal-info p {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+  color: #3d3d3d;
 }
 
-.modal-next {
-  right: 0.625rem;
+.interaction-hint {
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
 }
 
-.modal-prev:hover,
-.modal-next:hover {
-  transform: translateY(-50%) scale(1.05);
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
-  color: #B28FDB;
-}
-
+/* ========== RESPONSIVE (MOBILE) ========== */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
   }
-
   .banner-container-left,
   .banner-container-right {
     width: 100%;
   }
-
   .model-container {
-    height: 31.25rem;
-    /* 500px */
+    height: 31.25rem; /* ~500px */
   }
 
-  /* We show overlays by default on mobile (optional) */
+  /* Overlays visible by default on mobile (optional) */
   .overlay-controls {
     opacity: 1 !important;
   }
-
-  /* Expand button might as well be visible on mobile */
   .expand-button {
     opacity: 1;
   }
 
-  /* Mobile Carousel Container */
+  /* Mobile carousel container */
   .banner-container-mobile {
     width: 100%;
     position: relative;
   }
 
-  /* Mobile Carousel Controls */
+  /* Mobile carousel controls */
   .carousel-controls {
     position: absolute;
     top: 50%;
@@ -309,24 +294,24 @@
     justify-content: space-between;
     padding: 0 1rem;
   }
-
   .carousel-controls button {
     width: 2.25rem;
     height: 2.25rem;
     border: none;
-    border-radius: 50%;
+    border-radius: 2rem;
     background: #fff;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                color 0.3s ease;
   }
-
   .carousel-controls button:hover {
     transform: scale(1.05);
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.2);
     color: #B28FDB;
   }
 }

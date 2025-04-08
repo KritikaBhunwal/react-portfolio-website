@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/*
+   1. Outer container
+      - Has background color + image
+      - 90vw wide, centered
+      - 2d2d2d color behind
+      - Some background image if desired
+*/
+.snake-game-container {
+  width: 80vw;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 2rem;
+  background-color: #2d2d2d;
+  background-image: url("/bg-image-blank.png");
+  background-size: cover;
+  background-position: center;
+  font-family: "Quicksand", sans-serif;
+}
+
+/*
+   2. Canvas
+      - 2rem margin, so total width is (100% - 4rem)
+      - 80vh height across all breakpoints
+      - Transparent background -> see container behind
+*/
+.snake-canvas {
+  display: block;
+  margin: 0rem 2rem;
+  width: calc(100% - 0rem);
+  height: 80vh;
+  border-radius: 2rem;
+  background-color: transparent;
+  touch-action: none; /* prevent default touch scrolling on canvas */
+}

@@ -46,7 +46,7 @@
   filter: grayscale(0%);
 }
 
-/* ----- Preview ----- */
+/* ----- Preview (Main Image) ----- */
 .gallery-preview {
   flex: 0 0 60%;
   max-width: 60%;
@@ -71,7 +71,7 @@
   filter: grayscale(0%);
 }
 
-/* Navigation Buttons in Preview */
+/* Navigation Buttons in the Preview */
 .gallery-preview .preview-prev,
 .gallery-preview .preview-next {
   position: absolute;
@@ -94,14 +94,13 @@
 .gallery-preview .preview-prev {
   left: 10px;
 }
-
 .gallery-preview .preview-next {
   right: 10px;
 }
-
 .gallery-preview .preview-prev:hover,
 .gallery-preview .preview-next:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #B28FDB;
 }
 
 /* ----- Info & Icons ----- */
@@ -120,13 +119,13 @@
   margin: 0;
   font-size: 1rem;
 }
-
 .gallery-info p {
   font-family: 'Quicksand', sans-serif;
   margin: 0;
   font-size: 1rem;
 }
 
+/* Icons Section */
 .icon-section {
   display: flex;
   gap: 1rem;
@@ -154,14 +153,15 @@
   font-size: calc(var(--gallery-height) / 20);
 }
 
-/* ===== Full-Screen Modal ===== */
+/* ===== Full-Screen Modal (now a white card) ===== */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(61, 61, 61, 0.8);
+  /* Remove dark overlay; show white modal card only */
+  background: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -169,21 +169,28 @@
   transition: transform 0.5s ease;
 }
 
+/* The modal becomes a white, rounded card with max size */
 .modal-content {
   position: relative;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  overflow: hidden;
+  width: 90%;
+  max-width: 60rem;         /* Adjust as needed */
+  max-height: 90vh;         /* Scrolling if needed on smaller screens */
+  background: #fff;         /* White card */
+  border-radius: 2rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;         /* Hide corners and content overflow */
 }
 
+/* The 3D model container or image inside the modal */
 .modal-model-container {
   width: 100%;
   height: 100%;
   position: relative;
   z-index: 1;
+  border-radius: 2rem; /* Keep corners rounded if desired */
 }
 
+/* Modal Close Button => White & Rounded */
 .modal-close {
   position: absolute;
   top: 20px;
@@ -192,9 +199,9 @@
   height: 44px;
   padding: 0.8rem;
   border: none;
-  border-radius: 50%;
+  border-radius: 2rem; /* White, rounded corners */
   background: #fff;
-  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -209,6 +216,7 @@
   color: #B28FDB;
 }
 
+/* Modal Prev/Next => Also White & Rounded */
 .modal-prev,
 .modal-next {
   position: absolute;
@@ -217,36 +225,35 @@
   width: 36px;
   height: 36px;
   border: none;
-  border-radius: 50%;
+  border-radius: 2rem; /* Rounded corners */
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
   z-index: 102;
 }
 
 .modal-prev {
   left: 10px;
 }
-
 .modal-next {
   right: 10px;
 }
 
 .modal-prev:hover,
 .modal-next:hover {
+  transform: translateY(-50%) scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: #B28FDB;
 }
 
 /* ===== Responsive Styles (using only max-width queries) ===== */
 
-/* Tablet Layout: For viewports <= 1220px, adjust layout if needed */
+/* Tablet Layout: For viewports <= 1220px */
 @media (max-width: 1220px) {
-  /* For narrower desktops/tablets, you can adjust the icon layout */
   .icon-section {
     flex-direction: column;
     align-items: flex-start;
