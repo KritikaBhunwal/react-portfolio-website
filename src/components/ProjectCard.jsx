@@ -77,7 +77,21 @@ function ProjectCard({
 
   return (
     <article className="project-card">
-      {/* Top row: Category + Software Icons */}
+      {/* Main image container with optional hover image */}
+      <ImageLinkTag
+        {...(isExternal(projectLink)
+          ? { href: projectLink, target: "_blank", rel: "noopener noreferrer" }
+          : { to: projectLink })}
+        className="project-image-container"
+      >
+        {/* The normal image */}
+        <img
+          src={projectImage}
+          alt={projectTitle}
+          className="project-image"
+        />
+
+              {/* Top row: Category + Software Icons */}
       <header className="project-top-row">
         <div className="project-category">
           <CategoryLinkTag
@@ -108,20 +122,6 @@ function ProjectCard({
           ))}
         </div>
       </header>
-
-      {/* Main image container with optional hover image */}
-      <ImageLinkTag
-        {...(isExternal(projectLink)
-          ? { href: projectLink, target: "_blank", rel: "noopener noreferrer" }
-          : { to: projectLink })}
-        className="project-image-container"
-      >
-        {/* The normal image */}
-        <img
-          src={projectImage}
-          alt={projectTitle}
-          className="project-image"
-        />
 
         {/* Hover-preview image (only rendered if projectHoverImage is not null) */}
         {projectHoverImage && (

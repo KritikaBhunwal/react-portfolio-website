@@ -5,6 +5,7 @@ import SectionHeading from "../../../components/SectionHeading.jsx";
 import SubSectionHeading from "../../../components/SubSectionHeading.jsx";
 import MeteorRushGame from "../../../components/MeteorRushGame.jsx";
 import PaddleFuryGame from "../../../components/PaddleFuryGame.jsx";
+import SnakeGame from "../../../components/SnakeGame.jsx";
 import FigmaFrame from "../../../components/FigmaFrame.jsx";
 import WorkTogether from "../../../components/WorkTogether.jsx";
 import JavaScriptGamesContent from "../../../components/JavascriptGamesContent.jsx";
@@ -87,6 +88,28 @@ const JavaScriptGames = () => {
               <p>My best score: 71</p>
             </div>
 
+            <div className="game-card">
+              <SubSectionHeading
+                className="SnakeTitle"
+                title="SNAKE GAME"
+              />
+              <div
+                className="image-wrapper"
+                onClick={() => handleOpenModal("snake")}
+                style={{ borderRadius: "4rem" }}
+              >
+                <img
+                  src="/pps-game-3.png"
+                  alt="Snake Game Preview"
+                  className="game-preview-image"
+                />
+                <div className="overlay">
+                  <button className="play-button">Play</button>
+                </div>
+              </div>
+              <p>My best score: 51</p>
+            </div>
+
             {/* Meteor Rush Game Card */}
             <div className="game-card">
               <SubSectionHeading
@@ -109,6 +132,29 @@ const JavaScriptGames = () => {
               </div>
               <p>My best score: 88</p>
             </div>
+
+            {/* Meteor Rush Game Card */}
+            {/* <div className="game-card">
+              <SubSectionHeading
+                className="meteorRushTitle"
+                title="METEOR RUSH"
+              />
+              <div
+                className="image-wrapper"
+                onClick={() => handleOpenModal("meteor")}
+                style={{ borderRadius: "4rem" }}
+              >
+                <img
+                  src="/pps-game-2.png"
+                  alt="Meteor Rush Game Preview"
+                  className="game-preview-image"
+                />
+                <div className="overlay">
+                  <button className="play-button">Play</button>
+                </div>
+              </div>
+              <p>My best score: 100</p>
+            </div> */}
           </div>
         </section>
 
@@ -121,6 +167,7 @@ const JavaScriptGames = () => {
               </button>
               {modalGame === "paddle" && <PaddleFuryGame />}
               {modalGame === "meteor" && <MeteorRushGame />}
+              {modalGame === "snake" && <SnakeGame />}
             </div>
           </div>
         )}

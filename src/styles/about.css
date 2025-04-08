@@ -1,68 +1,6 @@
 /* ---------- Global About Page Styles ---------- */
-
 .about-container {
   font-family: 'QuickSand', sans-serif;
-}
-
-/* ---------- Image Banner Section ---------- */
-.image-banner {
-  position: relative;
-  height:55rem;
-  overflow: hidden;
-  border-radius: 2rem;
-  /* cursor: pointer; */
-  margin: 1rem;
-}
-
-.base-image,
-.top-image {
-  position: absolute;
-  top: 0;
-  left: 20%;
-  transform: translateX(-20%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.base-image {
-  z-index: 2;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-  mask-image: radial-gradient(
-    circle 200px at var(--x, 50%) var(--y, 50%),
-    transparent 0%,
-    transparent 60%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  -webkit-mask-image: radial-gradient(
-    circle 200px at var(--x, 50%) var(--y, 50%),
-    transparent 0%,
-    transparent 60%,
-    rgba(0, 0, 0, 1) 100%
-  );
-}
-
-/* Reveal behind image on hover/tap */
-.image-banner:hover .base-image,
-.image-banner:active .base-image {
-  mask-image: radial-gradient(
-    circle 200px at var(--x, 50%) var(--y, 50%),
-    transparent 0%,
-    transparent 60%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  -webkit-mask-image: radial-gradient(
-    circle 200px at var(--x, 50%) var(--y, 50%),
-    transparent 0%,
-    transparent 60%,
-    rgba(0, 0, 0, 1) 100%
-  );
-}
-
-.top-image {
-  z-index: 1;
 }
 
 /* ---------- Text & Content Sections ---------- */
@@ -116,6 +54,7 @@
   overflow: hidden;
   transition: max-height 0.4s ease-in-out, padding 0.2s ease-in-out;
 }
+
 .accordion-item.expanded .accordion-content {
   max-height: 500px;
 }
@@ -164,52 +103,12 @@
   }
 }
 
-/* Image Banner Responsive Adjustments */
-@media (max-width: 1740px) {
-  .image-banner {
-    height: 550px;
-  }
-  .base-image {
-    mask-image: radial-gradient(
-      circle 150px at var(--x, 50%) var(--y, 50%),
-      transparent 0%,
-      transparent 60%,
-      rgba(0, 0, 0, 1) 100%
-    );
-  }
-}
-
-@media (max-width: 1024px) {
-  .image-banner {
-    height: 440px;
-  }
-  .base-image {
-    mask-image: radial-gradient(
-      circle 120px at var(--x, 50%) var(--y, 50%),
-      transparent 0%,
-      transparent 60%,
-      rgba(0, 0, 0, 1) 100%
-    );
-  }
-}
-
 @media (max-width: 800px) {
   .flex-row {
     flex-direction: column;
     gap: 1.5rem;
   }
-  .image-banner {
-    height: 300px;
-  }
-  /* Removed forced mask-image: none; kept the effect */
   .business-intro {
     margin: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .image-banner {
-    height: 140px;
-    border-radius: 1rem;
   }
 }

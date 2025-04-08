@@ -43,7 +43,7 @@ function PixelPopBanner({
       )}
 
       {showButton && (
-        <Link to="/uiux/javascript-games">
+        <Link to="/career/front-end/JavaScriptGames">
           <button className="play-button">Play Now</button>
         </Link>
       )}

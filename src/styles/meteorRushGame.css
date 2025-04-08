@@ -1,31 +1,49 @@
-/* Container styling for Meteor Rush Game */
+@import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/* 
+   -------------------------------------------------------
+   1. Main container styling for the Meteor Rush Game
+      - 90vw width to create the "modal" feel
+      - Centered with auto margins
+      - Some padding for responsiveness
+      - Rounded edges
+   -------------------------------------------------------
+*/
 .meteor-game-container {
-  margin: 4rem 2rem;
+  width: 90vw;
+  margin: 2rem auto;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  position: relative;
-  font-family: "Quicksand", sans-serif;
-  background-color: #2d2d2d;
+  overflow: hidden;
+  border-radius: 1rem; 
+  background-color: #2d2d2d;  /* or remove if not desired */
   background-image: url("/bg-image-blank.png");
   background-size: cover;
   background-position: center;
-  border-radius: 2rem;
-  overflow: hidden;
 }
 
-/* Responsive container margins for all breakpoints up to 2024px */
-@media (max-width: 2224px) {
+/* Basic responsive tweak if desired */
+@media (max-width: 768px) {
   .meteor-game-container {
-    margin: 1rem;
+    margin: 1rem 0.5rem; /* Smaller margins on mobile */
   }
 }
 
-/* Canvas styling: full width and responsive height/width */
+/*
+   -------------------------------------------------------
+   2. Canvas element
+      - Takes up most of the container space
+      - Rounded corners
+      - Responsive: fill container
+   -------------------------------------------------------
+*/
 .meteor-game-canvas {
-  border-radius: 1rem;
+  width: 100%;
+  height: 80vh;            /* Enough height on mobile/desktop */
   background-color: transparent;
-  width: calc(100vw - 10rem);
-  height: calc(100vh - 10rem);
+  border-radius: 2rem;
+  display: block;
 }

@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import modelSrc1 from "/GD_Comp1.glb"; // Fashion Styling
-import modelSrc2 from "/GD_Comp2.glb"; // 3D Composition
+// Example .glb models & skybox image – replace with your own as needed
+import modelSrc1 from "/GD_Comp1.glb";
+import modelSrc2 from "/GD_Comp2.glb";
 import skyboxImage from "/AdobeStock_bg.jpeg";
 import "../styles/ThreeDBanner.css";
 
+/**
+ * Example "projects" array – each item has:
+ *   - id: unique ID
+ *   - path: link (internal or external)
+ *   - title, description
+ *   - modelSrc: path to a .glb or .gltf file
+ */
 const projects = [
   {
     id: "left",
-    path: "/Fashion",
+    path: "/career/fashion/Fashion", // internal route
     title: "Fashion Styling",
     description: "Styling is picking the right outfit for the right occasion",
     modelSrc: modelSrc1,
   },
   {
     id: "right",
-    path: "https://adobeaero.app.link/LEmWcqYJNNb",
+    path: "https://adobeaero.app.link/LEmWcqYJNNb", // external link
     title: "3D Composition",
     description: "3D Composition using Adobe Aero and Adobe Dimension",
     modelSrc: modelSrc2,
@@ -23,11 +31,11 @@ const projects = [
 ];
 
 const ThreeDBanner = () => {
-  const [expanded, setExpanded] = useState(null);
+  const [expanded, setExpanded] = useState(null); // which project is open in overlay
   const [isMobile, setIsMobile] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Update mobile flag on resize
+  // Detect if screen is mobile ( < 768px )
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
@@ -35,7 +43,7 @@ const ThreeDBanner = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Modal open/close
+  // Open / close modal overlay
   const openModal = (projectId) => setExpanded(projectId);
   const closeModal = () => setExpanded(null);
 
@@ -67,9 +75,10 @@ const ThreeDBanner = () => {
     setCurrentIndex((prev) => (prev + 1) % projects.length);
   };
 
-  // Internal vs. external link
+  // Helper: link internally or externally
   const renderProjectLink = (project, children) => {
     if (project.path.startsWith("http")) {
+      // external link
       return (
         <a
           href={project.path}
@@ -81,6 +90,7 @@ const ThreeDBanner = () => {
         </a>
       );
     }
+    // internal route
     return (
       <Link to={project.path} className="project-title">
         {children}
@@ -90,20 +100,16 @@ const ThreeDBanner = () => {
 
   const currentProject = projects.find((p) => p.id === expanded);
 
-  // Render either mobile carousel or side-by-side (desktop)
+  // Renders either the "mobile" or "desktop" layout
   const renderProjects = () => {
     if (isMobile) {
-      // MOBILE
+      // ----- MOBILE LAYOUT -----
       const project = projects[currentIndex];
       return (
         <div className="banner-container-mobile" key={project.id}>
-          <div
-            className="model-wrapper"
-            // Entire area is clickable => open modal
-            onClick={() => openModal(project.id)}
-          >
+          <div className="model-wrapper" onClick={() => openModal(project.id)}>
             <div className="model-container">
-              {/* No camera-controls => no scroll hijacking */}
+              {/* Simple 3D preview (no camera-controls) */}
               <model-viewer
                 src={project.modelSrc}
                 skybox-image={skyboxImage}
@@ -122,11 +128,7 @@ const ThreeDBanner = () => {
               )}
             </div>
 
-            {/* 
-              We keep the expand button for visual emphasis
-              but also attach an onClick that stops event propagation 
-              if you want to handle it separately.
-            */}
+            {/* Expand button (fully visible on mobile) */}
             <button
               className="expand-button"
               onClick={(e) => {
@@ -148,6 +150,7 @@ const ThreeDBanner = () => {
             </button>
           </div>
 
+          {/* Mobile "carousel" controls */}
           <div className="carousel-controls">
             <button onClick={goToPrev}>
               <svg
@@ -173,14 +176,10 @@ const ThreeDBanner = () => {
         </div>
       );
     } else {
-      // DESKTOP
+      // ----- DESKTOP LAYOUT -----
       return projects.map((project) => (
         <div key={project.id} className={`banner-container-${project.id}`}>
-          <div
-            className="model-wrapper"
-            // Entire area is clickable => open modal
-            onClick={() => openModal(project.id)}
-          >
+          <div className="model-wrapper" onClick={() => openModal(project.id)}>
             <div className="model-container">
               <model-viewer
                 src={project.modelSrc}
@@ -200,7 +199,7 @@ const ThreeDBanner = () => {
               )}
             </div>
 
-            {/* Expand button shown on hover; stops event propagation */}
+            {/* Expand button on hover (desktop) */}
             <button
               className="expand-button"
               onClick={(e) => {
@@ -228,57 +227,64 @@ const ThreeDBanner = () => {
 
   return (
     <>
+      {/* Render either mobile carousel or desktop banners */}
       <div className="container">{renderProjects()}</div>
+
+      {/* FULL-VIEW OVERLAY (like ProcreateDump) */}
       {expanded && currentProject && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              {renderProjectLink(
-                currentProject,
-                <h2>{currentProject.title}</h2>
-              )}
-              <p>{currentProject.description}</p>
-            </div>
-            <button className="modal-close" onClick={closeModal}>
-              <p>X</p>
+        <div
+          className="full-view-overlay"
+          onClick={closeModal}
+        >
+          {/* Stop propagation so clicks in content don't close overlay */}
+          <div className="full-view-content" onClick={(e) => e.stopPropagation()}>
+            {/* Close Button */}
+            <button className="close-btn" onClick={closeModal}>
+              ✖
             </button>
+
+            {/* Prev Button (if not the first project) */}
             {projects.findIndex((p) => p.id === expanded) > 0 && (
-              <button className="modal-prev" onClick={navigateToPrev}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                >
-                  <path fill="currentColor" d="M15 18l-6-6 6-6" />
-                </svg>
+              <button className="prev-btn" onClick={navigateToPrev}>
+                ❮
               </button>
             )}
+            {/* Next Button (if not the last project) */}
             {projects.findIndex((p) => p.id === expanded) <
               projects.length - 1 && (
-              <button className="modal-next" onClick={navigateToNext}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                >
-                  <path fill="currentColor" d="M9 18l6-6-6-6" />
-                </svg>
+              <button className="next-btn" onClick={navigateToNext}>
+                ❯
               </button>
             )}
+
+            {/* Full 3D view => camera controls */}
             <div
-              className="modal-model-container"
-              style={{ position: "relative" }}
+              className="model-container"
+              style={{
+                width: "100%",
+                height: "70%", // 70% of the modal height => leaves 30% for details
+              }}
             >
-              {/* In the modal, we enable camera-controls for 3D interactivity */}
               <model-viewer
                 src={currentProject.modelSrc}
                 skybox-image={skyboxImage}
                 camera-controls
                 style={{ width: "100%", height: "100%" }}
               />
-              <div className="model-overlay" />
+            </div>
+
+            {/* 
+              Project details + prompt to interact. 
+              This uses the "modal-info" area, center-aligned, 
+              to display the currentProject's title, description, 
+              and an "interaction" hint.
+            */}
+            <div className="modal-info">
+              <h2>{currentProject.title}</h2>
+              <p>{currentProject.description}</p>
+              <p className="interaction-hint">
+                Interact with the model: click, scroll, and drag!
+              </p>
             </div>
           </div>
         </div>

@@ -47,7 +47,7 @@
 .cardImage {
   flex: 1;
   width: 100%;
-  padding: 1rem 2rem 0rem 1rem;
+  padding: 0rem 2rem 0rem 1rem;
 }
 
 .cardImage img {
@@ -82,7 +82,7 @@
 
 /* Description (p) */
 .cardText p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.5;
   margin: 0 0 1rem;
 }
@@ -106,39 +106,34 @@
 }
 
 
-/* Extra Large Screens (2025px and up) */
-/* @media (min-width: 2025px) {
-  .cardText h2 {
-    font-size: 2rem;
-  }
-} */
-
 /* Large Screens (up to 2024px) */
-@media (max-width: 3000px) {
-  /* For reverse-tablet cards to maintain base title size */
-  .card.reverse-tablet .cardText h2 {
+@media (min-width: 1441px) {
+  .card,
+  .card.reverse-desktop,
+  .card.reverse-tablet {
+    flex-direction: column;
+  }
+  
+  .cardText h2 {
     font-size: 1.2rem;
+  }
+
+  .cardText p,
+  .cta-button {
+    font-size: 1rem;
   }
 }
 
-/* Tablet Screens (up to 1440px) */
+
+/* Medium Screens (up to 1024px) */
 @media (max-width: 1440px) {
+  .card,
+  .card.reverse-desktop{
+    flex-direction: row;
+  }
   .card.reverse-tablet {
     flex-direction: row-reverse;
   }
-  .cardImage img {
-    border-radius: 2rem;
-  }
-  .cardText {
-    text-align: left;
-  }
-  .cardText h2 {
-    font-size: 1.2rem;
-  }
-}
-
-/* Medium Screens (up to 1024px) */
-@media (max-width: 1024px) {
   .cardText h2 {
     font-size: 1.2rem;
   }
@@ -184,6 +179,6 @@
   }
   .cardText p,
   .cta-button {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
   }
 }

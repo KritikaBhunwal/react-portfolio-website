@@ -3,7 +3,7 @@
 /* Container styling with background image and fade-in animation */
 .pixelpop-nobanner {
     position: relative;
-    max-height: 90vh;
+    max-height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;

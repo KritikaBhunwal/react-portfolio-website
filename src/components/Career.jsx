@@ -18,7 +18,7 @@ const careerOptions = [
   {
     title: "Graphic Design",
     description:
-      "I have been always drawn to visual designs that communicated ideas effectively.<br /><br /> So, I self-taught myself Graphic Design and did some cool branding, advertising, and digital media projects over the span of 7 years for different industries.",
+      "I have been always drawn to visual designs that communicated ideas effectively and left an impact.<br /><br /> So, I self-taught myself Graphic Design and did some cool branding, advertising, and digital media projects over the span of 7 years for different industries.",
     image: collage2,
     link: "/Graphics",
     desktopReverse: false, // Image Left, Text Right
@@ -27,7 +27,7 @@ const careerOptions = [
   {
     title: "Fashion Design",
     description:
-      "After graduating from NIFT, New Delhi IN in 2016, I began my career as a Fashion Designer.<br /><br /> My work involved trend research, styling, technical sketching and collaboration with designers, vendors and patternmakers to create market-ready Womenswear clothing.",
+      "After graduating from NIFT, New Delhi IN in 2016, I began my design journey as a Fashion Designer.<br /><br /> My work involved trend research, styling, technical sketching and collaboration with designers, vendors and patternmakers to create market-ready Womenswear clothing.",
     image: collage1,
     link: "/Fashion",
     desktopReverse: false, // Image Left, Text Right
