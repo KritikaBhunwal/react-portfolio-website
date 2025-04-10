@@ -9,7 +9,7 @@
       - Some background image if desired
 */
 .snake-game-container {
-  width: 80vw;
+  width: 100vw;
   margin: 0 auto;
   position: relative;
   display: flex;

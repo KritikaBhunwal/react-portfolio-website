@@ -67,7 +67,7 @@
   line-height: 1.4;
   margin-bottom: 0.5rem;
   font-weight: 300;
-  color: #3d3d3d9a;
+  color: #2d2d2d;
 }
 
 .testimonial-author {
@@ -86,7 +86,7 @@
 }
 
 .testimonial-controls button {
-  background: #3d3d3d;
+  background: #2d2d2d;
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;

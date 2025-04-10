@@ -37,7 +37,7 @@ const JavaScriptGamesContent = () => {
   ];
 
   return (
-    <div className="projectContentText" style={{ margin: "0rem -6rem" }}>
+    <div className="projectContentText" style={{ margin: "0rem" }}>
       <SectionHeading title="Project Info"></SectionHeading>
       <ProjectContent
         title={title}

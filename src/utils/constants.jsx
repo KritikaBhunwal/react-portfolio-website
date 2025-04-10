@@ -1,7 +1,7 @@
 // src/utils/constants.js
 
 export const COLORS = {
-    PrimarySlate: "#3D3D3D",
+    PrimarySlate: "#2d2d2d",
     SecondarySlate: "#2d2d2d",
     PrimaryPurple: "#C3B9E2",
     SecondaryPurple: "#9990bb",

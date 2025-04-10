@@ -68,7 +68,7 @@ const TechnicalSkills = () => {
         {softwareSkills.map((software, index) => (
           <motion.a
             key={index}
-            href="#"
+            // href="#"
             className="software-card"
             transition={{ duration: 0.01 }}
             whileHover={{ scale: 1.05 }}

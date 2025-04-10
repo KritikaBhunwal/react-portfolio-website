@@ -125,52 +125,52 @@ const Hellow = () => {
             <h3>Table of Content</h3>
             <ul>
               <li>
-                <a href="#project-title" style={{ color: "#3d3d3d" }}>
+                <a href="#project-title" style={{ color: "#2d2d2d" }}>
                   Hellow
                 </a>
               </li>
               <li>
-                <a href="#project-summary" style={{ color: "#3d3d3d" }}>
+                <a href="#project-summary" style={{ color: "#2d2d2d" }}>
                   Project Summary
                 </a>
               </li>
               <li>
-                <a href="#research" style={{ color: "#3d3d3d" }}>
+                <a href="#research" style={{ color: "#2d2d2d" }}>
                   Research
                 </a>
               </li>
               <li>
-                <a href="#intended-audience" style={{ color: "#3d3d3d" }}>
+                <a href="#intended-audience" style={{ color: "#2d2d2d" }}>
                   Intended Audience
                 </a>
               </li>
               <li>
-                <a href="#problem-statement" style={{ color: "#3d3d3d" }}>
+                <a href="#problem-statement" style={{ color: "#2d2d2d" }}>
                   Problem Statement
                 </a>
               </li>
               <li>
-                <a href="#solution" style={{ color: "#3d3d3d" }}>
+                <a href="#solution" style={{ color: "#2d2d2d" }}>
                   Solution
                 </a>
               </li>
               <li>
-                <a href="#approach" style={{ color: "#3d3d3d" }}>
+                <a href="#approach" style={{ color: "#2d2d2d" }}>
                   Approach
                 </a>
               </li>
               <li>
-                <a href="#risks" style={{ color: "#3d3d3d" }}>
+                <a href="#risks" style={{ color: "#2d2d2d" }}>
                   Risks
                 </a>
               </li>
               <li>
-                <a href="#bibliography" style={{ color: "#3d3d3d" }}>
+                <a href="#bibliography" style={{ color: "#2d2d2d" }}>
                   Bibliography
                 </a>
               </li>
               <li>
-                <a href="#collaboration" style={{ color: "#3d3d3d" }}>
+                <a href="#collaboration" style={{ color: "#2d2d2d" }}>
                   Looking to Collaborate?
                 </a>
               </li>

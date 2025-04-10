@@ -101,7 +101,7 @@
 }
 
 .cta-button:hover {
-  background-color: #3d3d3d;
+  background-color: #2d2d2d;
   color: #9990bb;
 }
 
@@ -118,10 +118,10 @@
     font-size: 1.2rem;
   }
 
-  .cardText p,
+  /* .cardText p,
   .cta-button {
-    font-size: 1rem;
-  }
+    font-size: 1.2rem;
+  } */
 }
 
 
@@ -137,10 +137,10 @@
   .cardText h2 {
     font-size: 1.2rem;
   }
-  .cardText p,
+  /* .cardText p,
   .cta-button {
-    font-size: 0.9rem;
-  }
+    font-size: 1.2rem;
+  } */
 }
 
 /* Mobile Screens (up to 768px) */
@@ -157,7 +157,7 @@
     text-align: left;
   }
   .cardText h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
@@ -177,8 +177,8 @@
   .cardText h2 {
     font-size: 1rem;
   }
-  .cardText p,
+  /* .cardText p,
   .cta-button {
-    font-size: 0.9rem;
-  }
+    font-size: 1rem;
+  } */
 }

@@ -4,7 +4,7 @@
 /* Use QuickSand and Chonburi fonts */
 .graphics-projects {
   font-family: "Quicksand", "Chonburi", sans-serif;
-  color: #3d3d3d;
+  color: #2d2d2d;
   padding: 2rem;
 }
 
@@ -27,7 +27,7 @@
 .graphics-card {
   scroll-snap-align: start;
   flex: 0 0 calc((100% - 4rem) / 5);
-  /* background: #3d3d3d1a; */
+  /* background: #2d2d2d1a; */
   /* padding: 1rem; */
   border-radius: 2rem;
   text-align: left;
@@ -79,14 +79,14 @@
 .card-info h3 {
   margin: 1rem;
   font-size: 1rem;
-  color: #3d3d3d;
+  color: #2d2d2d;
   margin-top: 1rem;
 }
 
 .card-info p {
   margin-top: 2rem;
   font-size: 0.9rem;
-  color: #3d3d3d;
+  color: #2d2d2d;
 }
 
 /* Explore Link */
@@ -95,7 +95,7 @@
   margin-top: 0.5rem;
   font-size: 0.9rem;
   color: #9990bb;
-  /* background-color: #3d3d3d1a; */
+  /* background-color: #2d2d2d1a; */
   border-radius: 2rem;
   /* padding: 0.5rem 1rem; */
   text-decoration: none;
@@ -124,7 +124,7 @@
     display: block;
     text-align: center;
     font-size: 0.9rem;
-    color: #3d3d3d;
+    color: #2d2d2d;
     margin-top: 1rem;
   }
 }

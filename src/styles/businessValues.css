@@ -13,7 +13,7 @@ business-intro-container {
 /* Accordion item styling */
 .accordion-item {
   background: #fff;
-  box-shadow: 0 1px 2px #3d3d3d1a;
+  box-shadow: 0 1px 2px #2d2d2d1a;
   border-radius: 1.2rem;
   margin-bottom: 0.5rem;
   overflow: hidden;
@@ -54,7 +54,7 @@ business-intro-container {
   color: #9990BB;
 }
 .accordion-item.expanded .accordion-header h3 {
-  color: #3d3d3d;
+  color: #2d2d2d;
 }
 
 /* Toggle button */
@@ -72,7 +72,7 @@ business-intro-container {
 
 .toggle-button:hover {
   transform: scale(1.2);
-  color: #3d3d3d;
+  color: #2d2d2d;
 }
 
 /* Restore proper bullet point formatting */
@@ -83,9 +83,9 @@ business-intro-container {
 }
 
 .accordion-content ul li {
-  font-size: 1rem;
-  font-weight: 300;
-  color: #6d6d6d;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #2d2d2d;
   letter-spacing: 0.04rem;
   position: relative;
   margin-bottom: 0.5rem;

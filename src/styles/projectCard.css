@@ -5,13 +5,13 @@
   --primary-purple: #cbbfee;
   --text-dark: #333;
   --text-light: #fff;
-  --cta-default-bg: #3d3d3d;
+  --cta-default-bg: #2d2d2d;
   --cta-hover-bg: var(--primary-purple);
 }
 
 /* Main Project Card Container (1/3 of the screen) */
 .project-card {
-  margin-top: -1rem;
+  margin-top: 0rem;
   width: 33.33%;
   box-sizing: border-box;
   padding: 1rem;
@@ -32,44 +32,47 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   margin-left: 1rem;
 }
 
 .project-category a {
   font-family: 'Quicksand', sans-serif;
   font-weight: 600;
-  font-size: .8rem;
+  font-size: 0.8rem;
   text-decoration: none;
   color: var(--text-dark);
-  background-color: #3d3d3d1a;
+  background-color: #2d2d2d1a;
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
 }
 
 .software-icons {
   display: flex;
-  /* gap: 0.8rem; */
+  gap: 0.8rem; /* Provides consistent spacing between multiple icons */
 }
 
 /* Example: White background for icons */
+/* Project Icon Styles */
 .project-software-icon {
   background-color: #fff; /* white background */
   border-radius: 4px;
-  padding: 0.3rem;
-  margin-left: 0.3rem; /* optional spacing between icons */
+  /* padding: 0.3rem; */
+  margin-top: -2rem;
+  margin-right: 1rem;
   color: var(--primary-purple);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: color 0.03s ease, background-color 0.3s ease;
+  font-size: 1.2rem; /* Increased size for better visibility */
 }
+
 
 .project-software-icon:hover {
-  color: #3d3d3d;
+  color: #2d2d2d;
   /* background-color: #f0f0f0; */
 }
-
 
 /* Image Wrapper */
 .project-image-wrapper {
@@ -125,7 +128,7 @@
   margin-top: 0.5rem;
   display: inline-block;
   font-size: 0.9rem;
-  color: #3d3d3d;
+  color: #2d2d2d;
   text-decoration: underline; /* or none, but underline is more obvious */
   transition: color 0.3s ease;
 }
@@ -133,7 +136,6 @@
 .project-link:hover {
   color: #9990bb;
 }
-
 
 /* View Project Button: fixed size and position on hover */
 .view-button {

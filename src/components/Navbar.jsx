@@ -57,11 +57,11 @@ const Navbar = () => {
               <NavLink to="/career/graphics/Graphics" onClick={closeMobileMenu} className="dropdown-item">
                 Graphic Design
               </NavLink>
-              <NavLink to="/career/front-end/JavaScriptGames" onClick={closeMobileMenu} className="dropdown-item">
-                Front-End Development
-              </NavLink>
               <NavLink to="/career/fashion/Fashion" onClick={closeMobileMenu} className="dropdown-item">
                 Fashion Design
+              </NavLink>
+              <NavLink to="/career/front-end/JavaScriptGames" onClick={closeMobileMenu} className="dropdown-item">
+                React Games
               </NavLink>
             </div>
           </div>
@@ -89,10 +89,12 @@ const Navbar = () => {
       <div className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}>
         <div className="mobile-menu-content">
           <NavLink to="/" onClick={closeMobileMenu} className="nav-link">Home</NavLink>
-          <NavLink to="/career" onClick={closeMobileMenu} className="nav-link">Career</NavLink>
-          <NavLink to="/career/uiux/javascript-games" onClick={closeMobileMenu} className="dropdown-link">UI/UX Design</NavLink>
+          <NavLink to="/career" onClick={closeMobileMenu} className="nav-link">Projects</NavLink>
+          <NavLink to="/career/uiux/UIUX" onClick={closeMobileMenu} className="dropdown-link">UI/UX Design</NavLink>
           <NavLink to="/career/graphics/Graphics" onClick={closeMobileMenu} className="dropdown-link">Graphic Design</NavLink>
-          <NavLink to="/career/front-end/JavaScriptGames" onClick={closeMobileMenu} className="dropdown-link">Front-End Development</NavLink>
+          <NavLink to="/career/fashion/Fashion" onClick={closeMobileMenu} className="dropdown-link">Fashion Design</NavLink>
+          <NavLink to="/career/front-end/JavaScriptGames" onClick={closeMobileMenu} className="dropdown-link">React Games</NavLink>
+
           <NavLink to="/about" onClick={closeMobileMenu} className="nav-link">About</NavLink>
         </div>
       </div>

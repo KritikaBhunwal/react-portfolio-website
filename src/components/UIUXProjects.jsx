@@ -1,35 +1,31 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
 import "../styles/UIUXProjects.css";
+import { 
+  SiAdobephotoshop, 
+  SiAdobeillustrator, 
+  SiFigma, 
+  SiCanva 
+} from "react-icons/si";
+import { FaSearch } from "react-icons/fa";
+import { AiFillApple } from "react-icons/ai";
 
 const UIUXProjects = () => {
   const projects = [
-
     {
       id: 2,
       category: "App Design",
-      categoryLink: "/uiux",
+      categoryLink: "/career/uiux/Hellow.jsx",
       projectTitle: "Hellow : Prioritize People over Platform",
       projectDescription:
         "An innovative asynchronous messaging app idea that redefines communication across different time-zones.",
-      projectLink: "/uiux/hellow",
-
-      // Provide the normal (placeholder) image
-      // projectImage: "/ProjectCardPlaceholder.png",
+      projectLink: "/pages/career/uiux/Hellow",
       projectImage: "/ProjectCardHellow.png",
-      // projectHoverImage: "/ProjectCardPlaceholder.png",
-    },
-    {
-      id: 3,
-      category: "Web Development",
-      categoryLink: "/uiux",
-      projectTitle: "Pixel-Pop Studio : 90's Arcade JavaScript Games",
-      projectDescription:
-        "Game Mode On! Dive into the world of interactive revamp of 90's Arcade Games with our Pixel-Pop Gaming Studio.",
-      projectLink: "/uiux/JavaScript-Games",
-
-      // No hover image => no expansion on hover
-      projectImage: "/ProjectCardGames.png",
+      softwareIcons: [
+        <SiAdobephotoshop key="photoshop-2" />,
+        <SiAdobeillustrator key="illustrator-2" />,
+        <FaSearch key="research-2" />
+      ],
     },
     {
       id: 1,
@@ -41,6 +37,11 @@ const UIUXProjects = () => {
       projectLink:
         "https://www.figma.com/proto/QwIMymTyToy9PF7Yd1JsbC/Portfolio-Website-KritikaBhunwal?node-id=144-1672&t=3HebtMemoXxP33NU-1",
       projectImage: "/ProjectCardPortfolio.png",
+      softwareIcons: [
+        <SiAdobephotoshop key="photoshop-1" />,
+        <SiAdobeillustrator key="illustrator-1" />,
+        <SiFigma key="figma-1" />
+      ],
     },
     {
       id: 4,
@@ -51,10 +52,12 @@ const UIUXProjects = () => {
         "Discover an app concept design to solve the problem of deforestation, so that you can plant trees remotely!",
       projectLink:
         "https://www.figma.com/proto/69l5xZOXjWkdHJ8xZPlQA7/PlantEasy?node-id=84-391&p=f&t=UPs1ZUn9L95Tcf8v-1&scaling=scale-down&content-scaling=fixed&page-id=84%3A151&starting-point-node-id=84%3A391",
-
       projectImage: "/ProjectCardPlantEasy.png",
-      // If you want a hover image, just add projectHoverImage here
-      // projectHoverImage: "/AnotherHoverImage.png"
+      softwareIcons: [
+        <SiAdobephotoshop key="photoshop-4" />,
+        <SiAdobeillustrator key="illustrator-4" />,
+        <SiFigma key="figma-4" />
+      ],
     },
     {
       id: 6,
@@ -66,6 +69,11 @@ const UIUXProjects = () => {
       projectLink:
         "https://www.canva.com/design/DAGXnrHiApc/_4qem8hThelU5xX150fjgw/edit?utm_content=DAGXnrHiApc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
       projectImage: "/ProjectCardCoffee.png",
+      softwareIcons: [
+        <SiFigma key="figma-6" />,
+        <FaSearch key="research-6" />,
+        <SiCanva key="canva-6" />
+      ],
     },
     {
       id: 5,
@@ -76,20 +84,13 @@ const UIUXProjects = () => {
         "A redesign challenge we participated as a group of four in 2025, that focused on enhancing the user experience for pet lovers.",
       projectLink: "https://tinalin.ca/projects/furry-tales",
       projectImage: "/ProjectCardFurry.png",
+      softwareIcons: [
+        <SiFigma key="figma-5" />,
+        <FaSearch key="research-5" />
+      ],
     },
-    // {
-    //   id: 8,
-    //   category: "QA and Design",
-    //   categoryLink: "/uiux",
-    //   projectTitle: "Planetarium Website : A Quality Assurance Group Project",
-    //   projectDescription:
-    //     "A project that I worked on as a QA Specialist and provided initial design ideas with QA insights.",
-    //   projectLink:
-    //     "#",
-    //   projectImage: "/ProjectCardMoon.png",
-    // },
     {
-      id: 7,
+      id: 3,
       category: "UI/UX Re-Design",
       categoryLink: "/uiux",
       projectTitle: "Suzanne Collins : My First Website Redesign Case Study",
@@ -98,11 +99,50 @@ const UIUXProjects = () => {
       projectLink:
         "https://www.behance.net/gallery/201546007/UX-UI-Case-Study-for-Suzanne-Collins-Website",
       projectImage: "/ProjectCardPlaceholder.png",
+      softwareIcons: [
+        <SiAdobephotoshop key="photoshop-3" />,
+        <FaSearch key="research-3" />,
+        <AiFillApple key="apple-3" />
+      ],
     },
   ];
 
   return (
-    <div className="featured-projects">
+    // Outer container: position relative for absolute positioning of the swipe arrows
+    <div className="featured-projects" style={{ position: "relative" }}>
+      {/* Bottom left swipe indicator */}
+      <div
+        style={{
+          position: "absolute",
+          left: "10px",
+          bottom: "10px",
+          fontSize: "2.5rem",
+          color: "#2d2d2d5a",
+          zIndex: 1000,
+          userSelect: "none",
+        }}
+        aria-hidden="true"
+      >
+        ←
+      </div>
+
+      {/* Bottom right swipe indicator */}
+      <div
+        style={{
+          position: "absolute",
+          right: "10px",
+          bottom: "10px",
+          fontSize: "2.5rem",
+          color: "#2d2d2d5a",
+          zIndex: 1000,
+          userSelect: "none",
+        }}
+        aria-hidden="true"
+      >
+        →
+      </div>
+
+      {/* Projects carousel */}
       <div
         className="featured-projects-carousel"
         role="region"
@@ -117,11 +157,10 @@ const UIUXProjects = () => {
             projectDescription={project.projectDescription}
             projectLink={project.projectLink}
             projectImage={project.projectImage}
-            projectHoverImage={project.projectHoverImage}
+            softwareIcons={project.softwareIcons} // Pass the icons array to ProjectCard
           />
         ))}
       </div>
-      <div className="swipe-indicator"></div>
     </div>
   );
 };

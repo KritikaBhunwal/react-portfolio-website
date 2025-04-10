@@ -14,7 +14,7 @@
 
 /* Ensure icons are visible */
 .banner-icons.social-icons a {
-  color: #3d3d3d; /* 🔥 Set a dark default color */
+  color: #2d2d2d; /* 🔥 Set a dark default color */
   margin-top: 1rem;
   align-self: center;
   transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
@@ -29,7 +29,7 @@
 /* Responsive font sizes for Banner headings and paragraphs */
 h2 {
   font-size: 2.5rem;
-  color: #3d3d3d; /* 🔥 Ensure heading is visible */
+  color: #2d2d2d; /* 🔥 Ensure heading is visible */
 }
 
 p {

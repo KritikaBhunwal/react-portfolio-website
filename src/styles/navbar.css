@@ -41,7 +41,7 @@
 
 @keyframes rotateScaleLogo {
   0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(0.9); }
+  50% { transform: rotate(180deg) scale(1.5); }
   100% { transform: rotate(360deg) scale(1); }
 }
 
@@ -77,7 +77,7 @@
 .dropdown-link {
   text-align: center;
   font-size: small;
-  background-color: #3d3d3d;
+  background-color: #2d2d2d;
   color: #Cbbfee;
   text-decoration: none;
   padding: 0.4rem 1rem;
@@ -220,6 +220,6 @@
 
   .nav-dropdown .dropdown-menu a:hover {
     background-color: #cbbfee;
-    color: #3d3d3d;
+    color: #2d2d2d;
   }
 }

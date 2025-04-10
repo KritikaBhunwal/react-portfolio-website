@@ -28,11 +28,27 @@
   width: 100%;
 }
 
+/* Swipe Indicator: positioned on the left edge, vertically centered */
+.swipe-indicator {
+  position: fixed;
+  right: 10px;               /* Adjust as needed for spacing from the screen edge */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;        /* Larger font size for visibility */
+  color: #777;              /* Subtle gray tone */
+  cursor: default;          /* You can change this if you want it clickable */
+  z-index: 1000;            /* Ensure it appears above other elements */
+  user-select: none;        /* Prevent text selection */
+}
+
+
+
 /* Tablet: show 2 cards per view */
 @media (min-width: 768px) {
   .featured-projects-carousel .project-card {
     width: 50%;
   }
+  
 }
 
 /* Desktop: show up to 4 cards per view */
@@ -53,7 +69,7 @@
 
 .project-description {
   font-size: 1rem;
-  color: #3d3d3d9a;
+  color: #2d2d2d;
   line-height: 1.5;
   margin-left: 0rem;
 }

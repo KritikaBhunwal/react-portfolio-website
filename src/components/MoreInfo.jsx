@@ -44,7 +44,7 @@ const MoreInfo = ({
             <defs>
               <path id="circlePath" d={d} />
             </defs>
-            <text fontSize={computedTextSize} fill="#3d3d3d">
+            <text fontSize={computedTextSize} fill="#2d2d2d">
               <textPath href="#circlePath">{text}</textPath>
             </text>
           </svg>

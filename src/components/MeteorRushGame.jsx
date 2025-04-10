@@ -141,7 +141,7 @@ const MeteorRushGame = () => {
     }
     ctx.fill();
 
-    ctx.fillStyle = "#3d3d3d";
+    ctx.fillStyle = "#2d2d2d";
     ctx.font = `${buttonFontSize}px Quicksand`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";

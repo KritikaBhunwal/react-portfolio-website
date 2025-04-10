@@ -47,20 +47,20 @@
   font-size: 1rem;
   text-align: center;
   background: rgba(255, 255, 255, 0.9);
-  color: #3d3d3d;
+  color: #2d2d2d;
   text-decoration: none;
   font-weight: bold;
   /* transition: all 0.3s ease; */
 }
 
 .email-button:hover {
-  background: #3d3d3d;
+  background: #2d2d2d;
   color: white;
 }
 
 /* Email Icon inside Button */
 .email-icon {
-  color: #3d3d3d;
+  color: #2d2d2d;
 }
 
 .email-button:hover .email-icon {
@@ -76,9 +76,9 @@
 
 /* Description */
 .work-together-info p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-bottom: 1.5rem;
-  max-width: 500px;
+  max-width: 550px;
   line-height: 1.5;
 }
 
@@ -123,7 +123,7 @@
   }
 
   .work-together-info p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     display: none;
   }
 
@@ -131,7 +131,6 @@
     flex-direction: row;
     justify-content: flex-start;
     margin-top: 0rem;
-    margin-left: 3rem;
   }
 
   .email-button {

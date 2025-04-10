@@ -158,19 +158,22 @@ const JavaScriptGames = () => {
         showParagraph={false}
       />
 
-      <section className="uiux-subpage" style={{ margin: "2rem 6rem" }}>
+      <section className="uiux-subpage" style={{ margin: "1rem" }}>
         <section className="uiux-subpage-content">
           <SectionHeading title="90's Games Revamp" />
           <p>
-            This project is one of my favourite web development projects that
-            I completed at BCIT. It revives nostalgic arcade games in a modern
+            This project is one of my favourite web development projects that I
+            completed at BCIT. It revives nostalgic arcade games in a modern
             React project with interactive, responsive interfaces.
           </p>
 
           <div className="games-container">
             {/* Paddle Fury Game Card */}
             <div className="game-card">
-              <SubSectionHeading title="PADDLE FURY" className="paddleFuryTitle" />
+              <SubSectionHeading
+                title="PADDLE FURY"
+                className="paddleFuryTitle"
+              />
               <div
                 className="image-wrapper"
                 onClick={() => handleOpenModal("paddle")}
@@ -210,7 +213,10 @@ const JavaScriptGames = () => {
 
             {/* Meteor Rush Game Card */}
             <div className="game-card">
-              <SubSectionHeading title="METEOR RUSH" className="meteorRushTitle" />
+              <SubSectionHeading
+                title="METEOR RUSH"
+                className="meteorRushTitle"
+              />
               <div
                 className="image-wrapper"
                 onClick={() => handleOpenModal("meteor")}
@@ -243,14 +249,20 @@ const JavaScriptGames = () => {
           </div>
         )}
 
-        <JavaScriptGamesContent style={{ margin: "2rem 4rem" }} />
+        <JavaScriptGamesContent style={{ margin: "2rem" }} />
       </section>
 
-      <SectionHeading title="Figma Prototype" />
-      <FigmaFrame />
+      <div className="bts-container">
+        <div className="bts-item">
+          <SectionHeading title="Sample Code" />
+          <CodeSnippet codeString={sampleCode} language="jsx" />
+        </div>
+        <div className="bts-item">
+          <SectionHeading title="Figma Prototype" />
+          <FigmaFrame />
+        </div>
+      </div>
 
-      <SectionHeading title="Sample Code" />
-      <CodeSnippet codeString={sampleCode} language="jsx" />
 
       <SectionHeading title="Let's Work Together" />
       <WorkTogether />

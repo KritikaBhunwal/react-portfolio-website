@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 
 /* Banner component + images */
 import ImageBanner from "../../components/ImageBanner.jsx";
-import AboutBannerBase from "/AboutBannerBase.png";
-import AboutBannerTop from "/AboutBannerTop.png";
+import SectionHeading from "../../components/SectionHeading.jsx";
+import JourneyBannerBase from "/JourneyBannerBase.png";
+import JourneyBannerTop from "/JourneyBannerTop.png";
 
 /* Other components */
 import { technicalSkillIcons } from "../../components/TechnicalSkills.jsx";
 import WorkTogether from "../../components/WorkTogether.jsx";
-import SectionHeading from "../../components/SectionHeading.jsx";
 
 /* CSS */
 import "../../styles/projectJourneyPage.css";
@@ -38,7 +38,7 @@ const ProjectJourneyPage = () => {
       link: "/career/front-end/JavaScriptGames",
       textSide: "right",
       year: "2024 - Present",
-      image: "/Collages-3.png",
+      image: "/Collages-4.png",
       description: `Focused on building interactive web apps with HTML, CSS, JavaScript, React, and TailwindCSS.`,
       icons: [
         technicalSkillIcons.html,
@@ -53,7 +53,7 @@ const ProjectJourneyPage = () => {
       title: "Graphic Design",
       link: "/career/graphics/Graphics",
       textSide: "left",
-      year: "2015 - 2023",
+      year: "2015 - Present",
       image: "/Collages-2.png",
       description: `From branding to illustration, exploring various Adobe tools like Illustrator, InDesign, and more.`,
       icons: [
@@ -108,16 +108,17 @@ const ProjectJourneyPage = () => {
       {/* Banner at the top */}
       <div className="about-container">
         <ImageBanner
-          baseImage={AboutBannerBase}
-          topImage={AboutBannerTop}
+          baseImage={JourneyBannerBase}
+          topImage={JourneyBannerTop}
           baseAlt="Journey Banner Base"
           topAlt="Journey Banner Top"
         />
       </div>
 
       {/* Main timeline container */}
+      <SectionHeading title="My Career Journey" />
       <div className="journey-page-container">
-        <h1 className="journey-title">My Career Journey</h1>
+        {/* <h1 className="journey-title">My Career Journey</h1> */}
         <div className="journey-timeline">
           <div className="journey-line"></div>
 

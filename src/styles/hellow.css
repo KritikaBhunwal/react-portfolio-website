@@ -17,7 +17,7 @@ li {
 }
 
 .hellow-container {
-  color: #3d3d3d;
+  color: #2d2d2d;
   font-family: 'Quicksand', sans-serif;
   margin: 0;
   padding: 0;
@@ -44,12 +44,12 @@ li {
   font-size: 3rem;
   margin-left: 8rem;
   margin-top: 0rem;
-  color: #3d3d3d;
+  color: #2d2d2d;
 }
 .header-text h3 {
   font-size: 1.75rem;
   margin-left: 8rem;
-  color: #3d3d3d;
+  color: #2d2d2d;
   margin-right: 8rem;
 }
 .report-authors {
@@ -115,7 +115,7 @@ li {
 }
 .table-of-contents a {
   text-decoration: none;
-  color: #3d3d3d;
+  color: #2d2d2d;
   font-weight: bold;
   font-size: 1rem;
 }
@@ -226,7 +226,7 @@ li {
   font-size: 2rem;
   cursor: pointer;
   padding: 0.7rem;
-  color: #3d3d3d;
+  color: #2d2d2d;
 }
 .modal-close {
   top: 10px;
@@ -324,7 +324,7 @@ li {
   .report-authors {
     font-size: 0.9rem;
     font-weight: bold;
-    color: #3d3d3d5a;
+    color: #2d2d2d5a;
     margin-left: 1rem;
   }
   .report-section {

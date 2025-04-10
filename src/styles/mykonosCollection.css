@@ -4,7 +4,7 @@
 /* Use QuickSand and Chonburi fonts */
 .mykonos-collection {
   font-family: 'Quicksand', 'Chonburi', sans-serif;
-  color: #3d3d3d;
+  color: #2d2d2d;
   padding: 2rem;
   /* Removed background colour and margin */
 }
@@ -72,13 +72,13 @@
 .card-info h3 {
   margin: 0.5rem 0;
   font-size: 1rem;
-  color: #3d3d3d;
+  color: #2d2d2d;
 }
 
 .card-info p {
   margin: 0;
   font-size: 0.9rem;
-  color: #3d3d3d;
+  color: #2d2d2d;
 }
 
 /* Responsive Adjustments */
@@ -98,7 +98,7 @@
     display: block;
     text-align: center;
     font-size: 0.9rem;
-    color: #3d3d3d;
+    color: #2d2d2d;
     margin-top: 1rem;
   }
 }

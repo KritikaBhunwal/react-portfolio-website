@@ -113,7 +113,7 @@ const PaddleFuryGame = () => {
     }
     ctx.fill();
 
-    ctx.fillStyle = "#3d3d3d";
+    ctx.fillStyle = "#2d2d2d";
     ctx.textAlign = "center";
     ctx.fillText("Play Again", playAgainX + buttonWidth / 2, playAgainY + buttonHeight / 2);
   };

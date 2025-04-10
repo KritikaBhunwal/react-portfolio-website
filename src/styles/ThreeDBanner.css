@@ -123,7 +123,7 @@
   border: none;
   border-radius: 50%;
   /* background: #fff; */
-  color: #3d3d3d;
+  color: #2d2d2d;
   box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.02);
   display: flex;
   align-items: center;
@@ -181,7 +181,7 @@
 .next-btn {
   position: absolute;
   /* background: #fff; */
-  color: #3d3d3d; /* default color */
+  color: #2d2d2d; /* default color */
   border: none;
   border-radius: 50%;
   width: 2.75rem; /* ~44px */
@@ -216,7 +216,7 @@
   right: 1rem;
 }
 
-/* Hover => only color change from #3d3d3d to #cbbfee */
+/* Hover => only color change from #2d2d2d to #cbbfee */
 .close-btn:hover,
 .prev-btn:hover,
 .next-btn:hover {
@@ -241,13 +241,13 @@
   margin: 0.5rem 0 0.2rem;
   font-size: 1.3rem;
   font-family: "Quicksand", sans-serif;
-  color: #3d3d3d;
+  color: #2d2d2d;
 }
 
 .modal-info p {
   margin: 0.2rem 0;
   font-size: 1rem;
-  color: #3d3d3d;
+  color: #2d2d2d;
 }
 
 .interaction-hint {

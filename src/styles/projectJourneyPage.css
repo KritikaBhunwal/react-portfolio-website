@@ -1,177 +1,258 @@
 /* projectJourneyPage.css */
 
 .journey-page-container {
-    /* max-width: 1200px; */
-    margin: 0 0rem;
-    /* padding: 2rem; */
-    font-family: "Quicksand", sans-serif;
-    position: relative;
-  }
-  
-  .journey-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #3d3d3d;
-  }
-  
+  /* max-width: 1200px; */
+  margin: 0 0rem;
+  /* padding: 2rem; */
+  font-family: "Quicksand", sans-serif;
+  position: relative;
+}
+
+.journey-title {
+  text-align: left;
+  font-size: 2.5rem;
+  margin: 2rem;
+  color: #2d2d2d;
+}
+
+.journey-timeline {
+  position: relative;
+  margin: 2rem 15rem;
+}
+
+.journey-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: .5px;
+  background-color: #cbbfee;
+  transform: translateX(-50%);
+}
+
+.journey-item {
+  position: relative;
+  margin: 4rem 0;
+}
+
+.journey-marker {
+  position: absolute;
+  left: 50%;
+  background-color: #9990bb;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  top: 0;
+}
+
+.journey-item-content {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 50%;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+}
+
+.left-text {
+  left: 0;
+  margin-right: auto;
+  transform: translateX(-5%);
+}
+
+.right-text {
+  right: 0;
+  margin-left: auto;
+  transform: translateX(5%);
+}
+
+/* TEXT BLOCK */
+.journey-text-block {
+  flex: 1;
+  padding: 1rem;
+}
+
+.journey-item-title {
+  font-size: 1.7rem;
+  color: #9990bb;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.journey-item-title:hover {
+  color: #2d2d2d;
+}
+
+.journey-year {
+  display: block;
+  font-weight: 600;
+  color: #cbbfee;
+  margin-bottom: 1rem;
+}
+
+.journey-description {
+  color: #2d2d2d;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* ICONS */
+.journey-icons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.journey-icon {
+  font-size: 1.2rem;
+  color: #2d2d2d;
+  border-radius: 6px;
+  padding: 0.3rem;
+}
+
+/* IMAGE BLOCK */
+.journey-image-block {
+  width: 45%;
+  padding: 1rem;
+}
+
+.journey-image-block img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+/* ========== FADE-IN ANIMATION ========== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease 0.1s;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== RESPONSIVE ========== */
+
+/* For medium to small devices (tablets and small screens up to 768px) */
+@media (max-width: 1200px) {
+  /* Reduce horizontal margins for the timeline */
   .journey-timeline {
-    position: relative;
-    margin: 2rem 15rem;
+    margin: 2rem 2rem;
   }
-  
-  .journey-line {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 3px;
-    background-color: #cbbfee;
-    transform: translateX(-50%);
+
+  /* Center and slightly reduce the title size */
+  .journey-title {
+    font-size: 2rem;
+    text-align: left;
+    margin: 2rem;
   }
-  
-  .journey-item {
-    position: relative;
-    margin: 4rem 0;
-  }
-  
-  .journey-marker {
-    position: absolute;
-    left: 50%;
-    background-color: #9990bb;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    top: 0;
-  }
-  
+
+  /* Stack content vertically and use full width for item content */
   .journey-item-content {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    width: 50%;
+    width: 95%;
+    margin: 0;
+    flex-direction: row;
     padding: 1rem;
-    background-color: #fff;
-    border-radius: 1rem;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
-    z-index: 2;
   }
-  
-  .left-text {
-    left: 0;
-    margin-right: auto;
-    transform: translateX(-5%);
-  }
-  
+
+  /* Reset text transforms and center-align text blocks for clarity */
+  .left-text,
   .right-text {
-    right: 0;
-    margin-left: auto;
-    transform: translateX(5%);
+    transform: none;
+    text-align: left;
+    margin: 3rem;
   }
-  
-  /* TEXT BLOCK */
-  .journey-text-block {
-    flex: 1;
-    padding: 1rem;
-  }
-  
-  .journey-item-title {
-    font-size: 1.7rem;
-    color: #9990bb;
-    font-weight: 700;
-    text-decoration: none;
-    margin-bottom: 0.5rem;
-    transition: color 0.2s ease;
-  }
-  
-  .journey-item-title:hover {
-    color: #3d3d3d;
-  }
-  
-  .journey-year {
-    display: block;
-    font-weight: 600;
-    color: #cbbfee;
-    margin-bottom: 1rem;
-  }
-  
-  .journey-description {
-    color: #3d3d3d;
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-  }
-  
-  /* ICONS */
-  .journey-icons {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-top: auto;
-  }
-  
-  /* Each icon is contained in .journey-icon. 
-     We can style them with a certain font-size or color. */
-  .journey-icon {
-    font-size: 1.2rem;  /* Increase icon size if desired */
-    color: #3d3d3d;
-    /* background-color: #f9f9f9; */
-    border-radius: 6px;
-    padding: 0.3rem;
-  }
-  
-  /* IMAGE BLOCK */
+
+  /* Set image to full width within the item for better visibility */
   .journey-image-block {
-    width: 45%;
+    width: 50%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Adjust marker and timeline line positions for vertical layout */
+  .journey-marker {
+    left: 1.3%;
+    transform: none;
+  }
+  .journey-line {
+    left: 2%;
+    transform: none;
+  }
+}
+
+/* For medium to small devices (tablets and small screens up to 768px) */
+@media (max-width: 768px) {
+  /* Reduce horizontal margins for the timeline */
+  .journey-timeline {
+    margin: 2rem 2rem;
+  }
+
+  /* Center and slightly reduce the title size */
+  .journey-title {
+    font-size: 2rem;
+    text-align: left;
+    margin: 2rem;
+  }
+
+  /* Stack content vertically and use full width for item content */
+  .journey-item-content {
+    width: 70%;
+    margin: 0 auto;
+    flex-direction: column;
     padding: 1rem;
   }
-  .journey-image-block img {
+
+  /* Reset text transforms and center-align text blocks for clarity */
+  .left-text,
+  .right-text {
+    transform: none;
+    text-align: left;
+    margin: 0 auto;
+  }
+
+  /* Set image to full width within the item for better visibility */
+  .journey-image-block {
     width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-    object-fit: cover;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
   }
-  
-  /* ========== FADE-IN ANIMATION ========== */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(60px);
-    transition: all 0.8s ease 0.5s;
+
+  /* Adjust marker and timeline line positions for vertical layout */
+  .journey-marker {
+    left: 10%;
+    transform: none;
   }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+  .journey-line {
+    left: 10%;
+    transform: none;
   }
-  
-  /* ========== RESPONSIVE ========== */
-  @media (max-width: 768px) {
-    .journey-line {
-      left: 2%;
-    }
-    .journey-item-content {
-      width: 90%;
-      margin: 0 auto;
-      transform: none;
-      flex-direction: column;
-    }
-    .left-text,
-    .right-text {
-      left: auto;
-      right: auto;
-    }
-    .journey-image-block {
-      width: 100%;
-      padding: 0;
-      margin-bottom: 1rem;
-    }
-    .journey-text-block {
-      padding: 0;
-    }
-    .journey-marker {
-      left: 2%;
-      transform: none;
-    }
+}
+
+/* Additional adjustments for very small devices (smartphones, max-width 480px) */
+@media (max-width: 480px) {
+  .journey-title {
+    font-size: 1.8rem;
+    text-align: left;
   }
-  
+  .journey-item-title {
+    font-size: 1.3rem;
+    text-align: left;
+  }
+  .journey-description {
+    font-size: 0.85rem;
+    text-align: left;
+  }
+}
