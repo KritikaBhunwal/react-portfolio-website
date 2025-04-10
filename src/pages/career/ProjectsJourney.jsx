@@ -116,7 +116,7 @@ const ProjectJourneyPage = () => {
       </div>
 
       {/* Main timeline container */}
-      <SectionHeading title="My Career Journey" />
+      <SectionHeading title="My Career" />
       <div className="journey-page-container">
         {/* <h1 className="journey-title">My Career Journey</h1> */}
         <div className="journey-timeline">

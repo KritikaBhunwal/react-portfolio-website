@@ -40,29 +40,29 @@ const Navbar = () => {
                 isActive ? "nav-link active" : "nav-link"
               }
             >
-              PROJECTS
+              JOURNEY
             </NavLink>
             <div className="dropdown-menu">
               <NavLink to="/career/uiux/UIUX" onClick={closeMobileMenu} className="dropdown-item">
                 UI/UX Design
               </NavLink>
-            <div className="dropdown-menu">
-              <NavLink to="/career/uiux/Hellow" onClick={closeMobileMenu} className="dropdown-item">
+            {/* <div className="dropdown-submenu">
+              <NavLink to="/career/uiux/Hellow" onClick={closeMobileMenu} className="dropdown-subitem">
                 Hellow
               </NavLink>
-              <NavLink to="/career/uiux/SmokingGun" onClick={closeMobileMenu} className="dropdown-item">
-                Smoking Gun
+              <NavLink to="/career/uiux/Portfolio" onClick={closeMobileMenu} className="dropdown-subitem">
+                Portfolio
               </NavLink>
-            </div>
+            </div> */}
               <NavLink to="/career/graphics/Graphics" onClick={closeMobileMenu} className="dropdown-item">
                 Graphic Design
               </NavLink>
               <NavLink to="/career/fashion/Fashion" onClick={closeMobileMenu} className="dropdown-item">
                 Fashion Design
               </NavLink>
-              <NavLink to="/career/front-end/JavaScriptGames" onClick={closeMobileMenu} className="dropdown-item">
+              {/* <NavLink to="/career/front-end/JavaScriptGames" onClick={closeMobileMenu} className="dropdown-item">
                 React Games
-              </NavLink>
+              </NavLink> */}
             </div>
           </div>
 
@@ -88,14 +88,17 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}>
         <div className="mobile-menu-content">
-          <NavLink to="/" onClick={closeMobileMenu} className="nav-link">Home</NavLink>
-          <NavLink to="/career" onClick={closeMobileMenu} className="nav-link">Projects</NavLink>
-          <NavLink to="/career/uiux/UIUX" onClick={closeMobileMenu} className="dropdown-link">UI/UX Design</NavLink>
-          <NavLink to="/career/graphics/Graphics" onClick={closeMobileMenu} className="dropdown-link">Graphic Design</NavLink>
-          <NavLink to="/career/fashion/Fashion" onClick={closeMobileMenu} className="dropdown-link">Fashion Design</NavLink>
-          <NavLink to="/career/front-end/JavaScriptGames" onClick={closeMobileMenu} className="dropdown-link">React Games</NavLink>
+          <NavLink to="/" onClick={closeMobileMenu} className="nav-link">HOME</NavLink>
+          <NavLink to="/career" onClick={closeMobileMenu} className="nav-link">JOURNEY</NavLink>
+          <NavLink to="/career/uiux/UIUX" onClick={closeMobileMenu} className="dropdown-link">UI/UX DESIGN</NavLink>
+          <NavLink to="/career/uiux/Portfolio" onClick={closeMobileMenu} className="dropdown-sublink">1. Portfolio</NavLink>
+          <NavLink to="/career/uiux/Hellow" onClick={closeMobileMenu} className="dropdown-sublink">2. Hellow</NavLink>
+          <NavLink to="/career/front-end/JavaScriptGames" onClick={closeMobileMenu} className="dropdown-sublink">3. React Games</NavLink>
+          <NavLink to="/career/graphics/Graphics" onClick={closeMobileMenu} className="dropdown-link">GRAPHIC DESIGN</NavLink>
+          <NavLink to="/career/fashion/Fashion" onClick={closeMobileMenu} className="dropdown-link">FASHION DESIGN</NavLink>
 
-          <NavLink to="/about" onClick={closeMobileMenu} className="nav-link">About</NavLink>
+
+          <NavLink to="/about" onClick={closeMobileMenu} className="nav-link">ABOUT</NavLink>
         </div>
       </div>
     </nav>

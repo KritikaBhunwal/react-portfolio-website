@@ -89,6 +89,21 @@
   background-color: #2d2d2d;
 }
 
+.dropdown-sublink {
+  text-align: center;
+  font-size: small;
+  background-color: #2d2d2d;
+  color: #9d9d9d;
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+}
+
+.dropdown-sublink:hover {
+  color: #cbbfee;
+  background-color: #2d2d2d;
+}
+
 /* ---------- Hamburger Icon (Three-Bar to X) ---------- */
 .hamburger-icon {
   display: none;
@@ -201,6 +216,7 @@
     z-index: 1000;
     min-width: 200px;
   }
+
 
   .nav-dropdown:hover .dropdown-menu {
     display: flex;

@@ -19,7 +19,7 @@ const UIUXProjects = () => {
       projectTitle: "Hellow : Prioritize People over Platform",
       projectDescription:
         "An innovative asynchronous messaging app idea that redefines communication across different time-zones.",
-      projectLink: "/pages/career/uiux/Hellow",
+      projectLink: "/career/uiux/hellow",
       projectImage: "/ProjectCardHellow.png",
       softwareIcons: [
         <SiAdobephotoshop key="photoshop-2" />,
@@ -117,7 +117,7 @@ const UIUXProjects = () => {
           left: "10px",
           bottom: "10px",
           fontSize: "2.5rem",
-          color: "#2d2d2d5a",
+          color: "#3d3d3d5a",
           zIndex: 1000,
           userSelect: "none",
         }}
@@ -133,7 +133,7 @@ const UIUXProjects = () => {
           right: "10px",
           bottom: "10px",
           fontSize: "2.5rem",
-          color: "#2d2d2d5a",
+          color: "#3d3d3d5a",
           zIndex: 1000,
           userSelect: "none",
         }}

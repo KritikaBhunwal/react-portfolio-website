@@ -8,6 +8,7 @@ import About from "./pages/about/About";
 // Subpages under career
 import UIUXIndex from "./pages/career/uiux/UIUX";
 import Hellow from "./pages/career/uiux/Hellow"; // New subpage for UIUXIndex
+import Portfolio from "./pages/career/uiux/Portfolio"; // New subpage for UIUXIndex
 import FrontEndIndex from "./pages/career/front-end/JavaScriptGames";
 import GraphicsIndex from "./pages/career/graphics/Graphics";
 import FashionIndex from "./pages/career/fashion/Fashion";
@@ -38,7 +39,8 @@ const AppRoutes = () => {
         <Route path="/career/uiux">
           <Route index element={<UIUXIndex />} />
           {/* The Hellow subpage will be rendered within the Outlet in UIUXIndex */}
-          <Route path="hellow" element={<Hellow />} />
+          <Route path="Hellow" element={<Hellow />} />
+          <Route path="Portfolio" element={<Portfolio />} />
         </Route>
       </Routes>
       <Footer />
