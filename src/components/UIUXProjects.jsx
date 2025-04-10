@@ -13,6 +13,22 @@ import { AiFillApple } from "react-icons/ai";
 const UIUXProjects = () => {
   const projects = [
     {
+      id: 1,
+      category: "UI/UX Design",
+      categoryLink: "/uiux",
+      projectTitle: "Kritika Bhunwal : Portfolio Website Design",
+      projectDescription:
+        "Here I showcase the process that I followed for designing and developing my portfolio website from initial ideation to final design.",
+      projectLink:
+        "/career/uiux/portfolio",
+      projectImage: "/ProjectCardPortfolio.png",
+      softwareIcons: [
+        <SiAdobephotoshop key="photoshop-1" />,
+        <SiAdobeillustrator key="illustrator-1" />,
+        <SiFigma key="figma-1" />
+      ],
+    },
+    {
       id: 2,
       category: "App Design",
       categoryLink: "/career/uiux/Hellow.jsx",
@@ -25,22 +41,6 @@ const UIUXProjects = () => {
         <SiAdobephotoshop key="photoshop-2" />,
         <SiAdobeillustrator key="illustrator-2" />,
         <FaSearch key="research-2" />
-      ],
-    },
-    {
-      id: 1,
-      category: "UI/UX Design",
-      categoryLink: "/uiux",
-      projectTitle: "Kritika Bhunwal : Portfolio Website Design",
-      projectDescription:
-        "Here I showcase the process that I followed for designing and developing my portfolio website from initial ideation to final design.",
-      projectLink:
-        "https://www.figma.com/proto/QwIMymTyToy9PF7Yd1JsbC/Portfolio-Website-KritikaBhunwal?node-id=144-1672&t=3HebtMemoXxP33NU-1",
-      projectImage: "/ProjectCardPortfolio.png",
-      softwareIcons: [
-        <SiAdobephotoshop key="photoshop-1" />,
-        <SiAdobeillustrator key="illustrator-1" />,
-        <SiFigma key="figma-1" />
       ],
     },
     {

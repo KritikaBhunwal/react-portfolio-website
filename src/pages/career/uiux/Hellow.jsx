@@ -95,17 +95,17 @@ const Hellow = () => {
       />
 
       <img
-        src="/HellowYouThere.svg"
-        alt="Hellow Icon"
-        className="hellow-icon"
+        src="/HellowBanner.png"
+        alt="Hellow Banner"
+        className="hellow-banner-image"
       />
       {/* Full-width Banner */}
       <div className="hellow-banner">
         <header className="report-header">
           <div className="header-text">
-            <h2>Hellow you there?</h2>
+            <h2>Hellow : An Asynchronous Communication App</h2>
             <h3>
-              An app idea that helps build meaningful Connection with Family and
+              Build Meaningful Connection with Family and
               Friends Across Different Time Zones
             </h3>
           </div>
