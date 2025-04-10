@@ -1,22 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-/*
-   1. Outer container
-      - Has background color + image
-      - 90vw wide, centered
-      - 2d2d2d color behind
-      - Some background image if desired
+/* Full-Screen Container Style:
+   The container spans the entire viewport (100vw x 100vh) and is fixed.
 */
 .snake-game-container {
   width: 100vw;
-  margin: 0 auto;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
   overflow: hidden;
-  border-radius: 2rem;
   background-color: #2d2d2d;
   background-image: url("/bg-image-blank.png");
   background-size: cover;
@@ -24,18 +19,31 @@
   font-family: "Quicksand", sans-serif;
 }
 
-/*
-   2. Canvas
-      - 2rem margin, so total width is (100% - 4rem)
-      - 80vh height across all breakpoints
-      - Transparent background -> see container behind
-*/
+/* Canvas fills the entire container */
 .snake-canvas {
   display: block;
-  margin: 0rem 2rem;
-  width: calc(100% - 0rem);
-  height: 80vh;
-  border-radius: 2rem;
+  width: 100%;
+  height: 100%;
   background-color: transparent;
-  touch-action: none; /* prevent default touch scrolling on canvas */
+  touch-action: none;
+}
+
+/* Close Button Styling */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  color: #2d2d2d;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 1);
 }

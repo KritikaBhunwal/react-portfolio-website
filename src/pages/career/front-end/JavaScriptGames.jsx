@@ -177,7 +177,7 @@ const JavaScriptGames = () => {
               <div
                 className="image-wrapper"
                 onClick={() => handleOpenModal("paddle")}
-                style={{ borderRadius: "4rem" }}
+                style={{ borderRadius: "2rem" }}
               >
                 <img
                   src="/pps-game-1.png"
@@ -197,7 +197,7 @@ const JavaScriptGames = () => {
               <div
                 className="image-wrapper"
                 onClick={() => handleOpenModal("snake")}
-                style={{ borderRadius: "4rem" }}
+                style={{ borderRadius: "2rem" }}
               >
                 <img
                   src="/pps-game-3.png"
@@ -220,7 +220,7 @@ const JavaScriptGames = () => {
               <div
                 className="image-wrapper"
                 onClick={() => handleOpenModal("meteor")}
-                style={{ borderRadius: "4rem" }}
+                style={{ borderRadius: "2rem" }}
               >
                 <img
                   src="/pps-game-2.png"

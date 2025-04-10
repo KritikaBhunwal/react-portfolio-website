@@ -1,26 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import bgImage from "/bg-image-blank.png"; // Background image import
-import "../styles/meteorRushGame.css";     // Import external stylesheet
+import "../styles/meteorRushGame.css";      // Import external stylesheet with the provided CSS
 
 const MeteorRushGame = () => {
-  /* 
-    ---------------------------------------------------
-    1. Detect if user is Kritika based on URL parameter
-    ---------------------------------------------------
-  */
+  // 1. Detect if user is Kritika based on URL parameter
   const urlParams = new URLSearchParams(window.location.search);
   const isKritika = urlParams.get("user") === "kritika";
 
-  /*
-    ---------------------------------------------------
-    2. Refs and State Initialization
-    ---------------------------------------------------
-      - canvasRef: reference to the <canvas> for drawing
-      - basket: holds the paddle/basket properties
-      - leaves: array of falling objects (the "meteors" or "leaves")
-      - game control states: score, lives, paused, etc.
-      - references (useRef) to keep track of mutable values in game loop
-  */
+  // 2. Refs and State Initialization
   const canvasRef = useRef(null);
   const bgImageRef = useRef(null);
   const [score, setScore] = useState(0);
@@ -29,7 +16,7 @@ const MeteorRushGame = () => {
   const [paused, setPaused] = useState(false);
   const [highScore, setHighScore] = useState(() => Number(localStorage.getItem("meteorRushGameHighScore")) || 0);
   const [kritikaScore, setKritikaScore] = useState(() => Number(localStorage.getItem("kritikaScore")) || 0);
-  
+
   // Refs for mutable values:
   const highScoreRef = useRef(highScore);
   const basket = useRef({ x: 0, y: 0, width: 0, height: 0 });
@@ -42,11 +29,7 @@ const MeteorRushGame = () => {
   const pausedRef = useRef(paused);
   const kritikaScoreRef = useRef(kritikaScore);
 
-  /*
-    ---------------------------------------------------
-    3. Keep refs in sync with state
-    ---------------------------------------------------
-  */
+  // 3. Keep refs in sync with state
   useEffect(() => { scoreRef.current = score; }, [score]);
   useEffect(() => { livesRef.current = lives; }, [lives]);
   useEffect(() => { gameOverRef.current = gameOver; }, [gameOver]);
@@ -54,43 +37,25 @@ const MeteorRushGame = () => {
   useEffect(() => { highScoreRef.current = highScore; }, [highScore]);
   useEffect(() => { kritikaScoreRef.current = kritikaScore; }, [kritikaScore]);
 
-  /*
-    ---------------------------------------------------
-    4. Update High Score and (if Kritika) Kritika's Score
-    ---------------------------------------------------
-  */
+  // 4. Update High Score and (if Kritika) Kritika's Score
   useEffect(() => {
     if (score > highScore) {
       setHighScore(score);
       localStorage.setItem("meteorRushGameHighScore", score);
     }
-    // If Kritika is playing, update her personal score
     if (isKritika && score > kritikaScore) {
       setKritikaScore(score);
       localStorage.setItem("kritikaScore", score);
     }
   }, [score, highScore, kritikaScore, isKritika]);
 
-  /*
-    ---------------------------------------------------
-    5. Load the background image
-    ---------------------------------------------------
-  */
+  // 5. Load the background image
   useEffect(() => {
     bgImageRef.current = new Image();
     bgImageRef.current.src = bgImage;
   }, []);
 
-  /*
-    ---------------------------------------------------
-    6. Unified Modal Drawing Function (Game Over)
-    ---------------------------------------------------
-      - Renders a semi-transparent overlay with:
-         * Final Score
-         * High Score
-         * Kritika's Score (if applicable)
-         * Play Again button
-  */
+  // 6. Unified Modal Drawing Function (Game Over)
   const drawGameOverModal = (ctx, canvas, finalScore, currentHighScore, kritikaScoreValue) => {
     const isMobile = canvas.width < 768;
 
@@ -141,20 +106,14 @@ const MeteorRushGame = () => {
     }
     ctx.fill();
 
-    ctx.fillStyle = "#2d2d2d";
+    ctx.fillStyle = "#3d3d3d";
     ctx.font = `${buttonFontSize}px Quicksand`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText("Play Again", playAgainX + buttonWidth / 2, playAgainY + buttonHeight / 2);
   };
 
-  /*
-    ---------------------------------------------------
-    7. Game Control Functions
-    ---------------------------------------------------
-      - startGame: resets and initiates the game
-      - createLeaf: spawns a new "leaf"/"meteor" object
-  */
+  // 7. Game Control Functions
   const startGame = () => {
     setScore(0);
     setLives(3);
@@ -163,21 +122,16 @@ const MeteorRushGame = () => {
     setPaused(false);
     leaves.current = [];
 
-    // Clear any previous animation
     if (requestRef.current) {
       cancelAnimationFrame(requestRef.current);
     }
-
-    // Start the game loop
     requestRef.current = requestAnimationFrame(gameLoop);
 
-    // Spawn leaves at 1-second intervals
     intervalRef.current = setInterval(() => {
       if (!gameOverRef.current && !pausedRef.current) createLeaf(canvasRef.current);
     }, 1000);
   };
 
-  // Create a new falling leaf
   const createLeaf = (canvas) => {
     const paddleLength = canvas.width / 5;
     const ballRadius = paddleLength / 6;
@@ -189,14 +143,7 @@ const MeteorRushGame = () => {
     });
   };
 
-  /*
-    ---------------------------------------------------
-    8. Drawing Functions
-    ---------------------------------------------------
-      - drawBasket: draws the player's basket (paddle)
-      - drawLeaves: draws all falling leaves
-      - drawUI: draws score and lives
-  */
+  // 8. Drawing Functions
   const drawBasket = (ctx) => {
     const width = canvasRef.current.width / 5;
     const height = width / 4;
@@ -231,13 +178,7 @@ const MeteorRushGame = () => {
     ctx.fillText(`Lives: ${livesRef.current}`, 30, 80);
   };
 
-  /*
-    ---------------------------------------------------
-    9. Game Mechanics
-    ---------------------------------------------------
-      - moveLeaves: updates leaf positions
-      - checkCollisions: detects catching or missing leaves
-  */
+  // 9. Game Mechanics
   const moveLeaves = () => {
     leaves.current.forEach((leaf) => {
       leaf.y += leaf.speed;
@@ -254,7 +195,7 @@ const MeteorRushGame = () => {
 
       if (caught) {
         setScore((prev) => prev + 1);
-        return false; // Remove leaf
+        return false;
       }
       if (leaf.y > canvas.height) {
         setLives((prev) => {
@@ -265,47 +206,33 @@ const MeteorRushGame = () => {
           }
           return updated;
         });
-        return false; // Remove leaf
+        return false;
       }
-      return true; // Keep leaf
+      return true;
     });
   };
 
-  /*
-    ---------------------------------------------------
-    10. Main Game Loop
-    ---------------------------------------------------
-      - Clears canvas
-      - Draws background, leaves, UI
-      - Handles paused or game over states
-      - Continuously requests next frame
-  */
+  // 10. Main Game Loop
   const gameLoop = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw background image (if loaded)
     if (bgImageRef.current && bgImageRef.current.complete) {
       ctx.drawImage(bgImageRef.current, 0, 0, canvas.width, canvas.height);
     }
-
-    // Translucent overlay
     ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw leaves and UI
     drawLeaves(ctx);
     drawUI(ctx);
 
-    // Handle game states
     if (!gameOverRef.current) {
       if (!pausedRef.current) {
         drawBasket(ctx);
         moveLeaves();
         checkCollisions(canvas);
       } else {
-        // Show "Paused" overlay
         ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = "#fff";
@@ -314,26 +241,15 @@ const MeteorRushGame = () => {
         ctx.fillText("Paused", canvas.width / 2, canvas.height / 2);
       }
     } else {
-      // Show "Game Over" modal
       drawGameOverModal(ctx, canvas, scoreRef.current, highScoreRef.current, kritikaScoreRef.current);
     }
 
-    // Request next frame
     requestRef.current = requestAnimationFrame(gameLoop);
   };
 
-  /*
-    ---------------------------------------------------
-    11. Event Handlers & Component Setup
-    ---------------------------------------------------
-      - Mouse/touch move to position the basket
-      - Device tilt for mobile
-      - Click to pause or restart if game over
-      - Start the game on mount
-  */
+  // 11. Event Handlers & Setup
   useEffect(() => {
     const canvas = canvasRef.current;
-    // Make the canvas fill its container dynamically
     const rect = canvas.getBoundingClientRect();
     canvas.width = rect.width;
     canvas.height = rect.height;
@@ -371,7 +287,7 @@ const MeteorRushGame = () => {
       }
     };
 
-    // Click to pause or restart
+    // Click to pause or restart if game over
     const handleClick = (e) => {
       const scaleX = canvas.width / rect.width;
       const scaleY = canvas.height / rect.height;
@@ -379,7 +295,6 @@ const MeteorRushGame = () => {
       const y = (e.clientY - rect.top) * scaleY;
 
       if (gameOverRef.current) {
-        // "Play Again" button coords
         const buttonWidth = 150;
         const buttonHeight = 50;
         const playAgainX = canvas.width / 2 - buttonWidth / 2;
@@ -393,16 +308,14 @@ const MeteorRushGame = () => {
       }
     };
 
-    // Attach event listeners
     canvas.addEventListener("mousemove", handleMouseMove);
     canvas.addEventListener("touchmove", handleTouchMove);
     canvas.addEventListener("click", handleClick);
     window.addEventListener("deviceorientation", handleTilt);
 
-    // Start the game immediately
+    // Start the game loop on mount
     startGame();
 
-    // Cleanup
     return () => {
       clearInterval(intervalRef.current);
       cancelAnimationFrame(requestRef.current);
@@ -411,11 +324,21 @@ const MeteorRushGame = () => {
       canvas.removeEventListener("click", handleClick);
       window.removeEventListener("deviceorientation", handleTilt);
     };
-    // eslint-disable-next-line
   }, []);
+
+  // 12. Close Game Handler
+  const handleCloseClick = () => {
+    const confirmClose = window.confirm("Are you sure you want to close the game?");
+    if (confirmClose) {
+      clearInterval(intervalRef.current);
+      cancelAnimationFrame(requestRef.current);
+      window.location.href = window.location.origin + window.location.pathname;
+    }
+  };
 
   return (
     <div className="meteor-game-container">
+      <button className="close-button" onClick={handleCloseClick}>X</button>
       <canvas ref={canvasRef} className="meteor-game-canvas" />
     </div>
   );

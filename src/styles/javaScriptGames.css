@@ -1,6 +1,6 @@
 /* Layout */
 .uiux-subpage-content {
-  margin: 0rem ;
+  margin: 0;
 }
 
 .uiux-subpage-content p {
@@ -23,16 +23,15 @@
 .game-card {
   flex: 1;
   max-width: 100%;
-  height: auto;
   overflow: hidden;
-  border-radius: 2rem;
+  border-radius: 1rem;
 }
 
-/* Image wrapper to isolate image and overlay from headings */
+/* Image wrapper (centering overlay and play button) */
 .image-wrapper {
   position: relative;
   cursor: pointer;
-  border-radius: 1rem ;
+  border-radius: 1rem;
   overflow: hidden;
 }
 
@@ -49,14 +48,14 @@
   transform: scale(1.01);
 }
 
-/* Overlay on hover */
+/* Overlay for play button; using flex to center the content */
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 2rem;
+  border-radius: 1rem;
   background: rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -69,10 +68,11 @@
   opacity: 1;
 }
 
-/* Play button */
+/* Play button styling (centered by its container) */
 .play-button {
+  position: relative;
   padding: 0.75rem 1.5rem;
-  margin: 0 4rem 0rem 4rem;
+  margin: 0;  /* Removed fixed margin */
   font-size: 1.5rem;
   border: none;
   border-radius: 9999px;
@@ -93,7 +93,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,15 +101,12 @@
 }
 
 .modal-content {
-  margin: 1rem;
   padding: 1rem;
   background-color: #2d2d2d;
-  background-image: url('/bg-image-blank.png');
+  background: url('/bg-image-blank.png') no-repeat center center;
   background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 2rem;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 100%;
+  max-height: 100%;
   overflow: auto;
   position: relative;
 }
@@ -133,60 +130,38 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
-  gap: 0rem;             /* Space between the two sections */
-  margin: 2rem;           /* Container margin */
-  flex-wrap: wrap;        /* Allows items to wrap if needed */
+  gap: 0;
+  margin: 2rem;
+  flex-wrap: wrap;
 }
 
-/* bts-item: default to a 50% width layout, mirroring game cards */
+/* bts-item: default layout for code and prototype sections */
 .bts-item {
   flex: 1;
   border-radius: 2rem;
-  /* box-sizing: border-box; */
-}
-
-@media (max-width: 768px) {
-  .play-button {
-    padding: 0.5rem 1rem;
-    margin: 0 2rem 0rem 2rem;
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .play-button {
-    padding: 0.4rem 0.8rem;
-    margin: 0 4rem 4rem 4rem;
-    font-size: 1rem;
-  }
 }
 
 @media (min-width: 1024px) {
   .uiux-subpage-content {
-    margin: 0rem;
+    margin: 0;
   }
 }
 
-/* Responsive layout */
+/* Responsive layout adjustments */
 @media (max-width: 1024px) {
   .uiux-subpage-content {
-    margin: 0rem;
+    margin: 0;
   }
-
   .games-container {
     flex-direction: column;
-    /* gap: 2rem; */
   }
 }
 
-/* Responsive layout */
 @media (max-width: 768px) {
   .uiux-subpage-content {
-    margin: 0rem -6rem 0rem -6rem;
+    margin: 0rem;
   }
-
   .games-container {
     flex-direction: column;
-    /* gap: 2rem; */
   }
 }

@@ -1,26 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
-import bgImage from "/bg-image-blank.png";        // Background image import
-import "../styles/paddleFuryGame.css";           // Import external stylesheet
+import bgImage from "/bg-image-blank.png"; // Background image import
+import "../styles/paddleFuryGame.css";      // Import external stylesheet
 
 const PaddleFuryGame = () => {
-  /*
-    ---------------------------------------------------
-    1. Detect if user is Kritika via URL parameter
-    ---------------------------------------------------
-  */
+  // 1. Detect if user is Kritika via URL parameter
   const urlParams = new URLSearchParams(window.location.search);
   const isKritika = urlParams.get("user") === "kritika";
 
-  /*
-    ---------------------------------------------------
-    2. Refs/States for game control
-       - paused, pausedRef
-       - highScore, highScoreRef
-       - kritikaScore, kritikaScoreRef
-       - gameOverRef, restartAllowedRef
-       - canvasRef for drawing
-    ---------------------------------------------------
-  */
+  // 2. Refs/States for game control
   const canvasRef = useRef(null);
   const [paused, setPaused] = useState(false);
   const pausedRef = useRef(paused);
@@ -28,11 +15,9 @@ const PaddleFuryGame = () => {
     pausedRef.current = paused;
   }, [paused]);
 
-  const highScoreRef = useRef(
-    Number(localStorage.getItem("paddleFuryHighScore")) || 0
-  );
+  const highScoreRef = useRef(Number(localStorage.getItem("paddleFuryHighScore")) || 0);
   const [kritikaScore, setKritikaScore] = useState(
-    () => Number(localStorage.getItem("kritikaScorePaddle")) || 0
+    Number(localStorage.getItem("kritikaScorePaddle")) || 0
   );
   const kritikaScoreRef = useRef(kritikaScore);
   useEffect(() => {
@@ -42,24 +27,19 @@ const PaddleFuryGame = () => {
   const gameOverRef = useRef(false);
   const restartAllowedRef = useRef(false);
 
-  /*
-    ---------------------------------------------------
-    3. Set canvas dimensions on mount
-    ---------------------------------------------------
-  */
-  useEffect(() => {
+  // 3. Set canvas dimensions to full screen (100vw x 100vh) on mount and when the window is resized
+  const resizeCanvas = () => {
     const canvas = canvasRef.current;
-    const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width;
-    canvas.height = rect.height;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  };
+  useEffect(() => {
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+    return () => window.removeEventListener("resize", resizeCanvas);
   }, []);
 
-  /*
-    ---------------------------------------------------
-    4. Unified Modal Drawing Function (Game Over)
-       - Includes Kritika's score if isKritika
-    ---------------------------------------------------
-  */
+  // 4. Unified Modal Drawing Function (Game Over)
   const drawGameOverModal = (ctx, canvas, finalScore, currentHighScore, kritikaScoreValue) => {
     const isMobile = canvas.width < 768;
 
@@ -113,25 +93,17 @@ const PaddleFuryGame = () => {
     }
     ctx.fill();
 
-    ctx.fillStyle = "#2d2d2d";
+    ctx.fillStyle = "#3d3d3d";
     ctx.textAlign = "center";
     ctx.fillText("Play Again", playAgainX + buttonWidth / 2, playAgainY + buttonHeight / 2);
   };
 
-  /*
-    ---------------------------------------------------
-    5. Main Game Loop & Setup
-    ---------------------------------------------------
-      - Defines paddle and ball
-      - Initializes drawing logic
-      - Moves/updates ball
-      - Handles collisions, gameOver, scoring
-  */
+  // 5. Main Game Loop & Setup
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    // Load a background image if desired
+    // Load the background image
     const gameBg = new Image();
     gameBg.src = bgImage;
 
@@ -156,11 +128,11 @@ const PaddleFuryGame = () => {
       radius: paddle.width / 6,
     };
 
-    // Local scoring
+    // Local scoring and animation id
     let score = 0;
     let animationFrameId;
 
-    // 1) Drawing Functions
+    // Drawing functions
     const drawPaddle = () => {
       ctx.fillStyle = "#9990bb";
       ctx.beginPath();
@@ -196,11 +168,10 @@ const PaddleFuryGame = () => {
       ctx.fillText("Paused", canvas.width / 2, canvas.height / 2);
     };
 
-    // 2) Game Mechanics
+    // Game mechanics
     const moveBall = () => {
       ball.x += ball.dx;
       ball.y += ball.dy;
-
       // Wall collisions
       if (ball.x - ball.radius < 0 || ball.x + ball.radius > canvas.width) {
         ball.dx *= -1;
@@ -216,21 +187,18 @@ const PaddleFuryGame = () => {
       ) {
         ball.dy *= -1;
         score++;
-        // Slight speed increase each hit
         ball.dx *= 1.02;
         ball.dy *= 1.02;
       }
-      // Missed the ball (below screen)
+      // Check if ball is missed (falls below the screen)
       if (ball.y - ball.radius > canvas.height) {
         if (!gameOverRef.current) {
           gameOverRef.current = true;
           restartAllowedRef.current = true;
-          // Update high score
           if (score > highScoreRef.current) {
             highScoreRef.current = score;
             localStorage.setItem("paddleFuryHighScore", score);
           }
-          // Update Kritika's score if needed
           if (isKritika && score > kritikaScoreRef.current) {
             setKritikaScore(score);
             localStorage.setItem("kritikaScorePaddle", score);
@@ -239,7 +207,7 @@ const PaddleFuryGame = () => {
       }
     };
 
-    // 3) Restart the game
+    // Restart the game
     const restartGame = () => {
       score = 0;
       ball.x = canvas.width / 2;
@@ -251,7 +219,7 @@ const PaddleFuryGame = () => {
       gameLoop();
     };
 
-    // 4) Event Handlers
+    // Event Handlers for input
     const handleCanvasClick = () => {
       if (gameOverRef.current && restartAllowedRef.current) {
         restartGame();
@@ -287,22 +255,20 @@ const PaddleFuryGame = () => {
       }
     };
 
-    // 5) Register Listeners
+    // Register event listeners
     canvas.addEventListener("click", handleCanvasClick);
     canvas.addEventListener("mousemove", handleMouseMove);
     canvas.addEventListener("touchmove", handleTouchMove);
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("deviceorientation", handleTilt);
 
-    // 6) Game Loop
+    // Main game loop
     const gameLoop = () => {
-      // Optionally draw the background image
       if (gameBg.complete) {
         ctx.drawImage(gameBg, 0, 0, canvas.width, canvas.height);
       } else {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
       }
-
       if (pausedRef.current) {
         showPausedOverlay();
       } else {
@@ -311,16 +277,16 @@ const PaddleFuryGame = () => {
         drawScore();
         moveBall();
       }
-
       if (gameOverRef.current) {
         drawGameOverModal(ctx, canvas, score, highScoreRef.current, kritikaScoreRef.current);
       } else {
         animationFrameId = requestAnimationFrame(gameLoop);
       }
     };
-    gameLoop(); // Start
 
-    // Cleanup on unmount
+    gameLoop(); // Start game loop
+
+    // Cleanup listeners and animation frame on unmount
     return () => {
       cancelAnimationFrame(animationFrameId);
       canvas.removeEventListener("click", handleCanvasClick);
@@ -330,15 +296,21 @@ const PaddleFuryGame = () => {
       window.removeEventListener("deviceorientation", handleTilt);
     };
     // eslint-disable-next-line
-  }, []);
+  }, [isKritika]);
 
-  /*
-    ---------------------------------------------------
-    7. Return the Container & Canvas
-    ---------------------------------------------------
-  */
+  // 6. Close Game Handler: show a confirmation prompt before closing the game
+  const handleCloseClick = () => {
+    const confirmClose = window.confirm("Are you sure you want to close the game?");
+    if (confirmClose) {
+      // Clear any running game loops (cleanup will occur via unmount) and redirect back
+      window.location.href = window.location.origin + window.location.pathname;
+    }
+  };
+
+  // 7. Render the full screen container with the close button and canvas
   return (
     <div className="paddle-game-container">
+      <button className="close-button" onClick={handleCloseClick}>X</button>
       <canvas ref={canvasRef} className="paddle-canvas" />
     </div>
   );
