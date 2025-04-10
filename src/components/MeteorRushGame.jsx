@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import bgImage from "/bg-image-blank.png"; // Background image import
+import bgImage from "/bg-image-with-logo.png"; // Background image import
 import "../styles/meteorRushGame.css";      // Import external stylesheet with the provided CSS
 
 const MeteorRushGame = () => {

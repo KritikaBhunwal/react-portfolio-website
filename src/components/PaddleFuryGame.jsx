@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import bgImage from "/bg-image-blank.png"; // Background image import
+import bgImage from "/bg-image-with-logo.png"; // Background image import
 import "../styles/paddleFuryGame.css";      // Import external stylesheet
 
 const PaddleFuryGame = () => {

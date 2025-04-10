@@ -160,11 +160,10 @@ const JavaScriptGames = () => {
 
       <section className="uiux-subpage" style={{ margin: "1rem" }}>
         <section className="uiux-subpage-content">
-          <SectionHeading title="90's Games Revamp" />
+          <SectionHeading title="90's Arcade Games Revamp" />
           <p>
             This project is one of my favourite web development projects that I
-            completed at BCIT. It revives nostalgic arcade games in a modern
-            React project with interactive, responsive interfaces.
+            completed at BCIT with the help of my instructor Joyce Lam. I used to love playing the snake game on my grandfather's Nokia phone. It revives old memories and once again it builds a connection of nostalgia with arcade gaming using modern frameworks like React. <br></br><br></br>I have recreated three games: Paddle Fury, Meteor Rush, and Snake Game. These games are built using JavaScript and React, showcasing my skills in web development. The games are designed to be accessible and responsive, ensuring a smooth experience across devices. The project demonstrates my ability to create engaging and interactive web applications, making it a valuable addition to my portfolio. I am excited to share this project with you and hope you enjoy playing these games as much as I enjoyed creating them!
           </p>
 
           <div className="games-container">
@@ -188,7 +187,7 @@ const JavaScriptGames = () => {
                   <button className="play-button">Play</button>
                 </div>
               </div>
-              <p>My best score: 71</p>
+              <p>My best score: 85</p>
             </div>
 
             {/* Snake Game Card */}
@@ -208,7 +207,7 @@ const JavaScriptGames = () => {
                   <button className="play-button">Play</button>
                 </div>
               </div>
-              <p>My best score: 51</p>
+              <p>My best score: 101</p>
             </div>
 
             {/* Meteor Rush Game Card */}
@@ -231,7 +230,7 @@ const JavaScriptGames = () => {
                   <button className="play-button">Play</button>
                 </div>
               </div>
-              <p>My best score: 88</p>
+              <p>My best score: 157</p>
             </div>
           </div>
         </section>
@@ -254,7 +253,7 @@ const JavaScriptGames = () => {
 
       <div className="bts-container">
         <div className="bts-item">
-          <SectionHeading title="Sample Code" />
+          <SectionHeading title="Code Snippet" />
           <CodeSnippet codeString={sampleCode} language="jsx" />
         </div>
         <div className="bts-item">

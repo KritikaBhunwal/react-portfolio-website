@@ -14,11 +14,15 @@ const UIUXProjects = () => {
   const projects = [
     {
       id: 1,
-      category: "UI/UX Design",
-      categoryLink: "/uiux",
-      projectTitle: "Kritika Bhunwal : Portfolio Website Design",
+      category: "Web Design",
+      // categoryLink: "/uiux",
+      projectTitle: (
+        <a href="/career/uiux/portfolio" style={{ textDecoration: "none", color: "inherit" }}>
+          Kritika Bhunwal : Portfolio Website
+        </a>
+      ),
       projectDescription:
-        "Here I showcase the process that I followed for designing and developing my portfolio website from initial ideation to final design.",
+        "Showcasing the process followed for designing and development of my portfolio website from initial ideation to final design and deployment.",
       projectLink:
         "/career/uiux/portfolio",
       projectImage: "/ProjectCardPortfolio.png",
@@ -27,14 +31,18 @@ const UIUXProjects = () => {
         <SiAdobeillustrator key="illustrator-1" />,
         <SiFigma key="figma-1" />
       ],
-    },
-    {
+        },
+        {
       id: 2,
       category: "App Design",
-      categoryLink: "/career/uiux/Hellow.jsx",
-      projectTitle: "Hellow : Prioritize People over Platform",
+      // categoryLink: "/career/uiux/Hellow.jsx",
+      projectTitle: (
+        <a href="/career/uiux/hellow" style={{ textDecoration: "none", color: "inherit" }}>
+          Hellow : Prioritize People over Platform
+        </a>
+      ),
       projectDescription:
-        "An innovative asynchronous messaging app idea that redefines communication across different time-zones.",
+        "An innovative asynchronous messaging app idea that redefines communication among loved ones living across different time-zones.",
       projectLink: "/career/uiux/hellow",
       projectImage: "/ProjectCardHellow.png",
       softwareIcons: [
@@ -46,10 +54,14 @@ const UIUXProjects = () => {
     {
       id: 4,
       category: "UI/UX Design",
-      categoryLink: "/uiux",
-      projectTitle: "Plant Easy : UI/UX Based App Concept",
+      // categoryLink: "/uiux",
+      projectTitle: (
+        <a href="/career/uiux/portfolio" style={{ textDecoration: "none", color: "inherit" }}>
+          Plant Easy : Figma Prototype
+        </a>
+      ),
       projectDescription:
-        "Discover an app concept design to solve the problem of deforestation, so that you can plant trees remotely!",
+        "Discover an app concept designed in Figma in 3 hours to solve the problem of deforestation, so that you can plant trees remotely!",
       projectLink:
         "https://www.figma.com/proto/69l5xZOXjWkdHJ8xZPlQA7/PlantEasy?node-id=84-391&p=f&t=UPs1ZUn9L95Tcf8v-1&scaling=scale-down&content-scaling=fixed&page-id=84%3A151&starting-point-node-id=84%3A391",
       projectImage: "/ProjectCardPlantEasy.png",
@@ -61,8 +73,8 @@ const UIUXProjects = () => {
     },
     {
       id: 6,
-      category: "UI/UX Re-Design",
-      categoryLink: "/uiux",
+      category: "User Testing",
+      // categoryLink: "/uiux",
       projectTitle: "Moja Coffee : Website Improvement Group Project",
       projectDescription:
         "Improving Moja Coffee website to create a smoother user experience using core UI/UX principles.",
@@ -77,11 +89,11 @@ const UIUXProjects = () => {
     },
     {
       id: 5,
-      category: "UI/UX Re-Design",
-      categoryLink: "/uiux",
+      category: "UI/UX Research",
+      // categoryLink: "/uiux",
       projectTitle: "Furry Tales Pet : Website Redesign Challenge",
       projectDescription:
-        "A redesign challenge we participated as a group of four in 2025, that focused on enhancing the user experience for pet lovers.",
+        "A 2-Day redesign challenge participation as a group of four that focused on enhancing the user experience.",
       projectLink: "https://tinalin.ca/projects/furry-tales",
       projectImage: "/ProjectCardFurry.png",
       softwareIcons: [
@@ -92,7 +104,7 @@ const UIUXProjects = () => {
     {
       id: 3,
       category: "UI/UX Re-Design",
-      categoryLink: "/uiux",
+      // categoryLink: "/uiux",
       projectTitle: "Suzanne Collins : My First Website Redesign Case Study",
       projectDescription:
         "My first ever UX/UI Case Study done in school to reimagine the Suzanne Collins website with a user-centered approach and present the books in the most intuitive manner.",
@@ -114,9 +126,9 @@ const UIUXProjects = () => {
       <div
         style={{
           position: "absolute",
-          left: "10px",
+          left: "20px",
           bottom: "10px",
-          fontSize: "2.5rem",
+          fontSize: "2rem",
           color: "#3d3d3d5a",
           zIndex: 1000,
           userSelect: "none",
@@ -130,9 +142,9 @@ const UIUXProjects = () => {
       <div
         style={{
           position: "absolute",
-          right: "10px",
+          right: "20px",
           bottom: "10px",
-          fontSize: "2.5rem",
+          fontSize: "2rem",
           color: "#3d3d3d5a",
           zIndex: 1000,
           userSelect: "none",

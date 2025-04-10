@@ -52,7 +52,7 @@ li {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 2rem auto;
+  margin: 2rem -2rem;
   max-width: 100%;
   padding: 0 2rem;
 }
@@ -96,7 +96,7 @@ li {
   position: sticky;
   top: 0;
   align-self: flex-start;
-  margin: 1rem 0rem 1rem 5rem;
+  margin: 1rem 0rem 1rem 3rem;
   padding: 1rem;
   line-height: 2rem;
   border-right: 0.75px solid #ccc;

@@ -25,7 +25,7 @@
 .featured-projects-carousel .project-card {
   scroll-snap-align: start;
   flex: 0 0 auto;
-  width: 100%;
+  width: 10%;
 }
 
 /* Swipe Indicator: positioned on the left edge, vertically centered */
@@ -34,7 +34,7 @@
   right: 10px;               /* Adjust as needed for spacing from the screen edge */
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2.5rem;        /* Larger font size for visibility */
+  font-size: 1rem;        /* Larger font size for visibility */
   color: #777;              /* Subtle gray tone */
   cursor: default;          /* You can change this if you want it clickable */
   z-index: 1000;            /* Ensure it appears above other elements */

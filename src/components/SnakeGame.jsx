@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import bgImage from "/bg-image-blank.png"; // Background image for container aesthetics
+import bgImage from "/bg-image-with-logo.png"; // Background image for container aesthetics
 import "../styles/snakeGame.css";           // External CSS
 
 /**
