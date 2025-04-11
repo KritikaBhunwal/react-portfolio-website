@@ -1,16 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "/logo.png";
 import "../styles/navbar.css";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // isNavbarVisible controls whether the navbar has the "hidden" class.
+  const [isNavbarVisible, setNavbarVisible] = useState(true);
+  const hideTimerRef = useRef(null);
 
   const toggleMobileMenu = () => setMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // For mobile or small tablets, always show the navbar.
+      if (window.innerWidth <= 768 || window.scrollY <= 300) {
+        setNavbarVisible(true);
+        if (hideTimerRef.current) {
+          clearTimeout(hideTimerRef.current);
+        }
+        return;
+      }
+
+      // Clear any existing timer.
+      if (hideTimerRef.current) {
+        clearTimeout(hideTimerRef.current);
+      }
+
+      // Make sure the navbar is visible during scrolling.
+      setNavbarVisible(true);
+
+      // Start a 2-second timer to hide the navbar if no scroll occurs.
+      hideTimerRef.current = setTimeout(() => {
+        setNavbarVisible(false);
+      }, 2000);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (hideTimerRef.current) {
+        clearTimeout(hideTimerRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <nav className="navbar" role="navigation" aria-label="Main Navigation">
+    // Conditionally add the "hidden" class based on isNavbarVisible.
+    <nav className={`navbar ${isNavbarVisible ? "" : "hidden"}`} role="navigation" aria-label="Main Navigation">
       <div className="navbar-container">
         {/* Logo */}
         <div className="navbar-logo">
@@ -46,14 +85,15 @@ const Navbar = () => {
               <NavLink to="/career/uiux/UIUX" onClick={closeMobileMenu} className="dropdown-item">
                 UI/UX Design
               </NavLink>
-            {/* <div className="dropdown-submenu">
-              <NavLink to="/career/uiux/Hellow" onClick={closeMobileMenu} className="dropdown-subitem">
-                Hellow
-              </NavLink>
-              <NavLink to="/career/uiux/Portfolio" onClick={closeMobileMenu} className="dropdown-subitem">
-                Portfolio
-              </NavLink>
-            </div> */}
+              {/* Nested submenu example (currently commented out) */}
+              {/* <div className="dropdown-submenu">
+                <NavLink to="/career/uiux/Hellow" onClick={closeMobileMenu} className="dropdown-subitem">
+                  Hellow
+                </NavLink>
+                <NavLink to="/career/uiux/Portfolio" onClick={closeMobileMenu} className="dropdown-subitem">
+                  Portfolio
+                </NavLink>
+              </div> */}
               <NavLink to="/career/graphics/Graphics" onClick={closeMobileMenu} className="dropdown-item">
                 Graphic Design
               </NavLink>
@@ -66,9 +106,13 @@ const Navbar = () => {
             </div>
           </div>
 
-          <NavLink to="/about" onClick={closeMobileMenu} className={({ isActive }) =>
+          <NavLink
+            to="/about"
+            onClick={closeMobileMenu}
+            className={({ isActive }) =>
               isActive ? "nav-link active" : "nav-link"
-            }>
+            }
+          >
             ABOUT
           </NavLink>
         </div>
@@ -96,8 +140,6 @@ const Navbar = () => {
           <NavLink to="/career/front-end/JavaScriptGames" onClick={closeMobileMenu} className="dropdown-sublink">3. React Games</NavLink>
           <NavLink to="/career/graphics/Graphics" onClick={closeMobileMenu} className="dropdown-link">GRAPHIC DESIGN</NavLink>
           <NavLink to="/career/fashion/Fashion" onClick={closeMobileMenu} className="dropdown-link">FASHION DESIGN</NavLink>
-
-
           <NavLink to="/about" onClick={closeMobileMenu} className="nav-link">ABOUT</NavLink>
         </div>
       </div>

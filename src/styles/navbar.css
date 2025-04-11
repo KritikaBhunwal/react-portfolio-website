@@ -3,13 +3,13 @@
   --primary-purple: #cbbfee;
   --primary-white: #F3F3F3;
   --primary-yellow: #FEE269;
-  --navbar-bg: #2D2D2D;
+  --navbar-bg: #1d1d1d;
 }
 
+/* Global Reset */
 * {
   box-sizing: border-box;
-  margin: 0rem;
-
+  margin: 0;
 }
 
 /* ---------- Navbar ---------- */
@@ -17,9 +17,21 @@
   background-color: var(--navbar-bg);
   border-radius: 1.6rem;
   padding: 0.4rem 1rem;
-  margin: 1.4rem 1.8rem 0;
+  margin: 1.4rem 1.8rem 0; /* Adjust margin if needed */
   z-index: 1000;
-  position: relative;
+  position: fixed; /* Fixed so it stays at the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  transition: translate 1s ease-in-out; /* Smooth dissolve effect */
+}
+
+/* Hide navbar by sliding it up and fading it out */
+.navbar.hidden {
+  transform: translateY(-100%);
+  transition: translate 1s ease-in-out; /* Dissolve effect by transitioning opacity */
+  opacity: 0;
 }
 
 .navbar-container {
@@ -65,7 +77,7 @@
 
 .nav-link:hover {
   color: var(--primary-purple);
-  background-color: #2d2d2d;
+  background-color: #1d1d1d;
 }
 
 .nav-link.active {
@@ -74,11 +86,12 @@
   font-weight: 600;
 }
 
+/* ---------- Dropdown Menu Styling ---------- */
 .dropdown-link {
   text-align: center;
   font-size: small;
-  background-color: #2d2d2d;
-  color: #Cbbfee;
+  background-color: #1d1d1d;
+  color: #cbbfee;
   text-decoration: none;
   padding: 0.4rem 1rem;
   border-radius: 2rem;
@@ -86,13 +99,13 @@
 
 .dropdown-link:hover {
   color: #F3F3F3;
-  background-color: #2d2d2d;
+  background-color: #1d1d1d;
 }
 
 .dropdown-sublink {
   text-align: center;
   font-size: small;
-  background-color: #2d2d2d;
+  background-color: #1d1d1d;
   color: #9d9d9d;
   text-decoration: none;
   padding: 0.4rem 1rem;
@@ -101,7 +114,7 @@
 
 .dropdown-sublink:hover {
   color: #cbbfee;
-  background-color: #2d2d2d;
+  background-color: #1d1d1d;
 }
 
 /* ---------- Hamburger Icon (Three-Bar to X) ---------- */
@@ -141,7 +154,7 @@
   top: 20px;
 }
 
-/* Transform into X */
+/* Transform into X when open */
 .hamburger-icon.open .bar:nth-child(1) {
   transform: rotate(45deg);
   top: 10px;
@@ -166,7 +179,7 @@
   top: 0;
   right: 0;
   width: 70%;
-  max-width: 300px;
+  max-width: 400px;
   height: 100%;
   background-color: var(--navbar-bg);
   transform: translateX(100%);
@@ -209,14 +222,13 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #2d2d2d;
+    background-color: #1d1d1d;
     padding: 0.5rem;
     border-radius: 2rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     min-width: 200px;
   }
-
 
   .nav-dropdown:hover .dropdown-menu {
     display: flex;
@@ -236,6 +248,6 @@
 
   .nav-dropdown .dropdown-menu a:hover {
     background-color: #cbbfee;
-    color: #2d2d2d;
+    color: #1d1d1d;
   }
 }

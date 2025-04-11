@@ -98,7 +98,7 @@ SEO.defaultProps = {
   title: 'Kritika Bhunwal - Design Portfolio Website',
   description: 'Explore my journey in Fashion Design, Graphic Design and UI UX Design and how I create interactive projects in the field of web design and development!',
   keywords: 'Design, Research, Development, Fashion, Graphic, UiUx, UXUI, Front-End Development, Graphic Designer, Fashion Designer, UXUI Designer, UIUX Designer, Front-End Developer',
-  url: 'https://www.example.com',
+  url: 'https://www.kritikabhunwal.com',
   image: 'https://www.example.com/default-image.png',
   type: 'portfolio website',
   locale: 'en_US', // typical default locale
@@ -107,7 +107,7 @@ SEO.defaultProps = {
   // twitterCreator: null, // e.g. '@creatorHandle'
   structuredData: null,
   lang: 'en',
-  robots: 'index,follow', // controls whether bots index/follow the page
+  robots: 'index, follow', // controls whether bots index/follow the page
 };
 
 export default SEO;

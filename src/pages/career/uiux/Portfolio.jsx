@@ -531,6 +531,35 @@ const Portfolio = () => {
           </main>
         </div>
       </div>
+      <SectionHeading title="Let's Collaborate!" />
+
+      <ProjectContent
+          title="A Partnership Rooted in Creativity & Collaboration"
+          description="I thrive in creative collaborations that push boundaries and bring fresh perspectives to the table. Whether it's branding, illustration, UX/UI, or strategic design thinking, I am eager to contribute innovative solutions tailored to your vision. Let’s build something impactful together!"
+          highlights={[
+            {
+              bulletPointOne: "Creative Branding",
+              detail:
+                "Unique and memorable visual identities that capture your brand's essence and set you apart in the marketplace.",
+            },
+            {
+              bulletPointOne: "Illustration Expertise",
+              detail:
+                "Tailored illustrations that communicate your story with clarity, emotion, and a touch of artistry.",
+            },
+            {
+              bulletPointOne: "UX/UI Design",
+              detail:
+                "User-centered design solutions that create seamless, engaging, and intuitive experiences.",
+            },
+            {
+              bulletPointOne: "Strategic Design Thinking",
+              detail:
+                "Innovative problem-solving approaches that drive impactful, sustainable design outcomes.",
+            },
+          ]}
+        />
+
 
       <WorkTogether />
 

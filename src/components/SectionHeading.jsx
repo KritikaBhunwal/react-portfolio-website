@@ -8,7 +8,7 @@ const SectionHeading = ({ title = 'Section Title' }) => {
           {title}
         </h3>
       </div>
-      <div className="bg-[#2d2d2d5a] h-[0.5px] w-full mb-[1rem] mr-[4rem] mx-[2rem]"></div>
+      <div className="bg-[#2d2d2d5a] h-[0.5px] w-full mb-[1rem] mr-[3.5rem] mx-[2rem]"></div>
     </div>
   );
 };

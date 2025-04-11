@@ -22,21 +22,14 @@ li {
 .portfolio-container {
   color: #2d2d2d;
   font-family: 'Quicksand', sans-serif;
-  margin: 2rem;  /* 4rem side margins on desktop */
+  /* 4rem margins on desktop */
+  margin: 4rem;
 }
 
-/* Mobile override */
 @media (max-width: 768px) {
   .portfolio-container {
     margin: 1rem;
   }
-}
-
-.portfolio-banner {
-  width: 100vw;
-  margin: 2rem;  /* Centered with auto margins */
-  padding: 0 2rem;
-  box-sizing: border-box;
 }
 
 /* Banner Styles */
@@ -47,12 +40,19 @@ li {
   margin: 0;
 }
 
+.portfolio-banner {
+  width: 100vw;
+  margin: 2rem auto; /* Centered with auto margins */
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
 /* Header Styles */
 .report-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 2rem -2rem;
+  margin: 0 auto;
   max-width: 100%;
   padding: 0 2rem;
 }
@@ -74,32 +74,43 @@ li {
   font-weight: bold;
   color: #cbbfee;
   text-align: left;
-  margin-left: 0rem; /* start from 4rem on desktop */
+  margin-left: 4rem; /* 4rem away on desktop */
 }
 
 @media (max-width: 768px) {
   .report-authors {
-    margin-top: 1rem;
+    margin-left: 1rem;
   }
 }
 
-/* Desktop Layout for TOC & Content */
+/* Main Content Wrapper */
+.portfolio-content {
+  margin: 4rem 4rem; /* 4rem on left/right for desktop */
+}
+
+@media (max-width: 768px) {
+  .portfolio-content {
+    margin: 1rem;
+  }
+}
+
+/* Desktop Layout */
 .desktop-layout {
   display: flex;
   gap: 2rem;
-  margin: 2rem 0rem;
+  margin: 2rem 0;
 }
 
 /* Table of Contents - fixed on desktop, scrollable on mobile */
 .table-of-contents {
-  flex: 0 0 400px;
+  flex: 0 0 200px;
   position: sticky;
   top: 0;
   align-self: flex-start;
-  margin: 1rem 0rem 1rem 3rem;
+  margin: 1rem;
   padding: 1rem;
   line-height: 2rem;
-  border-right: 0.75px solid #ccc;
+  border-right: 2px solid #ccc;
 }
 
 .table-of-contents h3 {
@@ -129,7 +140,6 @@ li {
   padding: 0.25rem;
   border-radius: 0.5rem;
   transition: color 0.3s ease;
-  
 }
 
 .table-of-contents a:hover,
@@ -285,11 +295,11 @@ li {
 
 @media (max-width: 768px) {
   .portfolio-container {
-    margin: 1rem 2rem;
+    margin: 1rem;
   }
   .portfolio-banner {
-    margin-left: -2rem;
-    margin-right: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
   .header-text h2 {
     font-size: 2.5rem;
@@ -299,8 +309,9 @@ li {
     font-size: 1.25rem;
     margin: 0.5rem auto;
   }
+  /* TOC changes to static on mobile */
   .table-of-contents {
-    position: static; /* allow TOC to scroll naturally on mobile */
+    position: static;
     margin: 1rem;
     padding: 1rem;
   }

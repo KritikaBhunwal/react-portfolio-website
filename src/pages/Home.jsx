@@ -17,7 +17,7 @@ const collaborationHighlights = [
   },
   {
     bulletPointOne: "Creative Problem Solving",
-    detail: "I like to utilize design thinking to find innovative solutions personalized as per the business needs.",
+    detail: "I like to utilize design thinking to personalize solutions as per the business needs.",
   },
   {
     bulletPointOne: "Always Detail-Oriented",
@@ -66,13 +66,13 @@ const Home = () => {
         <SectionHeading title="Career Progression" />
         <p style={{ marginLeft: "3rem", marginRight: "3rem" }}>I welcome you to explore through my Design Journey...</p>
         <Career />
-        <SectionHeading title="Looking to Collaborate?" />
+        <SectionHeading title="I'm Always Looking to Collaborate?" />
         <ProjectContent 
           title="Let’s Build Something Amazing Together!"
           description="I am passionate about creating meaningful designs that resonate and inspire. Whether it’s branding, UX/UI, or creative problem-solving, I’m here to bring your vision to life. Let’s collaborate and make an impact!"
           highlights={collaborationHighlights}
         />
-        <SectionHeading title="Get In Touch" />
+        <SectionHeading title="Have an Idea?" />
         <WorkTogether />
       </div>
     </>

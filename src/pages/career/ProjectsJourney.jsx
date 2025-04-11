@@ -14,6 +14,7 @@ import WorkTogether from "../../components/WorkTogether.jsx";
 
 /* CSS */
 import "../../styles/projectJourneyPage.css";
+import AllProjects from "../../components/AllProjects.jsx";
 
 const ProjectJourneyPage = () => {
   // Example timeline data referencing your shared icons
@@ -183,6 +184,9 @@ const ProjectJourneyPage = () => {
           })}
         </div>
       </div>
+
+      <SectionHeading title="My Design Projects" />
+      <AllProjects />
 
       {/* Final "Let's Collaborate" CTA */}
       <SectionHeading title="Let's Collaborate" />

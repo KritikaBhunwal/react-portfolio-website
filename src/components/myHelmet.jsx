@@ -5,14 +5,14 @@ const MyHelmet = () => (
     {/* Basic Meta Tags */}
     <html lang="en" />
     <meta charSet="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/myFavicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {/* SEO Meta Tags */}
     <title>Kritika Bhunwal</title>
     <meta
       name="description"
-      content="Hello! I am Kritika Bhunwal. I am a creative web designer who's passionate about user experience and interface design, graphic design and fashion design. Explore a palette of innovative projects for design, development and artistic expression."
+      content="Hello! I am Kritika Bhunwal. I am a creative web designer who's passionate about user experience and interface design, graphic design and fashion design. I welcome you to explore a palette of innovative projects for design, development and artistic expression."
     />
     <meta
       name="keywords"
