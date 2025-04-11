@@ -49,7 +49,7 @@ import Life129 from "/life129.jpeg";
 import Life130 from "/life130.jpeg";
 import Life131 from "/life131.jpeg";
 import Life132 from "/life132.jpeg";
-import Life133 from "/life133.jpeg";
+// import Life133 from "/life133.jpeg";
 import Life134 from "/life134.jpeg";
 import Life135 from "/life135.jpeg";
 import Life136 from "/life136.jpeg";
@@ -119,57 +119,56 @@ const AboutContent = () => {
 
 // Create a custom life images data array
 const lifeImages = [
-  { src: Life101, caption: "Art washes away from the soul the dust of everyday life." },
-  { src: Life102, caption: "Design is intelligence made visible." },
-  { src: Life103, caption: "Creativity takes courage." },
-  { src: Life104, caption: "Art is not what you see, but what you make others see." },
-  { src: Life105, caption: "Design is where science and art break even." },
-  { src: Life106, caption: "Every great design begins with an even better story." },
-  { src: Life107, caption: "Simplicity is the ultimate sophistication." },
-  { src: Life108, caption: "Good design is obvious. Great design is transparent." },
-  { src: Life109, caption: "The purpose of art is washing the dust of daily life off our souls." },
-  { src: Life110, caption: "Art is a journey into a world that's both new and familiar." },
-  { src: Life111, caption: "Design is the silent ambassador of your brand." },
-  { src: Life112, caption: "Creativity is contagious. Pass it on." },
-  { src: Life113, caption: "Art washes away from the soul the dust of everyday life." },
-  { src: Life114, caption: "Design is intelligence made visible." },
-  { src: Life115, caption: "Creativity takes courage." },
-  { src: Life116, caption: "Art is not what you see, but what you make others see." },
-  { src: Life117, caption: "Design is where science and art break even." },
-  { src: Life118, caption: "Every great design begins with an even better story." },
-  { src: Life119, caption: "Simplicity is the ultimate sophistication." },
-  { src: Life120, caption: "Good design is obvious. Great design is transparent." },
-  { src: Life121, caption: "The purpose of art is washing the dust of daily life off our souls." },
-  { src: Life122, caption: "Art is a journey into a world that's both new and familiar." },
-  { src: Life123, caption: "Design is the silent ambassador of your brand." },
-  { src: Life124, caption: "Creativity is contagious. Pass it on." },
-  { src: Life125, caption: "Art washes away from the soul the dust of everyday life." },
-  { src: Life126, caption: "Design is intelligence made visible." },
-  { src: Life127, caption: "Creativity takes courage." },
-  { src: Life128, caption: "Art is not what you see, but what you make others see." },
-  { src: Life129, caption: "Design is where science and art break even." },
-  { src: Life130, caption: "Every great design begins with an even better story." },
-  { src: Life131, caption: "Simplicity is the ultimate sophistication." },
-  { src: Life132, caption: "Good design is obvious. Great design is transparent." },
-  { src: Life133, caption: "The purpose of art is washing the dust of daily life off our souls." },
-  { src: Life134, caption: "Art is a journey into a world that's both new and familiar." },
-  { src: Life135, caption: "Design is the silent ambassador of your brand." },
-  { src: Life136, caption: "Creativity is contagious. Pass it on." },
-  { src: Life137, caption: "Art washes away from the soul the dust of everyday life." },
-  { src: Life138, caption: "Design is intelligence made visible." },
-  { src: Life139, caption: "Creativity takes courage." },
-  { src: Life140, caption: "Art is not what you see, but what you make others see." },
-  { src: Life141, caption: "Design is where science and art break even." },
-  { src: Life142, caption: "Every great design begins with an even better story." },
-  { src: Life143, caption: "Simplicity is the ultimate sophistication." },
-  { src: Life144, caption: "Good design is obvious. Great design is transparent." },
-  { src: Life145, caption: "The purpose of art is washing the dust of daily life off our souls." },
-  { src: Life146, caption: "Art is a journey into a world that's both new and familiar." },
-  { src: Life147, caption: "Design is the silent ambassador of your brand." },
-  { src: Life148, caption: "Creativity is contagious. Pass it on." },
-  { src: Life149, caption: "Art washes away from the soul the dust of everyday life." },
   { src: Life150, caption: "Design is intelligence made visible." },
-  // { src: Life151, caption: "Creativity takes courage." },
+  { src: Life149, caption: "Art washes away from the soul the dust of everyday life." },
+  { src: Life148, caption: "Creativity is contagious. Pass it on." },
+  { src: Life147, caption: "Design is the silent ambassador of your brand." },
+  { src: Life146, caption: "Art is a journey into a world that's both new and familiar." },
+  { src: Life145, caption: "The purpose of art is washing the dust of daily life off our souls." },
+  { src: Life144, caption: "Good design is obvious. Great design is transparent." },
+  { src: Life143, caption: "Simplicity is the ultimate sophistication." },
+  { src: Life142, caption: "Every great design begins with an even better story." },
+  { src: Life141, caption: "Design is where science and art break even." },
+  { src: Life140, caption: "Art is not what you see, but what you make others see." },
+  { src: Life139, caption: "Creativity takes courage." },
+  { src: Life138, caption: "Design is intelligence made visible." },
+  { src: Life137, caption: "Art washes away from the soul the dust of everyday life." },
+  { src: Life136, caption: "Creativity is contagious. Pass it on." },
+  { src: Life135, caption: "Design is the silent ambassador of your brand." },
+  { src: Life134, caption: "Art is a journey into a world that's both new and familiar." },
+  // { src: Life133, caption: "The purpose of art is washing the dust of daily life off our souls." },
+  { src: Life132, caption: "Good design is obvious. Great design is transparent." },
+  { src: Life131, caption: "Simplicity is the ultimate sophistication." },
+  { src: Life130, caption: "Every great design begins with an even better story." },
+  { src: Life129, caption: "Design is where science and art break even." },
+  { src: Life128, caption: "Art is not what you see, but what you make others see." },
+  { src: Life127, caption: "Creativity takes courage." },
+  { src: Life126, caption: "Design is intelligence made visible." },
+  { src: Life125, caption: "Art washes away from the soul the dust of everyday life." },
+  { src: Life124, caption: "Creativity is contagious. Pass it on." },
+  { src: Life123, caption: "Design is the silent ambassador of your brand." },
+  { src: Life122, caption: "Art is a journey into a world that's both new and familiar." },
+  { src: Life121, caption: "The purpose of art is washing the dust of daily life off our souls." },
+  { src: Life120, caption: "Good design is obvious. Great design is transparent." },
+  { src: Life119, caption: "Simplicity is the ultimate sophistication." },
+  { src: Life118, caption: "Every great design begins with an even better story." },
+  { src: Life117, caption: "Design is where science and art break even." },
+  { src: Life116, caption: "Art is not what you see, but what you make others see." },
+  { src: Life115, caption: "Creativity takes courage." },
+  { src: Life114, caption: "Design is intelligence made visible." },
+  { src: Life113, caption: "Art washes away from the soul the dust of everyday life." },
+  { src: Life112, caption: "Creativity is contagious. Pass it on." },
+  { src: Life111, caption: "Design is the silent ambassador of your brand." },
+  { src: Life110, caption: "Art is a journey into a world that's both new and familiar." },
+  { src: Life109, caption: "The purpose of art is washing the dust of daily life off our souls." },
+  { src: Life108, caption: "Good design is obvious. Great design is transparent." },
+  { src: Life107, caption: "Simplicity is the ultimate sophistication." },
+  { src: Life106, caption: "Every great design begins with an even better story." },
+  { src: Life105, caption: "Design is where science and art break even." },
+  { src: Life104, caption: "Art is not what you see, but what you make others see." },
+  { src: Life103, caption: "Creativity takes courage." },
+  { src: Life102, caption: "Design is intelligence made visible." },
+  { src: Life101, caption: "Art washes away from the soul the dust of everyday life." },
 ];
 
 const About = () => {
@@ -213,7 +212,7 @@ const About = () => {
 
 
         {/* Custom Life Gallery Usage (inserted just above WorkTogether) */}
-        <SectionHeading title="Life Gallery" />
+        <SectionHeading title="Gallery of Life" />
         <ProcreateDump imageData={lifeImages} />
 
         {/* Let's Work Together Section */}

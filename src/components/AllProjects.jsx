@@ -7,7 +7,7 @@ import {
   SiFigma, 
   SiCanva 
 } from "react-icons/si";
-import { FaSearch } from "react-icons/fa";
+import { FaReact, FaSearch } from "react-icons/fa";
 import { AiFillApple } from "react-icons/ai";
 
 const AllProjects = () => {
@@ -30,6 +30,28 @@ const AllProjects = () => {
       softwareIcons: [
         <SiAdobephotoshop key="photoshop-1" />,
         <SiAdobeillustrator key="illustrator-1" />,
+        <SiFigma key="figma-1" />
+      ],
+    },
+    {
+      id: 7,
+      category: "Web Development",
+      projectTitle: (
+        <a
+          href="/career/front-end/JavaScriptGames"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          Arcade Games Revamp : React Project
+        </a>
+      ),
+      projectDescription:
+        "Redesigning 90's Arcade games using React.",
+      projectLink: "/career/front-end/JavaScriptGames",
+      projectImage: "/ProjectCardGames.png",
+      softwareIcons: [
+        <SiAdobephotoshop key="photoshop-1" />,
+        <SiAdobeillustrator key="illustrator-1" />,
+        <FaReact key="react-1" />,
         <SiFigma key="figma-1" />
       ],
     },
@@ -92,6 +114,19 @@ const AllProjects = () => {
       ],
     },
     {
+      id: 8,
+      category: "QA Testing",
+      projectTitle: "The Solar System : QA Testing Project",
+      projectDescription:
+        "Researched and Designed the initial landing page and QA testing process.",
+      projectLink: "https://www.figma.com/proto/aodpcYhkWYUwtttaCWH1ti/Solar-System-QA-Project?node-id=1-2&t=jEY0vR52TOmHOXnw-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2",
+      projectImage: "/ProjectCardMoon.png",
+      softwareIcons: [
+        <SiFigma key="figma-5" />,
+        <FaSearch key="research-5" />
+      ],
+    },
+    {
       id: 5,
       category: "UI/UX Research",
       projectTitle: "Furry Tales Pet : Website Redesign Challenge",
@@ -127,7 +162,7 @@ const AllProjects = () => {
   return (
     <div className="all-projects-container">
       <div className="marquee-container">
-        <div className="marquee">
+        <div className="marqueeProjects">
           {duplicatedProjects.map((project, idx) => (
             <div className="project-card" key={`${project.id}-${idx}`}>
               {/* Clickable Project Image */}

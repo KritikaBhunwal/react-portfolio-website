@@ -12,40 +12,40 @@ const Navbar = () => {
   const toggleMobileMenu = () => setMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // For mobile or small tablets, always show the navbar.
-      if (window.innerWidth <= 768 || window.scrollY <= 300) {
-        setNavbarVisible(true);
-        if (hideTimerRef.current) {
-          clearTimeout(hideTimerRef.current);
-        }
-        return;
-      }
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     // For mobile or small tablets, always show the navbar.
+  //     if (window.innerWidth <= 768 || window.scrollY <= 300) {
+  //       setNavbarVisible(true);
+  //       if (hideTimerRef.current) {
+  //         clearTimeout(hideTimerRef.current);
+  //       }
+  //       return;
+  //     }
 
-      // Clear any existing timer.
-      if (hideTimerRef.current) {
-        clearTimeout(hideTimerRef.current);
-      }
+  //     // Clear any existing timer.
+  //     if (hideTimerRef.current) {
+  //       clearTimeout(hideTimerRef.current);
+  //     }
 
-      // Make sure the navbar is visible during scrolling.
-      setNavbarVisible(true);
+  //     // Make sure the navbar is visible during scrolling.
+  //     setNavbarVisible(true);
 
-      // Start a 2-second timer to hide the navbar if no scroll occurs.
-      hideTimerRef.current = setTimeout(() => {
-        setNavbarVisible(false);
-      }, 2000);
-    };
+  //     // Start a 2-second timer to hide the navbar if no scroll occurs.
+  //     hideTimerRef.current = setTimeout(() => {
+  //       setNavbarVisible(false);
+  //     }, 1000);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (hideTimerRef.current) {
-        clearTimeout(hideTimerRef.current);
-      }
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //     if (hideTimerRef.current) {
+  //       clearTimeout(hideTimerRef.current);
+  //     }
+  //   };
+  // }, []);
 
   return (
     // Conditionally add the "hidden" class based on isNavbarVisible.

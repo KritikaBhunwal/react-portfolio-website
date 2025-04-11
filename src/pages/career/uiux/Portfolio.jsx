@@ -24,17 +24,19 @@ const Portfolio = () => {
   const [modalIndex, setModalIndex] = useState(0);
 
   // Define image arrays for each phase with at least two images per section
-  const ideationImages = [
-    { src: "/IdeationMindMap.png", caption: "Brainstorming & Mind Mapping" },
-    { src: "/IdeationMindMap2.png", caption: "Additional Ideation Insight" },
-  ];
+  // const ideationImages = [
+  //   { src: "/PortfolioAsset01.jpeg", caption: "Brainstorming & Mind Mapping" },
+  //   { src: "/PortfolioAsset02.jpeg", caption: "Additional Ideation Insight" },
+  // ];
   const moodBoardImages = [
-    { src: "/MoodBoard.jpg", caption: "Mood Board Inspiration" },
-    { src: "/MoodBoard2.jpg", caption: "Secondary Mood Board Detail" },
+    { src: "/PortfolioAsset01.jpeg", caption: "Mood Board Inspiration" },
+    { src: "/PortfolioAsset12.jpeg", caption: "Secondary Mood Board Detail" },
   ];
   const styleGuideImages = [
-    { src: "/StyleGuide.jpg", caption: "Style Guide & Visual Assets" },
-    { src: "/StyleGuide2.jpg", caption: "Extra Visual Asset" },
+    // { src: "/PortfolioAsset02.jpeg", caption: "Style Guide & Visual Assets" },
+    { src: "/PortfolioAsset03.jpeg", caption: "Extra Visual Asset" },
+    { src: "/PortfolioAsset04.jpeg", caption: "Style Guide & Visual Assets" },
+    { src: "/PortfolioAsset05.jpeg", caption: "Extra Visual Asset" },
   ];
   const wireframesImages = [
     { src: "/Wireframes.png", caption: "Wireframe Sketches & Mockups" },
@@ -46,17 +48,17 @@ const Portfolio = () => {
   ];
   const designTransitionImages = [
     {
-      src: "/DesignTransition.jpg",
+      src: "/PortfolioAsset02.jpeg",
       caption: "From Bold Illustrations to Subtle Professionalism",
     },
     {
-      src: "/DesignTransition2.jpg",
+      src: "/PortfolioAsset10.jpeg",
       caption: "Design Refinement Process",
     },
   ];
   const uxuidesignImages = [
-    { src: "/UXUIDesign.jpg", caption: "UX/UI Prototypes & Iterations" },
-    { src: "/UXUIDesign2.jpg", caption: "Improved UX/UI Concepts" },
+    { src: "/PortfolioAsset07.jpeg", caption: "UX/UI Prototypes & Iterations" },
+    { src: "/PortfolioAsset06.jpeg", caption: "Improved UX/UI Concepts" },
   ];
   const developmentImages = [
     {
@@ -75,7 +77,7 @@ const Portfolio = () => {
 
   // Combined modal images array (order follows the table of contents)
   const modalImages = [
-    ...ideationImages,
+    // ...ideationImages,
     ...moodBoardImages,
     ...styleGuideImages,
     ...wireframesImages,
@@ -194,7 +196,10 @@ const Portfolio = () => {
                 <p>
                   This phase was simple, honest, and full of raw inspiration that set the tone for everything that followed.
                 </p>
-                <div className="section-gallery">
+                <FigmaFrame 
+                  figmaUrl="https://www.figma.com/design/QwIMymTyToy9PF7Yd1JsbC/Portfolio-Website-KritikaBhunwal?node-id=72-938&p=f&t=GvVvps5mcGDWgNOS-0" 
+                />
+                {/* <div className="section-gallery">
                   {ideationImages.map((img, idx) => (
                     <img
                       key={idx}
@@ -204,7 +209,7 @@ const Portfolio = () => {
                       className="gallery-image"
                     />
                   ))}
-                </div>
+                </div> */}
               </div>
             </section>
 
@@ -272,24 +277,9 @@ const Portfolio = () => {
                 <p>
                   With each iteration, I refined the design, ensuring that the interface was both simple and effective.
                 </p>
-                <div className="section-gallery">
-                  {wireframesImages.map((img, idx) => (
-                    <img
-                      key={idx}
-                      src={img.src}
-                      alt={img.caption}
-                      onClick={() =>
-                        openModal(
-                          ideationImages.length +
-                          moodBoardImages.length +
-                          styleGuideImages.length +
-                          idx
-                        )
-                      }
-                      className="gallery-image"
-                    />
-                  ))}
-                </div>
+                <FigmaFrame 
+                  figmaUrl="https://www.figma.com/design/QwIMymTyToy9PF7Yd1JsbC/Portfolio-Website-KritikaBhunwal?node-id=0-1&p=f&t=GvVvps5mcGDWgNOS-0" 
+                />
               </div>
             </section>
 
@@ -303,25 +293,18 @@ const Portfolio = () => {
                 <p>
                   This research laid a solid foundation for my decisions throughout the project.
                 </p>
-                <div className="section-gallery">
-                  {researchImages.map((img, idx) => (
-                    <img
-                      key={idx}
-                      src={img.src}
-                      alt={img.caption}
-                      onClick={() =>
-                        openModal(
-                          ideationImages.length +
-                          moodBoardImages.length +
-                          styleGuideImages.length +
-                          wireframesImages.length +
-                          idx
-                        )
-                      }
-                      className="gallery-image"
-                    />
-                  ))}
-                </div>
+                <PDFViewer
+                  src="/InitialPortfolioDesign.pdf"
+                  width="100%"
+                  style={{
+                    borderRadius: "2rem",
+                    margin: "1rem auto",
+                    maxWidth: "90vw",
+                    width: "90%",
+                    height: "calc(90vh - 200px)",
+                    maxHeight: "calc(90vh - 200px)",
+                  }}
+                />
               </div>
             </section>
 
@@ -335,6 +318,9 @@ const Portfolio = () => {
                 <p>
                   This transition was a learning process that improved both the style and functionality of the design.
                 </p>
+                <FigmaFrame 
+                  figmaUrl="https://www.figma.com/proto/QwIMymTyToy9PF7Yd1JsbC/Portfolio-Website-KritikaBhunwal?node-id=27-435&p=f&t=ZbyRalM8fB037SC5-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2" 
+                />
                 <div className="section-gallery">
                   {designTransitionImages.map((img, idx) => (
                     <img
@@ -402,7 +388,7 @@ const Portfolio = () => {
                 <p>
                   The process was challenging but rewarding and ultimately brought the design to life on the web.
                 </p>
-                <div className="section-gallery">
+                {/* <div className="section-gallery">
                   {developmentImages.map((img, idx) => (
                     <img
                       key={idx}
@@ -423,7 +409,7 @@ const Portfolio = () => {
                       className="gallery-image"
                     />
                   ))}
-                </div>
+                </div> */}
               </div>
             </section>
 
@@ -437,7 +423,7 @@ const Portfolio = () => {
                 <p>
                   Special thanks to Richard and Airrick for their collaboration, which helped transform my ideas into a finished and successful project.
                 </p>
-                <div className="section-gallery">
+                {/* <div className="section-gallery">
                   {bibliographyImages.map((img, idx) => (
                     <img
                       key={idx}
@@ -459,12 +445,12 @@ const Portfolio = () => {
                       className="gallery-image"
                     />
                   ))}
-                </div>
+                </div> */}
               </div>
             </section>
 
             {/* Figma Prototype Section */}
-            <section id="figma-prototype" className="report-section">
+            {/* <section id="figma-prototype" className="report-section">
               <SectionHeading title="Figma Prototype" />
               <div className="section-content">
                 <p>
@@ -473,14 +459,11 @@ const Portfolio = () => {
                 <p>
                   The prototype helped identify areas for improvement and ensured that the design was both attractive and practical.
                 </p>
-                <FigmaFrame 
-                  figmaUrl="https://www.figma.com/proto/QwIMymTyToy9PF7Yd1JsbC/Portfolio-Website-KritikaBhunwal?node-id=216-1335&p=f&t=ZbyRalM8fB037SC5-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=216%3A1335&show-proto-sidebar=1" 
-                />
               </div>
-            </section>
+            </section> */}
 
             {/* First Ever Pitch Deck Section */}
-            <section id="pitch-deck-first" className="report-section">
+            {/* <section id="pitch-deck-first" className="report-section">
               <SectionHeading title="First Ever Pitch Deck" />
               <div className="section-content">
                 <p>
@@ -489,20 +472,8 @@ const Portfolio = () => {
                 <p>
                   The pitch deck laid the groundwork for how I would communicate my design concepts in future presentations.
                 </p>
-                <PDFViewer
-                  src="/InitialPortfolioDesign.pdf"
-                  width="100%"
-                  style={{
-                    borderRadius: "2rem",
-                    margin: "1rem auto",
-                    maxWidth: "90vw",
-                    width: "90%",
-                    height: "calc(90vh - 200px)",
-                    maxHeight: "calc(90vh - 200px)",
-                  }}
-                />
               </div>
-            </section>
+            </section> */}
 
             {/* Pitch Deck Presentation Section */}
             <section id="pitch-deck-presentation" className="report-section">

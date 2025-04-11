@@ -18,12 +18,12 @@
   padding: 2rem;
 }
 
-.marquee {
+.marqueeProjects {
   display: flex;
   /* To ensure a continuous horizontal line, white-space must be set to nowrap */
   white-space: nowrap;
   gap: 2rem;
-  animation: marqueeMove 10s linear infinite;
+  animation: marqueeMove 50s linear infinite;
 }
 
 /* Pause the marquee when hovering */

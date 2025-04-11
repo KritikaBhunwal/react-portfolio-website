@@ -23,7 +23,13 @@ li {
   color: #2d2d2d;
   font-family: 'Quicksand', sans-serif;
   /* 4rem margins on desktop */
-  margin: 4rem;
+  margin: 4rem 2rem 0 2rem;
+}
+
+.section-content {
+  font-size: 1rem;
+  margin-left: 2rem;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
@@ -37,13 +43,13 @@ li {
   width: 100%;
   height: auto;
   display: block;
-  margin: 0;
+  margin-top: 6rem;
 }
 
 .portfolio-banner {
   width: 100vw;
   margin: 2rem auto; /* Centered with auto margins */
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
   box-sizing: border-box;
 }
 
@@ -61,12 +67,13 @@ li {
   font-size: 3rem;
   color: #2d2d2d;
   margin: 0 auto;
+  margin-left: 4rem;
 }
 
 .header-text h3 {
   font-size: 1.75rem;
   color: #2d2d2d;
-  margin: 0.5rem auto;
+  margin: 0.5rem 0 0 4rem;
 }
 
 .report-authors {
@@ -75,6 +82,7 @@ li {
   color: #cbbfee;
   text-align: left;
   margin-left: 4rem; /* 4rem away on desktop */
+  margin-top: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -103,9 +111,9 @@ li {
 
 /* Table of Contents - fixed on desktop, scrollable on mobile */
 .table-of-contents {
-  flex: 0 0 200px;
+  flex: 0 0 300px;
   position: sticky;
-  top: 0;
+  top: 4rem;
   align-self: flex-start;
   margin: 1rem;
   padding: 1rem;

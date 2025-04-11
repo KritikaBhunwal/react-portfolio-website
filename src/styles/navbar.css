@@ -19,7 +19,7 @@
   padding: 0.4rem 1rem;
   margin: 1.4rem 1.8rem 0; /* Adjust margin if needed */
   z-index: 1000;
-  position: fixed; /* Fixed so it stays at the top */
+  /* position: fixed; Fixed so it stays at the top */
   top: 0;
   left: 0;
   right: 0;

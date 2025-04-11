@@ -26,10 +26,8 @@ const FigmaFrame = ({
         height={height}
         src={embedUrl}
         allowFullScreen
-        style={{
-          border: "1px solid rgba(0, 0, 0, 0.1)",
-          borderRadius: "2rem",
-        }}
+        style={{ border: "none", borderRadius: "2rem", margin: "1rem", padding: "1rem", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.04)" }}
+
       />
     </div>
   );
