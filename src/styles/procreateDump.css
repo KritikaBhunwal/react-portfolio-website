@@ -3,10 +3,10 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-}
-
-/* Marquee Section */
-.marquee-container {
+  }
+  
+  /* Marquee Section */
+  .marquee-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,34 +14,32 @@
     padding: 2rem;
     overflow: hidden;
     width: 100%;
-}
-
-
-
-/* Marquee Animation */
-.marquee {
+  }
+  
+  /* Marquee Animation */
+  .marquee {
     display: flex;
     white-space: nowrap;
     gap: 2rem;
-    animation: marqueeMove 120s linear infinite; /* 🔥 Increased to 100s for smoother effect */
-}
-
-/* Pause on Hover */
-.marquee:hover {
-    animation-play-state: paused; /* 🔥 Pauses the animation when hovered */
-}
-
-@keyframes marqueeMove {
+    animation: marqueeMove 120s linear infinite;
+  }
+  
+  /* Pause on Hover */
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+  
+  @keyframes marqueeMove {
     from {
-        transform: translateX(0%);
+      transform: translateX(0%);
     }
     to {
-        transform: translateX(-50%);
+      transform: translateX(-50%);
     }
-}
-
-/* Marquee Image */
-.marquee-image {
+  }
+  
+  /* Marquee Image */
+  .marquee-image {
     width: 300px;
     height: 300px;
     object-fit: cover;
@@ -49,22 +47,20 @@
     filter: grayscale(100%) opacity(50%);
     transition: filter 0.3s ease, transform 0.3s ease;
     cursor: pointer;
-}
-
-/* Image Hover Effects */
-.marquee-image:hover {
+  }
+  
+  .marquee-image:hover {
     filter: grayscale(0%) opacity(100%);
-    transform: scale(1.05); /* 🔥 Slight scale effect on hover */
-}
-
-.masonry-image:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Masonry Image Hover Effect */
+  .masonry-image:hover {
     filter: grayscale(0%) opacity(100%);
-    /* transform: scale(1.01); */
-
-}
-
-/* Expanded Masonry View */
-.expanded-view {
+  }
+  
+  /* Expanded Masonry View */
+  .expanded-view {
     position: fixed;
     top: 0;
     left: 0;
@@ -77,27 +73,26 @@
     padding: 2rem;
     overflow-y: auto;
     z-index: 9999;
-}
-
-/* Masonry Layout */
-.masonry-gallery {
+  }
+  
+  /* Masonry Layout */
+  .masonry-gallery {
     column-count: 4;
     column-gap: 15px;
     width: 90%;
-}
-
-.masonry-image {
+  }
+  
+  .masonry-image {
     width: 100%;
     margin-bottom: 15px;
     cursor: pointer;
     border-radius: 2rem;
     filter: grayscale(100%) opacity(50%);
     transition: filter 0.3s ease, transform 0.3s ease;
-    
-}
-
-/* Full-Screen Image Viewer */
-.full-view-overlay {
+  }
+  
+  /* Full-Screen Image Viewer */
+  .full-view-overlay {
     background-color: white;
     position: fixed;
     top: 0;
@@ -108,18 +103,41 @@
     align-items: center;
     justify-content: center;
     z-index: 10000;
-}
-
-/* Full-View Image */
-.full-view-image {
+  }
+  
+  /* Content container to wrap the image and its caption.
+     Using inline-block lets the container take on the width of its children (the image),
+     so the caption will match the image’s width and wrap accordingly. */
+  .full-view-content {
+    display: inline-block;
+    text-align: center;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  /* Full-View Image */
+  .full-view-image {
+    margin: 2rem;
     max-width: 80%;
     max-height: 80%;
-    object-fit: contain;
+    object-fit: fill;
     border-radius: 2rem;
-}
-
-/* Fixed Close Button */
-.close-btn, .close-masonry {
+  }
+  
+  /* Caption for full-view.
+     It is centered and will wrap when exceeding the image width. */
+  .full-view-caption {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center;
+    width: 100%;
+    text-wrap: wrap;
+  }
+  
+  /* Fixed Close Button */
+  .close-btn,
+  .close-masonry {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -129,10 +147,11 @@
     padding: 12px;
     cursor: pointer;
     border-radius: 2rem;
-}
-
-/* Navigation Buttons */
-.prev-btn, .next-btn {
+  }
+  
+  /* Navigation Buttons */
+  .prev-btn,
+  .next-btn {
     position: absolute;
     background: white;
     border: none;
@@ -140,45 +159,46 @@
     padding: 12px;
     cursor: pointer;
     border-radius: 50%;
-}
-
-.prev-btn { left: 20px; }
-.next-btn { right: 20px; }
-
-/* Responsive Design */
-@media (max-width: 1024px) {
+  }
+  
+  .prev-btn {
+    left: 20px;
+  }
+  .next-btn {
+    right: 20px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
     .masonry-gallery {
-        column-count: 3;
+      column-count: 3;
     }
-
     .marquee-image {
-        width: 250px;
-        height: 250px;
+      width: 250px;
+      height: 250px;
     }
-}
-
-@media (max-width: 768px) {
+  }
+  
+  @media (max-width: 768px) {
     .masonry-gallery {
-        column-count: 2;
+      column-count: 2;
     }
-
     .marquee-image {
-        width: 200px;
-        height: 200px;
+      width: 200px;
+      height: 200px;
     }
-}
-
-@media (max-width: 480px) {
+  }
+  
+  @media (max-width: 480px) {
     .masonry-gallery {
-        column-count: 1;
+      column-count: 1;
     }
-
     .marquee-image {
-        width: 150px;
-        height: 150px;
+      width: 150px;
+      height: 150px;
     }
-
     .marquee {
-        animation: marqueeMove 120s linear infinite; /* 🔥 Even smoother on mobile */
+      animation: marqueeMove 120s linear infinite;
     }
-}
+  }
+  

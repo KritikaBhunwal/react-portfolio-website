@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/ProcreateDump.css";
 import { FaTimes, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-// Manually imported ProcreateDump1.jpg to ProcreateDump50.jpg
+// Manually imported images (ProcreateDump1.jpg to ProcreateDump50.jpg)
 import ProcreateDump1 from "/ProcreateDump1.jpg";
 import ProcreateDump2 from "/ProcreateDump2.jpg";
 import ProcreateDump3 from "/ProcreateDump3.jpg";
@@ -53,20 +53,45 @@ import ProcreateDump47 from "/ProcreateDump47.jpg";
 import ProcreateDump48 from "/ProcreateDump48.jpg";
 import ProcreateDump49 from "/ProcreateDump49.jpg";
 import ProcreateDump50 from "/ProcreateDump50.jpg";
-// Extend up to ProcreateDump50...
 
-const images = [
-  ProcreateDump1, ProcreateDump2, ProcreateDump3, ProcreateDump4, ProcreateDump5, ProcreateDump6, ProcreateDump7, ProcreateDump8, ProcreateDump9, ProcreateDump10,
-  ProcreateDump11, ProcreateDump12, ProcreateDump13, ProcreateDump14, ProcreateDump15, ProcreateDump16, ProcreateDump17, ProcreateDump18, ProcreateDump19, ProcreateDump20,
-  ProcreateDump21, ProcreateDump22, ProcreateDump23, ProcreateDump24, ProcreateDump25, ProcreateDump26, ProcreateDump27, ProcreateDump28, ProcreateDump29, ProcreateDump30,
+// Build the default images array from the imports.
+const importedImages = [
+  ProcreateDump1, ProcreateDump2, ProcreateDump3, ProcreateDump4, ProcreateDump5,
+  ProcreateDump6, ProcreateDump7, ProcreateDump8, ProcreateDump9, ProcreateDump10,
+  ProcreateDump11, ProcreateDump12, ProcreateDump13, ProcreateDump14, ProcreateDump15,
+  ProcreateDump16, ProcreateDump17, ProcreateDump18, ProcreateDump19, ProcreateDump20,
+  ProcreateDump21, ProcreateDump22, ProcreateDump23, ProcreateDump24, ProcreateDump25,
+  ProcreateDump26, ProcreateDump27, ProcreateDump28, ProcreateDump29, ProcreateDump30,
   ProcreateDump31, ProcreateDump32, ProcreateDump33, ProcreateDump34, ProcreateDump35,
   ProcreateDump36, ProcreateDump37, ProcreateDump38, ProcreateDump39, ProcreateDump40,
   ProcreateDump41, ProcreateDump42, ProcreateDump43, ProcreateDump44, ProcreateDump45,
   ProcreateDump46, ProcreateDump47, ProcreateDump48, ProcreateDump49, ProcreateDump50,
-  // Add remaining images up to 50...
 ];
 
-const ProcreateDump = () => {
+// Define a set of placeholder quotes.
+const placeholderQuotes = [
+  "Art enables us to find ourselves and lose ourselves at the same time.",
+  "Design is intelligence made visible.",
+  "Creativity takes courage.",
+  "Art is not what you see, but what you make others see.",
+  "Design is where science and art break even."
+];
+
+// Generate default imageData (each object has a src and a caption)
+// The quotes will cycle through our placeholder quotes.
+const defaultImageData = importedImages.map((img, index) => ({
+  src: img,
+  caption: placeholderQuotes[index % placeholderQuotes.length],
+}));
+
+// The reusable component accepts an optional prop "imageData"
+// If no custom data is provided, defaultImageData is used.
+const ProcreateDump = ({ imageData }) => {
+  const imagesArr =
+    imageData && Array.isArray(imageData) && imageData.length > 0
+      ? imageData
+      : defaultImageData;
+
   const [view, setView] = useState("marquee"); // "marquee", "masonry", "fullView"
   const [fullViewIndex, setFullViewIndex] = useState(null);
 
@@ -86,9 +111,14 @@ const ProcreateDump = () => {
       {view === "marquee" && (
         <div className="marquee-container">
           <div className="marquee">
-            {[...images, ...images].map((src, index) => (
-              <img key={index} src={src} alt={`Artwork ${index + 1}`} className="marquee-image"
-                onClick={() => setView("masonry")} />
+            {[...imagesArr, ...imagesArr].map((imgData, index) => (
+              <img
+                key={index}
+                src={imgData.src}
+                alt={`Artwork ${index + 1}`}
+                className="marquee-image"
+                onClick={() => setView("masonry")}
+              />
             ))}
           </div>
         </div>
@@ -97,23 +127,59 @@ const ProcreateDump = () => {
       {/* Expanded Masonry View */}
       {view === "masonry" && (
         <div className="expanded-view">
-          <button className="close-masonry" onClick={() => setView("marquee")}>✖</button>
+          <button className="close-masonry" onClick={() => setView("marquee")}>
+            ✖
+          </button>
           <div className="masonry-gallery">
-            {images.map((src, index) => (
-              <img key={index} src={src} alt={`Artwork ${index + 1}`} className="masonry-image"
-                onClick={() => openFullView(index)} />
+            {imagesArr.map((imgData, index) => (
+              <img
+                key={index}
+                src={imgData.src}
+                alt={`Artwork ${index + 1}`}
+                className="masonry-image"
+                onClick={() => openFullView(index)}
+              />
             ))}
           </div>
         </div>
       )}
 
-      {/* Full-Screen Image Viewer */}
+      {/* Full-Screen Image Viewer with Caption */}
       {view === "fullView" && fullViewIndex !== null && (
         <div className="full-view-overlay">
-          <button className="close-btn" onClick={closeFullView}>✖</button>
-          <button className="prev-btn" onClick={() => setFullViewIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1))}>❮</button>
-          <img src={images[fullViewIndex]} alt={`Artwork ${fullViewIndex + 1}`} className="full-view-image" />
-          <button className="next-btn" onClick={() => setFullViewIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0))}>❯</button>
+          <button className="close-btn" onClick={closeFullView}>
+            ✖
+          </button>
+          <button
+            className="prev-btn"
+            onClick={() =>
+              setFullViewIndex((prev) =>
+                prev > 0 ? prev - 1 : imagesArr.length - 1
+              )
+            }
+          >
+            ❮
+          </button>
+          <div className="full-view-content">
+            <img
+              src={imagesArr[fullViewIndex].src}
+              alt={`Artwork ${fullViewIndex + 1}`}
+              className="full-view-image"
+            />
+            <p className="full-view-caption">
+              {imagesArr[fullViewIndex].caption}
+            </p>
+          </div>
+          <button
+            className="next-btn"
+            onClick={() =>
+              setFullViewIndex((prev) =>
+                prev < imagesArr.length - 1 ? prev + 1 : 0
+              )
+            }
+          >
+            ❯
+          </button>
         </div>
       )}
     </div>
