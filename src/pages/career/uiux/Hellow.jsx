@@ -94,14 +94,17 @@ const Hellow = () => {
         structuredData={structuredData}
       />
 
+      {/* Full-width Banner */}
+      <div className="hellow-banner">
+        <header className="report-header">
+
       <img
         src="/HellowBanner.png"
         alt="Hellow Banner"
         className="hellow-banner-image"
+        style={{ marginBottom: "2rem" }}
+
       />
-      {/* Full-width Banner */}
-      <div className="hellow-banner">
-        <header className="report-header">
           <div className="header-text">
             <h2>Hellow : An Asynchronous Communication App</h2>
             <h3>
@@ -120,7 +123,7 @@ const Hellow = () => {
 
       {/* Main Content Wrapper (8rem left/right margin) */}
       <div className="main-content">
-        <div className="desktop-layout">
+        <div className="desktop-layout-hellow">
           <nav className="table-of-contents">
             <h3>Table of Content</h3>
             <ul>

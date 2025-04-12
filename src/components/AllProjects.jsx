@@ -267,7 +267,7 @@ const AllProjects = () => {
                 />
               </a>
               {/* Project Category displayed below the image */}
-              <div className="project-category">{project.category}</div>
+              <div className="allProjects-category">{project.category}</div>
               {/* Clickable Project Title */}
               <h3 className="project-title">
                 {typeof project.projectTitle === "string" ? (

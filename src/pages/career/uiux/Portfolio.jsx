@@ -116,16 +116,16 @@ const Portfolio = () => {
         structuredData={structuredData}
       />
 
-      {/* Responsive Banner */}
-      <img
-        src="/PortfolioBanner.png"
-        alt="Design Journey Banner"
-        className="portfolio-banner-img"
-      />
-
       {/* Banner Section */}
       <div className="portfolio-banner">
         <header className="report-header">
+        <img
+        src="/PortfolioBanner.png"
+        alt="Portfolio Banner"
+        className="portfolio-banner-image"
+        style={{ marginBottom: "2rem" }}
+
+      />
           <div className="header-text">
             <h2>How I Designed My Portfolio Website</h2>
             <h3>From Early Ideas to a Fully Realized Digital Experience</h3>

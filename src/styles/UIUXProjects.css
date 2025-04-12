@@ -5,6 +5,7 @@
 .featured-projects {
   padding: 1rem;
   margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 /* Horizontal Scroll Carousel */
@@ -60,7 +61,7 @@
 
 /* Project Title & Description */
 .project-title {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
   color: #9990bb;
   margin-top: 1rem;
@@ -68,14 +69,14 @@
 }
 
 .project-description {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #2d2d2d;
   line-height: 1.5;
   margin-left: 0rem;
 }
 
 .project-link {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: medium;
   text-decoration: none;
   border-radius: 2rem;
@@ -91,7 +92,7 @@
     display: block;
     text-align: center;
     margin-top: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #777;
   }
 }

@@ -23,7 +23,7 @@ li {
   color: #2d2d2d;
   font-family: 'Quicksand', sans-serif;
   /* 4rem margins on desktop */
-  margin: 4rem 2rem 0 2rem;
+  margin: 2rem 0rem 0 0rem;
 }
 
 .section-content {
@@ -43,7 +43,7 @@ li {
   width: 100%;
   height: auto;
   display: block;
-  margin-top: 6rem;
+  margin: 0rem;
 }
 
 .portfolio-banner {
@@ -113,12 +113,12 @@ li {
 .table-of-contents {
   flex: 0 0 300px;
   position: sticky;
-  top: 4rem;
+  top: 1rem;
   align-self: flex-start;
   margin: 1rem;
   padding: 1rem;
   line-height: 2rem;
-  border-right: 2px solid #ccc;
+  border-right: 1px solid #ccc;
 }
 
 .table-of-contents h3 {
