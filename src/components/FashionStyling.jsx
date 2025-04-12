@@ -130,7 +130,7 @@ const FashionStyling = () => {
       {modalOpen && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>X</button>
+            <button className="modal-close" onClick={closeModal}>✖</button>
             <button className="modal-prev" onClick={prevImage}>
               <FaChevronLeft />
             </button>

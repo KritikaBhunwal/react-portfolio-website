@@ -208,7 +208,7 @@ const FashionDesign = () => {
       {modalOpen && (
         <div className="process-modal-overlay" onClick={closeProcessModal}>
           <div className="process-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeProcessModal}>X</button>
+            <button className="modal-close" onClick={closeProcessModal}>✖</button>
             <button className="modal-prev" onClick={prevProcess}>Prev</button>
             <button className="modal-next" onClick={nextProcess}>Next</button>
             <div className="modal-image-container">

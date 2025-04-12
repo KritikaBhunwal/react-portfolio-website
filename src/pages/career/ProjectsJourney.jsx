@@ -185,7 +185,7 @@ const ProjectJourneyPage = () => {
         </div>
       </div>
 
-      <SectionHeading title="My Design Projects" />
+      <SectionHeading title="Recent Design Projects" />
       <AllProjects />
 
       {/* Final "Let's Collaborate" CTA */}

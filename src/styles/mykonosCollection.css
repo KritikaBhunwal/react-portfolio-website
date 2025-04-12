@@ -27,7 +27,7 @@
 /* Collection Card - 5 items per view on desktop */
 .collection-card {
   scroll-snap-align: start;
-  flex: 0 0 calc((100% - 4rem) / 5);
+  flex: 0 0 calc((100% - 14rem) / 4);
   background: #fff;
   border-radius: 2rem;
   text-align: left;

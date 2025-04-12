@@ -4,7 +4,6 @@
   width: 100%;
   overflow: hidden;
   padding: 2rem 0;
-  /* background: #f8f8f8; */
 }
 
 /* Marquee container & animation setup */
@@ -13,47 +12,49 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow: hidden;
   width: 100%;
   padding: 2rem;
 }
 
 .marqueeProjects {
   display: flex;
-  /* To ensure a continuous horizontal line, white-space must be set to nowrap */
-  white-space: nowrap;
   gap: 2rem;
-  animation: marqueeMove 50s linear infinite;
-}
-
-/* Pause the marquee when hovering */
-.marquee:hover {
-  animation-play-state: paused;
+  /* Back‑and‑forth animation with pauses on each endpoint */
+  animation: marqueeMove 100s linear infinite;
+  cursor: grab;
 }
 
 @keyframes marqueeMove {
-  from {
+  /* Starting state */
+  0% {
     transform: translateX(0%);
   }
-  /* Translate by -50% ensures that when one set of projects slides out, the duplicate is in place */
-  to {
+  /* 40% {
     transform: translateX(-50%);
+  } */
+  50% {
+    transform: translateX(-50%);
+  }
+  /* 90% {
+    transform: translateX(0%);
+  } */
+  100% {
+    transform: translateX(0%);
   }
 }
 
 /* Styles for each project card */
-/* The width is set to match the project image width so that text wraps accordingly */
 .project-card {
   display: inline-block;
   vertical-align: top;
   text-align: left;
-  width: 300px; /* Default desktop width */
+  width: 350px; /* Increased width for larger project images */
 }
 
 /* Marquee image styles */
 .marquee-image {
-  width: 300px;
-  height: 300px;
+  width: 350px; /* Increased width */
+  height: 350px; /* Increased height */
   object-fit: cover;
   border-radius: 2rem;
   filter: grayscale(100%) opacity(50%);
@@ -66,15 +67,25 @@
   transform: scale(1.05);
 }
 
+/* Project category styling */
+.project-category {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #777;
+  background-color: #cbbfee5a;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  text-align: left;
+}
+
 /* Project title styling */
 .project-title {
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0.5rem 0;
   color: #333;
-  /* Ensures long titles break into new lines */
   word-wrap: break-word;
-  text-wrap: wrap;
 }
 
 /* Project description styling */
@@ -83,7 +94,6 @@
   margin: 0.5rem 0;
   color: #555;
   word-wrap: break-word;
-  text-wrap: wrap;
 }
 
 /* Software/Tool icons container */
@@ -94,10 +104,19 @@
   margin-top: 0.5rem;
 }
 
-/* Responsive adjustments for various screen sizes */
-/* Adjust card and image widths together */
-
+/* Responsive adjustments */
 @media (max-width: 1024px) {
+  .project-card {
+    width: 300px;
+  }
+  
+  .marquee-image {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
   .project-card {
     width: 250px;
   }
@@ -105,17 +124,6 @@
   .marquee-image {
     width: 250px;
     height: 250px;
-  }
-}
-
-@media (max-width: 768px) {
-  .project-card {
-    width: 200px;
-  }
-  
-  .marquee-image {
-    width: 200px;
-    height: 200px;
   }
   
   .project-title {
@@ -125,12 +133,12 @@
 
 @media (max-width: 480px) {
   .project-card {
-    width: 150px;
+    width: 200px;
   }
   
   .marquee-image {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
   }
   
   .project-title {

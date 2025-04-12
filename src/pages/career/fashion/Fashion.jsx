@@ -134,7 +134,7 @@ const Fashion = () => {
           highlights={fashionDesignHighlights}
         />
 
-        <SectionHeading title="Highlights from Mykonos Collection SS18" />
+        <SectionHeading title="Mykonos Collection SS18" />
         <MykonosCollection />
         <PortfolioGallery />
         <WorkTogether />

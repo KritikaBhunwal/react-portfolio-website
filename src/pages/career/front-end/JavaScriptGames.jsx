@@ -239,7 +239,7 @@ const JavaScriptGames = () => {
           <div className="modal-overlay" onClick={handleCloseModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <button className="modal-close-button" onClick={handleCloseModal}>
-                X
+              ✖
               </button>
               {modalGame === "paddle" && <PaddleFuryGame />}
               {modalGame === "meteor" && <MeteorRushGame />}

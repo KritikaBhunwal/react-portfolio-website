@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { SiAdobephotoshop } from 'react-icons/si';
 import { FaShoppingCart, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { GiDress } from 'react-icons/gi';
-import SubSectionHeading from '../components/SubSectionHeading';
+import SectionHeading from '../components/SectionHeading';
 
 import FS1 from '/FashionStyling1.jpg';
 import FS2 from '/FashionStyling2.jpg';
@@ -53,7 +53,7 @@ const Gallery = () => {
   // --- Mobile Layout ---
   const mobileView = (
     <div className="gallery-container" style={{ margin: '0 2rem' }}>
-      <SubSectionHeading title="Image Gallery" />
+      <SectionHeading title="Image Gallery" />
 
       {/* Carousel Preview (Horizontal) */}
       <div className="carousel-preview" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
@@ -109,7 +109,7 @@ const Gallery = () => {
       {modalOpen && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>X</button>
+            <button className="modal-close" onClick={closeModal}>✖</button>
             <button className="modal-prev" onClick={prevImage}>
               <FaChevronLeft />
             </button>
@@ -132,7 +132,7 @@ const Gallery = () => {
   // --- Original (Tablet/Desktop) Layout ---
   const desktopView = (
     <div className="gallery-container" style={{ marginLeft: '2rem' }}>
-      <SubSectionHeading title="Image Gallery" />
+      <SectionHeading title="Image Gallery" />
       <div className="gallery-inner">
         {/* Thumbnails */}
         <div className="gallery-thumbnails">
@@ -186,7 +186,7 @@ const Gallery = () => {
       {modalOpen && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>X</button>
+            <button className="modal-close" onClick={closeModal}>✖</button>
             <button className="modal-prev" onClick={prevImage}>
               <FaChevronLeft />
             </button>

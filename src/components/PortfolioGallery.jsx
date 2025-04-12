@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SubSectionHeading from '../components/SubSectionHeading';
+import SectionHeading from '../components/SectionHeading';
 import { SiAdobephotoshop, SiAdobeillustrator } from 'react-icons/si';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { GiPaintBrush, GiDress } from 'react-icons/gi';
@@ -86,7 +86,7 @@ const PortfolioGallery = () => {
 
   return (
     <div className="gallery-container" style={{ marginLeft: '2rem' }}>
-      <SubSectionHeading title="Portfolio Fashion Gallery" />
+      <SectionHeading title="Portfolio Fashion Gallery" />
       <div className="gallery-inner">
         {/* Thumbnails */}
         <div className="gallery-thumbnails">
@@ -155,7 +155,7 @@ const PortfolioGallery = () => {
       {modalOpen && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>X</button>
+            <button className="modal-close" onClick={closeModal}>✖</button>
             <button className="modal-prev" onClick={prevImage}>
               <FaChevronLeft />
             </button>
