@@ -13,7 +13,7 @@ const Banner = () => {
         <br />
         ...and how these impact our daily lives!
       </p>
-      <div className="banner-icons social-icons">
+      <div className="banner-icons banner-social-icons">
         <a
           href="https://www.linkedin.com/in/kritikabhunwal/"
           target="_blank"

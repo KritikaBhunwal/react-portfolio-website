@@ -68,7 +68,7 @@ const importedImages = [
   ProcreateDump46, ProcreateDump47, ProcreateDump48, ProcreateDump49, ProcreateDump50,
 ];
 
-// Define a set of placeholder quotes.
+// Define a set of placeholder quotes for captions.
 const placeholderQuotes = [
   "Art enables us to find ourselves and lose ourselves at the same time.",
   "Design is intelligence made visible.",
@@ -84,8 +84,8 @@ const defaultImageData = importedImages.map((img, index) => ({
   caption: placeholderQuotes[index % placeholderQuotes.length],
 }));
 
-// The reusable component accepts an optional prop "imageData"
-// If no custom data is provided, defaultImageData is used.
+// The ProcreateDump component accepts an optional prop "imageData".
+// If not provided, defaultImageData is used.
 const ProcreateDump = ({ imageData }) => {
   const imagesArr =
     imageData && Array.isArray(imageData) && imageData.length > 0
@@ -107,7 +107,7 @@ const ProcreateDump = ({ imageData }) => {
 
   return (
     <div className="procreate-dump">
-      {/* Marquee Section (Initial View) */}
+      {/* Marquee Section */}
       {view === "marquee" && (
         <div className="marquee-container">
           <div className="marquee">
@@ -147,20 +147,18 @@ const ProcreateDump = ({ imageData }) => {
       {/* Full-Screen Image Viewer with Caption */}
       {view === "fullView" && fullViewIndex !== null && (
         <div className="full-view-overlay">
-          <button className="close-btn" onClick={closeFullView}>
-            ✖
-          </button>
-          <button
-            className="prev-btn"
-            onClick={() =>
-              setFullViewIndex((prev) =>
-                prev > 0 ? prev - 1 : imagesArr.length - 1
-              )
-            }
-          >
-            ❮
-          </button>
           <div className="full-view-content">
+            {/* Navigation Buttons inside the inner container */}
+            <button
+              className="prev-btn"
+              onClick={() =>
+                setFullViewIndex((prev) =>
+                  prev > 0 ? prev - 1 : imagesArr.length - 1
+                )
+              }
+            >
+              ❮
+            </button>
             <img
               src={imagesArr[fullViewIndex].src}
               alt={`Artwork ${fullViewIndex + 1}`}
@@ -169,16 +167,19 @@ const ProcreateDump = ({ imageData }) => {
             <p className="full-view-caption">
               {imagesArr[fullViewIndex].caption}
             </p>
+            <button
+              className="next-btn"
+              onClick={() =>
+                setFullViewIndex((prev) =>
+                  prev < imagesArr.length - 1 ? prev + 1 : 0
+                )
+              }
+            >
+              ❯
+            </button>
           </div>
-          <button
-            className="next-btn"
-            onClick={() =>
-              setFullViewIndex((prev) =>
-                prev < imagesArr.length - 1 ? prev + 1 : 0
-              )
-            }
-          >
-            ❯
+          <button className="close-btn" onClick={closeFullView}>
+            ✖
           </button>
         </div>
       )}

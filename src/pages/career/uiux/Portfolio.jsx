@@ -23,7 +23,8 @@ const Portfolio = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalIndex, setModalIndex] = useState(0);
 
-  // Define image arrays for each phase with at least two images per section
+  // Define image arrays for each phase
+  // (ideationImages are currently commented out)
   // const ideationImages = [
   //   { src: "/PortfolioAsset01.jpeg", caption: "Brainstorming & Mind Mapping" },
   //   { src: "/PortfolioAsset02.jpeg", caption: "Additional Ideation Insight" },
@@ -38,14 +39,14 @@ const Portfolio = () => {
     { src: "/PortfolioAsset04.jpeg", caption: "Style Guide & Visual Assets" },
     { src: "/PortfolioAsset05.jpeg", caption: "Extra Visual Asset" },
   ];
-  const wireframesImages = [
-    { src: "/Wireframes.png", caption: "Wireframe Sketches & Mockups" },
-    { src: "/Wireframes2.png", caption: "Alternate Wireframe Idea" },
-  ];
-  const researchImages = [
-    { src: "/Research.jpg", caption: "Initial Research Insights" },
-    { src: "/Research2.jpg", caption: "More Research Perspectives" },
-  ];
+  // const wireframesImages = [
+  //   { src: "/Wireframes.png", caption: "Wireframe Sketches & Mockups" },
+  //   { src: "/Wireframes2.png", caption: "Alternate Wireframe Idea" },
+  // ];
+  // const researchImages = [
+  //   { src: "/Research.jpg", caption: "Initial Research Insights" },
+  //   { src: "/Research2.jpg", caption: "More Research Perspectives" },
+  // ];
   const designTransitionImages = [
     {
       src: "/PortfolioAsset02.jpeg",
@@ -60,32 +61,32 @@ const Portfolio = () => {
     { src: "/PortfolioAsset07.jpeg", caption: "UX/UI Prototypes & Iterations" },
     { src: "/PortfolioAsset06.jpeg", caption: "Improved UX/UI Concepts" },
   ];
-  const developmentImages = [
-    {
-      src: "/DevelopmentProcess.jpg",
-      caption: "Journey from WordPress to React Development",
-    },
-    {
-      src: "/DevelopmentProcess2.jpg",
-      caption: "Further Development Insights",
-    },
-  ];
-  const bibliographyImages = [
-    { src: "/Credits.jpg", caption: "Acknowledgements & Credits" },
-    { src: "/Credits2.jpg", caption: "Additional Acknowledgements" },
-  ];
+  // const developmentImages = [
+  //   {
+  //     src: "/DevelopmentProcess.jpg",
+  //     caption: "Journey from WordPress to React Development",
+  //   },
+  //   {
+  //     src: "/DevelopmentProcess2.jpg",
+  //     caption: "Further Development Insights",
+  //   },
+  // ];
+  // const bibliographyImages = [
+  //   { src: "/Credits.jpg", caption: "Acknowledgements & Credits" },
+  //   { src: "/Credits2.jpg", caption: "Additional Acknowledgements" },
+  // ];
 
-  // Combined modal images array (order follows the table of contents)
+  // Combined modal images array
   const modalImages = [
-    // ...ideationImages,
+    // ...ideationImages, // ideationImages are commented out
     ...moodBoardImages,
     ...styleGuideImages,
-    ...wireframesImages,
-    ...researchImages,
+    // ...wireframesImages,
+    // ...researchImages,
     ...designTransitionImages,
     ...uxuidesignImages,
-    ...developmentImages,
-    ...bibliographyImages,
+    // ...developmentImages,
+    // ...bibliographyImages,
   ];
 
   // Modal control functions
@@ -119,13 +120,12 @@ const Portfolio = () => {
       {/* Banner Section */}
       <div className="portfolio-banner">
         <header className="report-header">
-        <img
-        src="/PortfolioBanner.png"
-        alt="Portfolio Banner"
-        className="portfolio-banner-image"
-        style={{ marginBottom: "2rem" }}
-
-      />
+          <img
+            src="/PortfolioBanner.png"
+            alt="Portfolio Banner"
+            className="portfolio-banner-image"
+            style={{ marginBottom: "2rem" }}
+          />
           <div className="header-text">
             <h2>How I Designed My Portfolio Website</h2>
             <h3>From Early Ideas to a Fully Realized Digital Experience</h3>
@@ -186,33 +186,6 @@ const Portfolio = () => {
           </nav>
 
           <main className="content">
-            {/* Ideation Section */}
-            <section id="ideation" className="report-section">
-              <SectionHeading title="Ideation" />
-              <div className="section-content">
-                <p>
-                  In the beginning, I let my curiosity lead by writing down every idea that came to mind. I used brainstorming sessions and mind mapping to explore my creative potential and identify areas for growth.
-                </p>
-                <p>
-                  This phase was simple, honest, and full of raw inspiration that set the tone for everything that followed.
-                </p>
-                <FigmaFrame 
-                  figmaUrl="https://www.figma.com/design/QwIMymTyToy9PF7Yd1JsbC/Portfolio-Website-KritikaBhunwal?node-id=72-938&p=f&t=GvVvps5mcGDWgNOS-0" 
-                />
-                {/* <div className="section-gallery">
-                  {ideationImages.map((img, idx) => (
-                    <img
-                      key={idx}
-                      src={img.src}
-                      alt={img.caption}
-                      onClick={() => openModal(idx)}
-                      className="gallery-image"
-                    />
-                  ))}
-                </div> */}
-              </div>
-            </section>
-
             {/* Mood Board Section */}
             <section id="mood-board" className="report-section">
               <SectionHeading title="Mood Board" />
@@ -229,7 +202,7 @@ const Portfolio = () => {
                       key={idx}
                       src={img.src}
                       alt={img.caption}
-                      onClick={() => openModal(ideationImages.length + idx)}
+                      onClick={() => openModal(idx)} // Mood board starts at index 0
                       className="gallery-image"
                     />
                   ))}
@@ -253,13 +226,7 @@ const Portfolio = () => {
                       key={idx}
                       src={img.src}
                       alt={img.caption}
-                      onClick={() =>
-                        openModal(
-                          ideationImages.length +
-                          moodBoardImages.length +
-                          idx
-                        )
-                      }
+                      onClick={() => openModal(moodBoardImages.length + idx)}
                       className="gallery-image"
                     />
                   ))}
@@ -329,12 +296,11 @@ const Portfolio = () => {
                       alt={img.caption}
                       onClick={() =>
                         openModal(
-                          ideationImages.length +
                           moodBoardImages.length +
-                          styleGuideImages.length +
-                          wireframesImages.length +
-                          researchImages.length +
-                          idx
+                            styleGuideImages.length +
+                            // wireframesImages.length +
+                            // researchImages.length +
+                            idx
                         )
                       }
                       className="gallery-image"
@@ -362,13 +328,12 @@ const Portfolio = () => {
                       alt={img.caption}
                       onClick={() =>
                         openModal(
-                          ideationImages.length +
                           moodBoardImages.length +
-                          styleGuideImages.length +
-                          wireframesImages.length +
-                          researchImages.length +
-                          designTransitionImages.length +
-                          idx
+                            styleGuideImages.length +
+                            // wireframesImages.length +
+                            // researchImages.length +
+                            designTransitionImages.length +
+                            idx
                         )
                       }
                       className="gallery-image"
@@ -388,28 +353,6 @@ const Portfolio = () => {
                 <p>
                   The process was challenging but rewarding and ultimately brought the design to life on the web.
                 </p>
-                {/* <div className="section-gallery">
-                  {developmentImages.map((img, idx) => (
-                    <img
-                      key={idx}
-                      src={img.src}
-                      alt={img.caption}
-                      onClick={() =>
-                        openModal(
-                          ideationImages.length +
-                          moodBoardImages.length +
-                          styleGuideImages.length +
-                          wireframesImages.length +
-                          researchImages.length +
-                          designTransitionImages.length +
-                          uxuidesignImages.length +
-                          idx
-                        )
-                      }
-                      className="gallery-image"
-                    />
-                  ))}
-                </div> */}
               </div>
             </section>
 
@@ -423,57 +366,8 @@ const Portfolio = () => {
                 <p>
                   Special thanks to Richard and Airrick for their collaboration, which helped transform my ideas into a finished and successful project.
                 </p>
-                {/* <div className="section-gallery">
-                  {bibliographyImages.map((img, idx) => (
-                    <img
-                      key={idx}
-                      src={img.src}
-                      alt={img.caption}
-                      onClick={() =>
-                        openModal(
-                          ideationImages.length +
-                          moodBoardImages.length +
-                          styleGuideImages.length +
-                          wireframesImages.length +
-                          researchImages.length +
-                          designTransitionImages.length +
-                          uxuidesignImages.length +
-                          developmentImages.length +
-                          idx
-                        )
-                      }
-                      className="gallery-image"
-                    />
-                  ))}
-                </div> */}
               </div>
             </section>
-
-            {/* Figma Prototype Section */}
-            {/* <section id="figma-prototype" className="report-section">
-              <SectionHeading title="Figma Prototype" />
-              <div className="section-content">
-                <p>
-                  I translated my design into an interactive Figma prototype that allowed for testing user flows and refining interactions. This phase was crucial for visualizing how the final product would work.
-                </p>
-                <p>
-                  The prototype helped identify areas for improvement and ensured that the design was both attractive and practical.
-                </p>
-              </div>
-            </section> */}
-
-            {/* First Ever Pitch Deck Section */}
-            {/* <section id="pitch-deck-first" className="report-section">
-              <SectionHeading title="First Ever Pitch Deck" />
-              <div className="section-content">
-                <p>
-                  This was my initial attempt at creating a pitch deck to express my design ideas. I combined simple visuals with clear, straightforward narratives to present my vision.
-                </p>
-                <p>
-                  The pitch deck laid the groundwork for how I would communicate my design concepts in future presentations.
-                </p>
-              </div>
-            </section> */}
 
             {/* Pitch Deck Presentation Section */}
             <section id="pitch-deck-presentation" className="report-section">
@@ -505,42 +399,42 @@ const Portfolio = () => {
       <SectionHeading title="Let's Collaborate!" />
 
       <ProjectContent
-          title="A Partnership Rooted in Creativity & Collaboration"
-          description="I thrive in creative collaborations that push boundaries and bring fresh perspectives to the table. Whether it's branding, illustration, UX/UI, or strategic design thinking, I am eager to contribute innovative solutions tailored to your vision. Let’s build something impactful together!"
-          highlights={[
-            {
-              bulletPointOne: "Creative Branding",
-              detail:
-                "Unique and memorable visual identities that capture your brand's essence and set you apart in the marketplace.",
-            },
-            {
-              bulletPointOne: "Illustration Expertise",
-              detail:
-                "Tailored illustrations that communicate your story with clarity, emotion, and a touch of artistry.",
-            },
-            {
-              bulletPointOne: "UX/UI Design",
-              detail:
-                "User-centered design solutions that create seamless, engaging, and intuitive experiences.",
-            },
-            {
-              bulletPointOne: "Strategic Design Thinking",
-              detail:
-                "Innovative problem-solving approaches that drive impactful, sustainable design outcomes.",
-            },
-          ]}
-        />
-
+        title="A Partnership Rooted in Creativity & Collaboration"
+        description="I thrive in creative collaborations that push boundaries and bring fresh perspectives to the table. Whether it's branding, illustration, UX/UI, or strategic design thinking, I am eager to contribute innovative solutions tailored to your vision. Let’s build something impactful together!"
+        highlights={[
+          {
+            bulletPointOne: "Creative Branding",
+            detail:
+              "Unique and memorable visual identities that capture your brand's essence and set you apart in the marketplace.",
+          },
+          {
+            bulletPointOne: "Illustration Expertise",
+            detail:
+              "Tailored illustrations that communicate your story with clarity, emotion, and a touch of artistry.",
+          },
+          {
+            bulletPointOne: "UX/UI Design",
+            detail:
+              "User-centered design solutions that create seamless, engaging, and intuitive experiences.",
+          },
+          {
+            bulletPointOne: "Strategic Design Thinking",
+            detail:
+              "Innovative problem-solving approaches that drive impactful, sustainable design outcomes.",
+          },
+        ]}
+      />
 
       <WorkTogether />
 
       {/* Modal Preview for Images */}
       {modalOpen && (
         <div className="modal-overlay">
+          {/* Close icon is now outside the inner container */}
+          <button className="modal-close" onClick={closeModal}>
+            ✖
+          </button>
           <div className="modal-content">
-            <button className="modal-close" onClick={closeModal}>
-              ✖
-            </button>
             <button className="modal-prev" onClick={prevModalImage}>
               ❮
             </button>

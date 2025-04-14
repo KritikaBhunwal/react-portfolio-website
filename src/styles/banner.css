@@ -6,22 +6,23 @@
 }
 
 /* Social Icons Container */
-.social-icons {
-  gap: 12px;
+.banner-icons.banner-social-icons {
+  gap: 2rem;
   align-items: flex-start;
 
 }
 
 /* Ensure icons are visible */
-.banner-icons.social-icons a {
+.banner-icons.banner-social-icons a {
   color: #2d2d2d; /* 🔥 Set a dark default color */
   margin-top: 1rem;
+  margin-right: 0.8rem;
   align-self: center;
   transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
 }
 
 /* Icon hover effect */
-.social-icons a:hover {
+.banner-social-icons a:hover {
   color: #9990bb; /* 🔥 Highlight color on hover */
   opacity: 0.8;
 }

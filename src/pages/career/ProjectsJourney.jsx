@@ -117,9 +117,20 @@ const ProjectJourneyPage = () => {
       </div>
 
       {/* Main timeline container */}
-      <SectionHeading title="My Career" />
+      <SectionHeading title="My Career in Design" />
+      <div className="journey-intro">
+        <p>
+          My career journey has been a blend of creativity and technology.
+        </p>
+        <p>
+          Below is a timeline of my design journey, showcasing the various roles that have shaped my design career. Click on each role to find the projects ranging from the latest UI/UX Case Studies to interactive React games followed by Social Media branding projects and my first ever Womenswear SS18 Collection that I contributed to as a Fashion Designer.
+        </p>
+        <p>
+          I am highly grateful to my parents, mentors, instructors and for the knowledge I gained during my entire journey, it has been truly rewarding.
+        </p>
+      </div>
+
       <div className="journey-page-container">
-        {/* <h1 className="journey-title">My Career Journey</h1> */}
         <div className="journey-timeline">
           <div className="journey-line"></div>
 
@@ -186,6 +197,11 @@ const ProjectJourneyPage = () => {
       </div>
 
       <SectionHeading title="Recent Design Projects" />
+      <div className="journey-intro">
+        <p>
+          Explore through some of my recent projects that showcase the collaboration of my skills, design thinking and creativity.
+        </p>
+      </div>
       <AllProjects />
 
       {/* Final "Let's Collaborate" CTA */}

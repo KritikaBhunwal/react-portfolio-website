@@ -16,7 +16,7 @@
 }
 
 /* Card Container */
-.card-container {
+.careercard-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -26,31 +26,31 @@
 }
 
 /* Card Layout */
-.card {
+.careercard {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  width: 100%;
+  width: 30%;
   border-radius: 2rem;
   box-shadow: 1px 1px 4px rgba(200, 200, 200, 0.5);
   overflow: hidden;
 }
 
 /* Reverse Desktop Layout (reserved for future use) */
-.card.reverse-desktop {
+.careercard.reverse-desktop {
   flex-direction: row;
 }
 
 /* Card Image */
-.cardImage {
+.careercardImage {
   flex: 1;
   width: 100%;
   padding: 0rem 2rem 0rem 1rem;
 }
 
-.cardImage img {
+.careercardImage img {
   width: 100%;
   height: 100%;
   padding: 2rem;
@@ -59,13 +59,13 @@
 }
 
 /* Reverse-labeled Card Images */
-.card.reverse-desktop .cardImage img,
-.card.reverse-tablet .cardImage img {
+.careercard.reverse-desktop .cardImage img,
+.careercard.reverse-tablet .cardImage img {
   border-radius: 0 2rem 2rem 0;
 }
 
 /* Card Text */
-.cardText {
+.careercardText {
   flex: 1;
   padding: 2rem 3rem 2rem 3rem;
   font-family: "Quicksand", sans-serif;
@@ -74,7 +74,7 @@
 }
 
 /* Title (h2) for all cards */
-.cardText h2 {
+.careercardText h2 {
   font-family: "Chonburi", serif;
   color: var(--primary-purple);
   font-size: 1.2rem;  /* Base font-size */
@@ -82,7 +82,7 @@
 }
 
 /* Description (p) */
-.cardText p {
+.careercardText p {
   font-size: 1rem;
   line-height: 1.5;
   margin: 0 0 1rem;
@@ -109,77 +109,88 @@
 
 /* Large Screens (up to 2024px) */
 @media (min-width: 1441px) {
-  .card,
-  .card.reverse-desktop,
-  .card.reverse-tablet {
+  .careercard,
+  .careercard.reverse-desktop,
+  .careercard.reverse-tablet {
     flex-direction: column;
   }
   
-  .cardText h2 {
+  .careercardText h2 {
     font-size: 1.2rem;
   }
 
-  /* .cardText p,
+  /* .careercardText p,
   .cta-button {
     font-size: 1.2rem;
   } */
 }
 
 
-/* Medium Screens (up to 1024px) */
+/* Medium Screens (up to 1440px) */
 @media (max-width: 1440px) {
-  .card,
-  .card.reverse-desktop{
+  .careercard,
+  .careercard.reverse-desktop {
     flex-direction: row;
   }
-  .card.reverse-tablet {
+  .careercard.reverse-tablet {
     flex-direction: row-reverse;
   }
-  .cardText h2 {
+  .careercardText h2 {
     font-size: 1.2rem;
   }
-  /* .cardText p,
+  /* .careercardText p,
   .cta-button {
     font-size: 1.2rem;
   } */
+  .careercard {
+    /* Set each card's width to 83.33% of the container to show 1 full and ~20% of the next */
+    flex: 0 0 calc(100% / 1.05);
+    scroll-snap-align: start;
+    /* Remove extra width settings if any */
+    width: auto;
+  }
 }
 
 /* Mobile Screens (up to 768px) */
+/* New layout for a horizontal, scrollable carousel with 1.2 projects visible */
 @media (max-width: 768px) {
-  .card,
-  .card.reverse-desktop,
-  .card.reverse-tablet {
+  .careercard-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin: 1rem;
+  }
+  
+  .careercard {
+    /* Set each card's width to 83.33% of the container to show 1 full and ~20% of the next */
+    flex: 0 0 calc(100% / 1.05);
+    scroll-snap-align: start;
+    /* Remove extra width settings if any */
+    width: auto;
+  }
+  
+  .careercard,
+  .careercard.reverse-desktop,
+  .careercard.reverse-tablet {
     flex-direction: column;
   }
-  .cardImage img {
+  
+  .careercardImage img {
     border-radius: 2rem;
   }
-  .cardText {
+  
+  .careercardText {
     text-align: left;
   }
-  .cardText h2 {
+  
+  .careercardText h2 {
     font-size: 1rem;
   }
-}
-
-/* Mobile Screens (up to 480px) */
-@media (max-width: 480px) {
-  .card,
-  .card.reverse-desktop,
-  .card.reverse-tablet {
-    flex-direction: column;
+  .careercardText p {
+    font-size: 14px;
   }
-  .cardImage img {
-    border-radius: 2rem;
-  }
-  .cardText {
-    text-align: left;
-  }
-  .cardText h2 {
-    font-size: 1rem;
-  }
-  /* .cardText p,
-  .cta-button {
-    font-size: 1rem;
-  } */
 }

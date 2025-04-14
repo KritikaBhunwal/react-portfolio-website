@@ -4,7 +4,7 @@
 }
 
 .uiux-subpage-content p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 1rem 3rem;
 }
 
@@ -127,12 +127,12 @@
 /* bts-container: displays items in a row on larger screens */
 .bts-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
   gap: 0;
-  margin: 2rem;
-  flex-wrap: wrap;
+  margin: 0rem;
+  flex-wrap: nowrap;
 }
 
 /* bts-item: default layout for code and prototype sections */

@@ -1,314 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Chonburi&family=Quicksand:wght@300..700&display=swap');
+
+/* ========== Global Variables ========== */
 :root {
-    --gallery-height: 600px;
-  }
-  
-  .gallery-container {
-    margin: 2rem 3rem;
-  }
-  
-  .gallery-inner {
-    display: flex;
-    gap: 1rem;
-    align-items: stretch;
-    height: var(--gallery-height);
-  }
-  
-  /* ----- Thumbnails ----- */
+  --gallery-height: 600px;
+}
+
+/* ===== Base (Desktop) Styles ===== */
+.gallery-container {
+  margin: 2rem 3rem;
+  font-family: sans-serif;
+}
+
+.gallery-inner {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+  flex-direction: row;
+  height: var(--gallery-height);
+}
+
+/* ----- Thumbnails (Vertical Sidebar) ----- */
+.gallery-thumbnails {
+  flex: 0 0 20%;
+  max-width: 20%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 2rem;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  height: 100%;
+}
+
+.gallery-thumbnails .thumbnail {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.gallery-thumbnails .thumbnail.active,
+.gallery-thumbnails .thumbnail:hover {
+  filter: grayscale(0%);
+}
+
+/* ----- Preview (Main Image) ----- */
+.gallery-preview {
+  flex: 0 0 60%;
+  max-width: 80%;
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+
+.gallery-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 2rem;
+  filter: grayscale(100%);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-preview img:hover {
+  transform: scale(1.02);
+  filter: grayscale(0%);
+}
+
+/* ----- Navigation Buttons in the Preview ----- */
+.gallery-preview .preview-prev,
+.gallery-preview .preview-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: box-shadow 0.3s ease;
+}
+
+.gallery-preview .preview-prev {
+  left: 10px;
+}
+
+.gallery-preview .preview-next {
+  right: 10px;
+}
+
+.gallery-preview .preview-prev:hover,
+.gallery-preview .preview-next:hover {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  color: #B28FDB;
+}
+
+/* ----- Info & Icons ----- */
+.gallery-info {
+  flex: 0 0 20%;
+  max-width: 20%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+  height: 100%;
+}
+
+.gallery-info h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.gallery-info p {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Icons Section */
+.icon-section {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-direction: row;
+}
+
+.icon-card {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.icon-card span {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.icon-card svg {
+  font-size: calc(var(--gallery-height) / 20);
+}
+
+/* ----- Behance Links Section ----- */
+/* The behance-links section now inherits the fonts from the rest of the page */
+.behance-links {
+  margin-top: 1rem;
+  font-family: inherit;
+}
+
+.behance-links h4 {
+  font-family: Chonburi;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #2d2d2d;
+}
+
+.behance-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.behance-links li {
+  margin-bottom: 0.5rem;
+}
+
+.behance-links a {
+  font-family: quicksand;
+  text-decoration: none;
+  color: #9990bb;
+  transition: color 0.3s ease;
+}
+
+.behance-links a:hover {
+  color: #7a66a7;
+}
+
+/* ===== Responsive Styles ===== */
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
   .gallery-thumbnails {
-    flex: 0 0 20%;
-    max-width: 12%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 2rem;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 1.2rem;
-    height: 100%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .gallery-preview {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .gallery-info {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+/* Mobile / Touch Devices */
+@media (max-width: 768px) {
+  .gallery-inner {
+    flex-direction: column;
+    height: auto;
+  }
+  .gallery-thumbnails,
+  .gallery-preview,
+  .gallery-info {
+    flex: 1 0 100%;
+    max-width: 100%;
+    padding: 1rem;
+  }
+  /* Order: Info on top, then Preview, then Thumbnails as a horizontal carousel */
+  .gallery-info {
+    order: 1;
+  }
+  .gallery-preview {
+    order: 2;
+    height: 300px;
+  }
+  .gallery-thumbnails {
+    order: 3;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
   .gallery-thumbnails .thumbnail {
-    width: 100%;
-    height: calc((100% - 6rem) / 5);
-    object-fit: contain;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
-  }
-  .gallery-thumbnails .thumbnail.active,
-  .gallery-thumbnails .thumbnail:hover {
-    filter: grayscale(0%);
-  }
-  
-  /* ----- Preview ----- */
-  .gallery-preview {
-    flex: 0 0 60%;
-    max-width: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    height: 100%;
-    border-radius: 2rem;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  .gallery-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 2rem;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    filter: grayscale(100%);
-  }
-  .gallery-preview img:hover {
-    transform: scale(1.02);
-    filter: grayscale(0%);
-  }
-  
-  /* ----- Navigation Buttons ----- */
-  .gallery-preview .preview-prev,
-  .gallery-preview .preview-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
-    border: none;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 5;
-    transition: box-shadow 0.3s ease;
-  }
-  .gallery-preview .preview-prev {
-    left: 10px;
-  }
-  .gallery-preview .preview-next {
-    right: 10px;
-  }
-  .gallery-preview .preview-prev:hover,
-  .gallery-preview .preview-next:hover {
-    transform: translateY(-50%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* ----- Info, Icons & Behance Links ----- */
-  .gallery-info {
-    flex: 0 0 20%;
-    max-width: 20%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 1rem;
-    text-align: left;
-    height: 100%;
+    width: calc((100% / 2.75) - 1rem);
+    height: auto;
   }
   .gallery-info h3 {
-    margin: 0;
-    font-size: calc(var(--gallery-height) / 25);
+    font-size: 1.5rem;
   }
   .gallery-info p {
-    margin: 0;
-    font-size: calc(var(--gallery-height) / 30);
-  }
-  .icon-section {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    flex-direction: row;
-  }
-  .icon-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
-    background: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  .icon-card span {
-    margin-top: 0.25rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   .icon-card svg {
-    font-size: calc(var(--gallery-height) / 20);
+    font-size: 1.5rem;
   }
-  
-  /* ----- Behance Links Section ----- */
-  .behance-links {
-    margin-top: 1rem;
+  .icon-card span {
+    font-size: 0.9rem;
   }
-  .behance-links h4 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: #9990bb;
+}
+
+/* ===== Full-View Modal Styles ===== */
+/* The modal overlay uses flexbox to center its content */
+.full-view-overlay {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.full-view-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Vertically center the image and caption */
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+}
+
+.full-view-image {
+  margin: 1rem 0;
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  border-radius: 2rem;
+}
+
+.full-view-caption {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+/* Close, Prev & Next Buttons */
+.close-btn,
+.close-masonry {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: none;
+  font-size: 20px;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 2rem;
+  z-index: 101;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  background: white;
+  border: none;
+  font-size: 24px;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 102;
+}
+
+.prev-btn {
+  left: 20px;
+}
+
+.next-btn {
+  right: 20px;
+}
+
+/* .prev-btn:hover,
+.next-btn:hover,
+.close-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #B28FDB;
+} */
+
+/* ===== Additional Styles from Provided Code (Optional) ===== */
+.procreate-dump {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee {
+  display: flex;
+  white-space: nowrap;
+  gap: 2rem;
+  animation: marqueeMove 200s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeMove {
+  from {
+    transform: translateX(0%);
   }
-  .behance-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  to {
+    transform: translateX(-50%);
   }
-  .behance-links li {
-    margin-bottom: 0.5rem;
-  }
-  .behance-links a {
-    text-decoration: none;
-    color: #9990bb;
-    transition: color 0.3s ease;
-  }
-  .behance-links a:hover {
-    color: #7a66a7;
-  }
-  
-  /* ===== Responsive Styles ===== */
-  
-  /* Tablet */
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .gallery-thumbnails {
-      flex: 0 0 25%;
-      max-width: 25%;
-    }
-    .gallery-preview {
-      flex: 0 0 50%;
-      max-width: 50%;
-    }
-    .gallery-info {
-      flex: 0 0 25%;
-      max-width: 25%;
-    }
-  }
-  
-  /* Mobile / Touch Devices */
-  @media (max-width: 768px) {
-    .gallery-inner {
-      flex-direction: column;
-      height: auto;
-    }
-    .gallery-thumbnails,
-    .gallery-preview,
-    .gallery-info {
-      flex: 1 0 100%;
-      max-width: 100%;
-      padding: 1rem;
-    }
-    /* Order: Info on top, then Preview, then Thumbnails as a horizontal carousel */
-    .gallery-info {
-      order: 1;
-    }
-    .gallery-preview {
-      order: 2;
-      height: 300px;
-    }
-    .gallery-thumbnails {
-      order: 3;
-      flex-direction: row;
-      overflow-x: auto;
-      overflow-y: hidden;
-    }
-    .gallery-thumbnails .thumbnail {
-      width: calc((100% / 2.75) - 1rem);
-      height: auto;
-    }
-    .gallery-info h3 {
-      font-size: 1.5rem;
-    }
-    .gallery-info p {
-      font-size: 1rem;
-    }
-    .icon-card svg {
-      font-size: 1.5rem;
-    }
-    .icon-card span {
-      font-size: 0.9rem;
-    }
-  }
-  
-  /* ===== Full-Screen Modal ===== */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(61, 61, 61, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    transition: transform 0.5s ease;
-  }
-  .modal-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    overflow: hidden;
-  }
-  .modal-model-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 1;
-  }
-  .modal-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 50%;
-    background: #ffffff;
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 101;
-  }
-  .modal-close:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #B28FDB;
-  }
-  .modal-prev,
-  .modal-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
-    padding: 0, 0.2rem;
-    border: none;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease;
-    z-index: 102;
-  }
-  .modal-prev {
-    left: 10px;
-  }
-  .modal-next {
-    right: 10px;
-  }
-  .modal-prev:hover,
-  .modal-next:hover {
-    transform: translateY(-50%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #B28FDB;
-  }
-  
+}
+
+.marquee-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 2rem;
+  filter: grayscale(100%) opacity(50%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.marquee-image:hover {
+  filter: grayscale(0%) opacity(100%);
+  transform: scale(1.05);
+}
+
+.masonry-image:hover {
+  filter: grayscale(0%) opacity(100%);
+}
+
+.expanded-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  overflow-y: auto;
+  z-index: 9999;
+}
+
+.masonry-gallery {
+  column-count: 4;
+  column-gap: 15px;
+  width: 90%;
+}
+
+.masonry-image {
+  width: 100%;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 2rem;
+  filter: grayscale(100%) opacity(50%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}

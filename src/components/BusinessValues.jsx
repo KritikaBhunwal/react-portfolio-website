@@ -9,7 +9,7 @@ const BusinessValues = () => {
       content: (
         <ul>
           <li>Design impactful visuals that spark creativity.</li>
-          <li>Innovate beyond conventional boundaries.</li>
+          <li>Innovate beyond conventional styles and trends.</li>
           <li>Create user-friendly designs with beautiful interfaces.</li>
         </ul>
       ),

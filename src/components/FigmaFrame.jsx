@@ -19,14 +19,14 @@ const FigmaFrame = ({
   const embedUrl = `https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(figmaUrl)}`;
 
   return (
-    <div className="figma-frame-container" style={{ margin: "1rem 2rem" }}>
+    <div className="figma-frame-container" style={{ margin: "1rem 4rem 1rem 2rem" }}>
       <iframe
         title="Figma Preview"
         width={width}
         height={height}
         src={embedUrl}
         allowFullScreen
-        style={{ border: "none", borderRadius: "2rem", margin: "1rem", padding: "1rem", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.04)" }}
+        style={{ border: "none", borderRadius: "2rem", margin: "1rem", padding: "0rem", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.04)" }}
 
       />
     </div>

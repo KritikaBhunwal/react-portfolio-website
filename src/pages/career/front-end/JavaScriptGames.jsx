@@ -251,17 +251,11 @@ const JavaScriptGames = () => {
         <JavaScriptGamesContent style={{ margin: "2rem" }} />
       </section>
 
-      <div className="bts-container">
-        <div className="bts-item">
-          <SectionHeading title="Code Snippet" />
-          <CodeSnippet codeString={sampleCode} language="jsx" />
-        </div>
-        <div className="bts-item">
-          <SectionHeading title="Figma Prototype" />
-          <FigmaFrame />
-        </div>
-      </div>
+      <SectionHeading title="Figma Prototype" />
+      <FigmaFrame />
 
+      <SectionHeading title="Code Snippet" />
+      <CodeSnippet codeString={sampleCode} language="jsx" />
 
       <SectionHeading title="Let's Work Together" />
       <WorkTogether />

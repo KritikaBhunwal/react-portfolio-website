@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Chonburi&family=Quicksand:wght@300..700&display=swap');
+
+
 /* ========== Global Variables ========== */
 :root {
   --gallery-height: 600px;
@@ -5,7 +8,6 @@
 
 /* ===== Base (Desktop) Styles ===== */
 .gallery-container {
-  /* margin: 2rem 3rem; */
   font-family: sans-serif;
 }
 
@@ -13,7 +15,6 @@
   display: flex;
   gap: 1rem;
   align-items: stretch;
-  /* Desktop layout: row-based with fixed height */
   flex-direction: row;
   height: var(--gallery-height);
 }
@@ -49,7 +50,7 @@
 /* ----- Preview (Main Image) ----- */
 .gallery-preview {
   flex: 0 0 60%;
-  max-width: 60%;
+  max-width: 80%;
   position: relative;
   border-radius: 2rem;
   overflow: hidden;
@@ -97,11 +98,11 @@
 .gallery-preview .preview-next {
   right: 10px;
 }
-.gallery-preview .preview-prev:hover,
+/* .gallery-preview .preview-prev:hover,
 .gallery-preview .preview-next:hover {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   color: #B28FDB;
-}
+} */
 
 /* ----- Info & Icons ----- */
 .gallery-info {
@@ -153,106 +154,7 @@
   font-size: calc(var(--gallery-height) / 20);
 }
 
-/* ===== Full-Screen Modal (now a white card) ===== */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  /* Remove dark overlay; show white modal card only */
-  background: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  transition: transform 0.5s ease;
-}
-
-/* The modal becomes a white, rounded card with max size */
-.modal-content {
-  position: relative;
-  width: 90%;
-  max-width: 60rem;         /* Adjust as needed */
-  max-height: 90vh;         /* Scrolling if needed on smaller screens */
-  background: #fff;         /* White card */
-  border-radius: 2rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
-  overflow: hidden;         /* Hide corners and content overflow */
-}
-
-/* The 3D model container or image inside the modal */
-.modal-model-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 1;
-  border-radius: 2rem; /* Keep corners rounded if desired */
-}
-
-/* Modal Close Button => White & Rounded */
-.modal-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 44px;
-  height: 44px;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 2rem; /* White, rounded corners */
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 101;
-}
-
-.modal-close:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: #B28FDB;
-}
-
-/* Modal Prev/Next => Also White & Rounded */
-.modal-prev,
-.modal-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  border: none;
-  border-radius: 2rem; /* Rounded corners */
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  z-index: 102;
-}
-
-.modal-prev {
-  left: 10px;
-}
-.modal-next {
-  right: 10px;
-}
-
-.modal-prev:hover,
-.modal-next:hover {
-  transform: translateY(-50%) scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: #B28FDB;
-}
-
-/* ===== Responsive Styles (using only max-width queries) ===== */
-
-/* Tablet Layout: For viewports <= 1220px */
+/* ===== Responsive Styles ===== */
 @media (max-width: 1220px) {
   .icon-section {
     flex-direction: column;
@@ -260,13 +162,11 @@
   }
 }
 
-/* Mobile / Touch Layout: For viewports <= 768px */
 @media (max-width: 768px) {
   .gallery-inner {
     flex-direction: column;
     height: auto;
   }
-  /* Make all main sections full width */
   .gallery-thumbnails,
   .gallery-preview,
   .gallery-info {
@@ -274,7 +174,6 @@
     max-width: 100%;
     padding: 1rem;
   }
-  /* Order the sections: Info first, then Preview, then Thumbnails */
   .gallery-info {
     order: 1;
   }
@@ -304,4 +203,165 @@
   .icon-card span {
     font-size: 0.9rem;
   }
+}
+
+/* ========== Full-View Modal Styles (Matching Provided Modal Preview) ========== */
+.full-view-overlay {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.full-view-content {
+  display: inline-block;
+  text-align: center;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+}
+
+.full-view-image {
+  margin: 2rem;
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: fill;
+  border-radius: 2rem;
+}
+
+.full-view-caption {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.close-btn,
+.close-masonry {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: none;
+  font-size: 20px;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 2rem;
+  z-index: 101;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  background: white;
+  border: none;
+  font-size: 24px;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 102;
+}
+
+.prev-btn {
+  left: 20px;
+}
+
+.next-btn {
+  right: 20px;
+}
+
+/* ========== Additional Styles from Provided Modal Preview Code ========== */
+.procreate-dump {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee {
+  display: flex;
+  white-space: nowrap;
+  gap: 2rem;
+  animation: marqueeMove 200s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeMove {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 2rem;
+  filter: grayscale(100%) opacity(50%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.marquee-image:hover {
+  filter: grayscale(0%) opacity(100%);
+  transform: scale(1.05);
+}
+
+.masonry-image:hover {
+  filter: grayscale(0%) opacity(100%);
+}
+
+.expanded-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  overflow-y: auto;
+  z-index: 9999;
+}
+
+.masonry-gallery {
+  column-count: 4;
+  column-gap: 15px;
+  width: 90%;
+}
+
+.masonry-image {
+  width: 100%;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 2rem;
+  filter: grayscale(100%) opacity(50%);
+  transition: filter 0.3s ease, transform 0.3s ease;
 }

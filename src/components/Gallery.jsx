@@ -15,22 +15,22 @@ import FS7 from '/FashionStyling7.jpg';
 import '../styles/gallery.css';
 
 const Gallery = () => {
-  // Reverse the sequence by reversing the array
+  // Reverse the image order for display
   const images = [
-    { src: FS1, title: "Styling Inspo for OfficeWear", description: "Modest and Classy look for everyday office wear!" },
-    { src: FS2, title: "Styling Inspo for Shopping Day", description: "Whether a friends' outing or a shopping day by yourself, dress to impress!" },
-    { src: FS3, title: "Styling Inspo for Wedding", description: "For the times you want to look best in the traditional attires." },
-    { src: FS4, title: "Styling Inspo A Festive Day", description: "For the perfect makeover from office chic to modern sleek traditionals for any festive occasion!" },
-    { src: FS5, title: "Styling Inspo Boho Chic", description: "For the bohemian girl-next-door in you!" },
-    { src: FS6, title: "Styling Inspo Celebrity Inspired", description: "Donning a perfect airport look inspired by celebrities!" },
-    { src: FS7, title: "Styling Inspo My Favs", description: "A style that I love to follow- Monochrome :)" }
+    { src: FS1, title: "Styling Inspiration : for OfficeWear", description: "Modest and Classy look for everyday office wear!" },
+    { src: FS2, title: "Styling Inspiration : for Shopping Day", description: "Whether a friends' outing or a shopping day by yourself, dress to impress!" },
+    { src: FS3, title: "Styling Inspiration : for Wedding", description: "For the times you want to look best in the traditional attires." },
+    { src: FS4, title: "Styling Inspiration : A Festive Day", description: "For the perfect makeover from office chic to modern sleek traditionals for any festive occasion!" },
+    { src: FS5, title: "Styling Inspiration : Boho Chic", description: "For the bohemian girl-next-door in you!" },
+    { src: FS6, title: "Styling Inspiration : Celebrity Inspired", description: "Donning a perfect airport look inspired by celebrities!" },
+    { src: FS7, title: "Styling Inspiration : My Favs", description: "A style that I love to follow- Monochrome :)" }
   ].reverse();
 
   const [activeImage, setActiveImage] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  // Update isMobile on window resize
+  // Update isMobile flag on window resize
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener('resize', handleResize);
@@ -50,11 +50,34 @@ const Gallery = () => {
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
+  // Updated modal component using the "full-view" classes
+  const modalComponent = (
+    <div className="full-view-overlay" onClick={closeModal}>
+      <div className="full-view-content" onClick={(e) => e.stopPropagation()}>
+        <button className="close-btn" onClick={closeModal}>✖</button>
+        <button className="prev-btn" onClick={prevImage}>
+          <FaChevronLeft />
+        </button>
+        <button className="next-btn" onClick={nextImage}>
+          <FaChevronRight />
+        </button>
+        <img
+          src={images[activeImage].src}
+          alt={images[activeImage].title}
+          className="full-view-image"
+        />
+        <div className="full-view-caption">
+          <h3>{images[activeImage].title}</h3>
+          <p>{images[activeImage].description}</p>
+        </div>
+      </div>
+    </div>
+  );
+
   // --- Mobile Layout ---
   const mobileView = (
     <div className="gallery-container" style={{ margin: '0 2rem' }}>
       <SectionHeading title="Image Gallery" />
-
       {/* Carousel Preview (Horizontal) */}
       <div className="carousel-preview" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
         <button className="preview-prev" onClick={prevImage}>
@@ -84,7 +107,7 @@ const Gallery = () => {
         ))}
       </div>
 
-      {/* Styling Inspo Section - Left Aligned */}
+      {/* Styling Inspiration : Section */}
       <div className="gallery-info" style={{ padding: '1rem 0', textAlign: 'left' }}>
         <h3>{images[activeImage].title}</h3>
         <p style={{ fontSize: '0.9rem', marginBottom: '1rem' }}>
@@ -106,30 +129,11 @@ const Gallery = () => {
         </div>
       </div>
 
-      {modalOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>✖</button>
-            <button className="modal-prev" onClick={prevImage}>
-              <FaChevronLeft />
-            </button>
-            <button className="modal-next" onClick={nextImage}>
-              <FaChevronRight />
-            </button>
-            <div className="modal-model-container">
-              <img
-                src={images[activeImage].src}
-                alt={images[activeImage].title}
-                style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '2rem' }}
-              />
-            </div>
-          </div>
-        </div>
-      )}
+      {modalOpen && modalComponent}
     </div>
   );
 
-  // --- Original (Tablet/Desktop) Layout ---
+  // --- Desktop Layout ---
   const desktopView = (
     <div className="gallery-container" style={{ marginLeft: '2rem' }}>
       <SectionHeading title="Image Gallery" />
@@ -162,7 +166,7 @@ const Gallery = () => {
           </button>
         </div>
 
-        {/* Info & Icons - Already Left Aligned via CSS */}
+        {/* Info & Icons */}
         <div className="gallery-info">
           <h3>{images[activeImage].title}</h3>
           <p>{images[activeImage].description}</p>
@@ -183,26 +187,7 @@ const Gallery = () => {
         </div>
       </div>
 
-      {modalOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>✖</button>
-            <button className="modal-prev" onClick={prevImage}>
-              <FaChevronLeft />
-            </button>
-            <button className="modal-next" onClick={nextImage}>
-              <FaChevronRight />
-            </button>
-            <div className="modal-model-container">
-              <img
-                src={images[activeImage].src}
-                alt={images[activeImage].title}
-                style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '2rem' }}
-              />
-            </div>
-          </div>
-        </div>
-      )}
+      {modalOpen && modalComponent}
     </div>
   );
 

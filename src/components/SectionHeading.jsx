@@ -1,14 +1,11 @@
 import React from 'react';
+import '../styles/sectionHeading.css';
 
 const SectionHeading = ({ title = 'Section Title' }) => {
   return (
-    <div className="flex justify-center gap-[0px] items-baseline">
-      <div>
-        <h3 className="text-[#2d2d2d] text-[1.6rem] font-bold mt-[2rem] ml-[3rem] mr-[0rem] whitespace-nowrap">
-          {title}
-        </h3>
-      </div>
-      <div className="bg-[#2d2d2d5a] h-[0.5px] w-full mb-[1rem] mr-[3.5rem] mx-[2rem]"></div>
+    <div className="section-heading-container">
+      <h3 className="section-heading">{title}</h3>
+      <div className="section-heading-line" />
     </div>
   );
 };

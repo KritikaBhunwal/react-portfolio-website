@@ -22,7 +22,7 @@ export const COLORS = {
   };
   
   export const BREAKPOINTS = {
-    mobile: "640px",
+    mobile: "340px",
     tablet: "768px",
     laptop: "1024px",
     desktop: "1280px",

@@ -15,37 +15,42 @@ import PF6 from '/Artwork06.jpg';
 import '../styles/portfolioGallery.css';
 
 const PortfolioGallery = () => {
-  // Updated images array with new title and description from process steps.
   const images = [
     {
       src: PF1,
       title: "Conceptual Sketching",
-      description: "Designers explore ideas via sketches, experimenting with shapes, details, and styles to build a creative foundation."
+      description:
+        "Designers explore ideas via sketches, experimenting with shapes, details, and styles to build a creative foundation."
     },
     {
       src: PF2,
       title: "Visual Inspiration Boards",
-      description: "Designers compile mood, story, and color boards to capture inspiration, set tone, and guide material choices."
+      description:
+        "Designers compile mood, story, and color boards to capture inspiration, set tone, and guide material choices."
     },
     {
       src: PF3,
       title: "Fabric Selection",
-      description: "Choosing the right fabric enhances functionality and style; designers consider use, season, audience, and properties."
+      description:
+        "Choosing the right fabric enhances functionality and style; designers consider use, season, audience, and properties."
     },
     {
       src: PF4,
       title: "Technical Flats & Specs",
-      description: "Detailed technical drawings with stitching instructions, measurements, and annotations communicate design intent for precise construction."
+      description:
+        "Detailed technical drawings with stitching instructions, measurements, and annotations communicate design intent for precise construction."
     },
     {
       src: PF5,
       title: "Garment Assembly",
-      description: "Designers collaborate with pattern makers and tailors, providing clear instructions and quality checks for flawless construction."
+      description:
+        "Designers collaborate with pattern makers and tailors, providing clear instructions and quality checks for flawless construction."
     },
     {
       src: PF6,
       title: "E-commerce Photoshoot",
-      description: "A professional photoshoot captures garment details; models, lighting, and backdrops are chosen to enhance online appeal."
+      description:
+        "A professional photoshoot captures garment details; models, lighting, and backdrops are chosen to enhance online appeal."
     }
   ];
 
@@ -83,6 +88,32 @@ const PortfolioGallery = () => {
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
+
+  // Updated modal component using Gallery preview style classes
+  const modalComponent = (
+    <div className="full-view-overlay" onClick={closeModal}>
+      <div className="full-view-content" onClick={(e) => e.stopPropagation()}>
+        <button className="close-btn" onClick={closeModal}>
+          ✖
+        </button>
+        <button className="prev-btn" onClick={prevImage}>
+          <FaChevronLeft />
+        </button>
+        <button className="next-btn" onClick={nextImage}>
+          <FaChevronRight />
+        </button>
+        <img
+          src={images[activeImage].src}
+          alt={images[activeImage].title}
+          className="full-view-image"
+        />
+        <div className="full-view-caption">
+          <h3>{images[activeImage].title}</h3>
+          <p>{images[activeImage].description}</p>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="gallery-container" style={{ marginLeft: '2rem' }}>
@@ -136,7 +167,6 @@ const PortfolioGallery = () => {
               <span>Fashion</span>
             </div>
           </div>
-          {/* Behance Links */}
           <div className="behance-links">
             <h4>More detailed projects on Behance:</h4>
             <ul>
@@ -151,27 +181,7 @@ const PortfolioGallery = () => {
           </div>
         </div>
       </div>
-      {/* Full-Screen Modal */}
-      {modalOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>✖</button>
-            <button className="modal-prev" onClick={prevImage}>
-              <FaChevronLeft />
-            </button>
-            <button className="modal-next" onClick={nextImage}>
-              <FaChevronRight />
-            </button>
-            <div className="modal-model-container">
-              <img
-                src={images[activeImage].src}
-                alt={images[activeImage].title}
-                style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '2rem' }}
-              />
-            </div>
-          </div>
-        </div>
-      )}
+      {modalOpen && modalComponent}
     </div>
   );
 };

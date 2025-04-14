@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/allProjects.css";
-// Import icons as used in your projects data
-import { 
-  SiAdobephotoshop, 
-  SiAdobeillustrator, 
-  SiFigma, 
-  SiCanva 
+import {
+  SiAdobephotoshop,
+  SiAdobeillustrator,
+  SiFigma,
+  SiCanva,
 } from "react-icons/si";
 import { FaReact, FaSearch } from "react-icons/fa";
 import { AiFillApple } from "react-icons/ai";
@@ -32,7 +31,7 @@ const AllProjects = () => {
       softwareIcons: [
         <SiAdobephotoshop key="photoshop-1" />,
         <SiAdobeillustrator key="illustrator-1" />,
-        <SiFigma key="figma-1" />
+        <SiFigma key="figma-1" />,
       ],
     },
     {
@@ -53,7 +52,7 @@ const AllProjects = () => {
         <SiAdobephotoshop key="photoshop-1" />,
         <SiAdobeillustrator key="illustrator-1" />,
         <FaReact key="react-1" />,
-        <SiFigma key="figma-1" />
+        <SiFigma key="figma-1" />,
       ],
     },
     {
@@ -67,7 +66,8 @@ const AllProjects = () => {
           Smoking Gun Inc : UI/UX Improvements
         </a>
       ),
-      projectDescription: "Implementing UI/UX Principles to improve the website.",
+      projectDescription:
+        "Implementing UI/UX Principles to improve the website.",
       projectLink:
         "https://www.canva.com/design/DAGIciY27_Y/gtVRbEh9RAnIkuRfF8YVPg/view?utm_content=DAGIciY27_Y&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h68ff1b515a",
       projectImage: "/ProjectCardPlaceholder.png",
@@ -90,7 +90,7 @@ const AllProjects = () => {
       softwareIcons: [
         <SiAdobephotoshop key="photoshop-2" />,
         <SiAdobeillustrator key="illustrator-2" />,
-        <FaSearch key="research-2" />
+        <FaSearch key="research-2" />,
       ],
     },
     {
@@ -104,14 +104,15 @@ const AllProjects = () => {
           Plant Easy : Figma Prototype for an App Idea
         </a>
       ),
-      projectDescription: "Deforestation app concept to promote remote planting.",
+      projectDescription:
+        "Deforestation app concept to promote remote planting.",
       projectLink:
         "https://www.figma.com/proto/69l5xZOXjWkdHJ8xZPlQA7/PlantEasy?node-id=84-391&p=f&t=UPs1ZUn9L95Tcf8v-1&scaling=scale-down&content-scaling=fixed&page-id=84%3A151&starting-point-node-id=84%3A391",
       projectImage: "/ProjectCardPlantEasy.png",
       softwareIcons: [
         <SiAdobephotoshop key="photoshop-4" />,
         <SiAdobeillustrator key="illustrator-4" />,
-        <SiFigma key="figma-4" />
+        <SiFigma key="figma-4" />,
       ],
     },
     {
@@ -125,14 +126,15 @@ const AllProjects = () => {
           Foodie Junction : Website Design
         </a>
       ),
-      projectDescription: "An effort to bring all foodies together through a website.",
+      projectDescription:
+        "An effort to bring all foodies together through a website.",
       projectLink:
         "https://docs.google.com/presentation/d/1CoPMHxDY-hIW0-w9dOL0T4tLs1zAkQRNpdit5GE5VXQ/edit?usp=sharing",
       projectImage: "/ProjectCardPlaceholder.png",
       softwareIcons: [
         <SiAdobephotoshop key="photoshop-4" />,
         <FaSearch key="research-4" />,
-        <SiFigma key="figma-4" />
+        <SiFigma key="figma-4" />,
       ],
     },
     {
@@ -146,7 +148,8 @@ const AllProjects = () => {
           Volunteer on the Go : Information Architecture
         </a>
       ),
-      projectDescription: "My first ever Information Architecture Website Design.",
+      projectDescription:
+        "My first ever Information Architecture Website Design.",
       projectLink:
         "https://www.figma.com/proto/69l5xZOXjWkdHJ8xZPlQA7/PlantEasy?node-id=84-391&p=f&t=UPs1ZUn9L95Tcf8v-1&scaling=scale-down&content-scaling=fixed&page-id=84%3A151&starting-point-node-id=84%3A391",
       projectImage: "/ProjectCardPlaceholder.png",
@@ -164,7 +167,7 @@ const AllProjects = () => {
       softwareIcons: [
         <SiFigma key="figma-6" />,
         <FaSearch key="research-6" />,
-        <SiCanva key="canva-6" />
+        <SiCanva key="canva-6" />,
       ],
     },
     {
@@ -178,7 +181,8 @@ const AllProjects = () => {
           Sheer Delight Boba : App Design Proposal
         </a>
       ),
-      projectDescription: "Proposing an app design concept for Bubble Tea lovers.",
+      projectDescription:
+        "Proposing an app design concept for Bubble Tea lovers.",
       projectLink:
         "https://www.canva.com/design/DAGYmM33JU4/_MC2jvQuwy6YzpTtjrxndw/view?utm_content=DAGYmM33JU4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h30d566f9bd",
       projectImage: "/ProjectCardPlaceholder.png",
@@ -193,10 +197,7 @@ const AllProjects = () => {
       projectLink:
         "https://www.figma.com/proto/aodpcYhkWYUwtttaCWH1ti/Solar-System-QA-Project?node-id=1-2&t=jEY0vR52TOmHOXnw-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2",
       projectImage: "/ProjectCardMoon.png",
-      softwareIcons: [
-        <SiFigma key="figma-5" />,
-        <FaSearch key="research-5" />
-      ],
+      softwareIcons: [<SiFigma key="figma-5" />, <FaSearch key="research-5" />],
     },
     {
       id: "5",
@@ -205,35 +206,25 @@ const AllProjects = () => {
       projectDescription: "FLUI 2025 : A website redesign challenge.",
       projectLink: "https://tinalin.ca/projects/furry-tales",
       projectImage: "/ProjectCardFurry.png",
-      softwareIcons: [
-        <SiFigma key="figma-5" />,
-        <FaSearch key="research-5" />
-      ],
+      softwareIcons: [<SiFigma key="figma-5" />, <FaSearch key="research-5" />],
     },
     {
       id: "3",
       category: "UI/UX Re-Design",
       projectTitle: "Suzanne Collins : My First Website Redesign Case Study",
-      projectDescription:
-        "An insightful take on Suzanne Collins' website.",
+      projectDescription: "An insightful take on Suzanne Collins' website.",
       projectLink:
         "https://www.behance.net/gallery/201546007/UX-UI-Case-Study-for-Suzanne-Collins-Website",
       projectImage: "/ProjectCardPlaceholder.png",
       softwareIcons: [
         <SiAdobephotoshop key="photoshop-3" />,
         <FaSearch key="research-3" />,
-        <AiFillApple key="apple-3" />
+        <AiFillApple key="apple-3" />,
       ],
     },
   ];
 
-  // Create a duplicate set with updated IDs for seamless marquee scrolling.
-  const duplicateProjects = projects.map(project => ({
-    ...project,
-    id: `${project.id}-dup`
-  }));
-
-  const combinedProjects = [...projects, ...duplicateProjects];
+  const combinedProjects = [...projects, ...projects];
 
   return (
     <div className="all-projects-container">

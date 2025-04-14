@@ -63,10 +63,10 @@ const Home = () => {
         <p style={{ marginLeft: "3rem", marginRight: "3rem" }}>As a Designer, I have had the opportunity to work in Fashion, Graphic and Tech Industries on multiple projects from Styling, Branding to UI/UX Design. Here is a preview to some of my favourite projects that I had a lot of fun working on!</p>
         <PixelPopBanner />
         <ThreeDBanner />
-        <SectionHeading title="Career Progression" />
+        <SectionHeading title="My Career" />
         <p style={{ marginLeft: "3rem", marginRight: "3rem" }}>I welcome you to explore through my Design Journey...</p>
         <Career />
-        <SectionHeading title="I'm Always Looking to Collaborate?" />
+        <SectionHeading title="Let's Collaborate" />
         <ProjectContent 
           title="Let’s Build Something Amazing Together!"
           description="I am passionate about creating meaningful designs that resonate and inspire. Whether it’s branding, UX/UI, or creative problem-solving, I’m here to bring your vision to life. Let’s collaborate and make an impact!"

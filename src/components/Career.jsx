@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card";
+import CareerCard from "./CareerCard";
 import collage1 from "/Collages-1.png";
 import collage2 from "/Collages-2.png";
 import collage3 from "/Collages-3.png";
@@ -37,9 +37,9 @@ const careerOptions = [
 
 const Career = () => {
   return (
-    <div className="card-container">
+    <div className="careercard-container">
       {careerOptions.map((career, index) => (
-        <Card
+        <CareerCard
           key={index}
           title={career.title}
           description={career.description}

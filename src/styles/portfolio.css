@@ -85,6 +85,12 @@ li {
   margin-top: 1rem;
 }
 
+.journey-intro {
+  font-size: 1.25rem;
+  color: #2d2d2d;
+  margin: 1rem 3rem 0 3rem;
+}
+
 @media (max-width: 768px) {
   .report-authors {
     margin-left: 1rem;
@@ -248,12 +254,21 @@ li {
   border-radius: 2rem;
 }
 
+.modal-iframe {
+  width: 100%;
+  max-width: 80%;
+  height: 80vh;
+  border: none;
+  border-radius: 2rem;
+}
+
 .modal-caption {
   margin-top: 0.5rem;
   font-size: 1rem;
   color: #fff;
 }
 
+/* Modal Navigation Buttons */
 .modal-close,
 .modal-prev,
 .modal-next {
@@ -282,6 +297,7 @@ li {
   top: 50%;
   transform: translateY(-50%);
 }
+
 
 /* Responsive Styles */
 @media (max-width: 1024px) {

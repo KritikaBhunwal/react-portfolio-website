@@ -1,0 +1,49 @@
+/* Container sets up a flex layout to align the heading and the line on their baseline */
+.section-heading-container {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    padding-left: 1rem;
+    padding-right: 0rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* The heading itself */
+  .section-heading {
+    color: #2d2d2d;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0;
+    /* Prevent overflow if needed */
+    word-break: break-word;
+  }
+  
+  /* The horizontal line styled similar to an <hr> */
+  .section-heading-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: rgba(45, 45, 45, 0.35); /* Light line color similar to #2d2d2d5a */
+    margin-left: 1rem;
+    margin-right: 3.5rem;
+  }
+  
+  /* Responsive adjustments for the heading text */
+  @media (max-width: 1024px) {
+    .section-heading {
+      font-size: 1.4rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .section-heading {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .section-heading {
+      font-size: 1rem;
+    }
+  }
+  

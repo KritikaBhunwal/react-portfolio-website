@@ -4,7 +4,8 @@
     border-radius: 2rem;
     /* width: 40%; */
     height: 800px;
-    padding: 2rem;
+    width: 100%;
+    /* padding: 2rem; */
   }
   
   .figma-error {

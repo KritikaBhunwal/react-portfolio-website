@@ -7,10 +7,10 @@ const CodeSnippet = ({ codeString, language = "javascript", showLineNumbers = tr
   return (
     <div
       style={{
-        width: "45vw",
+        width: "100vw",
         height: "600px",
         overflowY: "auto",
-        margin: "1rem 2rem",
+        padding: "3rem",
         borderRadius: "2rem",
       }}
     >

@@ -18,13 +18,13 @@ import '../styles/fashionStyling.css';
 
 const FashionStyling = () => {
   const images = [
-    { src: FS1, title: "Styling Inspo 1", description: "Placeholder text to explain that image." },
-    { src: FS2, title: "Styling Inspo 2", description: "Placeholder text to explain that image." },
-    { src: FS3, title: "Styling Inspo 3", description: "Placeholder text to explain that image." },
-    { src: FS4, title: "Styling Inspo 4", description: "Placeholder text to explain that image." },
-    { src: FS5, title: "Styling Inspo 5", description: "Placeholder text to explain that image." },
-    { src: FS6, title: "Styling Inspo 6", description: "Placeholder text to explain that image." },
-    { src: FS7, title: "Styling Inspo 7", description: "Placeholder text to explain that image." }
+    { src: FS1, title: "Styling Inspiration : 1", description: "Placeholder text to explain that image." },
+    { src: FS2, title: "Styling Inspiration : 2", description: "Placeholder text to explain that image." },
+    { src: FS3, title: "Styling Inspiration : 3", description: "Placeholder text to explain that image." },
+    { src: FS4, title: "Styling Inspiration : 4", description: "Placeholder text to explain that image." },
+    { src: FS5, title: "Styling Inspiration : 5", description: "Placeholder text to explain that image." },
+    { src: FS6, title: "Styling Inspiration : 6", description: "Placeholder text to explain that image." },
+    { src: FS7, title: "Styling Inspiration : 7", description: "Placeholder text to explain that image." }
   ];
 
   const projectTitle = "Elevate Your Style: Premier Fashion Styling Project for E-commerce";
