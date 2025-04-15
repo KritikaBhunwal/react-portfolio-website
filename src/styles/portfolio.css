@@ -1,3 +1,4 @@
+/* FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
@@ -14,43 +15,33 @@ p,
 span,
 a,
 li {
-  /* overflow-wrap: break-word; */
-  /* word-wrap: break-word; */
-  /* word-break: break-word; */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
+/* 1) Container gets a max-width & centers horizontally */
 .portfolio-container {
   color: #2d2d2d;
   font-family: 'Quicksand', sans-serif;
-  /* 4rem margins on desktop */
-  margin: 2rem 0rem 0 0rem;
+  max-width: 100vw;       /* prevents content from going too wide */
+  margin: 0 auto;          /* center the container on the page */
+  padding: 0 1rem;         /* some left-right breathing space */
 }
 
-.section-content {
-  font-size: 1rem;
-  margin-left: 2rem;
-  line-height: 1.6;
+/* Banner Styles: remove 100vw and let it fill the container */
+.portfolio-banner {
+  width: 100%;
+  margin: 2rem 0;
+  box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-  .portfolio-container {
-    margin: 1rem;
-  }
-}
-
-/* Banner Styles */
-.portfolio-banner-img {
+.portfolio-banner-img, 
+.portfolio-banner-image {
   width: 100%;
   height: auto;
   display: block;
-  margin: 0rem;
-}
-
-.portfolio-banner {
-  width: 100vw;
-  margin: 2rem auto; /* Centered with auto margins */
-  /* padding: 0 2rem; */
-  box-sizing: border-box;
+  margin: 0;
 }
 
 /* Header Styles */
@@ -58,15 +49,14 @@ li {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 0 auto;
   max-width: 100%;
-  padding: 0 2rem;
+  /* padding: 0 1rem; */
+  margin: 0 1rem;
 }
 
 .header-text h2 {
   font-size: 3rem;
   color: #2d2d2d;
-  margin: 0 auto;
   margin-left: 4rem;
 }
 
@@ -81,7 +71,7 @@ li {
   font-weight: bold;
   color: #cbbfee;
   text-align: left;
-  margin-left: 4rem; /* 4rem away on desktop */
+  margin-left: 4rem;
   margin-top: 1rem;
 }
 
@@ -91,37 +81,20 @@ li {
   margin: 1rem 3rem 0 3rem;
 }
 
-@media (max-width: 768px) {
-  .report-authors {
-    margin-left: 1rem;
-  }
-}
-
-/* Main Content Wrapper */
-.portfolio-content {
-  margin: 4rem 4rem; /* 4rem on left/right for desktop */
-}
-
-@media (max-width: 768px) {
-  .portfolio-content {
-    margin: 1rem;
-  }
-}
-
-/* Desktop Layout */
+/* Desktop Layout: side-by-side at large screens */
 .desktop-layout {
   display: flex;
   gap: 2rem;
   margin: 2rem 0;
 }
 
-/* Table of Contents - fixed on desktop, scrollable on mobile */
+/* Table of Contents: sticky on desktop */
 .table-of-contents {
   flex: 0 0 300px;
   position: sticky;
   top: 1rem;
   align-self: flex-start;
-  margin: 1rem;
+  margin: 1rem 0;
   padding: 1rem;
   line-height: 2rem;
   border-right: 1px solid #ccc;
@@ -161,12 +134,13 @@ li {
   color: #9990bb;
 }
 
-/* Content Styles */
+/* Main Content area */
 .content {
   flex: 1;
   padding: 1rem;
 }
 
+/* Sections */
 .report-section {
   margin-bottom: 3rem;
   text-align: left;
@@ -189,15 +163,11 @@ li {
 .section-content {
   margin-bottom: 2rem;
   padding: 0 1rem;
-}
-
-.section-content p {
   font-size: 1rem;
-  margin: 1rem 0;
   line-height: 1.6;
 }
 
-/* Gallery Styles - 2 images per row with 1rem gap */
+/* Gallery Styles */
 .section-gallery {
   display: flex;
   flex-wrap: wrap;
@@ -254,18 +224,10 @@ li {
   border-radius: 2rem;
 }
 
-.modal-iframe {
-  width: 100%;
-  max-width: 80%;
-  height: 80vh;
-  border: none;
-  border-radius: 2rem;
-}
-
 .modal-caption {
   margin-top: 0.5rem;
   font-size: 1rem;
-  color: #fff;
+  color: #2d2d2d;
 }
 
 /* Modal Navigation Buttons */
@@ -298,51 +260,51 @@ li {
   transform: translateY(-50%);
 }
 
+/* RESPONSIVE BREAKPOINTS */
 
-/* Responsive Styles */
+/* Medium screens: stack layout if needed */
 @media (max-width: 1024px) {
   .header-text h2 {
     font-size: 2.5rem;
-    margin: 0 auto;
   }
   .header-text h3 {
     font-size: 1.5rem;
-    margin: 0.5rem auto;
   }
   .desktop-layout {
-    flex-direction: column;
+    flex-direction: column; /* Stacks TOC above content */
   }
   .content {
     padding: 1rem;
   }
 }
 
+/* Mobile & small tablets */
 @media (max-width: 768px) {
+  /* Less margin around container so it never overflows */
   .portfolio-container {
-    margin: 1rem;
+    padding: 0 0.5rem;
   }
-  .portfolio-banner {
-    margin-left: 1rem;
-    margin-right: 1rem;
+
+  /* Table of Contents no longer sticky */
+  .table-of-contents {
+    position: static;
+    margin: 1rem 0;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
   }
+
   .header-text h2 {
-    font-size: 2.5rem;
-    margin: 0 auto;
+    font-size: 2rem;
+    margin: 1rem 0;
   }
   .header-text h3 {
     font-size: 1.25rem;
-    margin: 0.5rem auto;
+    margin: 0.5rem 0;
   }
-  /* TOC changes to static on mobile */
-  .table-of-contents {
-    position: static;
-    margin: 1rem;
-    padding: 1rem;
-  }
-  .section-content {
-    padding: 0 1rem;
-  }
-  .section-content p {
-    margin: 1rem 0;
+
+  /* Single-column images if needed */
+  .gallery-image {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 }

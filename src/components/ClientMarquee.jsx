@@ -10,13 +10,12 @@ const ClientMarquee = () => {
       <div className="client-marquee">
         {/* Duplicate logos for continuous scrolling */}
         {logos.concat(logos).map((logo, index) => (
-          <a key={index} href="#" className="client-logo-link">
             <img
+              key={index}
               src={logo}
               alt={`Client ${index % 20 + 1}`}
               className="client-logo"
             />
-          </a>
         ))}
       </div>
     </div>

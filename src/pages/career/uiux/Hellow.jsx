@@ -17,22 +17,19 @@ const structuredData = {
 };
 
 const Hellow = () => {
-  // Modal preview state for images from Approach, Problem Statement, and Solution sections
+  // Modal state and image arrays
   const [modalOpen, setModalOpen] = useState(false);
   const [modalIndex, setModalIndex] = useState(0);
 
-  // Define image arrays with captions
+  // Approach, Problem, Solution images
   const approachImages = [
     { src: "/HellowSketch.png", caption: "Hellow Sketch" },
-    {
-      src: "/Hellow-StyleSheet.jpg",
-      caption: "Hellow App StyleSheet",
-    },
+    { src: "/Hellow-StyleSheet.jpg", caption: "Hellow App StyleSheet" },
   ];
   const problemImages = [
     {
       src: "/Hellow1.jpg",
-      caption: "Create new Memories with Hellow and Your Loved Ones ",
+      caption: "Create new Memories with Hellow and Your Loved Ones",
     },
     {
       src: "/Hellow2.jpg",
@@ -40,7 +37,7 @@ const Hellow = () => {
     },
     {
       src: "/Hellow3.jpg",
-      caption: "Asunchronous Communication through Hellow App for everyone.",
+      caption: "Asynchronous Communication through Hellow App for everyone.",
     },
   ];
   const solutionImages = [
@@ -62,17 +59,15 @@ const Hellow = () => {
     },
   ];
 
-  // Combined modal images (order: Approach, then Problem Statement, then Solution)
+  // Combine for the modal
   const modalImages = [...approachImages, ...problemImages, ...solutionImages];
 
-  // Modal control functions
+  // Modal controls
   const openModal = (index) => {
     setModalIndex(index);
     setModalOpen(true);
   };
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  const closeModal = () => setModalOpen(false);
   const nextModalImage = () => {
     setModalIndex((prev) => (prev < modalImages.length - 1 ? prev + 1 : 0));
   };
@@ -85,7 +80,7 @@ const Hellow = () => {
       <SEO
         title="Hellow – Asynchronous Communication App"
         description="Hellow is a communication app that helps friends and family stay connected across time zones. Designed with empathy, the app uses asynchronous communication and thoughtful UX to build meaningful connections without time pressure."
-        keywords="asynchronous communication app, app design, app ideas, time zone messaging, pro-social UX design, VR communication, cross-timezone app, Kritika Bhunwal, remote connection tool, digital empathy app"
+        keywords="asynchronous communication app, app design, time zone messaging, pro-social UX design, VR communication, cross-timezone app, Kritika Bhunwal"
         url="https://www.kritikabhunwal.com/hellow"
         image="https://kritikabhunwal.com/assets/hellow-banner.jpg"
         type="website"
@@ -94,23 +89,17 @@ const Hellow = () => {
         structuredData={structuredData}
       />
 
-      {/* Full-width Banner */}
+      {/* Banner */}
       <div className="hellow-banner">
         <header className="report-header">
-
-      <img
-        src="/HellowBanner.png"
-        alt="Hellow Banner"
-        className="hellow-banner-image"
-        style={{ marginBottom: "2rem" }}
-
-      />
+          <img
+            src="/HellowBanner.png"
+            alt="Hellow Banner"
+            className="hellow-banner-image"
+          />
           <div className="header-text">
             <h2>Hellow : An Asynchronous Communication App</h2>
-            <h3>
-              Build Meaningful Connection with Family and
-              Friends Across Different Time Zones
-            </h3>
+            <h3>Build Meaningful Connection with Family and Friends Across Different Time Zones</h3>
           </div>
           <div className="report-authors">
             <span>
@@ -121,67 +110,46 @@ const Hellow = () => {
         </header>
       </div>
 
-      {/* Main Content Wrapper (8rem left/right margin) */}
+      {/* Main Content */}
       <div className="main-content">
         <div className="desktop-layout-hellow">
-          <nav className="table-of-contents">
+          {/* Table of Contents */}
+          <nav className="table-of-contents" style={{ marginLeft: "4rem", marginRight: "-2rem" }}>
             <h3>Table of Content</h3>
             <ul>
               <li>
-                <a href="#project-title" style={{ color: "#2d2d2d" }}>
-                  Hellow
-                </a>
+                <a href="#project-title">Hellow</a>
               </li>
               <li>
-                <a href="#project-summary" style={{ color: "#2d2d2d" }}>
-                  Project Summary
-                </a>
+                <a href="#project-summary">Project Summary</a>
               </li>
               <li>
-                <a href="#research" style={{ color: "#2d2d2d" }}>
-                  Research
-                </a>
+                <a href="#research">Research</a>
               </li>
               <li>
-                <a href="#intended-audience" style={{ color: "#2d2d2d" }}>
-                  Intended Audience
-                </a>
+                <a href="#intended-audience">Intended Audience</a>
               </li>
               <li>
-                <a href="#problem-statement" style={{ color: "#2d2d2d" }}>
-                  Problem Statement
-                </a>
+                <a href="#problem-statement">Problem Statement</a>
               </li>
               <li>
-                <a href="#solution" style={{ color: "#2d2d2d" }}>
-                  Solution
-                </a>
+                <a href="#solution">Solution</a>
               </li>
               <li>
-                <a href="#approach" style={{ color: "#2d2d2d" }}>
-                  Approach
-                </a>
+                <a href="#approach">Approach</a>
               </li>
               <li>
-                <a href="#risks" style={{ color: "#2d2d2d" }}>
-                  Risks
-                </a>
+                <a href="#risks">Risks</a>
               </li>
               <li>
-                <a href="#bibliography" style={{ color: "#2d2d2d" }}>
-                  Bibliography
-                </a>
-              </li>
-              <li>
-                <a href="#collaboration" style={{ color: "#2d2d2d" }}>
-                  Looking to Collaborate?
-                </a>
+                <a href="#bibliography">Bibliography</a>
               </li>
             </ul>
           </nav>
 
+          {/* Content */}
           <main className="content">
-            {/* Project Title Section */}
+            {/* Hellow */}
             <section id="project-title" className="report-section">
               <SectionHeading title="Hellow" />
               <div className="section-content">
@@ -195,7 +163,7 @@ const Hellow = () => {
               </div>
             </section>
 
-            {/* Project Summary Section */}
+            {/* Project Summary */}
             <section id="project-summary" className="report-section">
               <SectionHeading title="Project Summary" />
               <div className="section-content">
@@ -204,20 +172,20 @@ const Hellow = () => {
                   regular communication among loved ones despite time
                   differences. With a vision to foster strong connections across
                   borders, Hellow benefits international students, multinational
-                  professionals, and travelers abroad. <br />
+                  professionals, and travelers abroad.
+                  <br />
                   <br />
                   Its asynchronous communication style finds overlapping time
                   slots for seamless scheduling. The app offers a simple
                   interface with a reliable time zone database, high security,
                   and customizable notifications. Hellow’s adoption strategy
-                  revolves around compassion, interaction, and
-                  collaboration—coupled with VR features that keep people
-                  virtually connected.
+                  revolves around compassion, interaction, and collaboration—
+                  coupled with VR features that keep people virtually connected.
                 </p>
               </div>
             </section>
 
-            {/* Research Section */}
+            {/* Research */}
             <section id="research" className="report-section">
               <SectionHeading title="Research" />
               <div className="section-content">
@@ -225,11 +193,13 @@ const Hellow = () => {
                   In the era of global expansion, people are moving across
                   borders for better job opportunities, education, travel, and
                   more. Recent UN data reveals a 3.6% increase in global
-                  migration from 221 million in 2010 to 281 million in 2020—even
-                  with a COVID-19 slowdown. Approximately 73% of migrants are
-                  working-age, with nearly 65% residing in high-income
-                  countries. <br />
-                  <br />A study including Microsoft employees found that while
+                  migration from 221 million in 2010 to 281 million in 2020—
+                  even with a COVID-19 slowdown. Approximately 73% of migrants
+                  are working-age, with nearly 65% residing in high-income
+                  countries.
+                  <br />
+                  <br />
+                  A study including Microsoft employees found that while
                   synchronous communication fosters connection, it poses
                   challenges across time zones—highlighting the need for
                   efficient asynchronous methods.
@@ -237,7 +207,7 @@ const Hellow = () => {
               </div>
             </section>
 
-            {/* Intended Audience Section */}
+            {/* Intended Audience */}
             <section id="intended-audience" className="report-section">
               <SectionHeading title="Intended Audience" />
               <div className="section-content">
@@ -245,7 +215,8 @@ const Hellow = () => {
                   Global migration and varying time zones challenge real-time
                   communication. Students studying abroad, international
                   workers, travelers, and their families struggle to maintain
-                  live connections. <br />
+                  live connections.
+                  <br />
                   <br />
                   Hellow’s asynchronous approach enables these users to connect
                   at their convenience—supporting emotional well-being, social
@@ -254,7 +225,7 @@ const Hellow = () => {
               </div>
             </section>
 
-            {/* Problem Statement Section */}
+            {/* Problem Statement */}
             <section id="problem-statement" className="report-section">
               <SectionHeading title="Problem Statement" />
               <div className="section-content">
@@ -262,7 +233,8 @@ const Hellow = () => {
                   Coordinating real-time interactions across different time
                   zones is complex. Hellow recognizes the struggle of
                   maintaining constant communication with loved ones when
-                  schedules clash. <br />
+                  schedules clash.
+                  <br />
                   <br />
                   To address this, the app offers customizable notifications
                   that reflect mood, availability, and relationship
@@ -284,14 +256,15 @@ const Hellow = () => {
               </div>
             </section>
 
-            {/* Solution Section */}
+            {/* Solution */}
             <section id="solution" className="report-section">
               <SectionHeading title="Solution" />
               <div className="section-content">
                 <p>
                   Hellow provides a solution to cross-time zone challenges by
                   establishing routines and leveraging technology for
-                  asynchronous interactions. <br />
+                  asynchronous interactions.
+                  <br />
                   <br />
                   With scheduled notifications, personalized settings, and a
                   user-friendly interface, the app bridges the gap between
@@ -317,13 +290,14 @@ const Hellow = () => {
               </div>
             </section>
 
-            {/* Approach Section */}
+            {/* Approach */}
             <section id="approach" className="report-section">
               <SectionHeading title="Approach" />
               <div className="section-content">
                 <p>
                   Responding to global migration and remote work challenges,
-                  Hellow adopts an asynchronous model. <br />
+                  Hellow adopts an asynchronous model.
+                  <br />
                   <br />
                   This approach reduces the pressure of real-time connectivity
                   while ensuring regular, meaningful engagement. By leveraging
@@ -331,8 +305,7 @@ const Hellow = () => {
                   bridges emotional distances—empowering users to connect
                   despite time differences.
                 </p>
-                {/* Approach Gallery */}
-                <div className="section-gallery-approach">
+                <div className="section-gallery">
                   {approachImages.map((img, idx) => (
                     <img
                       key={idx}
@@ -346,7 +319,7 @@ const Hellow = () => {
               </div>
             </section>
 
-            {/* Risks Section */}
+            {/* Risks */}
             <section id="risks" className="report-section">
               <SectionHeading title="Risks" />
               <div className="section-content">
@@ -363,7 +336,7 @@ const Hellow = () => {
               </div>
             </section>
 
-            {/* Bibliography Section */}
+            {/* Bibliography */}
             <section id="bibliography" className="report-section">
               <SectionHeading title="Bibliography" />
               <div className="section-content">
@@ -397,9 +370,8 @@ const Hellow = () => {
               </div>
             </section>
 
+            {/* Embedded Video */}
             <SectionHeading title="Youtube Video" />
-
-            {/* Embedded video */}
             <div className="video-container">
               <iframe
                 width="800"
@@ -413,21 +385,22 @@ const Hellow = () => {
               ></iframe>
             </div>
 
+            {/* Presentation PDF */}
             <SectionHeading title="Presentation Pdf" />
             <PDFViewer
               src="/KritikaBhunwal_TechnicalSolutionProposal_Presentation.pdf"
               width="100%"
-              height="600rem"
               style={{
                 borderRadius: "2rem",
-                marginLeft: "4rem",
+                margin: "2rem auto",
                 height: "600rem",
-                maxHeight: "400rem",
+                maxHeight: "80vh",
               }}
             />
           </main>
         </div>
-        {/* New Let's Work Together Section */}
+
+        {/* Let's Work Together */}
         <SectionHeading title="Let's Work Together" />
         <ProjectContent
           title="A Partnership Rooted in Creativity & Collaboration"
@@ -456,9 +429,11 @@ const Hellow = () => {
           ]}
         />
       </div>
+
+      {/* Collaboration CTA */}
       <WorkTogether />
 
-      {/* Modal Preview for Images */}
+      {/* Modal Preview */}
       {modalOpen && (
         <div className="modal-overlay">
           <div className="modal-content">

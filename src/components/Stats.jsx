@@ -8,19 +8,19 @@ const StatsCircles = () => {
   const circlesData = [
     {
         label: "7+ Years",
-        diameter: 240, // doubled from 140
+        diameter: 200, // doubled from 140
         direction: "bottom",
         // Third corner (rough equilateral arrangement)
         style: {
-          left: "160px",
-          top: "270px",
+          left: "135px",
+          top: "260px",
           // Put this circle on top
           zIndex: 2
         }
       },
     {
       label: "30+ Clients",
-      diameter: 320, // doubled from 180
+      diameter: 240, // doubled from 180
       direction: "left",
       // Place circle at first corner of equilateral triangle (offset applied)
       style: {
@@ -31,7 +31,7 @@ const StatsCircles = () => {
     },
     {
       label: "1500+ Creatives",
-      diameter: 400, // doubled from 250 (largest circle)
+      diameter: 320, // doubled from 250 (largest circle)
       direction: "right",
       // Second corner
       style: {

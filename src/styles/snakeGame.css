@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-/* Full-Screen Container Style:
-   The container spans the entire viewport (100vw x 100vh) and is fixed.
-*/
+/* Full-Screen Container */
 .snake-game-container {
   width: 100vw;
   height: 100vh;

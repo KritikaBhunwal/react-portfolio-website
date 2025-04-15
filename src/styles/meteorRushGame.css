@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-/* Full-Screen Container Style:
-   The container covers the entire viewport (100vw x 100vh) and is fixed.
-*/
+/* The container covers the entire viewport (100vw x 100vh) and is fixed. */
 .meteor-game-container {
   width: 100vw;
   height: 100vh;
@@ -12,11 +10,14 @@
   left: 0;
   margin: 0;
   overflow: hidden;
+  font-family: "Quicksand", sans-serif;
+
+  /* Ensure the background image retains its aspect ratio and isn't stretched. */
   background-color: #2d2d2d;
   background-image: url("/bg-image-with-logo.png");
-  background-size: cover;
+  /* background-repeat: no-repeat; */
   background-position: center;
-  font-family: "Quicksand", sans-serif;
+  background-size: cover; /* Maintains aspect ratio without stretching */
 }
 
 /* The canvas fills the container exactly */
@@ -43,7 +44,6 @@
   cursor: pointer;
   z-index: 10;
 }
-
 .close-button:hover {
   background: rgba(255, 255, 255, 1);
 }

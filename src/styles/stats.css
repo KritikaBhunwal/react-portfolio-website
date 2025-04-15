@@ -1,34 +1,63 @@
-/* Adjust the wrapper size so that all circles fit comfortably. */
+/* Top-level wrapper */
 .stats-circles-wrapper {
-    width: 900px;    /* can be adjusted if you need more/less space */
-    height: 600px;   /* can be adjusted */
-    margin: 0 auto;  /* center the entire component horizontally */
-    position: relative;
+  width: 100%;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Container */
+.stats-circles-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Each circle (desktop/tablet by default) */
+.stats-circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #cbbfee5a; /* semi-transparent purple */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Circle text styling */
+.stats-circle-text {
+  font-family: "Chonburi", cursive;
+  font-size: 1.1rem;
+  color: #2d2d2d;
+  text-align: center;
+  user-select: none;
+  max-width: 80%;
+}
+
+/* 
+   ---------------------------------------
+   MEDIA QUERY for smaller screens:
+   At widths <= 768px, switch layout.
+   ---------------------------------------
+*/
+@media (max-width: 768px) {
+  /* Let the wrapper auto-adjust its height */
+  .stats-circles-wrapper {
+    height: auto;
   }
-  
+
+  /* Remove absolute positioning; stack in a column */
   .stats-circles-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* Each circle */
-  .stats-circle {
-    position: absolute;
-    border-radius: 50%;
-    background-color: #cbbfee5a;  /* semi-transparent purple */
+    position: static;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    padding: 20px 0; /* optional vertical padding */
   }
-  
-  /* Circle text styling */
-  .stats-circle-text {
-    font-family: "Chonburi", cursive;
-    font-size: 1.1rem;
-    color: #2d2d2d;  /* your requested text color */
-    text-align: center;
-    user-select: none;
-    max-width: 80%;  /* in case text wraps, but it shouldn't for these short labels */
+
+  .stats-circle {
+    position: static;
+    margin-bottom: 20px; /* spacing between circles */
+    width: 140px;        /* or keep your original diameters, or set them relative (e.g. 40vw) */
+    height: 140px;
   }
-  
+}

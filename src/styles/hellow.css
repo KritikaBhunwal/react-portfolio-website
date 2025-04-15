@@ -1,3 +1,4 @@
+/* FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Chonburi:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
@@ -5,7 +6,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Global & Container Styles */
+/* Global & Container Resets */
 body,
 h1,
 h2,
@@ -17,88 +18,80 @@ li {
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
+  margin: 0;
+  padding: 0;
 }
 
-/* Use 4rem side margins on desktop and 1rem on mobile/tablet */
+/* 1) Centered Container with max-width to avoid bleed */
 .hellow-container {
   color: #2d2d2d;
   font-family: 'Quicksand', sans-serif;
-  margin: 2rem 0rem 0 0rem;
+  max-width: 100vw;
+  margin: 0 1rem;       /* Center horizontally */
+  /* padding: 0 1rem;     Some side padding */
 }
 
-
-
-/* Media override for smaller screens */
-@media (max-width: 768px) {
-  .hellow-container {
-    margin: 1rem;
-  }
-}
-
-/* Full-width Banner */
+/* Banner */
 .hellow-banner {
   width: 100%;
-  margin: 2rem auto;  /* centered horizontally */
-  /* padding: 0 2rem; */
+  margin: 2rem 0;
   box-sizing: border-box;
 }
 
 .hellow-banner-image {
   width: 100%;
   height: auto;
-  margin: 0;
+  display: block;
+  margin: 0; 
 }
 
-/* Header Styles */
+/* Header */
 .report-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 2rem auto;
-  max-width: 100%;
-  padding: 0 2rem;
+}
+
+.header-text {
+  margin: 1rem 0;
 }
 
 .header-text h2 {
   font-size: 3rem;
   color: #2d2d2d;
-  margin: 0 auto;
 }
 
 .header-text h3 {
   font-size: 1.75rem;
   color: #2d2d2d;
-  margin: 0.5rem auto;
+  margin: 0.5rem 0 0 0;
 }
 
 .report-authors {
   font-size: 0.9rem;
   font-weight: bold;
   color: #cbbfee;
-  text-align: left;
-  margin-left: 0rem;
+  margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
-  .report-authors {
-    margin-top: 1rem;
-  }
+/* Main Content Wrapper */
+.main-content {
+  margin: 2rem 0;
 }
 
-/* Desktop Layout for TOC & Content */
+/* Desktop Layout for TOC & Content side-by-side */
 .desktop-layout-hellow {
   display: flex;
   gap: 2rem;
-  margin: 2rem 4rem;
 }
 
-/* Fixed Table of Contents on desktop */
+/* Table of Contents - sticky on large screens */
 .table-of-contents {
   flex: 0 0 300px;
   position: sticky;
   top: 1rem;
   align-self: flex-start;
-  margin: 1rem;
+  margin: 1rem 2rem;
   padding: 1rem;
   line-height: 2rem;
   border-right: 1px solid #ccc;
@@ -138,7 +131,7 @@ li {
   color: #9990bb;
 }
 
-/* Content Styles */
+/* Content Area */
 .content {
   flex: 1;
   padding: 1rem;
@@ -160,12 +153,11 @@ li {
   border: none;
   height: 1px;
   background-color: #ccc;
-  margin: 1.3rem 0 2rem 0;
+  margin: 1.3rem 0 2rem;
 }
 
 .section-content {
   margin-bottom: 2rem;
-  padding: 0 1rem;
 }
 
 .section-content p {
@@ -174,25 +166,35 @@ li {
   line-height: 1.6;
 }
 
-/* Gallery Styles - 2 images per row with 1rem gap */
+/* Gallery */
 .section-gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-between;
-  padding: 0 1rem;
 }
 
 .gallery-image {
   flex: 1 1 calc(50% - 1rem);
   max-width: calc(50% - 1rem);
   cursor: pointer;
-  border-radius: 2rem;
+  border-radius: 1rem;
   transition: transform 0.3s ease;
 }
 
 .gallery-image:hover {
   transform: scale(1.01);
+}
+
+/* Video Container */
+.video-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.video-container iframe {
+  border: none;
+  max-width: 100%;
 }
 
 /* Modal Styles */
@@ -211,16 +213,15 @@ li {
 
 .modal-content {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background: #fff;
-  padding: 2rem;
   border-radius: 2rem;
+  padding: 2rem;
   text-align: center;
   max-width: 90%;
   max-height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .modal-image {
@@ -228,15 +229,17 @@ li {
   max-width: 100%;
   height: auto;
   max-height: 80vh;
-  border-radius: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 
 .modal-caption {
-  margin-top: 0.5rem;
   font-size: 1rem;
-  color: #fff;
+  color: #2d2d2d;
+  margin-bottom: 1rem;
 }
 
+/* Modal Buttons */
 .modal-close,
 .modal-prev,
 .modal-next {
@@ -266,12 +269,10 @@ li {
   transform: translateY(-50%);
 }
 
-/* Collaboration Section */
+/* Collaboration Styles (optional) */
 .collaboration-section {
-  padding: 3rem;
-  border-radius: 2rem;
   margin-top: 2rem;
-  margin-left: 0;
+  border-radius: 2rem;
 }
 
 .collaboration-highlights {
@@ -284,44 +285,40 @@ li {
   font-size: 1rem;
 }
 
-/* Responsive Styles */
+/* RESPONSIVE: medium screens */
 @media (max-width: 1024px) {
   .header-text h2 {
     font-size: 2.5rem;
-    margin: 0 auto;
   }
   .header-text h3 {
     font-size: 1.5rem;
-    margin: 0.5rem auto;
+    margin-top: 0.5rem;
   }
-  
-  .desktop-layout {
+  .desktop-layout-hellow {
     flex-direction: column;
   }
-  .content {
-    padding: 1rem;
-  }
-  /* Keep TOC fixed on desktop; on mobile, we switch in the next query */
 }
 
+/* RESPONSIVE: mobile and small tablets */
 @media (max-width: 768px) {
-  .hellow-container {
-    margin: 1rem 2rem;
+  .header-text h2 {
+    font-size: 2rem;
   }
-  .hellow-banner {
-    margin-left: -2rem;
-    margin-right: 2rem;
+  .header-text h3 {
+    font-size: 1.25rem;
   }
-  /* On mobile, allow the TOC to scroll normally */
+  /* Table of Contents becomes static */
   .table-of-contents {
     position: static;
-    margin: 1rem;
-    padding: 1rem;
-  }
-  .section-content {
-    padding: 0 1rem;
-  }
-  .section-content p {
     margin: 1rem 0;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+  }
+  .gallery-image {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .video-container {
+    padding: 0 1rem;
   }
 }

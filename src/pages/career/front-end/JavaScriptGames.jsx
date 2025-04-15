@@ -187,7 +187,7 @@ const JavaScriptGames = () => {
                   <button className="play-button">Play</button>
                 </div>
               </div>
-              <p>My best score: 85</p>
+              <p>My best score: 107</p>
             </div>
 
             {/* Snake Game Card */}
@@ -207,7 +207,7 @@ const JavaScriptGames = () => {
                   <button className="play-button">Play</button>
                 </div>
               </div>
-              <p>My best score: 101</p>
+              <p>My best score: 90</p>
             </div>
 
             {/* Meteor Rush Game Card */}

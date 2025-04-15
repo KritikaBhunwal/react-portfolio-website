@@ -177,7 +177,7 @@ const About = () => {
       <SEO
         title="Kritika Bhunwal - About"
         description="Discover more about Kritika Bhunwal, a creative professional specializing in art, design, and innovative collaborations. Learn about her journey as an artist and designer."
-        keywords="Kritika Bhunwal, about, artist, designer, creative portfolio, collaborations"
+        keywords="Kritika Bhunwal, Kritika, Bhunwal, about, artist, designer, creative portfolio, collaboration, art, design, UI/UX, graphic design, fashion design, Indian Designer"
         url="https://www.kritikabhunwal.com/about"
         image="https://kritikabhunwal.com/assets/logo-lDoHeESd.png"
         type="website"

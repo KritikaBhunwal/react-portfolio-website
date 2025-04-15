@@ -31,7 +31,7 @@ const Home = () => {
       <SEO
         title="Kritika Bhunwal"
         description="Hello! I am Kritika Bhunwal. I am a creative ui/ux designer who's passionate about user experience, interface design, graphic design, and fashion design. I welcome you to explore a palette of innovative projects for design, research, development, and artistic expression showcasing my design thinking and problem-solving skills."
-        keywords="Kritika Bhunwal, fashion designer, graphic designer in Vancouver, UxUI designer, UIUX Designer, UIUX designer in Vancouver, UIUX researcher, UXUI researcher, creative portfolio, web design and development, front-end design and development, design and development, design portfolio, website design, website development, web development, web designer, web developer, UI/UX designer in Vancouver, UI/UX designer in Canada, UI/UX designer in India, UI/UX designer in Toronto, UI/UX designer in Delhi, UI/UX designer in Rajasthan"
+        keywords="Kritika Bhunwal, Bhunwal, Kritika, fashion designer, graphic designer in Vancouver, UxUI designer, UIUX Designer, UIUX designer in Vancouver, UIUX researcher, UXUI researcher, creative portfolio, web design and development, front-end design and development, design and development, design portfolio, website design, website development, web development, web designer, web developer, UI/UX designer in Vancouver, UI/UX designer in Canada, UI/UX designer in India, UI/UX designer in Toronto, UI/UX designer in Delhi, UI/UX designer in Rajasthan"
         url="https://www.kritikabhunwal.com/"
         // image=""
         type="portfolio website"

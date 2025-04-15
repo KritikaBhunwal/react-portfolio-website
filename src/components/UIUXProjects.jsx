@@ -184,7 +184,7 @@ const UIUXProjects = () => {
           left: "20px",
           bottom: "10px",
           fontSize: "2rem",
-          color: "#3d3d3d5a",
+          color: "#2d2d2d5a",
           zIndex: 1000,
           userSelect: "none",
         }}
@@ -200,7 +200,7 @@ const UIUXProjects = () => {
           right: "20px",
           bottom: "10px",
           fontSize: "2rem",
-          color: "#3d3d3d5a",
+          color: "#2d2d2d5a",
           zIndex: 1000,
           userSelect: "none",
         }}

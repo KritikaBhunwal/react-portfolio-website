@@ -123,7 +123,7 @@ const ProjectJourneyPage = () => {
         <div className="design-journey-content">
           <div className="design-journey-left">
             <SubSectionHeading title="Gratitude" />
-            <div className="journey-intro">
+            <div className="gratitude-intro">
           <p>
             My career journey has been a blend of creativity and technology.
           </p>

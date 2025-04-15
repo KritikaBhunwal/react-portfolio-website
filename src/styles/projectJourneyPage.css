@@ -1,16 +1,14 @@
-/* projectJourneyPage.css */
+/* ========== Base Styles ========== */
 
 .career-journey {
-display: flex;
-flex-direction: flex;
+  display: flex;
+  flex-direction: flex;
 }
 
 .journey-page-container {
-  /* max-width: 1200px; */
-  margin: 0 0rem;
-  /* padding: 2rem; */
-  font-family: "Quicksand", sans-serif;
+  margin: 0;
   position: relative;
+  font-family: "Quicksand", sans-serif;
 }
 
 .journey-title {
@@ -22,7 +20,7 @@ flex-direction: flex;
 
 .journey-timeline {
   position: relative;
-  margin: 0rem 15rem;
+  margin: 0 15rem;
 }
 
 .journey-line {
@@ -30,7 +28,7 @@ flex-direction: flex;
   top: 0;
   bottom: 0;
   left: 50%;
-  width: .5px;
+  width: 0.5px;
   background-color: #cbbfee;
   transform: translateX(-50%);
 }
@@ -42,14 +40,14 @@ flex-direction: flex;
 
 .journey-marker {
   position: absolute;
+  top: 0;
   left: 50%;
-  background-color: #9990bb;
   width: 0.8rem;
   height: 0.8rem;
+  background-color: #9990bb;
   border-radius: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  top: 0;
 }
 
 .journey-item-content {
@@ -76,9 +74,14 @@ flex-direction: flex;
   transform: translateX(5%);
 }
 
+.gratitude-intro {
+  margin-left: 1rem;
+}
+
 .journey-credits {
   font-size: 0.8rem;
-  color: #3d3d3d8a;
+  color: #2d2d2d8a;
+  /* margin-left: -2rem; */
 }
 
 .journey-credits a {
@@ -102,17 +105,10 @@ flex-direction: flex;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-}
-
-.design-journey-left {
   flex: 2;
 }
 
-.design-journey-right {
-  flex: 2;
-}
-
-/* TEXT BLOCK */
+/* Text Blocks */
 .journey-text-block {
   flex: 1;
   padding: 1rem;
@@ -122,11 +118,9 @@ flex-direction: flex;
   font-size: 1.7rem;
   color: #9990bb;
   font-weight: 700;
-  text-decoration: none;
   margin-bottom: 0.5rem;
   transition: color 0.2s ease;
 }
-
 .journey-item-title:hover {
   color: #2d2d2d;
 }
@@ -145,7 +139,7 @@ flex-direction: flex;
   margin-bottom: 1rem;
 }
 
-/* ICONS */
+/* Icons */
 .journey-icons {
   display: flex;
   gap: 0.5rem;
@@ -160,7 +154,7 @@ flex-direction: flex;
   padding: 0.3rem;
 }
 
-/* IMAGE BLOCK */
+/* Images */
 .journey-image-block {
   width: 45%;
   padding: 1rem;
@@ -173,7 +167,7 @@ flex-direction: flex;
   object-fit: cover;
 }
 
-/* ========== FADE-IN ANIMATION ========== */
+/* Fade-In Animation */
 .fade-in {
   opacity: 0;
   transform: translateY(60px);
@@ -184,46 +178,33 @@ flex-direction: flex;
   transform: translateY(0);
 }
 
-/* ========== RESPONSIVE ========== */
+/* ========== Responsive Styles ========== */
 
-/* For medium to small devices (tablets and small screens up to 768px) */
+/* Up to 1200px (Large tablet / small laptop) */
 @media (max-width: 1200px) {
-  /* Reduce horizontal margins for the timeline */
   .journey-timeline {
     margin: 2rem 2rem;
   }
-
-  /* Center and slightly reduce the title size */
   .journey-title {
     font-size: 2rem;
-    text-align: left;
     margin: 2rem;
   }
-
-  /* Stack content vertically and use full width for item content */
   .journey-item-content {
     width: 95%;
     margin: 0;
     flex-direction: row;
-    padding: 1rem;
   }
-
-  /* Reset text transforms and center-align text blocks for clarity */
   .left-text,
   .right-text {
     transform: none;
     text-align: left;
     margin: 3rem;
   }
-
-  /* Set image to full width within the item for better visibility */
   .journey-image-block {
     width: 50%;
     padding: 0.5rem;
     margin-bottom: 1rem;
   }
-
-  /* Adjust marker and timeline line positions for vertical layout */
   .journey-marker {
     left: 1.3%;
     transform: none;
@@ -234,44 +215,31 @@ flex-direction: flex;
   }
 }
 
-/* For medium to small devices (tablets and small screens up to 768px) */
+/* Up to 768px (Tablet) */
 @media (max-width: 768px) {
-  /* Reduce horizontal margins for the timeline */
   .journey-timeline {
     margin: 2rem 2rem;
   }
-
-  /* Center and slightly reduce the title size */
   .journey-title {
     font-size: 2rem;
-    text-align: left;
     margin: 2rem;
   }
-
-  /* Stack content vertically and use full width for item content */
   .journey-item-content {
     width: 70%;
     margin: 0 auto;
     flex-direction: column;
-    padding: 1rem;
   }
-
-  /* Reset text transforms and center-align text blocks for clarity */
   .left-text,
   .right-text {
     transform: none;
     text-align: left;
     margin: 0 auto;
   }
-
-  /* Set image to full width within the item for better visibility */
   .journey-image-block {
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 1rem;
   }
-
-  /* Adjust marker and timeline line positions for vertical layout */
   .journey-marker {
     left: 10%;
     transform: none;
@@ -282,24 +250,21 @@ flex-direction: flex;
   }
 }
 
-/* Additional adjustments for very small devices (smartphones, max-width 480px) */
+/* Up to 480px (Mobile) */
 @media (max-width: 480px) {
   .journey-title {
     font-size: 1.8rem;
-    text-align: left;
   }
   .journey-item-title {
     font-size: 1.3rem;
-    text-align: left;
   }
   .journey-description {
     font-size: 0.85rem;
-    text-align: left;
   }
 }
 
-/* ---------- Responsive Styles ---------- */
-@media (min-width: 1024px) {
+/* Extra-Large Screens (min-width 1440px) */
+@media (min-width: 1440px) {
   .design-journey-content {
     flex-direction: row;
   }
@@ -309,7 +274,8 @@ flex-direction: flex;
   }
 }
 
-@media (max-width: 1024px) {
+/* Large Screens Down to 1440px */
+@media (max-width: 1440px) {
   .design-journey-content {
     flex-direction: column;
   }
@@ -319,24 +285,21 @@ flex-direction: flex;
   }
 }
 
-
+/* Up to 800px (Additional tweaks) */
 @media (max-width: 800px) {
   .flex-row {
     flex-direction: column;
     gap: 1.5rem;
   }
-  .business-intro {
-    margin: 1rem;
-  }
   .artist-text,
-.designer-text {
-  font-size: 1rem;
-  line-height: 1.6rem;
-  margin-left: 2rem;
-}
+  .designer-text {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    margin-left: 2rem;
+  }
 }
 
-
+/* Up to 480px (Minor margin tweak) */
 @media (max-width: 480px) {
   .design-journey-content {
     margin: 0.5rem 2rem;

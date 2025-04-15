@@ -1,34 +1,29 @@
 import React, { useRef, useEffect, useState } from "react";
-import bgImage from "/bg-image-with-logo.png"; // Background image for container aesthetics
-import "../styles/snakeGame.css";           // External CSS
+import "../styles/snakeGame.css";
 
 /**
  * SnakeGame Component (Full Screen Version)
  *
  * - A canvas-based snake game that spans the entire viewport.
  * - Arrow keys/WASD control the snake; Space or clicking toggles pause/restart.
- * - Displays score, high score, and (if applicable) Kritika's best score.
- * - Includes a close button; when clicked, it asks for confirmation before returning the user to the previous (game selection) screen.
+ * - Displays current score and high score.
+ * - Includes a close button; when clicked, it asks for confirmation
+ *   before returning the user to the previous (game selection) screen.
  */
 const SnakeGame = () => {
   // ----------------------------------
-  // 1. Special User Detection (e.g., Kritika)
-  // ----------------------------------
-  const urlParams = new URLSearchParams(window.location.search);
-  const isKritika = urlParams.get("user") === "kritika";
-
-  // ----------------------------------
-  // 2. Refs and State Initialization
+  // 1. Refs and State Initialization
   // ----------------------------------
   const canvasRef = useRef(null);
-  const bgImageRef = useRef(null);
 
+  // Pause state + ref
   const [paused, setPaused] = useState(false);
   const pausedRef = useRef(paused);
   useEffect(() => {
     pausedRef.current = paused;
   }, [paused]);
 
+  // High score state + ref
   const [highScore, setHighScore] = useState(
     () => Number(localStorage.getItem("snakeGameHighScore")) || 0
   );
@@ -37,85 +32,74 @@ const SnakeGame = () => {
     highScoreRef.current = highScore;
   }, [highScore]);
 
-  const [kritikaScore, setKritikaScore] = useState(
-    () => Number(localStorage.getItem("kritikaScoreSnake")) || 0
-  );
-  const kritikaScoreRef = useRef(kritikaScore);
-  useEffect(() => {
-    kritikaScoreRef.current = kritikaScore;
-  }, [kritikaScore]);
+  // Local (current game) score as a ref
+  const scoreRef = useRef(0);
 
+  // Gameplay / game over tracking
   const gameOverRef = useRef(false);
   const restartAllowedRef = useRef(false);
   const intervalRef = useRef(null);
 
   // ----------------------------------
-  // 3. Game Configuration
+  // 2. Game Configuration
   // ----------------------------------
-  const gridSize = 40;      // Each grid cell’s size in pixels
-  const initialSpeed = 200; // Milliseconds between snake moves
+  const gridSize = 40;       // Each grid cell’s size in pixels
+  const initialSpeed = 200;  // Milliseconds between snake moves
 
+  // Snake + Food Refs
   const snake = useRef({
     segments: [
       { x: 8, y: 10 },
       { x: 7, y: 10 },
       { x: 6, y: 10 },
     ],
-    direction: { x: 0, y: -1 } // Initially moving upward
+    direction: { x: 0, y: -1 }
   });
   const food = useRef({ x: 15, y: 10 });
 
-  let localScore = 0;
-  let speed = initialSpeed;
-
   // ----------------------------------
-  // 4. Utility Functions
+  // 3. Utility Functions
   // ----------------------------------
-  // Resize the canvas to exactly match its container (full screen)
   const resizeCanvas = (canvas) => {
     const rect = canvas.getBoundingClientRect();
     canvas.width = rect.width;
     canvas.height = rect.height;
   };
 
-  // Place food randomly within grid bounds based on canvas dimensions
-  const placeFoodRandomly = (canvasWidth, canvasHeight) => {
-    const cols = Math.floor(canvasWidth / gridSize);
-    const rows = Math.floor(canvasHeight / gridSize);
+  const placeFoodRandomly = (width, height) => {
+    const cols = Math.floor(width / gridSize);
+    const rows = Math.floor(height / gridSize);
     food.current.x = Math.floor(Math.random() * cols);
     food.current.y = Math.floor(Math.random() * rows);
   };
 
-  // Preload background image (used in container styling)
-  useEffect(() => {
-    bgImageRef.current = new Image();
-    bgImageRef.current.src = bgImage;
-  }, []);
-
   // ----------------------------------
-  // 5. Canvas Initialization and Event Listeners
+  // 4. Canvas Initialization & Event Listeners
   // ----------------------------------
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-
-    resizeCanvas(canvas); // Ensure the canvas matches the full screen
+    resizeCanvas(canvas);
 
     startGame(ctx, canvas);
 
     const handleResize = () => {
       resizeCanvas(canvas);
-      if (!gameOverRef.current) drawAll(ctx, canvas);
+      if (!gameOverRef.current) {
+        drawAll(ctx, canvas);
+      }
     };
-    window.addEventListener("resize", handleResize);
 
     const handleKeyDown = (e) => {
       if (gameOverRef.current) {
-        if ((e.code === "Space" || e.keyCode === 32) && restartAllowedRef.current) {
+        // If game is over, space restarts if allowed
+        if (e.code === "Space" && restartAllowedRef.current) {
           restartGame(ctx, canvas);
         }
         return;
       }
+
+      // Change direction
       if (e.key === "ArrowUp" || e.key.toLowerCase() === "w") {
         if (snake.current.direction.y !== 1) snake.current.direction = { x: 0, y: -1 };
       } else if (e.key === "ArrowDown" || e.key.toLowerCase() === "s") {
@@ -125,7 +109,9 @@ const SnakeGame = () => {
       } else if (e.key === "ArrowRight" || e.key.toLowerCase() === "d") {
         if (snake.current.direction.x !== -1) snake.current.direction = { x: 1, y: 0 };
       }
-      if (e.code === "Space" || e.keyCode === 32) {
+
+      // Toggle pause if space
+      if (e.code === "Space") {
         setPaused((prev) => !prev);
         e.preventDefault();
       }
@@ -139,6 +125,7 @@ const SnakeGame = () => {
       }
     };
 
+    window.addEventListener("resize", handleResize);
     window.addEventListener("keydown", handleKeyDown);
     canvas.addEventListener("click", handleCanvasClick);
 
@@ -152,23 +139,23 @@ const SnakeGame = () => {
   }, []);
 
   // ----------------------------------
-  // 6. Start / Restart Functions
+  // 5. Start / Restart Functions
   // ----------------------------------
   const startGame = (ctx, canvas) => {
     resizeCanvas(canvas);
-    localScore = 0;
+    scoreRef.current = 0;
     snake.current = {
       segments: [
         { x: 8, y: 10 },
         { x: 7, y: 10 },
         { x: 6, y: 10 },
       ],
-      direction: { x: 0, y: -1 }
+      direction: { x: 0, y: -1 },
     };
     gameOverRef.current = false;
     restartAllowedRef.current = false;
     placeFoodRandomly(canvas.width, canvas.height);
-    speed = initialSpeed;
+
     clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       if (!pausedRef.current) {
@@ -176,16 +163,16 @@ const SnakeGame = () => {
       } else {
         drawPausedOverlay(ctx, canvas);
       }
-    }, speed);
+    }, initialSpeed);
   };
 
   const restartGame = (ctx, canvas) => {
-    localScore = 0;
+    scoreRef.current = 0;
     startGame(ctx, canvas);
   };
 
   // ----------------------------------
-  // 7. Game Loop and Mechanics
+  // 6. Game Loop and Mechanics
   // ----------------------------------
   const updateGame = (ctx, canvas) => {
     moveSnake();
@@ -197,9 +184,9 @@ const SnakeGame = () => {
 
     const head = snake.current.segments[0];
     if (head.x === food.current.x && head.y === food.current.y) {
-      localScore++;
+      scoreRef.current += 1;
       snake.current.segments.push({
-        ...snake.current.segments[snake.current.segments.length - 1]
+        ...snake.current.segments[snake.current.segments.length - 1],
       });
       placeFoodRandomly(canvas.width, canvas.height);
     }
@@ -219,45 +206,51 @@ const SnakeGame = () => {
     const head = snake.current.segments[0];
     const cols = Math.floor(canvas.width / gridSize);
     const rows = Math.floor(canvas.height / gridSize);
-    if (head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows) return true;
+
+    // Boundary collision
+    if (head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows) {
+      return true;
+    }
+    // Self collision
     for (let i = 1; i < snake.current.segments.length; i++) {
-      if (head.x === snake.current.segments[i].x && head.y === snake.current.segments[i].y)
+      if (head.x === snake.current.segments[i].x && head.y === snake.current.segments[i].y) {
         return true;
+      }
     }
     return false;
   };
 
   // ----------------------------------
-  // 8. Game Over and Modal Handling
+  // 7. Game Over Handling
   // ----------------------------------
   const handleGameOver = (ctx, canvas) => {
     clearInterval(intervalRef.current);
     gameOverRef.current = true;
     restartAllowedRef.current = true;
-    if (localScore > highScoreRef.current) {
-      setHighScore(localScore);
-      localStorage.setItem("snakeGameHighScore", localScore);
+
+    // Update high score
+    if (scoreRef.current > highScoreRef.current) {
+      setHighScore(scoreRef.current);
+      localStorage.setItem("snakeGameHighScore", scoreRef.current);
     }
-    if (isKritika && localScore > kritikaScoreRef.current) {
-      setKritikaScore(localScore);
-      localStorage.setItem("kritikaScoreSnake", localScore);
-    }
-    drawGameOverModal(ctx, canvas, localScore, highScoreRef.current, kritikaScoreRef.current);
+
+    drawGameOverModal(ctx, canvas, scoreRef.current, highScoreRef.current);
   };
 
   // ----------------------------------
-  // 9. Rendering Functions
+  // 8. Rendering Functions
   // ----------------------------------
   const drawAll = (ctx, canvas) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     drawSnake(ctx);
     drawFood(ctx);
-    const scoreX = 40;
-    const scoreY = 60;
+
+    // Draw current score in top-left
     ctx.fillStyle = "#fff";
     ctx.font = "20px Quicksand";
     ctx.textAlign = "left";
-    ctx.fillText(`Score: ${localScore}`, scoreX, scoreY);
+    ctx.fillText(`Score: ${scoreRef.current}`, 40, 60);
   };
 
   const drawSnake = (ctx) => {
@@ -280,32 +273,42 @@ const SnakeGame = () => {
     ctx.fill();
   };
 
-  const drawGameOverModal = (ctx, canvas, finalScore, hs, kritikaVal) => {
+  const drawGameOverModal = (ctx, canvas, finalScore, hs) => {
+    // Dark overlay
     ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    const titleFontSize = 50;
+  
+    // Use device width to detect “mobile” (e.g., < 768px)
+    const isMobile = canvas.width < 768;
+  
+    // Title
     ctx.fillStyle = "#cbbfee";
-    ctx.font = `${titleFontSize}px Chonburi`;
+    ctx.font = isMobile ? "40px Chonburi" : "50px Chonburi";
     ctx.textAlign = "center";
-    ctx.fillText("Game Over", canvas.width / 2, canvas.height / 2 - 120);
+    ctx.fillText("Game Over", canvas.width / 2, canvas.height / 2 - (isMobile ? 100 : 120));
+  
+    // Score Text
     ctx.fillStyle = "#fff";
-    ctx.font = "30px Quicksand";
-    ctx.textAlign = "left";
-    ctx.fillText(`Final Score: ${finalScore}`, canvas.width * 0.1, canvas.height / 2 - 40);
-    ctx.textAlign = "right";
-    ctx.fillText(`High Score: ${hs}`, canvas.width * 0.9, canvas.height / 2 - 40);
-    ctx.textAlign = "center";
-    if (isKritika) {
-      ctx.fillText(`Kritika's Score: ${kritikaVal}`, canvas.width / 2, canvas.height / 2 + 10);
+    if (isMobile) {
+      ctx.font = "20px Quicksand";
+      ctx.fillText(`Final Score: ${finalScore}`, canvas.width / 2, canvas.height / 2 - 30);
+      ctx.fillText(`High Score: ${hs}`, canvas.width / 2, canvas.height / 2); 
+    } else {
+      ctx.font = "30px Quicksand";
+      ctx.textAlign = "left";
+      ctx.fillText(`Final Score: ${finalScore}`, canvas.width * 0.1, canvas.height / 2 - 40);
+      ctx.textAlign = "right";
+      ctx.fillText(`High Score: ${hs}`, canvas.width * 0.9, canvas.height / 2 - 40);
     }
+  
+    // "Play Again" button
     const buttonWidth = 150;
     const buttonHeight = 50;
-    const btnFontSize = 25;
-    ctx.textBaseline = "middle";
-    ctx.fillStyle = "#cbbfee";
-    ctx.font = `${btnFontSize}px Quicksand`;
     const playAgainX = canvas.width / 2 - buttonWidth / 2;
-    const playAgainY = canvas.height / 2 + 20;
+    const playAgainY = isMobile ? canvas.height / 2 + 40 : canvas.height / 2 + 20;
+    const btnFontSize = isMobile ? 20 : 25;
+  
+    ctx.fillStyle = "#cbbfee";
     ctx.beginPath();
     if (ctx.roundRect) {
       ctx.roundRect(playAgainX, playAgainY, buttonWidth, buttonHeight, 25);
@@ -313,27 +316,20 @@ const SnakeGame = () => {
       ctx.fillRect(playAgainX, playAgainY, buttonWidth, buttonHeight);
     }
     ctx.fill();
+  
     ctx.fillStyle = "#2d2d2d";
+    ctx.font = `${btnFontSize}px Quicksand`;
     ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
     ctx.fillText("Play Again", playAgainX + buttonWidth / 2, playAgainY + buttonHeight / 2);
   };
-
-  const drawPausedOverlay = (ctx, canvas) => {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#fff";
-    ctx.font = "40px Quicksand";
-    ctx.textAlign = "center";
-    ctx.fillText("Paused", canvas.width / 2, canvas.height / 2);
-  };
+  
 
   // ----------------------------------
-  // 10. Close Game Handler
+  // 9. Close Game Handler
   // ----------------------------------
   const handleCloseClick = () => {
-    const confirmClose = window.confirm(
-      "Are you sure you want to close the game?"
-    );
+    const confirmClose = window.confirm("Are you sure you want to close the game?");
     if (confirmClose) {
       clearInterval(intervalRef.current);
       // Return to the same screen where the play button was hit
@@ -342,11 +338,11 @@ const SnakeGame = () => {
   };
 
   // ----------------------------------
-  // 11. Render Component
+  // 10. Render Component
   // ----------------------------------
   return (
     <div className="snake-game-container">
-      <button className="close-button" onClick={handleCloseClick}>X</button>
+      <button className="close-button" onClick={handleCloseClick}>✖</button>
       <canvas ref={canvasRef} className="snake-canvas" />
     </div>
   );

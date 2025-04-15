@@ -1,33 +1,35 @@
 import React, { useRef, useEffect, useState } from "react";
-import bgImage from "/bg-image-with-logo.png"; // Background image import
-import "../styles/paddleFuryGame.css";      // Import external stylesheet
+import bgImage from "/bg-image-with-logo.png";
+import "../styles/paddleFuryGame.css";
 
 const PaddleFuryGame = () => {
-  // 1. Detect if user is Kritika via URL parameter
-  const urlParams = new URLSearchParams(window.location.search);
-  const isKritika = urlParams.get("user") === "kritika";
-
-  // 2. Refs/States for game control
+  // --------------------------------------------
+  // 1. Refs/States for game control
+  // --------------------------------------------
   const canvasRef = useRef(null);
   const [paused, setPaused] = useState(false);
   const pausedRef = useRef(paused);
+
+  // Update pausedRef whenever paused changes
   useEffect(() => {
     pausedRef.current = paused;
   }, [paused]);
 
-  const highScoreRef = useRef(Number(localStorage.getItem("paddleFuryHighScore")) || 0);
-  const [kritikaScore, setKritikaScore] = useState(
-    Number(localStorage.getItem("kritikaScorePaddle")) || 0
+  // Local high score from storage
+  const [highScore, setHighScore] = useState(
+    () => Number(localStorage.getItem("paddleFuryHighScore")) || 0
   );
-  const kritikaScoreRef = useRef(kritikaScore);
+  const highScoreRef = useRef(highScore);
   useEffect(() => {
-    kritikaScoreRef.current = kritikaScore;
-  }, [kritikaScore]);
+    highScoreRef.current = highScore;
+  }, [highScore]);
 
   const gameOverRef = useRef(false);
   const restartAllowedRef = useRef(false);
 
-  // 3. Set canvas dimensions to full screen (100vw x 100vh) on mount and when the window is resized
+  // --------------------------------------------
+  // 2. Resize Canvas to Full Screen
+  // --------------------------------------------
   const resizeCanvas = () => {
     const canvas = canvasRef.current;
     canvas.width = window.innerWidth;
@@ -36,14 +38,18 @@ const PaddleFuryGame = () => {
   useEffect(() => {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
-    return () => window.removeEventListener("resize", resizeCanvas);
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+    };
   }, []);
 
-  // 4. Unified Modal Drawing Function (Game Over)
-  const drawGameOverModal = (ctx, canvas, finalScore, currentHighScore, kritikaScoreValue) => {
+  // --------------------------------------------
+  // 3. Game Over Modal
+  // --------------------------------------------
+  const drawGameOverModal = (ctx, canvas, finalScore, currentHighScore) => {
     const isMobile = canvas.width < 768;
 
-    // Semi-transparent overlay
+    // Overlay
     ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -52,7 +58,11 @@ const PaddleFuryGame = () => {
     ctx.fillStyle = "#cbbfee";
     ctx.font = `${titleFontSize}px Chonburi`;
     ctx.textAlign = "center";
-    ctx.fillText("Game Over", canvas.width / 2, canvas.height / 2 - (isMobile ? 100 : 120));
+    ctx.fillText(
+      "Game Over",
+      canvas.width / 2,
+      canvas.height / 2 - (isMobile ? 100 : 120)
+    );
 
     // Final & High Scores
     ctx.fillStyle = "#fff";
@@ -60,19 +70,12 @@ const PaddleFuryGame = () => {
       ctx.font = "20px Quicksand";
       ctx.fillText(`Final Score: ${finalScore}`, canvas.width / 2, canvas.height / 2 - 40);
       ctx.fillText(`High Score: ${currentHighScore}`, canvas.width / 2, canvas.height / 2 - 10);
-      if (isKritika) {
-        ctx.fillText(`Kritika's Score: ${kritikaScoreValue}`, canvas.width / 2, canvas.height / 2 + 20);
-      }
     } else {
       ctx.font = "30px Quicksand";
       ctx.textAlign = "left";
       ctx.fillText(`Final Score: ${finalScore}`, canvas.width * 0.1, canvas.height / 2 - 40);
       ctx.textAlign = "right";
       ctx.fillText(`High Score: ${currentHighScore}`, canvas.width * 0.9, canvas.height / 2 - 40);
-      if (isKritika) {
-        ctx.textAlign = "center";
-        ctx.fillText(`Kritika's Score: ${kritikaScoreValue}`, canvas.width / 2, canvas.height / 2);
-      }
     }
 
     // "Play Again" button
@@ -93,17 +96,19 @@ const PaddleFuryGame = () => {
     }
     ctx.fill();
 
-    ctx.fillStyle = "#3d3d3d";
+    ctx.fillStyle = "#2d2d2d";
     ctx.textAlign = "center";
     ctx.fillText("Play Again", playAgainX + buttonWidth / 2, playAgainY + buttonHeight / 2);
   };
 
-  // 5. Main Game Loop & Setup
+  // --------------------------------------------
+  // 4. Main Game Loop & Setup
+  // --------------------------------------------
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    // Load the background image
+    // Load background image
     const gameBg = new Image();
     gameBg.src = bgImage;
 
@@ -128,7 +133,7 @@ const PaddleFuryGame = () => {
       radius: paddle.width / 6,
     };
 
-    // Local scoring and animation id
+    // Local score + animation
     let score = 0;
     let animationFrameId;
 
@@ -172,6 +177,7 @@ const PaddleFuryGame = () => {
     const moveBall = () => {
       ball.x += ball.dx;
       ball.y += ball.dy;
+
       // Wall collisions
       if (ball.x - ball.radius < 0 || ball.x + ball.radius > canvas.width) {
         ball.dx *= -1;
@@ -179,6 +185,7 @@ const PaddleFuryGame = () => {
       if (ball.y - ball.radius < 0) {
         ball.dy *= -1;
       }
+
       // Paddle collision
       if (
         ball.y + ball.radius >= paddle.y &&
@@ -187,21 +194,22 @@ const PaddleFuryGame = () => {
       ) {
         ball.dy *= -1;
         score++;
+        // Slight speed increase each hit
         ball.dx *= 1.02;
         ball.dy *= 1.02;
       }
-      // Check if ball is missed (falls below the screen)
+
+      // Missed ball => game over
       if (ball.y - ball.radius > canvas.height) {
         if (!gameOverRef.current) {
           gameOverRef.current = true;
           restartAllowedRef.current = true;
+
+          // Update high score
           if (score > highScoreRef.current) {
             highScoreRef.current = score;
+            setHighScore(score);
             localStorage.setItem("paddleFuryHighScore", score);
-          }
-          if (isKritika && score > kritikaScoreRef.current) {
-            setKritikaScore(score);
-            localStorage.setItem("kritikaScorePaddle", score);
           }
         }
       }
@@ -219,7 +227,7 @@ const PaddleFuryGame = () => {
       gameLoop();
     };
 
-    // Event Handlers for input
+    // Event Handlers
     const handleCanvasClick = () => {
       if (gameOverRef.current && restartAllowedRef.current) {
         restartGame();
@@ -227,48 +235,54 @@ const PaddleFuryGame = () => {
         setPaused((prev) => !prev);
       }
     };
+
     const handleMouseMove = (e) => {
       const rect = canvas.getBoundingClientRect();
       const scaleX = canvas.width / rect.width;
       paddle.x = (e.clientX - rect.left) * scaleX - paddle.width / 2;
-      paddle.x = Math.max(0, Math.min(paddle.x, canvas.width - paddle.width));
+      paddle.x = Math.max(0, Math.min(canvas.width - paddle.width, paddle.x));
     };
+
     const handleTouchMove = (e) => {
       const rect = canvas.getBoundingClientRect();
       const touch = e.touches[0];
       const scaleX = canvas.width / rect.width;
       paddle.x = (touch.clientX - rect.left) * scaleX - paddle.width / 2;
-      paddle.x = Math.max(0, Math.min(paddle.x, canvas.width - paddle.width));
+      paddle.x = Math.max(0, Math.min(canvas.width - paddle.width, paddle.x));
     };
+
     const handleKeyDown = (e) => {
       if (e.key === "ArrowLeft" || e.key.toLowerCase() === "a") {
-        paddle.x = Math.max(paddle.x - paddle.speed, 0);
+        paddle.x = Math.max(0, paddle.x - paddle.speed);
       } else if (e.key === "ArrowRight" || e.key.toLowerCase() === "d") {
-        paddle.x = Math.min(paddle.x + paddle.speed, canvas.width - paddle.width);
+        paddle.x = Math.min(canvas.width - paddle.width, paddle.x + paddle.speed);
       }
     };
+
     const handleTilt = (e) => {
       const tilt = e.gamma;
       if (tilt !== null) {
         paddle.x += tilt;
-        paddle.x = Math.max(0, Math.min(paddle.x, canvas.width - paddle.width));
+        paddle.x = Math.max(0, Math.min(canvas.width - paddle.width, paddle.x));
       }
     };
 
-    // Register event listeners
+    // Attach listeners
     canvas.addEventListener("click", handleCanvasClick);
     canvas.addEventListener("mousemove", handleMouseMove);
     canvas.addEventListener("touchmove", handleTouchMove);
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("deviceorientation", handleTilt);
 
-    // Main game loop
+    // Main loop
     const gameLoop = () => {
+      // Draw background
       if (gameBg.complete) {
         ctx.drawImage(gameBg, 0, 0, canvas.width, canvas.height);
       } else {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
       }
+
       if (pausedRef.current) {
         showPausedOverlay();
       } else {
@@ -277,16 +291,19 @@ const PaddleFuryGame = () => {
         drawScore();
         moveBall();
       }
+
+      // Game over => show modal
       if (gameOverRef.current) {
-        drawGameOverModal(ctx, canvas, score, highScoreRef.current, kritikaScoreRef.current);
+        drawGameOverModal(ctx, canvas, score, highScoreRef.current);
       } else {
         animationFrameId = requestAnimationFrame(gameLoop);
       }
     };
 
-    gameLoop(); // Start game loop
+    // Start game
+    gameLoop();
 
-    // Cleanup listeners and animation frame on unmount
+    // Cleanup
     return () => {
       cancelAnimationFrame(animationFrameId);
       canvas.removeEventListener("click", handleCanvasClick);
@@ -295,22 +312,24 @@ const PaddleFuryGame = () => {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("deviceorientation", handleTilt);
     };
-    // eslint-disable-next-line
-  }, [isKritika]);
+  }, []);
 
-  // 6. Close Game Handler: show a confirmation prompt before closing the game
+  // --------------------------------------------
+  // 5. Close Game Handler
+  // --------------------------------------------
   const handleCloseClick = () => {
     const confirmClose = window.confirm("Are you sure you want to close the game?");
     if (confirmClose) {
-      // Clear any running game loops (cleanup will occur via unmount) and redirect back
       window.location.href = window.location.origin + window.location.pathname;
     }
   };
 
-  // 7. Render the full screen container with the close button and canvas
+  // --------------------------------------------
+  // 6. Render
+  // --------------------------------------------
   return (
     <div className="paddle-game-container">
-      <button className="close-button" onClick={handleCloseClick}>X</button>
+      <button className="close-button" onClick={handleCloseClick}>✖</button>
       <canvas ref={canvasRef} className="paddle-canvas" />
     </div>
   );
