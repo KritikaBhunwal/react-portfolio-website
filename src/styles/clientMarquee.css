@@ -1,0 +1,46 @@
+/* Container that clips overflowing content */
+.client-marquee-container {
+    overflow: hidden;
+    max-width: 40vw;
+    position: relative;
+  }
+  
+  /* Flex container for logos with a scrolling animation */
+  .client-marquee {
+    display: flex;
+    align-items: center;
+    animation: scroll 30s linear infinite;
+  }
+  
+  /* Styling for each client logo link */
+  .client-logo-link {
+    display: block;
+    padding: 1rem;
+  }
+  
+  /* Logo image default styling: greyscale and transition for hover effect */
+  .client-logo {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+    height: 30px; /* Adjust the height as needed */
+    border-radius: 1rem;
+  }
+  
+  /* On hover, reveal original color and scale up the logo slightly */
+  .client-logo-link:hover .client-logo {
+    filter: grayscale(0%);
+    transform: scale(1.01);
+  }
+  
+  /* Keyframes for the horizontal scrolling animation.
+     The animation moves the entire marquee by 50% of its width,
+     which is effective because we have duplicated the logos. */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  

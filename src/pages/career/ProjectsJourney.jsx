@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 /* Banner component + images */
 import ImageBanner from "../../components/ImageBanner.jsx";
 import SectionHeading from "../../components/SectionHeading.jsx";
+import SubSectionHeading from "../../components/SubSectionHeading.jsx";
+import Stats from "../../components/Stats.jsx";
 import JourneyBannerBase from "/JourneyBannerBase.png";
 import JourneyBannerTop from "/JourneyBannerTop.png";
 
@@ -15,6 +17,7 @@ import WorkTogether from "../../components/WorkTogether.jsx";
 /* CSS */
 import "../../styles/projectJourneyPage.css";
 import AllProjects from "../../components/AllProjects.jsx";
+import ClientMarquee from "../../components/ClientMarquee.jsx";
 
 const ProjectJourneyPage = () => {
   // Example timeline data referencing your shared icons
@@ -30,8 +33,8 @@ const ProjectJourneyPage = () => {
       icons: [
         technicalSkillIcons.figma,
         technicalSkillIcons.photoshop,
-        technicalSkillIcons.procreate
-      ]
+        technicalSkillIcons.procreate,
+      ],
     },
     {
       id: 2,
@@ -46,8 +49,8 @@ const ProjectJourneyPage = () => {
         technicalSkillIcons.css,
         technicalSkillIcons.javascript,
         technicalSkillIcons.react,
-        technicalSkillIcons.tailwind
-      ]
+        technicalSkillIcons.tailwind,
+      ],
     },
     {
       id: 3,
@@ -63,8 +66,8 @@ const ProjectJourneyPage = () => {
         technicalSkillIcons.indesign,
         technicalSkillIcons.afterEffects,
         technicalSkillIcons.premierePro,
-        technicalSkillIcons.audition
-      ]
+        technicalSkillIcons.audition,
+      ],
     },
     {
       id: 4,
@@ -77,9 +80,9 @@ const ProjectJourneyPage = () => {
       icons: [
         technicalSkillIcons.photoshop,
         technicalSkillIcons.illustrator,
-        technicalSkillIcons.procreate
-      ]
-    }
+        technicalSkillIcons.procreate,
+      ],
+    },
   ];
 
   // Refs for scroll-fade animation
@@ -116,25 +119,83 @@ const ProjectJourneyPage = () => {
         />
       </div>
 
-      {/* Main timeline container */}
-      <SectionHeading title="My Career in Design" />
-      <div className="journey-intro">
-        <p>
-          My career journey has been a blend of creativity and technology.
-        </p>
-        <p>
-          Below is a timeline of my design journey, showcasing the various roles that have shaped my design career. Click on each role to find the projects ranging from the latest UI/UX Case Studies to interactive React games followed by Social Media branding projects and my first ever Womenswear SS18 Collection that I contributed to as a Fashion Designer.
-        </p>
-        <p>
-          I am highly grateful to my parents, mentors, instructors and for the knowledge I gained during my entire journey, it has been truly rewarding.
-        </p>
-      </div>
+        <SectionHeading title="My Journey as a Designer" />
+        <div className="design-journey-content">
+          <div className="design-journey-left">
+            <SubSectionHeading title="Gratitude" />
+            <div className="journey-intro">
+          <p>
+            My career journey has been a blend of creativity and technology.
+          </p>
+          <p>
+            I am highly grateful to my parents, mentors, instructors and for
+            the knowledge I gained during my entire journey, it has been truly
+            rewarding.
+          </p>
+          <p>
+            Below is a timeline of my design journey, showcasing the various
+            roles that have shaped my design career. Click on each role to
+            find the projects ranging from the latest UI/UX Case Studies to
+            interactive React games followed by Social Media branding projects
+            and my first ever Womenswear SS18 Collection that I contributed to
+            as a Fashion Designer.
+          </p>
+          <p className="journey-credits">
+            All visual assets used in my projects are either original or
+            sourced from
+            <a
+              href="https://unsplash.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {" "}
+              Unsplash
+            </a>
+            ,
+            <a
+              href="https://www.freepik.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {" "}
+              Freepik
+            </a>
+            , and
+            <a
+              href="https://stock.adobe.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {" "}
+              Adobe Stock Images
+            </a>
+            .<br></br>
+            <a
+              href="https://openai.com/chatgpt"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ChatGPT{" "}
+            </a>
+             assisted me with the content writing and development process for this
+            website.
+          </p>
+          <ClientMarquee />
+            </div>
+          </div>
+          <div className="design-journey-right">
+            <SubSectionHeading title="My Career" />
+            <Stats />
+          </div>
+        </div>
 
-      <div className="journey-page-container">
-        <div className="journey-timeline">
-          <div className="journey-line"></div>
+        <SectionHeading title="Timeline" />
 
-          {/* Timeline Items */}
+        <div className="journey-page-container">
+          <div className="journey-timeline">
+            <div className="journey-line"></div>
+
+            {/* Timeline Items */}
           {timelineData.map((item, index) => {
             const isLeftText = item.textSide === "left";
 
@@ -146,7 +207,7 @@ const ProjectJourneyPage = () => {
               >
                 {/* Dot on line */}
                 <div className="journey-marker"></div>
-                
+
                 {/* Content: either left-text or right-text */}
                 <div
                   className={
@@ -155,10 +216,12 @@ const ProjectJourneyPage = () => {
                       : "journey-item-content right-text"
                   }
                 >
-                  {/* If text is left, image on right, else reversed */}
+                  {/* If text is right, image on left */}
                   {!isLeftText && (
                     <div className="journey-image-block">
-                      <img src={item.image} alt={item.title} />
+                      <Link to={item.link}>
+                        <img src={item.image} alt={item.title} />
+                      </Link>
                     </div>
                   )}
 
@@ -184,9 +247,12 @@ const ProjectJourneyPage = () => {
                     </div>
                   </div>
 
+                  {/* If text is left, image on right */}
                   {isLeftText && (
                     <div className="journey-image-block">
-                      <img src={item.image} alt={item.title} />
+                      <Link to={item.link}>
+                        <img src={item.image} alt={item.title} />
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -199,7 +265,8 @@ const ProjectJourneyPage = () => {
       <SectionHeading title="Recent Design Projects" />
       <div className="journey-intro">
         <p>
-          Explore through some of my recent projects that showcase the collaboration of my skills, design thinking and creativity.
+          Explore through some of my recent projects that showcase the
+          collaboration of my skills, design thinking and creativity.
         </p>
       </div>
       <AllProjects />

@@ -49,6 +49,24 @@
   animation: fadeIn 0.5s ease-in-out;
 }
 
+.testimonial-socials {
+  display: inline-flex;
+  gap: 0.3rem;
+  vertical-align: middle;
+}
+
+.testimonial-socials a {
+  color: #cbbfee;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.testimonial-socials a:hover {
+  color: inherit;
+}
+
+
+
 /* Fade-in keyframes */
 @keyframes fadeIn {
   from { opacity: 0; }

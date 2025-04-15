@@ -176,7 +176,7 @@ const UIUXProjects = () => {
 
   return (
     // Outer container: position relative for absolute positioning of the swipe arrows
-    <div className="featured-projects" style={{ position: "relative" }}>
+    <div className="uiuxfeatured-projects" style={{ position: "relative" }}>
       {/* Bottom left swipe indicator */}
       {/* <div
         style={{
@@ -211,7 +211,7 @@ const UIUXProjects = () => {
 
       {/* Projects carousel */}
       <div
-        className="featured-projects-carousel"
+        className="uiuxfeatured-projects-carousel"
         role="region"
         aria-label="Featured Projects"
       >

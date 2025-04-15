@@ -96,11 +96,6 @@
   }
 }
 
-@media (max-width: 480px) {
-  .about-content {
-    margin: 0.5rem;
-  }
-}
 
 @media (max-width: 800px) {
   .flex-row {
@@ -108,6 +103,19 @@
     gap: 1.5rem;
   }
   .business-intro {
-    margin: 0;
+    margin: 1rem;
+  }
+  .artist-text,
+.designer-text {
+  font-size: 1rem;
+  line-height: 1.6rem;
+  margin-left: 2rem;
+}
+}
+
+
+@media (max-width: 480px) {
+  .about-content {
+    margin: 0.5rem 2rem;
   }
 }

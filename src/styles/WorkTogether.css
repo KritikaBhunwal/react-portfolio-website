@@ -156,9 +156,11 @@
   }
 
   .work-together h2 {
-    font-size: 1.8rem;
+    font-size: 1.1rem;
+    color: #3d3d3d;
     text-align: center;
     margin-bottom: -0.5rem;
+    margin-right: 0rem;
   }
 
   .email-button {
@@ -174,7 +176,7 @@
   .social-icons {
     flex-direction: row;
     justify-content: flex-start;
-    margin-top: 0rem;
+    margin-top: -3rem;
     margin-left: 3rem;
   }
 

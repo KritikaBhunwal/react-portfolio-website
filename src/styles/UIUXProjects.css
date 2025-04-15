@@ -2,60 +2,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 /* Container for the entire FeaturedProjects section */
-.featured-projects {
+.uiuxfeatured-projects {
   padding: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }
 
+
 /* Horizontal Scroll Carousel */
-.featured-projects-carousel {
+.uiuxfeatured-projects-carousel {
   display: flex;
   overflow-x: auto;
   gap: 0.5rem;
-  scroll-snap-type: x mandatory; 
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 0.5rem;
 }
 
-.featured-projects-carousel::-webkit-scrollbar {
+.uiuxfeatured-projects-carousel::-webkit-scrollbar {
   display: none; /* hide scrollbar for a cleaner UI */
 }
 
-/* Each ProjectCard takes full "viewport" width on mobile */
-.featured-projects-carousel .project-card {
+/* Each ProjectCard takes full width on mobile */
+.uiuxfeatured-projects-carousel .project-card {
   scroll-snap-align: start;
   flex: 0 0 auto;
-  width: 10%;
+  width: 80%;
 }
-
-/* Swipe Indicator: positioned on the left edge, vertically centered */
-.swipe-indicator {
-  position: fixed;
-  right: 10px;               /* Adjust as needed for spacing from the screen edge */
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1rem;        /* Larger font size for visibility */
-  color: #777;              /* Subtle gray tone */
-  cursor: default;          /* You can change this if you want it clickable */
-  z-index: 1000;            /* Ensure it appears above other elements */
-  user-select: none;        /* Prevent text selection */
-}
-
-
 
 /* Tablet: show 2 cards per view */
 @media (min-width: 768px) {
-  .featured-projects-carousel .project-card {
-    width: 50%;
+  .uiuxfeatured-projects-carousel .project-card {
+    width: 40%;
   }
-  
 }
 
 /* Desktop: show up to 4 cards per view */
 @media (min-width: 1024px) {
-  .featured-projects-carousel .project-card {
-    width: 25%;
+  .uiuxfeatured-projects-carousel .project-card {
+    width: 30%;
   }
 }
 
@@ -65,34 +50,23 @@
   font-weight: bold;
   color: #9990bb;
   margin-top: 1rem;
-  margin-left: 0rem;
+  margin-left: 0;
 }
 
 .project-description {
   font-size: 1.1rem;
   color: #2d2d2d;
   line-height: 1.5;
-  margin-left: 0rem;
+  margin-left: 0;
 }
 
 .project-link {
   font-size: 1rem;
-  font-weight: medium;
+  font-weight: 500;
   text-decoration: none;
   border-radius: 2rem;
   background-color: #cbbfee5a;
   padding: 0.5rem 1rem;
   line-height: 1.5;
-  margin-left: 0rem;
-}
- 
-
-@media (max-width: 767px) {
-  .swipe-indicator {
-    display: block;
-    text-align: center;
-    margin-top: 0.5rem;
-    font-size: 1rem;
-    color: #777;
-  }
+  margin-left: 0;
 }

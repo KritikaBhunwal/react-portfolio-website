@@ -120,18 +120,4 @@
   .graphics-card {
     flex: 0 0 calc(100% - 1rem);
   }
-  .swipe-indicator {
-    display: block;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #2d2d2d;
-    margin-top: 1rem;
-  }
-}
-
-/* Hide swipe indicator on larger screens */
-@media (min-width: 769px) {
-  .swipe-indicator {
-    display: none;
-  }
 }

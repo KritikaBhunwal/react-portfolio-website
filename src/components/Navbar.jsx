@@ -79,7 +79,7 @@ const Navbar = () => {
                 isActive ? "nav-link active" : "nav-link"
               }
             >
-              JOURNEY
+              PORTFOLIO
             </NavLink>
             <div className="dropdown-menu">
               <NavLink to="/career/uiux/UIUX" onClick={closeMobileMenu} className="dropdown-item">
@@ -133,7 +133,7 @@ const Navbar = () => {
       <div className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}>
         <div className="mobile-menu-content">
           <NavLink to="/" onClick={closeMobileMenu} className="nav-link">HOME</NavLink>
-          <NavLink to="/career" onClick={closeMobileMenu} className="nav-link">JOURNEY</NavLink>
+          <NavLink to="/career" onClick={closeMobileMenu} className="nav-link">PORTFOLIO</NavLink>
           <NavLink to="/career/uiux/UIUX" onClick={closeMobileMenu} className="dropdown-link">UI/UX DESIGN</NavLink>
           <NavLink to="/career/uiux/Portfolio" onClick={closeMobileMenu} className="dropdown-sublink">1. Portfolio</NavLink>
           <NavLink to="/career/uiux/Hellow" onClick={closeMobileMenu} className="dropdown-sublink">2. Hellow</NavLink>

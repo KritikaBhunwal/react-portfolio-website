@@ -105,7 +105,6 @@ const GraphicsProjects = () => {
           </div>
         ))}
       </div>
-      <div className="swipe-indicator">&larr; Swipe &rarr;</div>
     </div>
   );
 };
