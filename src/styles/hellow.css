@@ -310,7 +310,7 @@ li {
   /* Table of Contents becomes static */
   .table-of-contents {
     position: static;
-    margin: 1rem 0;
+    margin: 1rem 0rem;
     border-right: none;
     border-bottom: 1px solid #ccc;
   }

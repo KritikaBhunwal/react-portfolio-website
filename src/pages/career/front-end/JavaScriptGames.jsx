@@ -13,16 +13,95 @@ import JavaScriptGamesContent from "../../../components/JavascriptGamesContent.j
 
 import "../../../styles/javaScriptGames.css";
 
+/* ─────────────────────────────────────────────────────────────
+   Rich JSON‑LD (mirrors the pattern used on Home / Fashion)
+   ───────────────────────────────────────────────────────────── */
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "JavaScript Games – Interactive Web-Based Nostalgia",
-  description:
-    "Revisit 90s arcade gaming with fun, interactive JavaScript games turned into React projects. Enjoy accessible, responsive browser-based experiences.",
-  url: "https://www.kritikabhunwal.com/uiux/javascript-games",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.kritikabhunwal.com/#person",
+      name: "Kritika Bhunwal",
+      jobTitle: "UI/UX & Fashion Designer",
+      url: "https://www.kritikabhunwal.com/",
+      sameAs: [
+        "https://www.linkedin.com/in/kritikabhunwal",
+        "https://www.instagram.com/kritikabhunwal",
+        "https://www.behance.net/kritikabhunwal",
+        "https://www.facebook.com/kritika.bhunwal",
+        "https://www.instagram.com/pseudo_nova/",
+        "https://www.youtube.com/@psuedo_nova"
+      ],
+      description:
+        "Creative visual‑communication designer with a passion for nostalgic web games."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.kritikabhunwal.com/#website",
+      url: "https://www.kritikabhunwal.com/",
+      name: "Kritika Bhunwal",
+      publisher: { "@id": "https://www.kritikabhunwal.com/#person" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.kritikabhunwal.com/"
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "UI/UX",
+          item: "https://www.kritikabhunwal.com/uiux"
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "JavaScript Games",
+          item: "https://www.kritikabhunwal.com/uiux/javascript-games"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.kritikabhunwal.com/uiux/javascript-games",
+      name: "JavaScript Games – Interactive Web‑Based Nostalgia",
+      description:
+        "Relive 90s arcade magic with three browser‑ready React games, built for smooth responsive play.",
+      url: "https://www.kritikabhunwal.com/uiux/javascript-games"
+    },
+    {
+      "@type": "ItemList",
+      name: "Playable Games",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Paddle Fury",
+          url: "https://www.kritikabhunwal.com/uiux/javascript-games#paddle"
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Snake Game",
+          url: "https://www.kritikabhunwal.com/uiux/javascript-games#snake"
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Meteor Rush",
+          url: "https://www.kritikabhunwal.com/uiux/javascript-games#meteor"
+        }
+      ]
+    }
+  ]
 };
 
-// Define a sample code snippet that extracts the main game logic.
+// -------- sample code snippet (unchanged visual content) -----
 const sampleCode = `
 useEffect(() => {
   const canvas = canvasRef.current;
@@ -134,103 +213,84 @@ useEffect(() => {
 
 const JavaScriptGames = () => {
   const [modalGame, setModalGame] = useState(null);
-
-  const handleOpenModal = (gameType) => setModalGame(gameType);
+  const handleOpenModal  = (game) => setModalGame(game);
   const handleCloseModal = () => setModalGame(null);
 
   return (
     <>
+      {/* ───────── Improved SEO meta; invisible to users ───────── */}
       <SEO
-        title="JavaScript Games – Interactive Web-Based Nostalgia"
-        description="Explore nostalgic arcade games recreated with modern web technologies. These JavaScript games are accessible, responsive, and designed for an engaging experience. Built with React for a smooth and fun portfolio showcase."
-        keywords="JavaScript games, React games, 90s arcade, interactive games, web development, responsive design, retro gaming, gamification, fun coding projects"
-        url="https://www.kritikabhunwal.com/javascriptgames"
+        title="JavaScript Games – Retro Arcade Fun Rebuilt with React | Kritika Bhunwal"
+        description="Play Paddle Fury, Snake, and Meteor Rush—classic arcade titles re‑engineered in JavaScript and React. Built for responsiveness and accessibility, these games showcase modern web‑development techniques while capturing 90s nostalgia."
+        keywords="JavaScript games, React arcade, retro web games, paddle game, snake game, meteor rush, responsive canvas, BCIT project, Kritika Bhunwal portfolio"
+        url="https://www.kritikabhunwal.com/uiux/javascript-games"
         image="https://kritikabhunwal.com/assets/js-games-banner.png"
         type="website"
+        locale="en_US"
+        siteName="Kritika Bhunwal"
         lang="en"
         robots="index,follow"
         structuredData={structuredData}
       />
 
-      <PixelPopBannerNoButton
-        heading="Game On!"
-        showButton={false}
-        showParagraph={false}
-      />
+      {/* ------------------- visible UI (unchanged) ------------------- */}
+      <PixelPopBannerNoButton heading="Game On!" showButton={false} showParagraph={false} />
 
       <section className="uiux-subpage" style={{ margin: "1rem" }}>
         <section className="uiux-subpage-content">
-          <SectionHeading title="90's Arcade Games Revamp" />
+          <SectionHeading title="90's Arcade Games Revamp" />
           <p>
-            This project is one of my favourite web development projects that I
-            completed at BCIT with the help of my instructor Joyce Lam. I used to love playing the snake game on my grandfather's Nokia phone. It revives old memories and once again it builds a connection of nostalgia with arcade gaming using modern frameworks like React. <br></br><br></br>I have recreated three games: Paddle Fury, Meteor Rush, and Snake Game. These games are built using JavaScript and React, showcasing my skills in web development. The games are designed to be accessible and responsive, ensuring a smooth experience across devices. The project demonstrates my ability to create engaging and interactive web applications, making it a valuable addition to my portfolio. I am excited to share this project with you and hope you enjoy playing these games as much as I enjoyed creating them!
+            This project is one of my favourite web‑development projects from BCIT,
+            completed under instructor Joyce Lam. Inspired by the snake game on my
+            grandfather’s Nokia, it reconnects nostalgia with modern frameworks
+            like React. <br /><br />
+            I rebuilt <strong>Paddle Fury</strong>, <strong>Meteor Rush</strong>,
+            and <strong>Snake Game</strong> using JavaScript and React to
+            demonstrate accessible, responsive, and engaging game design. Enjoy
+            playing them as much as I enjoyed creating them!
           </p>
 
           <div className="games-container">
-            {/* Paddle Fury Game Card */}
+            {/* Paddle Fury */}
             <div className="game-card">
-              <SubSectionHeading
-                title="PADDLE FURY"
-                className="paddleFuryTitle"
-              />
+              <SubSectionHeading title="PADDLE FURY" className="paddleFuryTitle" />
               <div
                 className="image-wrapper"
                 onClick={() => handleOpenModal("paddle")}
                 style={{ borderRadius: "2rem" }}
               >
-                <img
-                  src="/pps-game-1.png"
-                  alt="Paddle Fury Game Preview"
-                  className="game-preview-image"
-                />
-                <div className="overlay">
-                  <button className="play-button">Play</button>
-                </div>
+                <img src="/pps-game-1.png" alt="Paddle Fury preview" className="game-preview-image" />
+                <div className="overlay"><button className="play-button">Play</button></div>
               </div>
-              <p>My best score: 107</p>
+              <p>My best score: 107</p>
             </div>
 
-            {/* Snake Game Card */}
+            {/* Snake Game */}
             <div className="game-card">
-              <SubSectionHeading title="SNAKE GAME" className="SnakeTitle" />
+              <SubSectionHeading title="SNAKE GAME" className="SnakeTitle" />
               <div
                 className="image-wrapper"
                 onClick={() => handleOpenModal("snake")}
                 style={{ borderRadius: "2rem" }}
               >
-                <img
-                  src="/pps-game-3.png"
-                  alt="Snake Game Preview"
-                  className="game-preview-image"
-                />
-                <div className="overlay">
-                  <button className="play-button">Play</button>
-                </div>
+                <img src="/pps-game-3.png" alt="Snake Game preview" className="game-preview-image" />
+                <div className="overlay"><button className="play-button">Play</button></div>
               </div>
-              <p>My best score: 90</p>
+              <p>My best score: 90</p>
             </div>
 
-            {/* Meteor Rush Game Card */}
+            {/* Meteor Rush */}
             <div className="game-card">
-              <SubSectionHeading
-                title="METEOR RUSH"
-                className="meteorRushTitle"
-              />
+              <SubSectionHeading title="METEOR RUSH" className="meteorRushTitle" />
               <div
                 className="image-wrapper"
                 onClick={() => handleOpenModal("meteor")}
                 style={{ borderRadius: "2rem" }}
               >
-                <img
-                  src="/pps-game-2.png"
-                  alt="Meteor Rush Game Preview"
-                  className="game-preview-image"
-                />
-                <div className="overlay">
-                  <button className="play-button">Play</button>
-                </div>
+                <img src="/pps-game-2.png" alt="Meteor Rush preview" className="game-preview-image" />
+                <div className="overlay"><button className="play-button">Play</button></div>
               </div>
-              <p>My best score: 157</p>
+              <p>My best score: 157</p>
             </div>
           </div>
         </section>
@@ -238,9 +298,7 @@ const JavaScriptGames = () => {
         {modalGame && (
           <div className="modal-overlay" onClick={handleCloseModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close-button" onClick={handleCloseModal}>
-              ✖
-              </button>
+              <button className="modal-close-button" onClick={handleCloseModal}>✖</button>
               {modalGame === "paddle" && <PaddleFuryGame />}
               {modalGame === "meteor" && <MeteorRushGame />}
               {modalGame === "snake" && <SnakeGame />}
@@ -254,10 +312,10 @@ const JavaScriptGames = () => {
       <SectionHeading title="Figma Prototype" />
       <FigmaFrame />
 
-      <SectionHeading title="Code Snippet" />
+      <SectionHeading title="Code Snippet" />
       <CodeSnippet codeString={sampleCode} language="jsx" />
 
-      <SectionHeading title="Let's Work Together" />
+      <SectionHeading title="Let's Work Together" />
       <WorkTogether />
     </>
   );

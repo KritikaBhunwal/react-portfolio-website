@@ -135,8 +135,8 @@ const Navbar = () => {
           <NavLink to="/" onClick={closeMobileMenu} className="nav-link">HOME</NavLink>
           <NavLink to="/career" onClick={closeMobileMenu} className="nav-link">PORTFOLIO</NavLink>
           <NavLink to="/career/uiux/UIUX" onClick={closeMobileMenu} className="dropdown-link">UI/UX DESIGN</NavLink>
-          <NavLink to="/career/uiux/Portfolio" onClick={closeMobileMenu} className="dropdown-sublink">1. Portfolio</NavLink>
-          <NavLink to="/career/uiux/Hellow" onClick={closeMobileMenu} className="dropdown-sublink">2. Hellow</NavLink>
+          <NavLink to="/career/uiux/Portfolio" onClick={closeMobileMenu} className="dropdown-sublink">1. Portfolio Website</NavLink>
+          <NavLink to="/career/uiux/Hellow" onClick={closeMobileMenu} className="dropdown-sublink">2. Hellow App</NavLink>
           <NavLink to="/career/front-end/JavaScriptGames" onClick={closeMobileMenu} className="dropdown-sublink">3. React Games</NavLink>
           <NavLink to="/career/graphics/Graphics" onClick={closeMobileMenu} className="dropdown-link">GRAPHIC DESIGN</NavLink>
           <NavLink to="/career/fashion/Fashion" onClick={closeMobileMenu} className="dropdown-link">FASHION DESIGN</NavLink>

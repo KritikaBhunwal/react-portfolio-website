@@ -8,81 +8,131 @@ import FigmaFrame from "../../../components/FigmaFrame.jsx";
 
 import "../../../styles/portfolio.css";
 
+/* ───────────────────────────────────────────────────────────
+   JSON‑LD graph (same structure used on homepage & other pages)
+   ─────────────────────────────────────────────────────────── */
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "My Design Journey – From Concept to Final Design",
-  description:
-    "Explore my comprehensive design journey—from early brainstorming to a fully realized digital experience. Learn how every step shaped my creative vision and led to a successful project.",
-  url: "https://www.kritikabhunwal.com/uiux/portfolio",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.kritikabhunwal.com/#person",
+      name: "Kritika Bhunwal",
+      jobTitle: "UI/UX & Visual Designer",
+      url: "https://www.kritikabhunwal.com/",
+      sameAs: [
+        "https://www.linkedin.com/in/kritikabhunwal",
+        "https://www.instagram.com/kritikabhunwal",
+        "https://www.behance.net/kritikabhunwal",
+        "https://www.facebook.com/kritika.bhunwal",
+        "https://www.instagram.com/pseudo_nova/",
+        "https://www.youtube.com/@psuedo_nova"
+      ],
+      description:
+        "Multidisciplinary designer crafting user‑centred digital experiences."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.kritikabhunwal.com/#website",
+      url: "https://www.kritikabhunwal.com/",
+      name: "Kritika Bhunwal",
+      publisher: { "@id": "https://www.kritikabhunwal.com/#person" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.kritikabhunwal.com/"
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "UI/UX",
+          item: "https://www.kritikabhunwal.com/uiux"
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Portfolio Journey",
+          item: "https://www.kritikabhunwal.com/uiux/portfolio"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.kritikabhunwal.com/uiux/portfolio",
+      name: "Design Journey – Portfolio Website Case Study",
+      description:
+        "From mood boards and style guides to final React build, explore the full case study of Kritika Bhunwal’s portfolio site.",
+      url: "https://www.kritikabhunwal.com/uiux/portfolio"
+    }
+  ]
 };
 
 const Portfolio = () => {
+  /* ----------------------- state & images ----------------------- */
   const [modalOpen, setModalOpen] = useState(false);
   const [modalIndex, setModalIndex] = useState(0);
 
-  // Define image arrays (some are commented out or truncated for brevity)
   const moodBoardImages = [
     { src: "/PortfolioAsset01.jpeg", caption: "Mood Board Inspiration" },
-    { src: "/PortfolioAsset12.jpeg", caption: "Secondary Mood Board Detail" },
+    { src: "/PortfolioAsset12.jpeg", caption: "Secondary Mood Board Detail" }
   ];
   const styleGuideImages = [
     { src: "/PortfolioAsset03.jpeg", caption: "Extra Visual Asset" },
     { src: "/PortfolioAsset04.jpeg", caption: "Style Guide & Visual Assets" },
-    { src: "/PortfolioAsset05.jpeg", caption: "Extra Visual Asset" },
+    { src: "/PortfolioAsset05.jpeg", caption: "Extra Visual Asset" }
   ];
   const designTransitionImages = [
     {
       src: "/PortfolioAsset02.jpeg",
-      caption: "From Bold Illustrations to Subtle Professionalism",
+      caption: "From Bold Illustrations to Subtle Professionalism"
     },
-    {
-      src: "/PortfolioAsset10.jpeg",
-      caption: "Design Refinement Process",
-    },
+    { src: "/PortfolioAsset10.jpeg", caption: "Design Refinement Process" }
   ];
   const uxuidesignImages = [
     { src: "/PortfolioAsset07.jpeg", caption: "UX/UI Prototypes & Iterations" },
-    { src: "/PortfolioAsset06.jpeg", caption: "Improved UX/UI Concepts" },
+    { src: "/PortfolioAsset06.jpeg", caption: "Improved UX/UI Concepts" }
   ];
 
-  // Combine images for the modal
   const modalImages = [
     ...moodBoardImages,
     ...styleGuideImages,
     ...designTransitionImages,
-    ...uxuidesignImages,
+    ...uxuidesignImages
   ];
 
-  // Modal control functions
-  const openModal = (index) => {
-    setModalIndex(index);
+  const openModal = (i) => {
+    setModalIndex(i);
     setModalOpen(true);
   };
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-  const nextModalImage = () => {
-    setModalIndex((prev) => (prev < modalImages.length - 1 ? prev + 1 : 0));
-  };
-  const prevModalImage = () => {
-    setModalIndex((prev) => (prev > 0 ? prev - 1 : modalImages.length - 1));
-  };
+  const closeModal = () => setModalOpen(false);
+  const nextModalImage = () =>
+    setModalIndex((p) => (p < modalImages.length - 1 ? p + 1 : 0));
+  const prevModalImage = () =>
+    setModalIndex((p) => (p > 0 ? p - 1 : modalImages.length - 1));
 
   return (
     <div className="portfolio-container">
+      {/* ───────────────────── SEO meta ───────────────────── */}
       <SEO
-        title="Designing a Portfolio Website – From Concept to Final Design"
-        description="Explore my comprehensive design journey that unfolds from early ideation and mood board creation to detailed research, design transitions, and a fully integrated development process."
-        keywords="design journey, ideation, mood board, style guide, wireframes, mockups, research, design transition, UX/UI design, development, digital design journey, Kritika Bhunwal"
+        title="Portfolio Website Case Study – From Concept to Live React Build | Kritika Bhunwal"
+        description="Follow the complete design journey behind Kritika Bhunwal’s portfolio: ideation, mood boards, style guides, UX research, interactive prototypes, and final development in React & Tailwind."
+        keywords="portfolio design case study, mood board, style guide, UX research, React development, Tailwind CSS, web design journey, Kritika Bhunwal"
         url="https://www.kritikabhunwal.com/uiux/portfolio"
+        image="https://kritikabhunwal.com/assets/portfolio-banner.jpg"
         type="website"
+        locale="en_US"
+        siteName="Kritika Bhunwal"
         lang="en"
         robots="index,follow"
         structuredData={structuredData}
       />
 
-      {/* Banner Section */}
+      {/* ───────────────────── Banner ───────────────────── */}
       <div className="portfolio-banner">
         <header className="report-header">
           <img
@@ -98,60 +148,34 @@ const Portfolio = () => {
             <span>
               <strong>Kritika Bhunwal</strong>
             </span>{" "}
-            | <span>Richard Te</span> | <span>Airrick Dunfield</span> |{" "}
-            <span>2024-25</span>
+            | <span>Richard Te</span> | <span>Airrick Dunfield</span> |{" "}
+            <span>2024‑25</span>
           </div>
         </header>
       </div>
 
-      {/* Main Content */}
+      {/* ─────────────────── Main Layout ─────────────────── */}
       <div className="desktop-layout">
-        {/* TABLE OF CONTENTS */}
+        {/* ---------- Table of Contents ---------- */}
         <nav className="table-of-contents">
           <h3>Table of Contents</h3>
           <ul>
-            <li>
-              <a href="#ideation">Ideation</a>
-            </li>
-            <li>
-              <a href="#mood-board">Mood Board</a>
-            </li>
-            <li>
-              <a href="#style-guide">Style Guide</a>
-            </li>
-            <li>
-              <a href="#wireframes-mockups">Wireframes &amp; Mockups</a>
-            </li>
-            <li>
-              <a href="#initial-research">Initial Research</a>
-            </li>
-            <li>
-              <a href="#design-transition">Design Transition Journey</a>
-            </li>
-            <li>
-              <a href="#uxui-design">UX/UI Design</a>
-            </li>
-            <li>
-              <a href="#development">Development</a>
-            </li>
-            <li>
-              <a href="#bibliography">Bibliography</a>
-            </li>
-            {/* <li>
-              <a href="#figma-prototype">Figma Prototype</a>
-            </li>
-            <li>
-              <a href="#pitch-deck-first">First Ever Pitch Deck</a>
-            </li> */}
-            <li>
-              <a href="#pitch-deck-presentation">Pitch Deck Presentation</a>
-            </li>
+            <li><a href="#ideation">Ideation</a></li>
+            <li><a href="#mood-board">Mood Board</a></li>
+            <li><a href="#style-guide">Style Guide</a></li>
+            <li><a href="#wireframes-mockups">Wireframes &amp; Mockups</a></li>
+            <li><a href="#initial-research">Initial Research</a></li>
+            <li><a href="#design-transition">Design Transition Journey</a></li>
+            <li><a href="#uxui-design">UX/UI Design</a></li>
+            <li><a href="#development">Development</a></li>
+            <li><a href="#bibliography">Bibliography</a></li>
+            <li><a href="#pitch-deck-presentation">Pitch Deck Presentation</a></li>
           </ul>
         </nav>
 
-        {/* PAGE CONTENT */}
+        {/* --------------- Page Content --------------- */}
         <main className="content">
-          {/* Mood Board Section */}
+          {/* Mood Board */}
           <section id="mood-board" className="report-section">
             <SectionHeading title="Mood Board" />
             <div className="section-content">
@@ -178,7 +202,7 @@ const Portfolio = () => {
             </div>
           </section>
 
-          {/* Style Guide Section */}
+          {/* Style Guide */}
           <section id="style-guide" className="report-section">
             <SectionHeading title="Style Guide" />
             <div className="section-content">
@@ -190,7 +214,7 @@ const Portfolio = () => {
               </p>
               <p>
                 It helped maintain consistency throughout the project and made
-                decision‐making a lot more straightforward.
+                decision‑making a lot more straightforward.
               </p>
               <div className="section-gallery">
                 {styleGuideImages.map((img, idx) => (
@@ -206,7 +230,7 @@ const Portfolio = () => {
             </div>
           </section>
 
-          {/* Wireframes & Mockups Section */}
+          {/* Wireframes & Mockups */}
           <section id="wireframes-mockups" className="report-section">
             <SectionHeading title="Wireframes &amp; Mockups" />
             <div className="section-content">
@@ -219,13 +243,11 @@ const Portfolio = () => {
                 With each iteration, I refined the design, ensuring that the
                 interface was both simple and effective.
               </p>
-              <FigmaFrame
-                figmaUrl="https://www.figma.com/design/QwIMymTyToy9PF7Yd1JsbC/Portfolio-Website-KritikaBhunwal?node-id=0-1&p=f&t=GvVvps5mcGDWgNOS-0"
-              />
+              <FigmaFrame figmaUrl="https://www.figma.com/design/QwIMymTyToy9PF7Yd1JsbC/Portfolio-Website-KritikaBhunwal?node-id=0-1&p=f&t=GvVvps5mcGDWgNOS-0" />
             </div>
           </section>
 
-          {/* Initial Research Section */}
+          {/* Initial Research */}
           <section id="initial-research" className="report-section">
             <SectionHeading title="Initial Research" />
             <div className="section-content">
@@ -248,19 +270,19 @@ const Portfolio = () => {
                   maxWidth: "90vw",
                   width: "90%",
                   height: "calc(90vh - 200px)",
-                  maxHeight: "calc(90vh - 200px)",
+                  maxHeight: "calc(90vh - 200px)"
                 }}
               />
             </div>
           </section>
 
-          {/* Design Transition Journey Section */}
+          {/* Design Transition Journey */}
           <section id="design-transition" className="report-section">
             <SectionHeading title="Design Transition Journey" />
             <div className="section-content">
               <p>
                 As I developed my ideas, I gradually shifted from bold,
-                attention-grabbing designs to a more refined and professional
+                attention‑grabbing designs to a more refined and professional
                 look. Experimentation during this phase was key to finding a
                 balanced visual identity.
               </p>
@@ -268,9 +290,7 @@ const Portfolio = () => {
                 This transition was a learning process that improved both the
                 style and functionality of the design.
               </p>
-              <FigmaFrame
-                figmaUrl="https://www.figma.com/proto/QwIMymTyToy9PF7Yd1JsbC/Portfolio-Website-KritikaBhunwal?node-id=27-435&p=f&t=ZbyRalM8fB037SC5-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2"
-              />
+              <FigmaFrame figmaUrl="https://www.figma.com/proto/QwIMymTyToy9PF7Yd1JsbC/Portfolio-Website-KritikaBhunwal?node-id=27-435&p=f&t=ZbyRalM8fB037SC5-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2" />
               <div className="section-gallery">
                 {designTransitionImages.map((img, idx) => (
                   <img
@@ -289,7 +309,7 @@ const Portfolio = () => {
             </div>
           </section>
 
-          {/* UX/UI Design Section */}
+          {/* UX/UI Design */}
           <section id="uxui-design" className="report-section">
             <SectionHeading title="UX/UI Design" />
             <div className="section-content">
@@ -323,7 +343,7 @@ const Portfolio = () => {
             </div>
           </section>
 
-          {/* Development Section */}
+          {/* Development */}
           <section id="development" className="report-section">
             <SectionHeading title="Development" />
             <div className="section-content">
@@ -340,12 +360,12 @@ const Portfolio = () => {
             </div>
           </section>
 
-          {/* Bibliography Section */}
+          {/* Bibliography */}
           <section id="bibliography" className="report-section">
             <SectionHeading title="Bibliography" />
             <div className="section-content">
               <p>
-                I owe a great deal of gratitude to Sujata Maheshwari, whose
+                I owe a great deal of gratitude to Sujata Maheshwari, whose
                 early support and belief in my vision opened the door to my
                 creative journey. Her guidance was essential in shaping my
                 design thinking.
@@ -358,7 +378,7 @@ const Portfolio = () => {
             </div>
           </section>
 
-          {/* Pitch Deck Presentation Section */}
+          {/* Pitch Deck Presentation */}
           <section id="pitch-deck-presentation" className="report-section">
             <SectionHeading title="Pitch Deck Presentation" />
             <div className="section-content">
@@ -380,7 +400,7 @@ const Portfolio = () => {
                   maxWidth: "90vw",
                   width: "90%",
                   height: "calc(90vh - 200px)",
-                  maxHeight: "calc(90vh - 200px)",
+                  maxHeight: "calc(90vh - 200px)"
                 }}
               />
             </div>
@@ -388,8 +408,8 @@ const Portfolio = () => {
         </main>
       </div>
 
+      {/* ────────────────── Collaboration CTA ────────────────── */}
       <SectionHeading title="Let's Collaborate!" />
-
       <ProjectContent
         title="A Partnership Rooted in Creativity & Collaboration"
         description="I thrive in creative collaborations that push boundaries and bring fresh perspectives to the table. Whether it's branding, illustration, UX/UI, or strategic design thinking, I am eager to contribute innovative solutions tailored to your vision. Let’s build something impactful together!"
@@ -397,47 +417,40 @@ const Portfolio = () => {
           {
             bulletPointOne: "Creative Branding",
             detail:
-              "Unique and memorable visual identities that capture your brand's essence and set you apart in the marketplace.",
+              "Unique and memorable visual identities that capture your brand's essence and set you apart in the marketplace."
           },
           {
             bulletPointOne: "Illustration Expertise",
             detail:
-              "Tailored illustrations that communicate your story with clarity, emotion, and a touch of artistry.",
+              "Tailored illustrations that communicate your story with clarity, emotion, and a touch of artistry."
           },
           {
             bulletPointOne: "UX/UI Design",
             detail:
-              "User-centered design solutions that create seamless, engaging, and intuitive experiences.",
+              "User‑centred design solutions that create seamless, engaging, and intuitive experiences."
           },
           {
             bulletPointOne: "Strategic Design Thinking",
             detail:
-              "Innovative problem-solving approaches that drive impactful, sustainable design outcomes.",
-          },
+              "Innovative problem‑solving approaches that drive impactful, sustainable design outcomes."
+          }
         ]}
       />
-
       <WorkTogether />
 
-      {/* Modal Preview for Images */}
+      {/* ────────────────── Modal Preview ────────────────── */}
       {modalOpen && (
         <div className="modal-overlay">
-          <button className="modal-close" onClick={closeModal}>
-            ✖
-          </button>
+          <button className="modal-close" onClick={closeModal}>✖</button>
           <div className="modal-content">
-            <button className="modal-prev" onClick={prevModalImage}>
-              ❮
-            </button>
+            <button className="modal-prev" onClick={prevModalImage}>❮</button>
             <img
               src={modalImages[modalIndex].src}
               alt={modalImages[modalIndex].caption}
               className="modal-image"
             />
             <p className="modal-caption">{modalImages[modalIndex].caption}</p>
-            <button className="modal-next" onClick={nextModalImage}>
-              ❯
-            </button>
+            <button className="modal-next" onClick={nextModalImage}>❯</button>
           </div>
         </div>
       )}

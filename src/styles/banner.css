@@ -8,6 +8,7 @@
 /* Social Icons Container */
 .banner-icons.banner-social-icons {
   gap: 2rem;
+  margin-top: 1rem;
   align-items: flex-start;
 
 }
@@ -15,7 +16,6 @@
 /* Ensure icons are visible */
 .banner-icons.banner-social-icons a {
   color: #2d2d2d; /* 🔥 Set a dark default color */
-  margin-top: 1rem;
   margin-right: 0.8rem;
   align-self: center;
   transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;

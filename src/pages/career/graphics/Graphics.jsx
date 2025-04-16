@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import SEO from "../../../components/SEO.jsx";
@@ -25,35 +24,77 @@ import {
 
 import "../../../styles/graphics.css";
 
-// SEO Structured Data
+/* ────────────────────────────────────────────────────
+   Rich JSON‑LD (matches Home / Fashion / Games style)
+   ──────────────────────────────────────────────────── */
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.kritikabhunwal.com/#person",
+      name: "Kritika Bhunwal",
+      jobTitle: "Graphic & UI/UX Designer",
+      url: "https://www.kritikabhunwal.com/",
+      sameAs: [
+        "https://www.linkedin.com/in/kritikabhunwal",
+        "https://www.instagram.com/kritikabhunwal",
+        "https://www.behance.net/kritikabhunwal",
+        "https://www.facebook.com/kritika.bhunwal",
+        "https://www.instagram.com/pseudo_nova/",
+        "https://www.youtube.com/@psuedo_nova"
+      ],
+      description:
+        "Multidisciplinary designer specialising in graphics, illustration, and motion."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.kritikabhunwal.com/#website",
+      url: "https://www.kritikabhunwal.com/",
+      name: "Kritika Bhunwal",
+      publisher: { "@id": "https://www.kritikabhunwal.com/#person" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.kritikabhunwal.com/"
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Graphics",
+          item: "https://www.kritikabhunwal.com/graphics"
+        }
+      ]
+    },
     {
       "@type": "WebPage",
       "@id": "https://www.kritikabhunwal.com/graphics",
       name: "Graphic Design & Artistic Showcase",
       description:
-        "Explore a diverse portfolio featuring graphic design, digital illustrations, and motion graphics projects. Discover expressive visuals and storytelling through creative experimentation.",
-      url: "https://www.kritikabhunwal.com/graphics",
+        "Portfolio featuring graphic design, digital illustrations, and motion‑graphics experiments by Kritika Bhunwal.",
+      url: "https://www.kritikabhunwal.com/graphics"
     },
     {
       "@type": "CreativeWork",
-      name: "Illustrations in Motion: A Music Video Experiment",
-      creator: {
-        "@type": "Person",
-        name: "Kritika Bhunwal",
-      },
+      "@id": "https://www.kritikabhunwal.com/graphics#motion-video",
+      name: "Illustrations in Motion: A Music‑Video Experiment",
+      creator: { "@id": "https://www.kritikabhunwal.com/#person" },
       description:
-        "A visual experiment that fuses illustration, music, and animation into a cohesive motion graphic project. Every frame narrates a moment of rhythm and emotion.",
+        "A visual experiment fusing illustration, music, and animation into a cohesive motion‑graphic project.",
       encodingFormat: "video/mp4",
       thumbnailUrl: "https://kritikabhunwal.com/assets/graphics-banner.png",
       url: "https://www.youtube.com/watch?v=lvmDSN6cZfc",
-      datePublished: "2025",
-    },
-  ],
+      datePublished: "2025-01-01"
+    }
+  ]
 };
 
+/* ------------- highlight / icon arrays (unchanged) ------------- */
 const graphicDesignHighlights = [
   { bulletPointOne: "Creative Vision", detail: "Innovative concepts that push creative boundaries." },
   { bulletPointOne: "Visual Impact", detail: "Bold, dynamic designs that capture attention." },
@@ -92,18 +133,22 @@ const motionGraphicsIcons = [
 const Graphics = () => {
   return (
     <>
+      {/* ───────────── SEO component with richer meta ───────────── */}
       <SEO
-        title="Graphic Design & Artistic Showcase"
-        description="Explore a diverse portfolio featuring graphic design, digital illustrations, and motion graphics. Discover expressive visuals, creative storytelling, and technical excellence that bring ideas to life."
-        keywords="graphic design, digital art, illustration, motion graphics, creative showcase, Kritika Bhunwal, design portfolio, Adobe tools, Procreate art, animation, visual storytelling"
+        title="Graphic Design, Illustration & Motion Graphics | Kritika Bhunwal"
+        description="Discover bold graphic design, expressive illustrations and dynamic motion‑graphics projects by Kritika Bhunwal. Explore creative storytelling that blends Adobe tools, Procreate artistry, and technical excellence."
+        keywords="graphic design portfolio, digital illustration, motion graphics, procreate art, Adobe After Effects, Photoshop, Illustrator, Kritika Bhunwal, visual storytelling"
         url="https://www.kritikabhunwal.com/graphics"
         image="https://kritikabhunwal.com/assets/graphics-banner.png"
         type="website"
+        locale="en_US"
+        siteName="Kritika Bhunwal"
         lang="en"
         robots="index,follow"
         structuredData={structuredData}
       />
 
+      {/* --------------------- visible content (unchanged) --------------------- */}
       <div className="graphics-container">
         <ImageBanner
           baseImage={GraphicBannerBase}
@@ -116,7 +161,7 @@ const Graphics = () => {
         <SectionHeading title="Graphic Design Portfolio" />
         <ProjectContent
           title="Dynamic Visual Communication"
-          description="A comprehensive exploration of innovative graphic design concepts along with a curated selection of projects that showcase our creative vision and technical excellence."
+          description="A comprehensive exploration of innovative graphic design concepts along with a curated selection of projects that showcase creative vision and technical excellence."
           highlights={graphicDesignHighlights}
           icons={graphicDesignIcons}
         />
@@ -133,18 +178,18 @@ const Graphics = () => {
 
         <SectionHeading title="Creative Expression through Motion Graphics" />
         <ProjectContent
-          title="Illustrations in Motion: A Music Video Experiment"
-          description="As part of a school project and my ongoing artistic journey, I brought my illustrations to life by creating a motion graphics interpretation of a music video. This project was an exploration of movement, rhythm, and storytelling through animation. Every frame was carefully crafted to reflect the song’s energy, emotion, and narrative."
+          title="Illustrations in Motion: A Music‑Video Experiment"
+          description="As part of a school project and my ongoing artistic journey, I brought my illustrations to life through motion graphics. This experiment explores movement, rhythm and narrative in animation."
           highlights={motionGraphicsHighlights}
           icons={motionGraphicsIcons}
         />
 
-        <SectionHeading title="Youtube Video" />
+        <SectionHeading title="YouTube Video" />
         <div className="video-container">
           <iframe
             className="youtube-video"
             src="https://www.youtube.com/embed/lvmDSN6cZfc"
-            title="YouTube video player"
+            title="Illustrations in Motion – YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
